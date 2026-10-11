@@ -10,49 +10,68 @@
       "name": "Poppins",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": true,
+      "availability": "downloaded",
+      "localDirectory": "fonts/poppins",
+      "license": "SIL Open Font License 1.1"
     },
     {
       "name": "Playfair Display",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": true,
+      "availability": "downloaded",
+      "localDirectory": "fonts/playfairdisplay",
+      "license": "SIL Open Font License 1.1"
     },
     {
       "name": "Spire",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": false,
+      "availability": "editor-label-only",
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
     },
     {
       "name": "Italianno",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": true,
+      "availability": "downloaded",
+      "localDirectory": "fonts/italianno",
+      "license": "SIL Open Font License 1.1"
     },
     {
       "name": "Modern",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": false,
+      "availability": "editor-label-only",
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
     },
     {
       "name": "Constane",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": false,
+      "availability": "editor-label-only",
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
     },
     {
       "name": "Buck",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": false,
+      "availability": "editor-label-only",
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
     },
     {
       "name": "Paface-It",
       "favorite": true,
       "identification": "on-screen label",
-      "fontFileVerified": false
+      "fontFileVerified": false,
+      "availability": "editor-label-only",
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
     }
   ],
   "pairings": [
@@ -77,5 +96,5 @@
       "favorite": true
     }
   ],
-  "notes": "Font names and pairings only. Font binaries are not included; exact editor versions are unverified."
+  "notes": "Poppins, Playfair Display and Italianno files are included from Google Fonts with licenses. Five editor labels remain unverified as standalone fonts; no substitutes have been silently added."
 }

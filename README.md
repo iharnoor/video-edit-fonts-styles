@@ -34,6 +34,20 @@ The reel demonstrates white main text with yellow accent text. Some font labels 
 - [Italianno on Google Fonts](https://fonts.google.com/specimen/Italianno)
 - Search the exact labels **Spire**, **Modern**, **Constane**, **Buck**, and **Paface-It** in your editing app. External foundries and exact file identities for these labels have not been verified.
 
-This collection saves names, pairings, and source references. Font binaries are not included.
+## Ready-to-use files
+
+Download [ready-fonts.zip](ready-fonts.zip) and unzip it. The extracted `fonts/` folder contains official Google Fonts files and a copy of the SIL Open Font License for each family:
+
+- **Poppins**: all 18 static styles, including Bold and ExtraBold for main titles.
+- **Playfair Display**: regular and italic variable fonts (weight 400–900).
+- **Italianno**: Regular script font.
+
+For the first reel pairing, start with **Poppins ExtraBold** and **Playfair Display Italic**. Use **Italianno Regular** for the script accent in the second pairing.
+
+To install on macOS, open the desired `.ttf` files in Font Book and choose Install. For an editor with custom font import, select files from this folder. Files are downloaded and ready to import; system-wide installation has not been performed.
+
+**Spire, Modern, Constane, Buck and Paface-It** remain saved favorites by their editor labels. Exact authorized standalone downloads have not been verified. [CapCut documents Constane in its font library](https://www.capcut.com/resource/fancy-font-style); editor access may be needed for these labels.
+
+Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json](font-downloads.json).
 
 Machine-readable favorites are in [favorites.json](favorites.json).
