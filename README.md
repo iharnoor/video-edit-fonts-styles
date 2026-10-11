@@ -79,4 +79,10 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
   npx skills add wheresryan22/anatomy
   ```
 
+## Favorite motion styles
+
+- **[Prompt Motion](https://prompt-motion.com/)**, curated by [@p4nthera_](https://x.com/p4nthera_): a gallery of motion videos made with Claude Opus 5.5. Each entry shows the prompt or skill behind it, and you can customize any prompt for your own project. Rights stay with each entry's linked creator.
+  - Style categories: Product UI, Phone, Charts, Diagrams, Kinetic type, Shapes, Particles, Characters, Photos, Music, Code.
+  - Filter by **Prompt** or **Skill** and sort by Popular. Kinetic type and Product UI are the biggest categories, so start there for video-edit text styles.
+
 Machine-readable favorites are in [favorites.json](favorites.json).
