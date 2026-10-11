@@ -85,6 +85,7 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
   - Style categories: Product UI, Phone, Charts, Diagrams, Kinetic type, Shapes, Particles, Characters, Photos, Music, Code.
   - Filter by **Prompt** or **Skill** and sort by Popular. Kinetic type and Product UI are the biggest categories, so start there for video-edit text styles.
 - **[Apple-keynote launch film](prompts/apple-keynote-launch-film.md)**: a free Opus 5.5 prompt shared on X. It builds a 1440×1440, 120 BPM, 54-beat one-take launch film in pure code, rendered with Playwright and ffmpeg. Scenes morph into each other with iOS 26 liquid glass, iris wipes, black floods and spring pops, and crossfades and blur-ins are banned. Fonts are Archivo (wdth 125, weight 800) and Geist.
+- **[Opus 5.5 Motion Lab](https://x.com/flxrnc/status/2105311836190978392)** by [@flxrnc](https://x.com/flxrnc): an article that prints every prompt and follow-up behind three Opus 5.5 animations (liquid chrome title, earbuds product shot, voxel mascot). My [notes](prompts/opus-motion-lab-notes.md) cover its directed-prompt template, render contract, easing and spring numbers, and how to translate feedback into numbers.
   - Entries worth opening first (each page has the full prompt or skill):
 
     | Entry | Style | Format | Built with |
