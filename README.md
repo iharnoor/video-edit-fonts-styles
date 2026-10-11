@@ -71,4 +71,12 @@ The ZIP now includes **eight free font families / 28 font files**. See [free-alt
 
 Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json](font-downloads.json).
 
+## Favorite skills
+
+- **[Anatomy](https://skills.wheresryan.sh/anatomy)** by [@wheresryan22](https://github.com/wheresryan22/anatomy) (MIT) — name an idea in one line and Claude builds a live, interactive isometric figure of a working machine that demonstrates it. Outputs SVG/HTML, React components or custom elements, with optional WebGL shaders and 3D.
+
+  ```bash
+  npx skills add wheresryan22/anatomy
+  ```
+
 Machine-readable favorites are in [favorites.json](favorites.json).

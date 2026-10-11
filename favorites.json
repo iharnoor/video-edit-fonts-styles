@@ -136,5 +136,18 @@
       "favorite": true
     }
   ],
+  "skills": [
+    {
+      "name": "Anatomy",
+      "favorite": true,
+      "author": "wheresryan22",
+      "description": "Claude Code skill that turns a one-line idea into a live, interactive isometric figure of a working machine (SVG/HTML, React, or custom elements; optional WebGL and 3D).",
+      "page": "https://skills.wheresryan.sh/anatomy",
+      "source": "https://github.com/wheresryan22/anatomy",
+      "install": "npx skills add wheresryan22/anatomy",
+      "license": "MIT",
+      "addedOn": "2026-10-11"
+    }
+  ],
   "notes": "Three original font families and five clearly labeled free alternatives are downloaded with OFL licenses. Exact free versions of the remaining five editor labels were not verified."
 }
