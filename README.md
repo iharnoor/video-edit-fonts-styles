@@ -117,6 +117,10 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
 
   - **For rendered video:** don't drop the React `<ThinkingOrb>` into a HyperFrames composition as-is. It runs on its own `performance.now` clock and pauses offscreen, so frames won't line up on render. Use its engine (`src/engine/`, pure math, deterministic in `t`) and paint each frame from the composition's timeline time instead. Pick a state that matches what's being said, e.g. `searching` for "reverse engineer", `connecting` for agents talking, `solving` for a reveal.
 
+- **[Awesome Opus 5.5 Videos](https://github.com/yihui-dev/awesome-opus5-5-videos)** by yihui-dev (MIT list, ~4.2K stars): a GitHub collection of 513 viral videos made with Claude Opus 5.5, with the prompt each creator shared and a link to the original post. Prompts are in the repo's `prompts/` folder and `data/videos.json`.
+  - Its README highlights 100 entries: Motion graphics (58), Explainers (16), 3D scenes (14) and Games & interactive (12). For video-edit graphics, start with Motion graphics and Explainers.
+  - Each video and prompt belongs to its creator. The list's MIT license covers the list itself, not the prompts. You can watch each original side by side with a remake on [Skillry](https://skillry.dev/ai-videos/opus-5-5).
+
 ### 20 animation style options (learned October 2026)
 
 Source: [@andremass.ai's Instagram reel DeIwVxbCvPr](https://www.instagram.com/reels/DeIwVxbCvPr/), posted October 6, 2026, which shows 20 styles built with Claude Code. Each style is shown as a short animated card in the reel. The style names come from the reel's on-screen list. The "What the reel shows" column is what I saw in its frames. The "Build it with" column is my own starting recipe, not something taken from the reel. The creator's full prompts are only available by commenting "STYLES" on the reel, so they aren't saved here.
