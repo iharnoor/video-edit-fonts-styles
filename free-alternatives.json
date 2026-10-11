@@ -1,0 +1,68 @@
+{
+  "checkedOn": "2026-10-11",
+  "matchType": "Visual alternatives selected from the reel, not exact copies or renamed versions.",
+  "alternatives": [
+    {
+      "favorite": "Spire",
+      "freeAlternative": "Instrument Serif",
+      "style": "Regular",
+      "file": "fonts/instrumentserif/InstrumentSerif-Regular.ttf",
+      "reason": "Narrow, high-contrast serif; less condensed than the reel label.",
+      "source": "https://fonts.google.com/specimen/Instrument+Serif",
+      "exactFreeVersionVerified": false,
+      "research": "Spire has commercial foundry listings; the exact reel version is unverified.",
+      "reference": "https://p22.com/fonts/spire/",
+      "license": "SIL Open Font License 1.1",
+      "availability": "downloaded"
+    },
+    {
+      "favorite": "Modern",
+      "freeAlternative": "Archivo Black",
+      "style": "Regular",
+      "file": "fonts/archivoblack/ArchivoBlack-Regular.ttf",
+      "reason": "Heavy uppercase sans serif with a strong title silhouette.",
+      "source": "https://fonts.google.com/specimen/Archivo+Black",
+      "exactFreeVersionVerified": false,
+      "research": "Generic editor label; no exact authorized free font file verified.",
+      "license": "SIL Open Font License 1.1",
+      "availability": "downloaded"
+    },
+    {
+      "favorite": "Constane",
+      "freeAlternative": "Allison",
+      "style": "Regular",
+      "file": "fonts/allison/Allison-Regular.ttf",
+      "reason": "Thin, slanted, flowing handwriting for overlapping accents.",
+      "source": "https://fonts.google.com/specimen/Allison",
+      "exactFreeVersionVerified": false,
+      "research": "Seagulls Creative sells Constane; no exact free edition verified.",
+      "reference": "https://creativemarket.com/SeagullsCreative/12762907-Constane-Handwritten-Font",
+      "license": "SIL Open Font License 1.1",
+      "availability": "downloaded"
+    },
+    {
+      "favorite": "Buck",
+      "freeAlternative": "League Spartan",
+      "style": "Black (weight 900)",
+      "file": "fonts/leaguespartan/LeagueSpartan[wght].ttf",
+      "reason": "Heavy geometric sans serif; use uppercase and weight 900.",
+      "source": "https://fonts.google.com/specimen/League+Spartan",
+      "exactFreeVersionVerified": false,
+      "research": "Multiple unrelated fonts share this name; no exact authorized free match verified.",
+      "license": "SIL Open Font License 1.1",
+      "availability": "downloaded"
+    },
+    {
+      "favorite": "Paface-It",
+      "freeAlternative": "Bodoni Moda",
+      "style": "Italic (weight 400)",
+      "file": "fonts/bodonimoda/BodoniModa-Italic[opsz,wght].ttf",
+      "reason": "High-contrast italic serif accent.",
+      "source": "https://fonts.google.com/specimen/Bodoni+Moda",
+      "exactFreeVersionVerified": false,
+      "research": "No verified foundry identity or exact free download located for this editor label.",
+      "license": "SIL Open Font License 1.1",
+      "availability": "downloaded"
+    }
+  ]
+}

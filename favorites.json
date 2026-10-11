@@ -30,7 +30,15 @@
       "identification": "on-screen label",
       "fontFileVerified": false,
       "availability": "editor-label-only",
-      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor.",
+      "freeAlternative": {
+        "name": "Instrument Serif",
+        "style": "Regular",
+        "file": "fonts/instrumentserif/InstrumentSerif-Regular.ttf",
+        "license": "SIL Open Font License 1.1",
+        "matchType": "visual alternative",
+        "availability": "downloaded"
+      }
     },
     {
       "name": "Italianno",
@@ -47,7 +55,15 @@
       "identification": "on-screen label",
       "fontFileVerified": false,
       "availability": "editor-label-only",
-      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor.",
+      "freeAlternative": {
+        "name": "Archivo Black",
+        "style": "Regular",
+        "file": "fonts/archivoblack/ArchivoBlack-Regular.ttf",
+        "license": "SIL Open Font License 1.1",
+        "matchType": "visual alternative",
+        "availability": "downloaded"
+      }
     },
     {
       "name": "Constane",
@@ -55,7 +71,15 @@
       "identification": "on-screen label",
       "fontFileVerified": false,
       "availability": "editor-label-only",
-      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor.",
+      "freeAlternative": {
+        "name": "Allison",
+        "style": "Regular",
+        "file": "fonts/allison/Allison-Regular.ttf",
+        "license": "SIL Open Font License 1.1",
+        "matchType": "visual alternative",
+        "availability": "downloaded"
+      }
     },
     {
       "name": "Buck",
@@ -63,7 +87,15 @@
       "identification": "on-screen label",
       "fontFileVerified": false,
       "availability": "editor-label-only",
-      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor.",
+      "freeAlternative": {
+        "name": "League Spartan",
+        "style": "Black (weight 900)",
+        "file": "fonts/leaguespartan/LeagueSpartan[wght].ttf",
+        "license": "SIL Open Font License 1.1",
+        "matchType": "visual alternative",
+        "availability": "downloaded"
+      }
     },
     {
       "name": "Paface-It",
@@ -71,7 +103,15 @@
       "identification": "on-screen label",
       "fontFileVerified": false,
       "availability": "editor-label-only",
-      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor."
+      "notes": "Exact standalone font identity or authorized download not verified. Search this label in your editor.",
+      "freeAlternative": {
+        "name": "Bodoni Moda",
+        "style": "Italic (weight 400)",
+        "file": "fonts/bodonimoda/BodoniModa-Italic[opsz,wght].ttf",
+        "license": "SIL Open Font License 1.1",
+        "matchType": "visual alternative",
+        "availability": "downloaded"
+      }
     }
   ],
   "pairings": [
@@ -96,5 +136,5 @@
       "favorite": true
     }
   ],
-  "notes": "Poppins, Playfair Display and Italianno files are included from Google Fonts with licenses. Five editor labels remain unverified as standalone fonts; no substitutes have been silently added."
+  "notes": "Three original font families and five clearly labeled free alternatives are downloaded with OFL licenses. Exact free versions of the remaining five editor labels were not verified."
 }

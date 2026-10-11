@@ -46,7 +46,28 @@ For the first reel pairing, start with **Poppins ExtraBold** and **Playfair Disp
 
 To install on macOS, open the desired `.ttf` files in Font Book and choose Install. For an editor with custom font import, select files from this folder. Files are downloaded and ready to import; system-wide installation has not been performed.
 
-**Spire, Modern, Constane, Buck and Paface-It** remain saved favorites by their editor labels. Exact authorized standalone downloads have not been verified. [CapCut documents Constane in its font library](https://www.capcut.com/resource/fancy-font-style); editor access may be needed for these labels.
+## Free alternatives ready when needed
+
+Exact free versions of the five remaining reel labels could not be verified. These are visually similar alternatives, not copies or confirmed aliases. All five families are downloaded from the official Google Fonts repository under the SIL Open Font License 1.1, with license files included. They can be used for personal and commercial video work under that license.
+
+| Reel favorite | Free alternative ready to use | Suggested style |
+| --- | --- | --- |
+| Spire | [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) | Regular; narrow serif, less condensed than Spire |
+| Modern | [Archivo Black](https://fonts.google.com/specimen/Archivo+Black) | Regular; uppercase heavy title |
+| Constane | [Allison](https://fonts.google.com/specimen/Allison) | Regular; thin flowing handwriting |
+| Buck | [League Spartan](https://fonts.google.com/specimen/League+Spartan) | Black, weight 900; uppercase |
+| Paface-It | [Bodoni Moda](https://fonts.google.com/specimen/Bodoni+Moda) | Italic, weight 400; contrasting serif accent |
+
+Free pairings to use:
+
+- **Poppins ExtraBold + Playfair Display Italic** — original names already ready.
+- **Instrument Serif + Italianno** — alternative to Spire + Italianno.
+- **Archivo Black + Allison** — alternative to Modern + Constane.
+- **League Spartan Black + Bodoni Moda Italic** — alternative to Buck + Paface-It.
+
+[Spire's foundry listing](https://p22.com/fonts/spire/) and [Constane's designer listing](https://creativemarket.com/SeagullsCreative/12762907-Constane-Handwritten-Font) offer paid licenses. These listings do not establish that their files are the exact editor versions shown in the reel. The other labels could not be tied confidently to a free standalone release.
+
+The ZIP now includes **eight free font families / 28 font files**. See [free-alternatives.json](free-alternatives.json) for mappings, exact file paths, and research notes. Nothing is installed system-wide; the files are ready to import whenever needed.
 
 Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json](font-downloads.json).
 

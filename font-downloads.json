@@ -226,5 +226,105 @@
     "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/italianno/OFL.txt",
     "bytes": 4483,
     "sha256": "bce79721f0203586872bbd7016922baf449980bdd1c44550a821112a3b547185"
+  },
+  {
+    "path": "fonts/instrumentserif/InstrumentSerif-Italic.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/instrumentserif/InstrumentSerif-Italic.ttf",
+    "bytes": 71592,
+    "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385",
+    "family": [
+      "Instrument Serif"
+    ],
+    "validated": true
+  },
+  {
+    "path": "fonts/instrumentserif/InstrumentSerif-Regular.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/instrumentserif/InstrumentSerif-Regular.ttf",
+    "bytes": 70012,
+    "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88",
+    "family": [
+      "Instrument Serif"
+    ],
+    "validated": true
+  },
+  {
+    "path": "fonts/instrumentserif/OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/instrumentserif/OFL.txt",
+    "bytes": 4405,
+    "sha256": "129ed7618959716959f2941fdd5b49e0ad6e6c1d78726761786a00253d865521"
+  },
+  {
+    "path": "fonts/archivoblack/ArchivoBlack-Regular.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivoblack/ArchivoBlack-Regular.ttf",
+    "bytes": 90988,
+    "sha256": "dd9a89a019b4849f66ab75455fe7bdf931311042cbb0f0f97acc061539703180",
+    "family": [
+      "Archivo Black"
+    ],
+    "validated": true
+  },
+  {
+    "path": "fonts/archivoblack/OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivoblack/OFL.txt",
+    "bytes": 4492,
+    "sha256": "3173acd82f8c6159b5b1037b539fcbd4edff68e65c2ea8b9412b5a5ca97b08ff"
+  },
+  {
+    "path": "fonts/allison/Allison-Regular.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/allison/Allison-Regular.ttf",
+    "bytes": 143700,
+    "sha256": "990750bc970472808cef2fceaed3424c922e781aee99e57907a68a9932d3a066",
+    "family": [
+      "Allison"
+    ],
+    "validated": true
+  },
+  {
+    "path": "fonts/allison/OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/allison/OFL.txt",
+    "bytes": 4480,
+    "sha256": "75db6ecda0911c52cc92b7aca4b7eb33120333e664851ec2b57fc6330f9fd84e"
+  },
+  {
+    "path": "fonts/leaguespartan/LeagueSpartan[wght].ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/leaguespartan/LeagueSpartan%5Bwght%5D.ttf",
+    "bytes": 95116,
+    "sha256": "2dbb6290b39ab7c48a40b18f74ca59ef48a69a015c3ea0542703f0c6ce51d617",
+    "family": [
+      "League Spartan Thin"
+    ],
+    "validated": true
+  },
+  {
+    "path": "fonts/leaguespartan/OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/leaguespartan/OFL.txt",
+    "bytes": 4402,
+    "sha256": "41c9980cacc325ccd1afa6553bcae038cc6c74fa519aff60bacb99e3854292ce"
+  },
+  {
+    "path": "fonts/bodonimoda/BodoniModa-Italic[opsz,wght].ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/bodonimoda/BodoniModa-Italic%5Bopsz%2Cwght%5D.ttf",
+    "bytes": 176300,
+    "sha256": "dfff1619f8f6871c6372f8855b67211f9a73b4e93d45aca868cd8f46a48622de",
+    "family": [
+      "Bodoni Moda"
+    ],
+    "validated": true
+  },
+  {
+    "path": "fonts/bodonimoda/BodoniModa[opsz,wght].ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/bodonimoda/BodoniModa%5Bopsz%2Cwght%5D.ttf",
+    "bytes": 162104,
+    "sha256": "550f5e34ee0a828d7941b1fe9bc58b34e5260d3f33a61532e6d0a0114e79a5cf",
+    "family": [
+      "Bodoni Moda"
+    ],
+    "validated": true
+  },
+  {
+    "path": "fonts/bodonimoda/OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/bodonimoda/OFL.txt",
+    "bytes": 4400,
+    "sha256": "931dfe2e0cd3c9443295f5c1d754b8a8403bf060df50c1d5900267ade83d0046"
   }
 ]
