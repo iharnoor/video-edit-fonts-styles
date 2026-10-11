@@ -117,6 +117,41 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
 
   - **For rendered video:** don't drop the React `<ThinkingOrb>` into a HyperFrames composition as-is. It runs on its own `performance.now` clock and pauses offscreen, so frames won't line up on render. Use its engine (`src/engine/`, pure math, deterministic in `t`) and paint each frame from the composition's timeline time instead. Pick a state that matches what's being said, e.g. `searching` for "reverse engineer", `connecting` for agents talking, `solving` for a reveal.
 
+### 20 animation style options (learned October 2026)
+
+Source: [@andremass.ai's Instagram reel DeIwVxbCvPr](https://www.instagram.com/reels/DeIwVxbCvPr/), posted October 6, 2026, which shows 20 styles built with Claude Code. Each style is shown as a short animated card in the reel. The style names come from the reel's on-screen list. The "What the reel shows" column is what I saw in its frames. The "Build it with" column is my own starting recipe, not something taken from the reel. The creator's full prompts are only available by commenting "STYLES" on the reel, so they aren't saved here.
+
+| # | Style | What the reel shows | Build it with |
+| --- | --- | --- | --- |
+| 1 | **Swiss style** | Off-white card, huge "03" numeral, red circle, "MOTION GRID" label | Strict grid, flush-left heavy grotesk (Archivo Black / Inter 800), one red accent, off-white background; elements slide on the grid with ease-in-out-quart |
+| 2 | **Kinetic type** | "RHYTHM" stacked and repeated in yellow and outline on black | One word repeated in solid and outline rows; rows scroll in opposite directions, letters stagger 1 frame apart, cut on the beat |
+| 3 | **Pop art** | "POW!" burst on yellow halftone rays | Ben-Day halftone dots, black outlines, primary colors, speech burst that scale-pops (ease-out-back) with a shake |
+| 4 | **Flat 2D** | Orange planet with an orbiting moon on navy | Flat shapes with no gradients, limited palette, simple orbits and loops in linear phase |
+| 5 | **Clay 3D** | Soft orange star spinning on a pastel pink background | Rounded, puffy shapes, matte soft shading, pastel background, squash-and-stretch springs (damping 0.5) |
+| 6 | **Glassmorphism** | "Midnight Glass" UI cards and weather widgets over a purple/blue glow | Frosted translucent cards (blur, 1px white rim) over a dark gradient; cards rise and stack on springs |
+| 7 | **Y2K chrome** | Liquid chrome blob morphing on pale lavender | Iridescent chrome blobs, pale pastel background, metaball morph, glossy highlights |
+| 8 | **Synthwave** | Striped sunset over a neon purple grid with mountains | Gradient sun, magenta/purple perspective grid scrolling toward the camera, mountain silhouette |
+| 9 | **Risograph** | Purple squiggly star on cream | Two or three spot inks, grain texture, slight misregistration offset, cream paper |
+| 10 | **Paper collage** | Torn paper pieces assembling "COLLAGE" in cut-out letters on kraft | Ransom-note cut-out letters, torn edges, tape, drop shadows; pieces slap in one per beat with a small rotation |
+| 11 | **Glitch** | Color bars and "NO SIGNAL" | RGB channel split, scanlines, block displacement, TV color bars; quick 2–4 frame bursts, not constant |
+| 12 | **Particles** | Purple particle sphere swirling on black | Thousands of dots forming a sphere or shape, swirling and re-forming (see [Thinking Orbs](https://github.com/Jakubantalik/thinking-orbs) for a monochrome take) |
+| 13 | **Neobrutalism** | "MAKE IT LOUD." with a pink highlight, sticker and "CLICK ME →" button on yellow | Thick black borders, hard offset shadows, flat bright fills (yellow, pink), chunky sans; buttons press down 4px on click |
+| 14 | **Bauhaus** | Red circle, blue square, yellow triangle, black semicircle on cream | Primary-color geometric shapes on cream; shapes slide and rotate into a balanced composition |
+| 15 | **Memphis** | Pink, purple and teal shapes, squiggles and a grid on mint | '80s squiggles, dots, triangles and grids in candy colors; shapes bob on offset sines |
+| 16 | **Vaporwave** | "AESTHETIC" title, retro Windows dialog, pink/cyan checkerboard floor | Spaced-out wide caps, retro OS windows, pink/cyan gradient and checker floor, slow drift |
+| 17 | **Pixel art** | "LEVEL 1" 8-bit platformer scene with clouds and hills | Low-res pixel grid scaled up with nearest-neighbor, limited palette, stepped (non-eased) motion |
+| 18 | **Isometric** | Isometric pastel city blocks rising | 30° isometric projection, pastel blocks that rise from the ground staggered by 2 frames |
+| 19 | **Low poly** | Faceted low-poly Earth spinning on dark teal | Flat-shaded faceted 3D (three.js, flatShading), slow rotation, single key light |
+| 20 | **Line art** | Low-poly Earth with an orbiting moon traced as lines | Single-weight strokes drawn on with SVG stroke-dashoffset, monochrome on a dark or light background |
+
+**Pick a style by the script's tone:**
+
+- **Clean and credible:** Swiss, Bauhaus, Flat 2D or Line art. These suit explainers, data and how-to content.
+- **Loud and fun:** Pop art, Neobrutalism, Memphis, Kinetic type or Paper collage. These suit hooks, hot takes and lists.
+- **Tech and AI:** Glassmorphism, Particles, Glitch or Y2K chrome. These suit AI tools, product UI and launches.
+- **Nostalgic:** Synthwave, Vaporwave, Pixel art or Risograph. These suit throwbacks, gaming and culture pieces.
+- **Dimensional:** Clay 3D, Isometric or Low poly. These suit product shots, systems and "how it fits together".
+
 ### REA explainer style (learned October 2026)
 
 Reverse-engineered from Eric Tech's [How To Use REA To Clone Any Software In Minutes](https://www.youtube.com/watch?v=FnB9tHKBJXQ) and used for the Short 5 graphics in [videos/rea-code-not-the-moat](videos/rea-code-not-the-moat).
