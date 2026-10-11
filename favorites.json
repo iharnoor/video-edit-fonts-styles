@@ -1,0 +1,81 @@
+{
+  "source": {
+    "url": "https://www.instagram.com/reels/Dav1dTzsVTN/",
+    "creator": "surosa.r",
+    "extractedOn": "2026-10-11",
+    "method": "Transcribed on-screen font labels"
+  },
+  "fonts": [
+    {
+      "name": "Poppins",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    },
+    {
+      "name": "Playfair Display",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    },
+    {
+      "name": "Spire",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    },
+    {
+      "name": "Italianno",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    },
+    {
+      "name": "Modern",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    },
+    {
+      "name": "Constane",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    },
+    {
+      "name": "Buck",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    },
+    {
+      "name": "Paface-It",
+      "favorite": true,
+      "identification": "on-screen label",
+      "fontFileVerified": false
+    }
+  ],
+  "pairings": [
+    {
+      "primary": "Poppins",
+      "accent": "Playfair Display",
+      "favorite": true
+    },
+    {
+      "primary": "Spire",
+      "accent": "Italianno",
+      "favorite": true
+    },
+    {
+      "primary": "Modern",
+      "accent": "Constane",
+      "favorite": true
+    },
+    {
+      "primary": "Buck",
+      "accent": "Paface-It",
+      "favorite": true
+    }
+  ],
+  "notes": "Font names and pairings only. Font binaries are not included; exact editor versions are unverified."
+}
