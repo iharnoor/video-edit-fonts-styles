@@ -149,5 +149,82 @@
       "addedOn": "2026-10-11"
     }
   ],
-  "notes": "Three original font families and five clearly labeled free alternatives are downloaded with OFL licenses. Exact free versions of the remaining five editor labels were not verified."
+  "notes": "Three original font families and five clearly labeled free alternatives are downloaded with OFL licenses. Exact free versions of the remaining five editor labels were not verified.",
+  "motionStyles": [
+    {
+      "name": "Prompt Motion",
+      "url": "https://prompt-motion.com/",
+      "curator": "@p4nthera_",
+      "what": "Gallery of Claude Opus 5.5 motion videos with the prompt or skill behind each",
+      "categories": [
+        "Product UI",
+        "Phone",
+        "Charts",
+        "Diagrams",
+        "Kinetic type",
+        "Shapes",
+        "Particles",
+        "Characters",
+        "Photos",
+        "Music",
+        "Code"
+      ],
+      "picks": [
+        "https://prompt-motion.com/shneural-2abdfa",
+        "https://prompt-motion.com/lexnlin-038035",
+        "https://prompt-motion.com/gabrielbuzziv-4ff0c6",
+        "https://prompt-motion.com/steventey-0d20e4",
+        "https://prompt-motion.com/lexnlin-6161a6",
+        "https://prompt-motion.com/anthonyriera-9b1b2a"
+      ]
+    },
+    {
+      "name": "What Ships",
+      "url": "https://whatships.com/",
+      "what": "Curated feed of startup and product launch videos from X",
+      "categories": [
+        "AI",
+        "Developer Tools",
+        "Design",
+        "Motion",
+        "Productivity",
+        "Consumer",
+        "Hardware"
+      ]
+    },
+    {
+      "name": "Thinking Orbs",
+      "url": "https://github.com/Jakubantalik/thinking-orbs",
+      "demo": "https://orbs.jakubantalik.com",
+      "author": "Jakub Antalik",
+      "license": "MIT",
+      "install": "npm install thinking-orbs",
+      "states": [
+        "working",
+        "searching",
+        "solving",
+        "listening",
+        "connecting",
+        "weaving",
+        "composing",
+        "breathing",
+        "shaping"
+      ],
+      "sizes": [
+        64,
+        20
+      ],
+      "videoNote": "Drive src/engine from timeline time in HyperFrames; the React component uses its own clock",
+      "useFrequency": "sometimes: about 1 in 3–4 graphics projects, or on AI thinking/searching/connecting beats"
+    },
+    {
+      "name": "REA explainer style",
+      "reference": "https://www.youtube.com/watch?v=FnB9tHKBJXQ",
+      "project": "videos/rea-code-not-the-moat",
+      "canvas": "#EBEAE7",
+      "accent": "#FF5A1F",
+      "terminal": "#1C1C1E",
+      "sfx": "videos/rea-code-not-the-moat/scripts/sfx.mjs"
+    }
+  ]
 }

@@ -107,6 +107,16 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
   - Use it for launch-video pacing and openers. Most launches run 0:10–1:30; the short ones (Claude Haiku 5.5 at 0:11, Grok Bot at 0:12, Fin 4 at 0:08) show how much a single idea can carry.
   - Motion-category picks: "How the whole Paper Mono launch video was made" by @agusegui, "how do you communicate that" by @jordanarchivess, "looksmaxxing for motion graphics" by @makwanatejas170, and Cinetic by @LexnLin (also on Prompt Motion). Search the site by handle.
 
+- **[Thinking Orbs](https://github.com/Jakubantalik/thinking-orbs)** by Jakub Antalik (MIT, [live demo](https://orbs.jakubantalik.com)): monochrome dotted particle orbs, originally loading indicators for AI and agent UIs. They work well in video as an "AI is thinking" beat, a transition between cards, or a small accent next to a caption.
+  - Nine states: `working` (particles on tilted orbits), `searching` (a scan line sweeps a dotted globe), `solving` (bands scramble, then click into place), `listening` (a waveform rolls through rings), `connecting` (a constellation wires itself), `weaving` (three strands braid around a sphere), `composing` (an undulating band), `breathing` (a slowly morphing ring), `shaping` (circle → triangle → square).
+  - Two tuned sizes (`64` and `20`) and dark or light ink. Plain 2D canvas, no WebGL.
+
+    ```bash
+    npm install thinking-orbs
+    ```
+
+  - **For rendered video:** don't drop the React `<ThinkingOrb>` into a HyperFrames composition as-is. It runs on its own `performance.now` clock and pauses offscreen, so frames won't line up on render. Use its engine (`src/engine/`, pure math, deterministic in `t`) and paint each frame from the composition's timeline time instead. Pick a state that matches what's being said, e.g. `searching` for "reverse engineer", `connecting` for agents talking, `solving` for a reveal.
+
 ### REA explainer style (learned October 2026)
 
 Reverse-engineered from Eric Tech's [How To Use REA To Clone Any Software In Minutes](https://www.youtube.com/watch?v=FnB9tHKBJXQ) and used for the Short 5 graphics in [videos/rea-code-not-the-moat](videos/rea-code-not-the-moat).

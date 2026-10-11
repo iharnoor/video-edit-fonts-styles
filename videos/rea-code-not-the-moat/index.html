@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>Short 5 graphics</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-ExtraBold.ttf"); font-weight: 800; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Black.ttf"); font-weight: 900; }
+  @font-face { font-family: "Playfair"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-weight: 400 900; font-style: italic; }
+
+  :root {
+    --key: #00FF00; --canvas: #EBEAE7; --ink: #1A1A1A; --ink2: #5B5B5B; --mute: #A19E98;
+    --card: #FFFFFF; --edge: #D8D5CF; --term: #1C1C1E; --accent: #FF5A1F; --blue: #2F6BFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--key); }
+  #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--key);
+    font-family: "Poppins", sans-serif; color: var(--ink); }
+  .clip { position: absolute; inset: 0; }
+
+  /* full-screen board */
+  .board { background-color: var(--canvas);
+    background-image: radial-gradient(rgba(0,0,0,.085) 2.2px, transparent 2.6px); background-size: 46px 46px; }
+  /* green bands, kept off the face (face ≈ y 460–1060) */
+  .band-top { position: absolute; left: 60px; right: 60px; top: 80px; height: 350px; display: flex; align-items: center; justify-content: center; }
+  .band-chest { position: absolute; left: 60px; right: 60px; top: 1110px; height: 470px; display: flex; align-items: center; justify-content: center; }
+
+  .card { background: var(--card); border-radius: 30px; border: 3px solid var(--edge); }
+  .board .card { border: none; box-shadow: 0 14px 50px rgba(0,0,0,.11), 0 2px 6px rgba(0,0,0,.05); }
+  .term { background: var(--term); color: #fff; border-radius: 30px; }
+  .board .term { box-shadow: 0 18px 60px rgba(0,0,0,.25); }
+  .row { display: flex; align-items: center; }
+  .col { display: flex; flex-direction: column; }
+  .center { display: flex; align-items: center; justify-content: center; }
+  .app { width: 150px; height: 150px; border-radius: 36px; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 64px; letter-spacing: -1px; flex: none; }
+  .dash { border: 6px dashed var(--accent); border-radius: 44px; padding: 12px; position: relative; }
+  .badge { position: absolute; top: -22px; right: -22px; width: 52px; height: 52px; border-radius: 15px; background: var(--accent);
+    display: flex; align-items: center; justify-content: center; }
+  .badge svg { width: 30px; height: 30px; }
+  .olabel { color: var(--accent); font-weight: 700; }
+  .pill { white-space: nowrap; border-radius: 999px; padding: 14px 30px; font-weight: 700; font-size: 38px; }
+  .mono { font-family: monospace; }
+  .big { font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; }
+  .stamp { border: 8px solid var(--accent); color: var(--accent); border-radius: 18px; padding: 6px 26px; font-weight: 900;
+    font-size: 76px; letter-spacing: 2px; text-transform: uppercase; background: rgba(255,255,255,.0); }
+  .pr { background: #00005B; color: #9999FF; } .ps { background: #001E36; color: #31A8FF; } .ai { background: #330000; color: #FF9A00; }
+  .ae { background: #00005B; color: #D291FF; } .lr { background: #001E36; color: #31A8FF; }
+  .w { background: #fff; color: #222; border: 3px solid var(--edge); }
+  .avatar { border-radius: 50%; background: linear-gradient(135deg, #e8e3db, #bdb5a9); flex: none; }
+  .x-mark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--accent);
+    font-size: 110px; font-weight: 900; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="76.233" data-width="1080" data-height="1920">
+
+  <!-- S01 FULL 0.00–1.50  "You're about to see more of this." -->
+  <section id="s01" class="clip board" data-start="0" data-duration="1.5" data-track-index="1">
+    <div class="center" style="position:absolute;inset:0;flex-direction:column;gap:70px">
+      <div id="s01-grid" style="display:grid;grid-template-columns:repeat(4,150px);gap:44px;position:relative">
+        <div id="s01-d1" class="dash" style="position:absolute;left:-22px;top:-22px;width:194px;height:194px;opacity:0;z-index:2"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V5a1 1 0 0 1 1-1h11"/></svg></div></div>
+        <div class="app pr s01-i">Pr</div><div class="app w s01-i" style="color:#F24E1E">F</div><div class="app ps s01-i">Ps</div><div class="app w s01-i">N</div>
+        <div class="app w s01-i" style="color:#2D8CFF">Z</div><div class="app ai s01-i">Ai</div><div class="app w s01-i" style="color:#EA4335">◎</div><div class="app ae s01-i">Ae</div>
+        <div class="app w s01-i" style="color:#7B61FF">◆</div><div class="app lr s01-i">Lr</div><div class="app w s01-i" style="color:#FF5A1F">✳</div><div class="app w s01-i" style="color:#0A66C2">in</div>
+      </div>
+      <div id="s01-stamp" class="stamp" style="font-size:96px">vibe coded</div>
+    </div>
+  </section>
+
+  <!-- S02 GREEN top 1.50–4.33  "This vibe coder reverse engineered a better app than LG." -->
+  <section id="s02" class="clip" data-start="1.5" data-duration="2.833" data-track-index="1">
+    <div class="band-top"><div id="s02-card" class="card row" style="padding:34px 40px;gap:30px;width:900px;justify-content:space-between">
+      <div id="s02-a" class="col" style="align-items:center;gap:10px">
+        <div class="term center" style="width:250px;height:150px;border-radius:18px;border:7px solid #0d0d0d;font-size:30px;color:#bbb;font-weight:700">LG app</div>
+        <div style="font-size:54px;font-weight:800;color:var(--mute);text-decoration:line-through;text-decoration-thickness:6px">30s</div>
+      </div>
+      <div id="s02-arrow" style="font-size:90px;font-weight:800;color:var(--accent)">→</div>
+      <div id="s02-b" class="col" style="align-items:center;gap:10px">
+        <div class="dash" style="padding:8px;border-radius:26px"><div class="term center" style="width:250px;height:150px;border-radius:16px;font-size:30px;font-weight:700;gap:12px"><span style="width:26px;height:26px;border-radius:50%;background:var(--accent)"></span>rebuilt</div></div>
+        <div style="font-size:84px;font-weight:900;color:var(--accent);letter-spacing:-3px;line-height:.9">3s</div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S03 GREEN chest 4.37–7.77  "This vibe coder made better apps than Adobe, but truth is," -->
+  <section id="s03" class="clip" data-start="4.367" data-duration="3.4" data-track-index="1">
+    <div class="band-chest"><div id="s03-card" class="card col" style="padding:40px 44px;gap:26px;align-items:center;width:900px">
+      <div class="row" style="gap:36px">
+        <div id="s03-i1" class="dash" style="border-color:transparent"><div class="app pr">Pr</div><div class="badge" style="opacity:0"></div></div>
+        <div id="s03-i2" class="dash" style="border-color:transparent"><div class="app ps">Ps</div><div class="badge" style="opacity:0"></div></div>
+        <div id="s03-i3" class="dash" style="border-color:transparent"><div class="app ai">Ai</div><div class="badge" style="opacity:0"></div></div>
+      </div>
+      <div id="s03-label" style="font-size:56px;font-weight:800;letter-spacing:-1px">better than <span class="olabel">Adobe</span><span id="s03-q" style="display:inline-block;color:var(--accent)">?</span></div>
+    </div></div>
+  </section>
+
+  <!-- S04 FULL 7.80–12.30  "ask yourself how many apps you use, which are vibe coded with AI." -->
+  <section id="s04" class="clip board" data-start="7.8" data-duration="4.5" data-track-index="1">
+    <div class="center" style="position:absolute;inset:0;flex-direction:column;gap:56px">
+      <div id="s04-q" style="font-size:66px;font-weight:800;letter-spacing:-2px;text-align:center;line-height:1.1">how many apps you use<span style="display:block">are <span class="olabel">vibe coded?</span></span></div>
+      <div id="s04-phone" style="position:relative;width:620px;height:1060px;border-radius:90px;background:#141414;padding:26px">
+        <div style="position:absolute;inset:26px;border-radius:66px;overflow:hidden;background:linear-gradient(170deg,#f6e7dc,#e9dff6)">
+          <div style="display:grid;grid-template-columns:repeat(4,104px);gap:34px 26px;padding:120px 34px 0">
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#fff;color:#EA4335;position:relative">M<span class="x-mark" style="font-size:80px">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#E1306C;color:#fff;position:relative">◉<span class="x-mark" style="font-size:80px;color:#fff">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#111;color:#fff;position:relative">X<span class="x-mark" style="font-size:80px">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#FF0000;color:#fff;position:relative">▶<span class="x-mark" style="font-size:80px;color:#fff">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#fff;color:#4285F4;position:relative">G<span class="x-mark" style="font-size:80px">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#2D8CFF;color:#fff;position:relative">Z<span class="x-mark" style="font-size:80px;color:#fff">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#4A154B;color:#fff;position:relative">#<span class="x-mark" style="font-size:80px">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#fff;color:#111;position:relative">N<span class="x-mark" style="font-size:80px">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#0A66C2;color:#fff;position:relative">in<span class="x-mark" style="font-size:80px;color:#fff">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#00005B;color:#9999FF;position:relative">Pr<span class="x-mark" style="font-size:80px">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#FFFC00;color:#111;position:relative">👻<span class="x-mark" style="font-size:80px">✕</span></div>
+            <div class="app s04-i" style="width:104px;height:104px;border-radius:26px;font-size:40px;background:#5865F2;color:#fff;position:relative">◕<span class="x-mark" style="font-size:80px;color:#fff">✕</span></div>
+          </div>
+          <div id="s04-scan" style="position:absolute;left:0;right:0;top:0;height:8px;background:var(--accent);box-shadow:0 0 30px 10px rgba(255,90,31,.45)"></div>
+          <div id="s04-count" class="card center" style="position:absolute;left:40px;right:40px;bottom:60px;height:170px;border:none;flex-direction:column">
+            <div style="font-size:28px;font-weight:600;color:var(--ink2)">vibe coded with AI</div>
+            <div style="font-size:84px;font-weight:900;line-height:1;letter-spacing:-2px"><span id="s04-n">0</span><span style="color:var(--mute)">/12</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S05 GREEN chest 12.33–13.90  "I will say basically none." -->
+  <section id="s05" class="clip" data-start="12.333" data-duration="1.567" data-track-index="1">
+    <div class="band-chest"><div id="s05-card" class="card row" style="padding:30px 56px;gap:36px">
+      <div class="big" style="font-size:230px;color:var(--accent)">0</div>
+      <div style="font-family:'Playfair';font-style:italic;font-weight:700;font-size:92px;line-height:1">basically<span style="display:block">none.</span></div>
+    </div></div>
+  </section>
+
+  <!-- S06 GREEN top 13.97–17.27  "You will say, you know, OpenClaw, these Adobe apps are vibe coded," -->
+  <section id="s06" class="clip" data-start="13.967" data-duration="3.3" data-track-index="1">
+    <div class="band-top"><div class="row" style="gap:36px">
+      <div id="s06-a" class="card col" style="padding:34px 40px;align-items:center;gap:8px;position:relative;width:410px">
+        <div style="font-size:84px;line-height:1">🦞</div><div style="font-size:50px;font-weight:800">OpenClaw</div>
+        <div id="s06-ta" class="pill" style="position:absolute;bottom:-34px;background:var(--accent);color:#fff;font-size:32px">vibe coded ✓</div>
+      </div>
+      <div id="s06-b" class="card col" style="padding:34px 40px;align-items:center;gap:8px;position:relative;width:410px">
+        <div class="row" style="gap:12px"><div class="app pr" style="width:84px;height:84px;font-size:36px;border-radius:22px">Pr</div><div class="app ps" style="width:84px;height:84px;font-size:36px;border-radius:22px">Ps</div></div>
+        <div style="font-size:44px;font-weight:800">"Adobe" clones</div>
+        <div id="s06-tb" class="pill" style="position:absolute;bottom:-34px;background:var(--accent);color:#fff;font-size:32px">vibe coded ✓</div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S07 FULL 17.27–20.33  "but at the same time, the engineers who build it, this guy," -->
+  <section id="s07" class="clip board" data-start="17.267" data-duration="3.066" data-track-index="1">
+    <div class="center" style="position:absolute;inset:0;flex-direction:column;gap:60px">
+      <div id="s07-h" style="font-size:70px;font-weight:800;letter-spacing:-2px;text-align:center;line-height:1.1">but who <span class="olabel">built</span> it?</div>
+      <div style="position:relative;width:760px;height:760px">
+        <div id="s07-front" class="card center" style="position:absolute;inset:0;flex-direction:column;gap:20px">
+          <div style="font-size:150px;line-height:1">🤖</div><div style="font-size:64px;font-weight:800">"just AI"</div>
+        </div>
+        <div id="s07-back" class="card center" style="position:absolute;inset:0;flex-direction:column;gap:26px;opacity:0">
+          <div class="avatar center" style="width:300px;height:300px;font-size:150px;font-weight:900;color:#fff;background:var(--ink)">?</div>
+          <div style="font-size:64px;font-weight:800">the <span class="olabel">engineer</span></div>
+          <div class="mono" style="font-size:30px;color:var(--ink2)">years of experience behind it</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S08 GREEN top 20.33–27.57  "Thomas, has 15 years of experience and 10 years in Rust to build and reverse engineer the apps in Adobe." -->
+  <section id="s08" class="clip" data-start="20.333" data-duration="7.234" data-track-index="1">
+    <div class="band-top"><div id="s08-card" class="card row" style="position:relative;padding:34px 40px;gap:36px;width:940px">
+      <div class="col" style="align-items:center;gap:12px">
+        <div class="avatar center" style="width:160px;height:160px;font-size:80px;font-weight:900;color:#fff;background:var(--ink)">T</div>
+        <div style="font-size:42px;font-weight:800">Thomas</div>
+      </div>
+      <div class="col" style="gap:14px;flex:1">
+        <div id="s08-r1" class="row" style="gap:18px"><span class="big" style="font-size:96px;color:var(--accent);min-width:150px"><span id="s08-n1">0</span></span><span style="font-size:34px;font-weight:700;line-height:1.1">years<span style="display:block;color:var(--ink2);font-weight:600">experience</span></span></div>
+        <div id="s08-r2" class="row" style="gap:18px"><span class="big" style="font-size:96px;color:var(--accent);min-width:150px"><span id="s08-n2">0</span></span><span style="font-size:34px;font-weight:700;line-height:1.1">years<span style="display:block;color:var(--ink2);font-weight:600">in Rust</span></span>
+          <svg id="s08-gear" viewBox="0 0 24 24" width="74" height="74" fill="none" stroke="#FF5A1F" stroke-width="2.2"><circle cx="12" cy="12" r="3.4"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.6"/></svg></div>
+      </div>
+      <div id="s08-tag" class="pill" style="position:absolute;bottom:-28px;right:70px;background:var(--ink);color:#fff;font-size:30px">reverse-engineered Adobe apps</div>
+    </div></div>
+  </section>
+
+  <!-- S09 FULL 27.90–32.07  "reverse engineer. He built from scratch in Rust, and at the same time, this LG" -->
+  <section id="s09" class="clip board" data-start="27.9" data-duration="4.167" data-track-index="1">
+    <div class="center" style="position:absolute;inset:0;flex-direction:column;gap:64px">
+      <div id="s09-term" class="term" style="width:900px;padding:40px 46px;font-size:36px;line-height:1.7">
+        <div class="row" style="gap:14px;margin-bottom:26px"><span style="width:22px;height:22px;border-radius:50%;background:#FF5F57"></span><span style="width:22px;height:22px;border-radius:50%;background:#FEBC2E"></span><span style="width:22px;height:22px;border-radius:50%;background:#8A8A8E"></span></div>
+        <div class="mono"><span style="color:var(--accent)">$</span> <span id="s09-cmd"></span><span id="s09-cur" style="display:inline-block;width:20px;height:40px;background:#fff;vertical-align:middle"></span></div>
+        <div id="s09-l1" class="mono" style="color:#9a9a9a;opacity:0">Compiling editor v0.1.0</div>
+        <div id="s09-l2" class="mono" style="color:#9a9a9a;opacity:0">0 dependencies copied</div>
+        <div id="s09-l3" class="mono" style="color:#fff;opacity:0"><span style="color:var(--accent)">✓</span> Finished · from scratch</div>
+      </div>
+      <div id="s09-big" class="row" style="gap:30px">
+        <svg id="s09-gear" viewBox="0 0 24 24" width="170" height="170" fill="none" stroke="#FF5A1F" stroke-width="2"><circle cx="12" cy="12" r="3.4"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.6"/></svg>
+        <div style="font-size:88px;font-weight:900;letter-spacing:-3px;line-height:1">from scratch<span style="display:block;color:var(--accent)">in Rust</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S10 GREEN chest 32.10–34.60  "app was built by a passionate engineer." -->
+  <section id="s10" class="clip" data-start="32.1" data-duration="2.5" data-track-index="1">
+    <div class="band-chest"><div id="s10-card" class="card col" style="padding:34px 40px 50px;align-items:center;gap:20px;position:relative">
+      <div class="term col" style="width:560px;height:290px;border-radius:20px;border:10px solid #0d0d0d;align-items:center;justify-content:center;gap:22px">
+        <div style="font-size:30px;color:#ddd;font-weight:600">Who's watching?</div>
+        <div class="row" style="gap:28px"><span style="width:84px;height:84px;border-radius:50%;background:#E5A00D"></span><span style="width:84px;height:84px;border-radius:50%;background:#5B6CFF"></span><span style="width:84px;height:84px;border-radius:50%;background:#FF4F8B"></span></div>
+        <div style="position:absolute;top:58px;right:76px;font-weight:800;font-size:26px;color:#E5A00D">plex · LG TV</div>
+      </div>
+      <div id="s10-tag" class="pill" style="position:absolute;bottom:-34px;background:var(--accent);color:#fff;font-size:38px">built by a passionate engineer ♥</div>
+    </div></div>
+  </section>
+
+  <!-- S11 GREEN top 34.67–40.90  "Now, it could be questionable if a CS degree will make you a vibe coded engineer, but at the same time," -->
+  <section id="s11" class="clip" data-start="34.667" data-duration="6.233" data-track-index="1">
+    <div class="band-top"><div class="row" style="gap:26px;align-items:center">
+      <div id="s11-a" class="card col" style="padding:34px 36px;align-items:center;gap:6px;width:360px"><div style="font-size:96px;line-height:1">🎓</div><div style="font-size:46px;font-weight:800">CS degree</div></div>
+      <div id="s11-arrow" style="font-size:96px;font-weight:800;color:var(--accent)">→</div>
+      <div id="s11-b" class="card col" style="padding:34px 36px;align-items:center;gap:6px;width:360px;position:relative"><div style="font-size:96px;line-height:1">🧑‍💻</div><div style="font-size:40px;font-weight:800;text-align:center;line-height:1.1">vibe coded engineer</div>
+        <div id="s11-q" class="big" style="position:absolute;top:-56px;right:-36px;font-size:150px;color:var(--accent)">?</div></div>
+    </div></div>
+  </section>
+
+  <!-- S12 FULL 40.90–45.83  "the thing you should remember is people building apps still have expertise in something." -->
+  <section id="s12" class="clip board" data-start="40.9" data-duration="4.933" data-track-index="1">
+    <div class="center" style="position:absolute;inset:0;flex-direction:column;gap:40px;text-align:center">
+      <div id="s12-a" style="font-size:72px;font-weight:700;letter-spacing:-2px;color:var(--ink2)">people building apps</div>
+      <div id="s12-b" style="font-size:72px;font-weight:700;letter-spacing:-2px;color:var(--ink2)">still have</div>
+      <div id="s12-c" class="dash" style="padding:22px 46px;border-radius:40px"><div class="big" style="font-size:150px;color:var(--ink)">expertise</div><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V5a1 1 0 0 1 1-1h11"/></svg></div></div>
+      <div id="s12-d" style="font-family:'Playfair';font-style:italic;font-weight:700;font-size:84px;color:var(--accent)">in something.</div>
+    </div>
+  </section>
+
+  <!-- S13 GREEN top 46.13–55.30  "Person building video editing apps has expertise, where video editing is a problem where you spend hours ... how you can optimize that." -->
+  <section id="s13" class="clip" data-start="46.133" data-duration="9.167" data-track-index="1">
+    <div class="band-top"><div id="s13-card" class="card col" style="padding:28px 34px;gap:16px;width:940px;position:relative">
+      <div class="row" style="justify-content:space-between"><div style="font-size:36px;font-weight:800">🎬 video editor</div><div class="mono" style="font-size:26px;color:var(--ink2)">00:<span id="s13-tc">00</span>:12</div></div>
+      <div id="s13-tl" style="position:relative;height:190px;background:#F3F1ED;border-radius:18px;overflow:hidden">
+        <div class="s13-c" style="position:absolute;top:22px;left:30px;width:150px;height:62px;border-radius:12px;background:#5B6CFF"></div>
+        <div class="s13-c" style="position:absolute;top:22px;left:260px;width:120px;height:62px;border-radius:12px;background:#5B6CFF"></div>
+        <div class="s13-c" style="position:absolute;top:22px;left:470px;width:180px;height:62px;border-radius:12px;background:#5B6CFF"></div>
+        <div class="s13-c" style="position:absolute;top:106px;left:110px;width:200px;height:62px;border-radius:12px;background:#FF8A5B"></div>
+        <div class="s13-c" style="position:absolute;top:106px;left:420px;width:110px;height:62px;border-radius:12px;background:#FF8A5B"></div>
+        <div class="s13-c" style="position:absolute;top:106px;left:640px;width:160px;height:62px;border-radius:12px;background:#FF8A5B"></div>
+        <div id="s13-ph" style="position:absolute;top:0;bottom:0;left:20px;width:5px;background:var(--ink)"></div>
+      </div>
+      <div id="s13-hours" class="pill row" style="position:absolute;right:30px;bottom:-34px;background:var(--ink);color:#fff;gap:12px">⏱ <span>hours</span></div>
+      <div id="s13-mins" class="pill row" style="position:absolute;right:30px;bottom:-34px;background:var(--accent);color:#fff;gap:12px;opacity:0">⚡ <span>optimized</span></div>
+    </div></div>
+  </section>
+
+  <!-- S14 GREEN chest 55.37–59.07  "At the same time, people building apps have some sort of expertise." -->
+  <section id="s14" class="clip" data-start="55.367" data-duration="3.7" data-track-index="1">
+    <div class="band-chest"><div class="col" style="align-items:center;gap:22px;width:960px">
+      <div class="row" style="gap:18px;flex-wrap:wrap;justify-content:center">
+        <div class="pill s14-c" style="background:#fff;border:3px solid var(--edge)">🎬 video</div>
+        <div class="pill s14-c" style="background:#fff;border:3px solid var(--edge)">🏦 finance</div>
+        <div class="pill s14-c" style="background:#fff;border:3px solid var(--edge)">🩺 health</div>
+        <div class="pill s14-c" style="background:#fff;border:3px solid var(--edge)">🎵 music</div>
+        <div class="pill s14-c" style="background:#fff;border:3px solid var(--edge)">⚖️ law</div>
+        <div class="pill s14-c" style="background:#fff;border:3px solid var(--edge)">🏠 real estate</div>
+      </div>
+      <div id="s14-eq" class="pill" style="background:var(--accent);color:#fff;font-size:56px;padding:18px 44px">= expertise</div>
+    </div></div>
+  </section>
+
+  <!-- S15 FULL 59.13–64.40  "It might not be CS core skills anymore, but expertise still needed." -->
+  <section id="s15" class="clip board" data-start="59.133" data-duration="5.267" data-track-index="1">
+    <div class="center" style="position:absolute;inset:0;flex-direction:column;gap:70px">
+      <div id="s15-a" class="card center" style="width:820px;height:330px;flex-direction:column;gap:10px;position:relative">
+        <div class="mono" style="font-size:34px;color:var(--mute)">{ algorithms, data structures }</div>
+        <div style="font-size:84px;font-weight:800;letter-spacing:-2px;color:#8f8a83">CS core skills</div>
+        <div id="s15-strike" style="position:absolute;left:60px;right:60px;top:52%;height:16px;border-radius:10px;background:var(--accent)"></div>
+      </div>
+      <div id="s15-b" class="dash" style="padding:16px;border-radius:46px">
+        <div class="card center" style="width:780px;height:330px;flex-direction:column;gap:6px">
+          <div class="big" style="font-size:130px">expertise</div>
+          <div class="row olabel" style="font-size:50px;gap:12px">✓ still needed</div>
+        </div>
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V5a1 1 0 0 1 1-1h11"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S16 GREEN top 64.53–73.13  "...people say vibe coded, vibe coded, vibe coded, but the truth is, the person who vibe coded is an expert in something." -->
+  <section id="s16" class="clip" data-start="64.533" data-duration="8.6" data-track-index="1">
+    <div class="band-top"><div id="s16-stack" style="position:relative;width:900px;height:330px">
+      <div class="card row s16-p" style="position:absolute;left:0;right:0;top:0;padding:26px 30px;gap:22px"><div class="avatar" style="width:88px;height:88px"></div><div class="col"><div style="font-size:26px;font-weight:600;color:var(--ink2)">@someone · 2m</div><div style="font-size:40px;font-weight:700">it's just vibe coded 🙄</div></div></div>
+      <div class="card row s16-p" style="position:absolute;left:0;right:0;top:0;padding:26px 30px;gap:22px"><div class="avatar" style="width:88px;height:88px;background:#c9c3ba"></div><div class="col"><div style="font-size:26px;font-weight:600;color:var(--ink2)">@reply_guy · 1m</div><div style="font-size:40px;font-weight:700">vibe coded. next.</div></div></div>
+      <div class="card row s16-p" style="position:absolute;left:0;right:0;top:0;padding:26px 30px;gap:22px"><div class="avatar" style="width:88px;height:88px;background:#b0a89c"></div><div class="col"><div style="font-size:26px;font-weight:600;color:var(--ink2)">@hot_takes · now</div><div style="font-size:40px;font-weight:700">VIBE CODED 💀</div></div></div>
+      <div id="s16-stamp" class="stamp" style="position:absolute;right:30px;bottom:6px;background:#fff;font-size:70px">expert ✓</div>
+    </div></div>
+  </section>
+
+  <!-- S17 FULL 73.33–76.23  "Figure out that expertise and then start building." -->
+  <section id="s17" class="clip board" data-start="73.333" data-duration="2.9" data-track-index="1">
+    <div class="center" style="position:absolute;inset:0;flex-direction:column;gap:46px;text-align:center">
+      <div id="s17-a" style="font-size:76px;font-weight:700;letter-spacing:-2px;color:var(--ink2)">figure out your</div>
+      <div id="s17-b" class="dash" style="padding:18px 44px"><div class="big" style="font-size:140px">expertise</div></div>
+      <div id="s17-btn" class="row" style="position:relative;background:var(--ink);color:#fff;border-radius:999px;padding:30px 60px;font-size:56px;font-weight:800;gap:20px">then start building <span style="color:var(--accent)">→</span>
+        <svg id="s17-cur" viewBox="0 0 24 24" width="90" height="90" style="position:absolute;right:-40px;bottom:-60px"><path d="M4 2l15 9-7 1.5L9 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <audio id="sfx-stem" src="assets/sfx/sfx-stem.wav" data-start="0" data-duration="76.233" data-track-index="5"></audio>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  const B = "back.out(2.2)", E = "power3.out";
+  const pop = (sel, t, d = 0.38, from = 0.5) => tl.fromTo(sel, { scale: from, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: B }, t);
+  const rise = (sel, t, y = 60, d = 0.45) => tl.fromTo(sel, { y, opacity: 0 }, { y: 0, opacity: 1, duration: d, ease: E }, t);
+  const slam = (sel, t, from = 2.2, rot = 0) => tl.fromTo(sel, { scale: from, opacity: 0, rotation: rot * 2 }, { scale: 1, opacity: 1, rotation: rot, duration: 0.28, ease: "power4.in" }, t - 0.28); // lands ON t
+  const leave = (sel, t) => tl.to(sel, { scale: 0.92, opacity: 0, duration: 0.2, ease: "power2.in" }, t);
+  const count = (id, t, to, d) => { const o = { v: 0 }; tl.to(o, { v: to, duration: d, ease: "power2.out", onUpdate: () => { document.getElementById(id).textContent = Math.round(o.v); } }, t); };
+  const shake = (sel, t) => tl.fromTo(sel, { x: -14 }, { x: 0, duration: 0.4, ease: "elastic.out(1.2,0.25)", immediateRender: false }, t);
+
+  // S01 hook (0–1.5)
+  tl.fromTo("#s01-grid", { x: 160, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: E }, 0);
+  tl.fromTo(".s01-i", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: B, stagger: 0.04 }, 0.05);
+  pop("#s01-d1", 0.55, 0.25, 0.8);
+  slam("#s01-stamp", 0.85, 2.4, -6);
+
+  // S02 LG (1.5–4.333)
+  rise("#s02-card", 1.55, 50, 0.35);
+  pop("#s02-a", 1.75); pop("#s02-arrow", 2.5, 0.3, 0.2); slam("#s02-b", 3.03, 1.8);
+  leave("#s02-card", 4.1);
+
+  // S03 Adobe (4.367–7.767)
+  rise("#s03-card", 4.42, 50, 0.35);
+  ["#s03-i1", "#s03-i2", "#s03-i3"].forEach((s, k) => {
+    tl.to(s, { borderColor: "#FF5A1F", duration: 0.12 }, 4.9 + k * 0.42);
+    tl.fromTo(s + " .badge", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: B }, 4.95 + k * 0.42);
+  });
+  rise("#s03-label", 6.15, 30, 0.35);
+  tl.fromTo("#s03-q", { rotation: -25, scale: 1.6 }, { rotation: 0, scale: 1, duration: 0.6, ease: "elastic.out(1,0.35)" }, 7.0);
+  leave("#s03-card", 7.55);
+
+  // S04 phone scan (7.8–12.3)
+  tl.fromTo("#s04-phone", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: E }, 7.8);
+  rise("#s04-q", 7.9, 40, 0.4);
+  tl.fromTo(".s04-i", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: B, stagger: 0.035 }, 8.1);
+  tl.fromTo("#s04-scan", { y: 60 }, { y: 760, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 1 }, 8.9);
+  tl.to(".s04-i .x-mark", { opacity: 1, duration: 0.12, stagger: 0.07 }, 11.1);
+  tl.to(".s04-i", { filter: "grayscale(1) brightness(1.15)", duration: 0.12, stagger: 0.07 }, 11.1);
+  shake("#s04-count", 11.95);
+
+  // S05 basically none (12.333–13.9)
+  slam("#s05-card", 12.62, 1.6);
+  leave("#s05-card", 13.7);
+
+  // S06 OpenClaw / Adobe clones (13.967–17.267)
+  rise("#s06-a", 14.05); rise("#s06-b", 15.0);
+  slam("#s06-ta", 15.78, 1.8, -3); slam("#s06-tb", 16.53, 1.8, 3);
+  leave("#s06-a", 17.05); leave("#s06-b", 17.05);
+
+  // S07 who built it (17.267–20.333)
+  rise("#s07-h", 17.35, 40); tl.fromTo("#s07-front", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: E }, 17.45);
+  tl.to("#s07-front", { rotationY: 90, transformPerspective: 1400, duration: 0.25, ease: "power2.in" }, 18.6);
+  tl.fromTo("#s07-back", { rotationY: -90, opacity: 1, transformPerspective: 1400 }, { rotationY: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 18.85);
+  tl.to("#s07-back", { scale: 1.06, duration: 1.2, ease: "sine.inOut" }, 19.1);
+
+  // S08 Thomas (20.333–27.567)
+  slam("#s08-card", 20.62, 1.25);
+  rise("#s08-r1", 20.9, 30, 0.3); count("s08-n1", 21.0, 15, 0.9);
+  rise("#s08-r2", 22.7, 30, 0.3); count("s08-n2", 22.8, 10, 0.8);
+  tl.fromTo("#s08-gear", { rotation: 0 }, { rotation: 360, duration: 4.5, ease: "none" }, 22.8);
+  slam("#s08-tag", 25.25, 1.6, -2);
+  leave("#s08-card", 27.35);
+
+  // S09 Rust from scratch (27.9–32.067)
+  tl.fromTo("#s09-term", { x: -200, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: E }, 27.9);
+  { const cmd = "cargo new editor --from-scratch", o = { n: 0 };
+    tl.to(o, { n: cmd.length, duration: 1.0, ease: "none", onUpdate: () => { document.getElementById("s09-cmd").textContent = cmd.slice(0, Math.round(o.n)); } }, 28.2); }
+  tl.fromTo("#s09-cur", { opacity: 1 }, { opacity: 0, duration: 0.25, repeat: 7, yoyo: true, ease: "steps(1)" }, 28.0);
+  rise("#s09-l1", 29.35, 10, 0.15); rise("#s09-l2", 29.6, 10, 0.15); rise("#s09-l3", 29.9, 10, 0.2);
+  pop("#s09-big", 30.15, 0.4, 0.6);
+  tl.fromTo("#s09-gear", { rotation: -90 }, { rotation: 270, duration: 1.9, ease: "power2.out" }, 30.15);
+
+  // S10 LG passionate engineer (32.1–34.6)
+  rise("#s10-card", 32.15, 60, 0.35);
+  slam("#s10-tag", 33.45, 1.7, -2);
+  leave("#s10-card", 34.4);
+
+  // S11 CS degree ? (34.667–40.9)
+  rise("#s11-a", 34.75); pop("#s11-arrow", 36.0, 0.3, 0.2); rise("#s11-b", 36.6);
+  tl.fromTo("#s11-q", { scale: 0, rotation: -40 }, { scale: 1, rotation: 12, duration: 0.6, ease: "elastic.out(1,0.4)" }, 37.55);
+  tl.to("#s11-q", { rotation: -12, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 5 }, 38.2);
+  tl.to("#s11-arrow", { opacity: 0.25, duration: 0.3 }, 39.4);
+  leave("#s11-a", 40.68); leave("#s11-b", 40.68);
+
+  // S12 expertise slam (40.9–45.833)
+  rise("#s12-a", 41.0, 40); rise("#s12-b", 42.9, 40);
+  slam("#s12-c", 44.03, 2.0);
+  rise("#s12-d", 44.9, 30, 0.35);
+
+  // S13 video editor hours -> optimize (46.133–55.3)
+  rise("#s13-card", 46.2, 50, 0.4);
+  tl.fromTo(".s13-c", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.3, ease: E, stagger: 0.12 }, 46.6);
+  tl.fromTo("#s13-ph", { x: 0 }, { x: 860, duration: 6.0, ease: "none" }, 47.2);
+  count("s13-tc", 47.2, 59, 6.0);
+  slam("#s13-hours", 50.32, 1.8, -3);
+  tl.to(".s13-c", { x: (i) => [-0, -80, -170, -80, -170, -170][i], duration: 0.35, ease: "back.out(1.6)", stagger: 0.06 }, 53.3);
+  tl.to("#s13-hours", { opacity: 0, duration: 0.1 }, 53.85);
+  slam("#s13-mins", 53.92, 1.8, 3);
+  leave("#s13-card", 55.1);
+
+  // S14 expertise chips (55.367–59.067)
+  tl.fromTo(".s14-c", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: B, stagger: 0.28 }, 55.5);
+  slam("#s14-eq", 58.32, 1.8);
+
+  // S15 CS core vs expertise (59.133–64.4)
+  tl.fromTo("#s15-a", { y: -160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: E }, 59.2);
+  tl.fromTo("#s15-strike", { scaleX: 0, transformOrigin: "left center", rotation: -3 }, { scaleX: 1, rotation: -3, duration: 0.35, ease: "power2.out" }, 61.35);
+  tl.to("#s15-a", { opacity: 0.55, duration: 0.3 }, 61.7);
+  slam("#s15-b", 62.68, 1.6);
+
+  // S16 "vibe coded" posts -> EXPERT (64.533–73.133)
+  const posts = gsap.utils.toArray(".s16-p");
+  [65.2, 67.85, 68.75].forEach((t, k) => {
+    tl.fromTo(posts[k], { y: k * 78 - 70, opacity: 0, scale: 0.9 }, { y: k * 78, opacity: 1, scale: 1, rotation: [0, 1.5, -1.5][k], duration: 0.3, ease: B }, t);
+  });
+  shake("#s16-stack", 69.7);
+  slam("#s16-stamp", 72.08, 2.6, -8);
+  
+
+  // S17 end card (73.333–76.233)
+  rise("#s17-a", 73.4, 40); slam("#s17-b", 74.3, 1.8);
+  rise("#s17-btn", 74.75, 40, 0.35);
+  tl.fromTo("#s17-cur", { x: 160, y: 140, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.45, ease: E }, 75.0);
+  tl.to("#s17-btn", { scale: 0.94, duration: 0.08, yoyo: true, repeat: 1 }, 75.5);
+
+  window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

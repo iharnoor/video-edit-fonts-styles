@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-composition-variables='[{"id":"mode","type":"enum","label":"Background","default":"green","options":[{"value":"green","label":"Green screen"},{"value":"board","label":"Dot-grid board"},{"value":"alpha","label":"Transparent"}]}]'>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>Receipts clip</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; }
+  #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: system-ui, sans-serif; color: #1A1A1A; }
+  #ground { position: absolute; inset: 0; }
+  .m-green #ground { background: #00FF00; }
+  .m-board #ground { background-color: #EBEAE7; background-image: radial-gradient(rgba(0,0,0,.08) 5px, transparent 6px); background-size: 47.5px 47.5px; }
+  .m-alpha #ground { background: transparent; }
+
+  #g { position: absolute; left: 0; right: 0; top: 485px; height: 950px; }
+  .abs { position: absolute; }
+  .card { background: #fff; border-radius: 24px; padding: 38px 43px; text-align: center; }
+  .term { background: #1C1C1E; color: #fff; border-radius: 24px; padding: 38px 49px; font-size: 58px; font-weight: 800; }
+  .m-board .card { box-shadow: 0 11px 43px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.05); }
+  .m-board .term { box-shadow: 0 13px 49px rgba(0,0,0,.22); }
+  .name { font-size: 58px; font-weight: 800; letter-spacing: -0.5px; }
+  .sub { font-family: monospace; font-size: 26px; color: #9A9893; margin-top: 11px; }
+  .arrow { color: #FF5A1F; font-size: 86px; font-weight: 800; line-height: 1; }
+  .olabel { color: #FF5A1F; font-weight: 700; font-size: 30px; }
+  .rowx { display: flex; align-items: center; justify-content: space-between; }
+  #box { border: 5.4px dashed #FF5A1F; border-radius: 28px; }
+  #tag { background: #FF5A1F; color: #fff; font: 700 30px monospace; padding: 11px 22px; border-radius: 11px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="5" data-width="1080" data-height="1920">
+  <div id="ground" class="clip" data-start="0" data-duration="5" data-track-index="0"></div>
+
+  <div id="g" class="clip" data-start="0" data-duration="5" data-track-index="1">
+    <div id="box" class="abs" style="left:54px;right:54px;top:49px;height:821px"></div>
+    <div id="tag" class="abs" style="left:54px;top:0">built with AI</div>
+
+    <div class="abs rowx" style="left:108px;right:108px;top:135px">
+      <div id="a1" class="card"><div class="name">🦞 OpenClaw</div><div class="sub">Peter Steinberger</div></div>
+      <div id="a2" class="arrow">→</div>
+      <div id="a3" class="term">OpenAI</div>
+    </div>
+    <div id="a4" class="abs olabel" style="right:108px;top:362px">hired · Feb 2026</div>
+
+    <div class="abs rowx" style="left:108px;right:108px;top:502px">
+      <div id="b1" class="card"><div class="name">Moltbook</div><div class="sub">Matt Schlicht</div></div>
+      <div id="b2" class="arrow">→</div>
+      <div id="b3" class="card name" style="padding:38px 54px;color:#0866FF">∞ Meta</div>
+    </div>
+    <div id="b4" class="abs olabel" style="right:108px;top:729px">acquired · Mar 2026</div>
+  </div>
+
+  <audio id="sx-1" src="assets/sfx/whooshFast.wav" data-start="0.02" data-duration="0.32" data-volume="0.5" data-track-index="5"></audio>
+  <audio id="sx-2" src="assets/sfx/pop.wav" data-start="0.12" data-duration="0.12" data-volume="0.7" data-track-index="5"></audio>
+  <audio id="sx-3" src="assets/sfx/whooshFast.wav" data-start="0.5" data-duration="0.32" data-volume="0.45" data-track-index="6"></audio>
+  <audio id="sx-4" src="assets/sfx/popHi.wav" data-start="0.78" data-duration="0.09" data-volume="0.6" data-track-index="5"></audio>
+  <audio id="sx-5" src="assets/sfx/thud.wav" data-start="0.78" data-duration="0.35" data-volume="0.6" data-track-index="6"></audio>
+  <audio id="sx-6" src="assets/sfx/click.wav" data-start="1.05" data-duration="0.05" data-volume="0.6" data-track-index="5"></audio>
+  <audio id="sx-7" src="assets/sfx/pop.wav" data-start="1.55" data-duration="0.12" data-volume="0.7" data-track-index="5"></audio>
+  <audio id="sx-8" src="assets/sfx/whooshFast.wav" data-start="1.92" data-duration="0.32" data-volume="0.45" data-track-index="6"></audio>
+  <audio id="sx-9" src="assets/sfx/popHi.wav" data-start="2.2" data-duration="0.09" data-volume="0.6" data-track-index="5"></audio>
+  <audio id="sx-10" src="assets/sfx/cash.wav" data-start="2.2" data-duration="0.9" data-volume="0.5" data-track-index="6"></audio>
+  <audio id="sx-11" src="assets/sfx/click.wav" data-start="2.45" data-duration="0.05" data-volume="0.6" data-track-index="5"></audio>
+  <audio id="sx-12" src="assets/sfx/snap.wav" data-start="2.9" data-duration="0.08" data-volume="0.7" data-track-index="5"></audio>
+  <audio id="sx-13" src="assets/sfx/stamp.wav" data-start="3.3" data-duration="0.4" data-volume="0.9" data-track-index="6"></audio>
+  <audio id="sx-14" src="assets/sfx/ding.wav" data-start="3.32" data-duration="1.0" data-volume="0.35" data-track-index="7"></audio>
+</div>
+
+<script>
+  const mode = (window.__hyperframes && window.__hyperframes.getVariables().mode) || "green";
+  document.getElementById("root").classList.add("m-" + mode);
+
+  const tl = gsap.timeline({ paused: true });
+  const B = "back.out(2.2)", E = "power3.out";
+  const pop = (s, t) => tl.fromTo(s, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.38, ease: B }, t);
+  const slide = (s, t) => tl.fromTo(s, { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: E }, t);
+  const rise = (s, t) => tl.fromTo(s, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: E }, t);
+
+  pop("#a1", 0.1); slide("#a2", 0.5); pop("#a3", 0.72); rise("#a4", 1.02);
+  pop("#b1", 1.52); slide("#b2", 1.92); pop("#b3", 2.14); rise("#b4", 2.42);
+  tl.fromTo("#box", { scale: 1.06, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: E }, 2.85);
+  // tag stamps down and lands on 3.3s
+  tl.fromTo("#tag", { scale: 2.2, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.28, ease: "power4.in" }, 3.02);
+  tl.fromTo("#g", { y: 0 }, { y: -10, duration: 0.08, yoyo: true, repeat: 1, ease: "power1.out" }, 3.3);
+
+  window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "durationSeconds": 30,
+  "bpm": 120,
+  "key": "E minor",
+  "sampleRate": 48000,
+  "channels": 2,
+  "method": "Original local procedural synthesis; no sampled recordings or vocals",
+  "cues": [
+    {
+      "time": 0,
+      "label": "Immediate impact + four-note hook"
+    },
+    {
+      "time": 4,
+      "label": "First tension build"
+    },
+    {
+      "time": 7.76,
+      "label": "Pre-drop pause"
+    },
+    {
+      "time": 8,
+      "label": "Drop 1"
+    },
+    {
+      "time": 16,
+      "label": "Breakdown"
+    },
+    {
+      "time": 18,
+      "label": "Second build"
+    },
+    {
+      "time": 19.76,
+      "label": "Pre-drop pause"
+    },
+    {
+      "time": 20,
+      "label": "Drop 2, stronger"
+    },
+    {
+      "time": 28,
+      "label": "Resolve + fade"
+    }
+  ]
+}

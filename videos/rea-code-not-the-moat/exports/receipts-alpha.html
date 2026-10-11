@@ -1,0 +1,72 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  :root{
+    --canvas:#EBEAE7; --dot:rgba(0,0,0,.08); --ink:#1A1A1A; --ink2:#5B5B5B; --mute:#9A9893;
+    --card:#FFFFFF; --term:#1C1C1E; --accent:#FF5A1F; --line:rgba(0,0,0,.08);
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --page:#F5F4F1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--page);color:var(--ink);font-family:var(--sans);padding:40px 32px 80px}
+  header{max-width:1400px;margin:0 auto 28px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;justify-content:space-between}
+  h1{font-size:34px;letter-spacing:-.02em;font-weight:800}
+  h1 small{font-size:14px;color:var(--accent);font-weight:700;margin-left:8px;vertical-align:middle}
+  .dek{color:var(--ink2);font-size:15px;margin-top:6px;max-width:720px}
+  .tag{font:600 12px/1 var(--mono);background:#fff;border:1px solid var(--line);padding:9px 12px;border-radius:99px;color:var(--ink2)}
+  .grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 22px}
+  @media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:560px){.grid{grid-template-columns:1fr}}
+  figure{display:flex;flex-direction:column;gap:10px}
+  .cell{aspect-ratio:9/16;container-type:inline-size;position:relative;overflow:hidden;border-radius:14px;
+    background:var(--canvas);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.3px);background-size:4.4cqw 4.4cqw;
+    box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 30px rgba(0,0,0,.06)}
+  .lbl{display:flex;justify-content:space-between;font:700 12px/1.2 var(--mono);color:var(--ink)}
+  .lbl span:last-child{color:var(--mute);font-weight:500}
+  .note{font-size:13px;line-height:1.45;color:var(--ink2)}
+  .note b{color:var(--ink)}
+  .sfx{font:500 11.5px/1.45 var(--mono);color:#7a5a4c;background:#FFF1EA;border-radius:8px;padding:8px 10px}
+  .chip{align-self:flex-start;font:700 10.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent);border:1.5px dashed var(--accent);padding:6px 8px;border-radius:6px}
+
+  /* in-cell primitives (cqw = 1% of a 1080px frame) */
+  .abs{position:absolute}
+  .card{background:var(--card);border-radius:2.2cqw;box-shadow:0 1cqw 4cqw rgba(0,0,0,.10),0 .2cqw .6cqw rgba(0,0,0,.05)}
+  .term{background:var(--term);color:#fff;border-radius:2.2cqw;box-shadow:0 1.2cqw 4.5cqw rgba(0,0,0,.22)}
+  .cap{position:absolute;left:0;right:0;top:66%;text-align:center;font-weight:750;font-size:7cqw;letter-spacing:-.02em;color:#262626;line-height:1.1}
+  .cap em{font-style:normal;color:var(--accent)}
+  .safe{position:absolute;left:0;right:0;bottom:0;height:17%;background:repeating-linear-gradient(135deg,rgba(0,0,0,.035) 0 1.2cqw,transparent 1.2cqw 2.4cqw);border-top:1px dashed rgba(0,0,0,.12)}
+  .safe::after{content:"Shorts UI";position:absolute;right:3cqw;top:1.5cqw;font:600 2.4cqw var(--mono);color:rgba(0,0,0,.25)}
+  .dash{border:.5cqw dashed var(--accent);border-radius:2.6cqw}
+  .badge{position:absolute;width:5cqw;height:5cqw;border-radius:1.4cqw;background:var(--accent);top:-2.2cqw;right:-2.2cqw;display:grid;place-items:center}
+  .badge::before{content:"";width:2cqw;height:2cqw;border:.45cqw solid #fff;border-radius:.4cqw;box-shadow:.7cqw -.7cqw 0 -.05cqw var(--accent),.7cqw -.7cqw 0 .4cqw #fff}
+  .app{width:11cqw;height:11cqw;border-radius:2.6cqw;display:grid;place-items:center;font-weight:800;font-size:4.6cqw;box-shadow:0 .5cqw 1.6cqw rgba(0,0,0,.12)}
+  .olabel{font:700 3.2cqw var(--sans);color:var(--accent)}
+  .bracket{position:absolute;width:5cqw;height:5cqw;border-color:var(--accent);border-style:solid;opacity:.9}
+  .avatar{width:6cqw;height:6cqw;border-radius:50%;background:linear-gradient(135deg,#dcd7cf,#b9b2a7);border:.5cqw solid #fff}
+  .pix{font-family:var(--mono);font-weight:900;letter-spacing:.6cqw;color:#1F6FEB;text-shadow:.5cqw .5cqw 0 #0b2f6a}
+  .mono{font-family:var(--mono)}
+  .seam{display:flex;flex-direction:column;gap:2.4cqw;padding:7cqw 6cqw}
+  .seam div{display:flex;justify-content:space-between;align-items:center;font:600 3.4cqw var(--mono);border-bottom:1px dashed rgba(0,0,0,.15);padding-bottom:2cqw}
+  .seam div span:last-child{color:var(--accent)}
+
+html,body{margin:0;padding:0;width:1080px;height:1920px;background:transparent;overflow:hidden}
+.cell{width:1080px;height:1920px;aspect-ratio:auto;border-radius:0;box-shadow:none;background:transparent;background-image:none;}
+#g{position:absolute;left:0;right:0;top:50%;height:88cqw;margin-top:-44cqw}
+.card,.term{box-shadow:none !important}
+</style></head><body><div class="cell"><div id="g" style="position:absolute">
+    <div class="abs dash" style="left:5cqw;right:5cqw;top:12cqw;height:76cqw"></div>
+    <div class="abs" style="left:5cqw;top:7.5cqw;background:var(--accent);color:#fff;font:700 2.8cqw var(--mono);padding:1cqw 2cqw;border-radius:1cqw">built with AI</div>
+    <!-- row A -->
+    <div class="abs" style="left:10cqw;right:10cqw;top:20cqw;display:flex;align-items:center;justify-content:space-between">
+      <div class="card" style="padding:3.5cqw 4cqw;text-align:center"><div style="font-size:5.4cqw;font-weight:800">🦞 OpenClaw</div><div class="mono" style="font-size:2.4cqw;color:var(--mute);margin-top:1cqw">Peter Steinberger</div></div>
+      <div style="color:var(--accent);font-size:8cqw;font-weight:800">→</div>
+      <div class="term" style="padding:3.5cqw 4.5cqw;font-size:5.4cqw;font-weight:800">OpenAI</div>
+    </div>
+    <div class="abs olabel" style="right:10cqw;top:41cqw;font-size:2.8cqw">hired · Feb 2026</div>
+    <!-- row B -->
+    <div class="abs" style="left:10cqw;right:10cqw;top:54cqw;display:flex;align-items:center;justify-content:space-between">
+      <div class="card" style="padding:3.5cqw 4cqw;text-align:center"><div style="font-size:5.4cqw;font-weight:800">Moltbook</div><div class="mono" style="font-size:2.4cqw;color:var(--mute);margin-top:1cqw">Matt Schlicht</div></div>
+      <div style="color:var(--accent);font-size:8cqw;font-weight:800">→</div>
+      <div class="card" style="padding:3.5cqw 5cqw;font-size:5.4cqw;font-weight:800;color:#0866FF">∞ Meta</div>
+    </div>
+    <div class="abs olabel" style="right:10cqw;top:75cqw;font-size:2.8cqw">acquired · Mar 2026</div>
+    </div></div></body></html>

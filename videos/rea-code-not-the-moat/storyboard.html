@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REA Storyboard v1</title>
+<style>
+  :root{
+    --canvas:#EBEAE7; --dot:rgba(0,0,0,.08); --ink:#1A1A1A; --ink2:#5B5B5B; --mute:#9A9893;
+    --card:#FFFFFF; --term:#1C1C1E; --accent:#FF5A1F; --line:rgba(0,0,0,.08);
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --page:#F5F4F1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--page);color:var(--ink);font-family:var(--sans);padding:40px 32px 80px}
+  header{max-width:1400px;margin:0 auto 28px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;justify-content:space-between}
+  h1{font-size:34px;letter-spacing:-.02em;font-weight:800}
+  h1 small{font-size:14px;color:var(--accent);font-weight:700;margin-left:8px;vertical-align:middle}
+  .dek{color:var(--ink2);font-size:15px;margin-top:6px;max-width:720px}
+  .tag{font:600 12px/1 var(--mono);background:#fff;border:1px solid var(--line);padding:9px 12px;border-radius:99px;color:var(--ink2)}
+  .grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 22px}
+  @media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:560px){.grid{grid-template-columns:1fr}}
+  figure{display:flex;flex-direction:column;gap:10px}
+  .cell{aspect-ratio:9/16;container-type:inline-size;position:relative;overflow:hidden;border-radius:14px;
+    background:var(--canvas);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.3px);background-size:4.4cqw 4.4cqw;
+    box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 30px rgba(0,0,0,.06)}
+  .lbl{display:flex;justify-content:space-between;font:700 12px/1.2 var(--mono);color:var(--ink)}
+  .lbl span:last-child{color:var(--mute);font-weight:500}
+  .note{font-size:13px;line-height:1.45;color:var(--ink2)}
+  .note b{color:var(--ink)}
+  .sfx{font:500 11.5px/1.45 var(--mono);color:#7a5a4c;background:#FFF1EA;border-radius:8px;padding:8px 10px}
+  .chip{align-self:flex-start;font:700 10.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent);border:1.5px dashed var(--accent);padding:6px 8px;border-radius:6px}
+
+  /* in-cell primitives (cqw = 1% of a 1080px frame) */
+  .abs{position:absolute}
+  .card{background:var(--card);border-radius:2.2cqw;box-shadow:0 1cqw 4cqw rgba(0,0,0,.10),0 .2cqw .6cqw rgba(0,0,0,.05)}
+  .term{background:var(--term);color:#fff;border-radius:2.2cqw;box-shadow:0 1.2cqw 4.5cqw rgba(0,0,0,.22)}
+  .cap{position:absolute;left:0;right:0;top:66%;text-align:center;font-weight:750;font-size:7cqw;letter-spacing:-.02em;color:#262626;line-height:1.1}
+  .cap em{font-style:normal;color:var(--accent)}
+  .safe{position:absolute;left:0;right:0;bottom:0;height:17%;background:repeating-linear-gradient(135deg,rgba(0,0,0,.035) 0 1.2cqw,transparent 1.2cqw 2.4cqw);border-top:1px dashed rgba(0,0,0,.12)}
+  .safe::after{content:"Shorts UI";position:absolute;right:3cqw;top:1.5cqw;font:600 2.4cqw var(--mono);color:rgba(0,0,0,.25)}
+  .dash{border:.5cqw dashed var(--accent);border-radius:2.6cqw}
+  .badge{position:absolute;width:5cqw;height:5cqw;border-radius:1.4cqw;background:var(--accent);top:-2.2cqw;right:-2.2cqw;display:grid;place-items:center}
+  .badge::before{content:"";width:2cqw;height:2cqw;border:.45cqw solid #fff;border-radius:.4cqw;box-shadow:.7cqw -.7cqw 0 -.05cqw var(--accent),.7cqw -.7cqw 0 .4cqw #fff}
+  .app{width:11cqw;height:11cqw;border-radius:2.6cqw;display:grid;place-items:center;font-weight:800;font-size:4.6cqw;box-shadow:0 .5cqw 1.6cqw rgba(0,0,0,.12)}
+  .olabel{font:700 3.2cqw var(--sans);color:var(--accent)}
+  .bracket{position:absolute;width:5cqw;height:5cqw;border-color:var(--accent);border-style:solid;opacity:.9}
+  .avatar{width:6cqw;height:6cqw;border-radius:50%;background:linear-gradient(135deg,#dcd7cf,#b9b2a7);border:.5cqw solid #fff}
+  .pix{font-family:var(--mono);font-weight:900;letter-spacing:.6cqw;color:#1F6FEB;text-shadow:.5cqw .5cqw 0 #0b2f6a}
+  .mono{font-family:var(--mono)}
+  .seam{display:flex;flex-direction:column;gap:2.4cqw;padding:7cqw 6cqw}
+  .seam div{display:flex;justify-content:space-between;align-items:center;font:600 3.4cqw var(--mono);border-bottom:1px dashed rgba(0,0,0,.15);padding-bottom:2cqw}
+  .seam div span:last-child{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Code isn't the moat <small>v1 · sketch</small></h1>
+    <p class="dek">REA short, styled like Eric Tech's video: dotted off-white board, floating cards, one orange accent, dashed clone boxes, 1–3 word captions, a sound on every beat. Each cell is the beat's key moment.</p>
+  </div>
+  <span class="tag">1080×1920 · ~46s · 7 beats · your VO</span>
+</header>
+
+<main class="grid">
+
+<!-- 01 HOOK -->
+<figure>
+  <div class="cell" id="frame-01">
+    <div class="abs term" style="left:9cqw;right:9cqw;top:14cqw;padding:5cqw">
+      <div style="display:flex;align-items:center;gap:2.6cqw">
+        <div class="avatar" style="width:8cqw;height:8cqw;border-color:#333"></div>
+        <div style="font-size:5.2cqw;font-weight:500;color:#cfcfcf">morluto / <b style="color:#fff">rea</b></div>
+        <svg style="margin-left:auto" width="9cqw" viewBox="0 0 16 16" fill="#fff"><path d="M8 0C3.6 0 0 3.6 0 8c0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.4.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.6 3.9.3.3.5.8.5 1.5v2.2c0 .2.1.5.6.4C13.7 14.5 16 11.5 16 8c0-4.4-3.6-8-8-8z"/></svg>
+      </div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:5cqw">
+        <div class="mono" style="font-size:2.8cqw;color:#aaa;display:flex;gap:2cqw"><span>Fork <b style="color:#fff;background:#333;padding:.3cqw 1cqw;border-radius:1cqw">14.9k</b></span><span>☆ Star <b style="color:#fff;background:#333;padding:.3cqw 1cqw;border-radius:1cqw">70.9k</b></span></div>
+        <div style="font-size:13cqw;font-weight:800;letter-spacing:-.03em;line-height:.9">60K+</div>
+      </div>
+    </div>
+    <div class="abs term" style="left:9cqw;right:9cqw;top:52cqw;height:46cqw;padding:4cqw">
+      <div class="mono" style="font-size:2.4cqw;color:#777">GitHub stars</div>
+      <svg viewBox="0 0 100 50" preserveAspectRatio="none" style="position:absolute;left:5cqw;right:5cqw;bottom:6cqw;width:calc(100% - 10cqw);height:30cqw">
+        <line x1="0" y1="49" x2="100" y2="49" stroke="#333" stroke-width=".4"/>
+        <path d="M0 47 L60 46.5 L82 45.5 L90 42 L94 30 L97 4" fill="none" stroke="#FF5A1F" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-width:3px"/>
+        <circle cx="97" cy="4" r="1.6" fill="#FF5A1F"/>
+      </svg>
+      <div class="abs olabel" style="right:5cqw;bottom:1.5cqw;font-size:2.8cqw">couple of days ⌐</div>
+    </div>
+    <div class="cap">60,000 <em>stars</em></div>
+    <div class="safe"></div>
+  </div>
+  <div class="lbl"><span>01 · HOOK</span><span>frame-01 · 0.0–4.0s</span></div>
+  <p class="note"><b>Repo card slams in first, then the chart line runs flat and spikes vertical.</b> At "clone any app" a Premiere icon gets a dashed duplicate, previewing beat 3.</p>
+  <p class="sfx">impact + bed start · pop · counter ticks · ding on 60K+ · whoosh-up with spike</p>
+  <span class="chip">cut in</span>
+</figure>
+
+<!-- 02 WHAT -->
+<figure>
+  <div class="cell" id="frame-02">
+    <div class="abs" style="left:8cqw;right:8cqw;top:10cqw;display:grid;grid-template-columns:repeat(5,1fr);gap:4cqw;justify-items:center">
+      <div class="app" style="background:#330000;color:#FF9A00">Ai</div>
+      <div class="app" style="background:#fff;color:#F24E1E">F</div>
+      <div class="app" style="background:#1DB954;color:#fff">♫</div>
+      <div class="app" style="background:#2D8CFF;color:#fff">Z</div>
+      <div class="app" style="background:#fff;color:#EA7600">◉</div>
+      <div class="app" style="background:#00005B;color:#9999FF">Pr</div>
+      <div class="app" style="background:#fff;color:#4A154B">#</div>
+      <div class="app" style="background:#1D6F42;color:#fff">X</div>
+      <div class="app" style="background:#111;color:#fff">▤</div>
+      <div class="app" style="background:#fff;color:#111">N</div>
+      <div class="app" style="background:#00005B;color:#D291FF">Ae</div>
+      <div class="app" style="background:#001E36;color:#31A8FF;position:relative">Ps
+        <div class="abs" style="inset:-4.5cqw;border:.6cqw solid var(--accent);border-radius:50%"></div>
+        <div class="abs" style="left:50%;top:-14cqw;height:9cqw;border-left:.6cqw solid var(--accent)"></div>
+      </div>
+      <div class="app" style="background:#fff;color:#0078D4">⟩</div>
+      <div class="app" style="background:#fff;color:#555">▲</div>
+      <div class="app" style="background:#fff;color:#DB4437">◎</div>
+    </div>
+    <div class="abs card" style="left:12cqw;right:12cqw;top:64cqw;padding:5cqw 5cqw 4cqw;display:flex;gap:4cqw;align-items:center">
+      <div>
+        <div class="pix" style="font-size:12cqw;line-height:1">REA</div>
+        <div class="mono" style="font-size:2.6cqw;font-weight:800;margin-top:1.5cqw;letter-spacing:.2cqw">REVERSE ENGINEER<br>ANYTHING</div>
+        <div style="height:.5cqw;background:var(--accent);width:60%;margin-top:2cqw"></div>
+      </div>
+      <div class="term mono" style="flex:1;align-self:stretch;padding:2.4cqw;font-size:1.8cqw;color:#8f8;line-height:1.5;border-radius:1.4cqw">0x00f4 mov<br>0x00f8 call<br>0x0100 ret<br>0x0104 jmp<br>0x0108 lea</div>
+    </div>
+    <div class="abs mono" style="left:0;right:0;top:104cqw;text-align:center;font-size:3.4cqw;color:var(--ink2);font-weight:700">CODE <span style="color:var(--accent)">↓</span> BINARY</div>
+    <div class="cap" style="top:72%">down to the <em>binary</em></div>
+    <div class="safe"></div>
+  </div>
+  <div class="lbl"><span>02 · WHAT IT IS</span><span>frame-02 · 4.0–10.0s</span></div>
+  <p class="note"><b>Whip-pan lands on the icon grid; the orange target drops onto Photoshop.</b> The REA card rises, a Claude Code prompt types, then CODE ↓ BINARY swooshes down.</p>
+  <p class="sfx">whoosh · lock-on blip · pop · tick per word · typing · down-swoosh + thud</p>
+  <span class="chip">whip ←</span>
+</figure>
+
+<!-- 03 PROOF -->
+<figure>
+  <div class="cell" id="frame-03">
+    <div class="abs" style="left:0;right:0;top:9cqw;display:flex;justify-content:center;gap:7cqw">
+      <div class="app" style="width:20cqw;height:20cqw;font-size:8.5cqw;border-radius:4cqw;background:#00005B;color:#9999FF">Pr</div>
+      <div class="dash" style="position:relative;padding:1.4cqw">
+        <div class="app" style="width:20cqw;height:20cqw;font-size:8.5cqw;border-radius:4cqw;background:#00005B;color:#9999FF">Pr</div>
+        <div class="badge"></div>
+      </div>
+    </div>
+    <div class="abs olabel" style="left:0;right:0;text-align:center;top:37cqw">+ Photoshop, + more</div>
+    <div class="abs term" style="left:7cqw;right:7cqw;top:47cqw;height:52cqw;border-radius:2cqw;border:1.4cqw solid #0d0d0d;overflow:hidden">
+      <div style="text-align:center;color:#ccc;font-size:3.6cqw;font-weight:600;margin-top:7cqw">Who's watching?</div>
+      <div style="display:flex;justify-content:center;gap:5cqw;margin-top:5cqw">
+        <div style="width:13cqw;height:13cqw;border-radius:50%;background:#E5A00D"></div>
+        <div style="width:13cqw;height:13cqw;border-radius:50%;background:#5b6cff"></div>
+        <div style="width:13cqw;height:13cqw;border-radius:50%;background:#2fb67c"></div>
+      </div>
+      <div class="abs" style="right:3cqw;top:3cqw;font:800 3cqw var(--sans);color:#E5A00D">plex</div>
+    </div>
+    <div class="abs" style="left:41cqw;width:18cqw;top:99cqw;height:3cqw;background:#cfcac2;border-radius:0 0 2cqw 2cqw"></div>
+    <div class="abs mono" style="left:11cqw;top:105cqw;font-size:3cqw;color:var(--ink2);font-weight:700">LG TV</div>
+    <div class="abs" style="right:10cqw;top:101cqw;display:flex;align-items:baseline;gap:3cqw">
+      <span style="font-size:7cqw;font-weight:800;color:#b4afa7;text-decoration:line-through;text-decoration-thickness:.8cqw">30s</span>
+      <span style="font-size:16cqw;font-weight:900;color:var(--accent);letter-spacing:-.04em">3s</span>
+    </div>
+    <div class="bracket" style="left:5cqw;top:45cqw;border-width:.6cqw 0 0 .6cqw"></div>
+    <div class="bracket" style="right:5cqw;top:45cqw;border-width:.6cqw .6cqw 0 0"></div>
+    <div class="cap" style="top:76%">now loads in <em>three</em></div>
+    <div class="safe"></div>
+  </div>
+  <div class="lbl"><span>03 · PROOF</span><span>frame-03 · 10.0–19.0s</span></div>
+  <p class="note"><b>Pr gets a dashed clone with a copy badge, then the camera glides down to the TV.</b> The timer counts to 30, a riser builds, everything cuts to dead silence, and "3s" slams in on an impact.</p>
+  <p class="sfx">pop · copy click + scribble ×2 · whoosh · clock ticks · riser → 0.15s SILENCE → beat-drop-effect.wav</p>
+  <span class="chip">glide ↓</span>
+</figure>
+
+<!-- 04 TURN -->
+<figure>
+  <div class="cell" id="frame-04">
+    <div class="abs card" style="left:8cqw;right:8cqw;top:30cqw;padding:4cqw 4.5cqw">
+      <div style="display:flex;align-items:center;gap:2.6cqw;font-size:4.2cqw;color:#222">
+        <svg width="5cqw" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        great apps built by non-coders<span style="width:.5cqw;height:5cqw;background:var(--accent);display:inline-block"></span>
+      </div>
+      <div style="border-top:1px solid var(--line);margin:4cqw -4.5cqw 0;padding:7cqw 4.5cqw 4cqw;text-align:center">
+        <div style="font-size:9cqw;font-weight:800;letter-spacing:-.03em">0 <span style="color:var(--mute);font-weight:600">results</span></div>
+        <div style="display:flex;flex-direction:column;gap:2.4cqw;margin-top:5cqw;opacity:.35">
+          <div style="height:2.4cqw;border-radius:2cqw;background:#e4e2de;width:80%;margin:0 auto"></div>
+          <div style="height:2.4cqw;border-radius:2cqw;background:#e4e2de;width:60%;margin:0 auto"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cap" style="top:70%">me <em>neither.</em></div>
+    <div class="safe"></div>
+  </div>
+  <div class="lbl"><span>04 · THE TURN</span><span>frame-04 · 19.0–25.0s</span></div>
+  <p class="note"><b>Every card whips off and the board goes empty, then a lone search box types.</b> "0 results" lands, the bed drops out, and the cursor blinks through the pause.</p>
+  <p class="sfx">reverse whoosh, bed ducks · typing · "bonk" on 0 results · silence · tick on "me neither"</p>
+  <span class="chip">cut, board clears</span>
+</figure>
+
+<!-- 05 RECEIPTS -->
+<figure>
+  <div class="cell" id="frame-05">
+    <div class="abs dash" style="left:5cqw;right:5cqw;top:12cqw;height:76cqw"></div>
+    <div class="abs" style="left:5cqw;top:7.5cqw;background:var(--accent);color:#fff;font:700 2.8cqw var(--mono);padding:1cqw 2cqw;border-radius:1cqw">built with AI</div>
+    <!-- row A -->
+    <div class="abs" style="left:10cqw;right:10cqw;top:20cqw;display:flex;align-items:center;justify-content:space-between">
+      <div class="card" style="padding:3.5cqw 4cqw;text-align:center"><div style="font-size:5.4cqw;font-weight:800">🦞 OpenClaw</div><div class="mono" style="font-size:2.4cqw;color:var(--mute);margin-top:1cqw">Peter Steinberger</div></div>
+      <div style="color:var(--accent);font-size:8cqw;font-weight:800">→</div>
+      <div class="term" style="padding:3.5cqw 4.5cqw;font-size:5.4cqw;font-weight:800">OpenAI</div>
+    </div>
+    <div class="abs olabel" style="right:10cqw;top:41cqw;font-size:2.8cqw">hired · Feb 2026</div>
+    <!-- row B -->
+    <div class="abs" style="left:10cqw;right:10cqw;top:54cqw;display:flex;align-items:center;justify-content:space-between">
+      <div class="card" style="padding:3.5cqw 4cqw;text-align:center"><div style="font-size:5.4cqw;font-weight:800">Moltbook</div><div class="mono" style="font-size:2.4cqw;color:var(--mute);margin-top:1cqw">Matt Schlicht</div></div>
+      <div style="color:var(--accent);font-size:8cqw;font-weight:800">→</div>
+      <div class="card" style="padding:3.5cqw 5cqw;font-size:5.4cqw;font-weight:800;color:#0866FF">∞ Meta</div>
+    </div>
+    <div class="abs olabel" style="right:10cqw;top:75cqw;font-size:2.8cqw">acquired · Mar 2026</div>
+    <div class="cap" style="top:57%">by beginners? <em>No.</em></div>
+    <div class="safe"></div>
+  </div>
+  <div class="lbl"><span>05 · RECEIPTS</span><span>frame-05 · 25.0–33.0s</span></div>
+  <p class="note"><b>Row A builds left to right, card → arrow → card, then row B.</b> A dashed box wraps both rows with a "built with AI" tag, and the caption answers "No."</p>
+  <p class="sfx">bed back on a drop · pop · arrow swoosh + pop · pop · swoosh + ding · check tick · buzzer on "No."</p>
+  <span class="chip">whip →</span>
+</figure>
+
+<!-- 06 WHY -->
+<figure>
+  <div class="cell" id="frame-06">
+    <div class="abs mono" style="left:0;right:0;top:11cqw;text-align:center;font-size:3cqw;color:var(--mute);font-weight:700">AI = MULTIPLIER</div>
+    <!-- row 1 -->
+    <div class="abs" style="left:7cqw;right:7cqw;top:20cqw;display:flex;align-items:center;justify-content:space-between">
+      <div class="card" style="padding:3cqw 3.4cqw;font-size:3.8cqw;font-weight:700;color:#888;filter:grayscale(1)">🗑 vague<br>context</div>
+      <div style="font-size:7cqw;font-weight:300;color:#aaa">×AI=</div>
+      <div class="card" style="padding:3cqw 3.4cqw;font-size:4.2cqw;font-weight:800;color:#999;transform:rotate(-4deg);background:#f1efeb;text-decoration:line-through">garbage</div>
+    </div>
+    <!-- row 2 -->
+    <div class="abs" style="left:7cqw;right:7cqw;top:50cqw;display:flex;align-items:center;justify-content:space-between">
+      <div class="card" style="padding:3cqw 3.4cqw;font-size:3.8cqw;font-weight:800">🧠 real<br>expertise</div>
+      <div style="font-size:7cqw;font-weight:300;color:var(--accent)">×AI=</div>
+      <div class="dash" style="position:relative;padding:1.2cqw"><div class="card" style="padding:3cqw 3.4cqw;font-size:4.2cqw;font-weight:800">team of 10</div><div class="badge"></div></div>
+    </div>
+    <div class="abs" style="left:14cqw;right:14cqw;top:78cqw;display:flex;justify-content:space-between">
+      <div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div>
+    </div>
+    <div class="abs" style="left:20cqw;right:20cqw;top:87cqw;display:flex;justify-content:space-between">
+      <div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div><div class="avatar" style="background:var(--accent)"></div>
+    </div>
+    <div class="cap" style="top:63%">garbage in, <em>garbage out</em></div>
+    <div class="safe"></div>
+  </div>
+  <div class="lbl"><span>06 · WHY</span><span>frame-06 · 33.0–40.0s</span></div>
+  <p class="note"><b>Two equations stack.</b> The garbage row glitches grey and tilts; the expertise row gets the dashed clone box, and ten orange dots fan out like a team.</p>
+  <p class="sfx">× snap · glitch crumple · flat thud · sparkle riser · 10 rapid pops · whoosh-up</p>
+  <span class="chip">glide ↓</span>
+</figure>
+
+<!-- 07 CLOSE -->
+<figure>
+  <div class="cell" id="frame-07">
+    <div class="abs card" style="left:-6cqw;top:12cqw;width:30cqw;height:20cqw;transform:rotate(-8deg);opacity:.35"></div>
+    <div class="abs term" style="right:-4cqw;top:22cqw;width:32cqw;height:18cqw;transform:rotate(7deg);opacity:.3"></div>
+    <div class="abs app" style="left:12cqw;top:118cqw;background:#00005B;color:#9999FF;opacity:.3;transform:rotate(10deg)">Pr</div>
+    <div class="abs" style="left:0;right:0;top:50cqw;text-align:center;line-height:1.05">
+      <div style="font-size:11cqw;font-weight:850;letter-spacing:-.04em;position:relative;display:inline-block;color:#b9b4ac">Code
+        <div class="abs" style="left:-3%;right:-3%;top:52%;height:1.4cqw;background:var(--accent);border-radius:1cqw;transform:rotate(-3deg)"></div></div>
+      <div style="font-size:7cqw;font-weight:700;color:#8d8880;margin-top:1cqw">isn't the moat.</div>
+      <div style="font-size:17cqw;font-weight:900;letter-spacing:-.05em;margin-top:5cqw">You <span style="color:var(--accent)">are.</span></div>
+    </div>
+    <div class="cap" style="top:72%;font-size:5cqw;color:#555">put in the effort now</div>
+    <div class="safe"></div>
+  </div>
+  <div class="lbl"><span>07 · CLOSE</span><span>frame-07 · 40.0–46.0s</span></div>
+  <p class="note"><b>Zoom out: every card from the video drifts by as a collage and falls away.</b> An orange marker strikes through "Code" and "You are." hits. Hold 0.8s for a clean loop.</p>
+  <p class="sfx">reverse whoosh pull-out · marker scratch · impact on "You are." · bed resolves · soft click</p>
+  <span class="chip">zoom out</span>
+</figure>
+
+<!-- SEAM MAP -->
+<figure>
+  <div class="cell" style="background:#fff;background-image:none">
+    <div class="seam">
+      <div style="font-size:4cqw;border:none"><b>Seam map</b><span></span></div>
+      <div><span>01 → 02</span><span>whip ←</span></div>
+      <div><span>02 → 03</span><span>glide ↓</span></div>
+      <div><span>03 → 04</span><span>cut · clear</span></div>
+      <div><span>04 → 05</span><span>whip →</span></div>
+      <div><span>05 → 06</span><span>glide ↓</span></div>
+      <div><span>06 → 07</span><span>zoom out</span></div>
+      <div style="font-size:3cqw;color:var(--ink2);border:none;line-height:1.5;display:block">One continuous board; the camera moves between regions with 6–10px motion blur. No crossfades. A new visual beat every 1.5–2.5s.</div>
+    </div>
+  </div>
+  <div class="lbl"><span>SEAMS</span><span>transitions</span></div>
+</figure>
+
+<!-- TOKENS -->
+<figure>
+  <div class="cell" style="background:#fff;background-image:none">
+    <div class="seam">
+      <div style="font-size:4cqw;border:none"><b>Tokens</b><span></span></div>
+      <div style="border:none;justify-content:flex-start;gap:2cqw">
+        <span style="width:10cqw;height:10cqw;border-radius:2cqw;background:#EBEAE7;border:1px solid #ddd"></span>
+        <span style="width:10cqw;height:10cqw;border-radius:2cqw;background:#fff;border:1px solid #ddd"></span>
+        <span style="width:10cqw;height:10cqw;border-radius:2cqw;background:#1C1C1E"></span>
+        <span style="width:10cqw;height:10cqw;border-radius:2cqw;background:#FF5A1F"></span>
+        <span style="width:10cqw;height:10cqw;border-radius:2cqw;background:#9A9893"></span>
+      </div>
+      <div><span>canvas / card / term</span><span>accent</span></div>
+      <div><span>Caption</span><span style="color:#222">Inter 750 · 64px</span></div>
+      <div><span>Label</span><span>Inter 700 orange</span></div>
+      <div><span>Code</span><span style="color:#222">JetBrains Mono</span></div>
+      <div style="font-size:3cqw;color:var(--ink2);border:none;line-height:1.5;display:block"><b>Bans:</b> no second accent color, no gradients on cards, no crossfades, no captions over 3 words, nothing in the bottom 17% (Shorts UI).</div>
+    </div>
+  </div>
+  <div class="lbl"><span>TOKENS</span><span>palette · type · bans</span></div>
+</figure>
+
+</main>
+</body>
+</html>
