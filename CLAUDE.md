@@ -7,12 +7,13 @@ This repo holds Harnoor's favorite fonts, pairings, motion styles and the graphi
 **Every new video uses Harnoor's main style, "warm & witty", unless Harnoor asks for something else.** Load the project skill [.claude/skills/warm-witty-style/SKILL.md](.claude/skills/warm-witty-style/SKILL.md) before any edit, graphics, captions or motion work. It holds the full spec: palette, type, caption style, signature moves, pacing, sound, grade and deliverables. The reference build is [videos/travelopod/](videos/travelopod/).
 
 In short:
-- Make it visual, not text-heavy: stickers, sticky notes and generic UI visuals in the top band, timed to the payoff words.
+- Make it visual, not text-heavy. Prefer **animated generic UI cards that act out the line** (fare ticker, itinerary, calendar, call screen, lock screen, comment box) over word pills. Put them in the top band, timed to the payoff words.
 - Captions are lowercase Poppins ExtraBold with the key word in a sky-blue pill.
 - Use a full-screen paper board whenever Harnoor reads off-camera.
 - Trim pauses over 0.3s.
 - Keep SFX sparse.
 - Beat-align the music bed: Epidemic Sound tracks for sponsored posts.
+- In FCP, the grade goes on an **adjustment layer** ("Look Grade" title plus the Custom LUT effect) on lane 1, with visuals above it.
 - Deliver an FCPXML, a LUT, an SRT and a preview.
 
 ## When making video graphics

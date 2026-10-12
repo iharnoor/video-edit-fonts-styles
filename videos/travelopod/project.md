@@ -23,3 +23,10 @@
 ## Session 1c — 2026-10-11 (intro flight map)
 
 **Changes:** Added `scripts/flightmap.py` → `s00_flightmap.mov` (0.95–3.75 s): generic flight-search UI (SFO → DEL map, route arc, Best/Cheapest/Fastest tabs flipping on the spoken words), full screen then split screen (map top, talking head bottom), then lifts away. Bakes graded base frames into the bottom half, so re-trimming the first spine clip in FCP desyncs it — re-render if the intro cut changes. Removed s01 hook sticky. Captions dodge the map (`cy_for`). Music offset now 4.72 s.
+
+## Session 2 — 2026-10-12 (sponsor notes from Neha)
+
+- Captions: "I"/"I'm"/"I'll", "Travelopod", "India", "US" capitalised (rest stays lowercase style). ASR "Travelpod" → "Travelopod".
+- Official Travelopod logo (brand Drive: travelopod_logo_tp.png / _white_tp.png in assets/) wherever Travelopod is mentioned: board logo card with travelopod.com, white logo on the support call card, CTA logo card with travelopod.com; comment box types "Travelopod".
+- Music bed −24 → −28 dB.
+- Logo swapped to the NEW Travelopod logo (brand Drive "New Logo": Logo-White_BG-08.svg / Logo-Blue_BG-07.svg, background rect stripped, rendered to transparent PNG via headless Chrome → assets/new_logo_*.png). Navy #002764 + orange #FCA800, no tagline. Website pill and call card now brand navy.

@@ -38,11 +38,18 @@ def load_words():
     return out, off / FPS
 
 
+PROPER = {'i': 'I', "i'm": "I'm", "i'll": "I'll", "i've": "I've", "i'd": "I'd",
+          'travelopod': 'Travelopod', 'india': 'India'}
+
+
 def clean(tok):
+    raw = re.sub(r'^[^\w$]+|[^\w%/$]+$', '', tok)
     t = tok.lower()
     core = re.sub(r'^[^\w$]+|[^\w%/$]+$', '', t)
     core = FIX.get(core, core)
-    return core
+    if raw == 'US':                       # the country, not "us"
+        return 'US'
+    return PROPER.get(core, core)       # lowercase style, but "I" and proper names stay capitalised (sponsor note)
 
 
 def chunks(words):
@@ -71,7 +78,7 @@ def chunks(words):
 
 def draw_chunk(words, scale):
     f = ImageFont.truetype(FONT, int(SIZE * scale))
-    key = next((i for i, w in enumerate(words) if w in KEYS), None)
+    key = next((i for i, w in enumerate(words) if w.lower() in KEYS), None)
     tmp = ImageDraw.Draw(Image.new('RGBA', (1, 1)))
     gap = tmp.textlength(' ', font=f)
     widths = [tmp.textlength(w, font=f) for w in words]

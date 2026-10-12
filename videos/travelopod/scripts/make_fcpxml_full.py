@@ -1,5 +1,6 @@
-"""Full FCPXML: approved cuts on the spine (original MOVs), stickers + captions as connected video lanes,
-music bed (beat-aligned, -24 dB) and SFX as connected audio lanes."""
+"""Full FCPXML: cuts on the spine (original, ungraded MOVs); lane 1 = adjustment layer carrying the grade
+(Custom LUT effect); lane 2 = stickers/UI visuals (above the grade so their colours stay true); lane 3 = captions;
+lane -1 = music bed (beat-aligned, -24 dB); lane -2 = SFX."""
 import json, subprocess, urllib.parse
 from xml.sax.saxutils import quoteattr as q
 
@@ -57,21 +58,29 @@ def attach(t_frames, xml_fn):
             return
 
 
-# stickers: lane 1
+# grade: adjustment layer (installed "Look Grade" title) with FCP's built-in Custom LUT effect, lane 1
+ADJ_UID = '~/Titles.localized/Adjustment/Look Grade/Look Grade.moti'
+LUT_UID = 'FxPlug:14B39AEF-607D-42DF-98DD-DB3DD345E925'      # Custom LUT (PAELUTEffect)
+assets.append(f'    <effect id="r900" name="Look Grade" uid={q(ADJ_UID)}/>')
+assets.append(f'    <effect id="r901" name="Custom LUT" uid="{LUT_UID}"/>')
+attach(0, lambda local: (f'<title ref="r900" lane="1" name="GRADE adjustment layer (Custom LUT: Warm Witty - Harnoor)" offset="{T(local)}" start="0s" duration="{T(total)}">'
+                         f'<filter-video ref="r901" name="Custom LUT"/></title>'))
+
+# stickers: lane 2
 for sid, m in sorted(man.items(), key=lambda kv: kv[1]['start']):
     rid = asset('st_' + sid, m['file'], True, False, name=sid)
     st, du = fr(m['start']), fr(m['duration'])
-    attach(st, lambda local, rid=rid, sid=sid, du=du: f'<video ref="{rid}" lane="1" name="{sid}" offset="{T(local)}" start="0s" duration="{T(du)}"/>')
+    attach(st, lambda local, rid=rid, sid=sid, du=du: f'<video ref="{rid}" lane="2" name="{sid}" offset="{T(local)}" start="0s" duration="{T(du)}"/>')
 
 # captions: lane 2 (one long layer; delete or swap for FCP captions from captions.srt)
 cap = asset('captions', E + 'animations/captions.mov', True, False, name='captions (warm & witty)')
-attach(0, lambda local: f'<video ref="{cap}" lane="2" name="captions" offset="{T(local)}" start="0s" duration="{T(total)}"/>')
+attach(0, lambda local: f'<video ref="{cap}" lane="3" name="captions" offset="{T(local)}" start="0s" duration="{T(total)}"/>')
 
 # music: lane -1, starts at the beat-aligned offset into the track
 mus = asset('music', cues['music'], False, True, name='Long Distance Travel - Radio Night')
 mo = fr(cues['music_offset'])
 attach(0, lambda local: (f'<asset-clip ref="{mus}" lane="-1" name="music bed" offset="{T(local)}" start="{T(mo)}" duration="{T(total)}" audioRole="music">'
-                         f'<adjust-volume amount="-24dB"/></asset-clip>'))
+                         f'<adjust-volume amount="-28dB"/></asset-clip>'))
 
 # sfx: lane -2
 for t, k in cues['sfx_cues']:

@@ -140,6 +140,36 @@ def chat_card(lines):
     return finish(img)
 
 
+# New Travelopod logo (brand Drive 'New Logo' folder, SVG rendered to transparent PNG): navy #002764 + orange #FCA800
+LOGO = ROOT + 'assets/new_logo_White_BG-08.png'
+LOGO_WHITE = ROOT + 'assets/new_logo_Blue_BG-07.png'
+BRAND_NAVY = (0, 39, 100)
+
+
+def logo_img(width, white=False, tagline=True):
+    """Official Travelopod logo (new version, no tagline), trimmed."""
+    im = Image.open(LOGO_WHITE if white else LOGO).convert('RGBA')
+    im = im.crop(im.getbbox())
+    return im.resize((width, int(im.height * width / im.width)), Image.LANCZOS)
+
+
+def logo_card(width=700, url=True):
+    """White card: official logo and travelopod.com underneath."""
+    lg = logo_img(width - 120)
+    h = lg.height + 80 + (78 if url else 0)
+    img = Image.new('RGBA', (width, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([0, 0, width - 1, h - 1], radius=36, fill=WHITE + (255,))
+    img.alpha_composite(lg, (60, 40))
+    if url:
+        f = font(POP_XB, 44)
+        tw = d.textlength('travelopod.com', font=f)
+        y = 40 + lg.height + 22
+        d.rounded_rectangle([(width - tw) / 2 - 26, y, (width + tw) / 2 + 26, y + 64], radius=32, fill=BRAND_NAVY + (255,))
+        d.text(((width - tw) / 2, y + 4), 'travelopod.com', font=f, fill=WHITE)
+    return finish(img)
+
+
 def wordmark():
     f = font(POP_XB, 84)
     tmp = ImageDraw.Draw(Image.new('RGBA', (1, 1)))
@@ -245,7 +275,8 @@ def render(sid, spec):
             if not st:
                 continue
             s, wob, dy = st
-            im = e['img']
+            im = e['img'](t - e['t_in']) if callable(e['img']) else e['img']
+            s *= e.get('k', 1.0)
             if e.get('mode') == 'slide':
                 frame.alpha_composite(im, (0, int(dy)))
                 continue
@@ -260,27 +291,29 @@ def render(sid, spec):
 from timemap import remap
 
 
-def E(img, cx, cy, t_in, t_out, rot=0, phase=0):
-    """Times are written on the approved-cut timeline and remapped onto the tightened edit."""
-    return {'img': img, 'cx': cx, 'cy': cy, 't_in': remap(t_in), 't_out': remap(t_out), 'rot': rot, 'phase': phase}
+def E(img, cx, cy, t_in, t_out, rot=0, phase=0, k=1.0):
+    """Times are written on the approved-cut timeline and remapped onto the tightened edit.
+    img may be a callable f(u) for animated UI cards (u = seconds since the element appeared)."""
+    return {'img': img, 'cx': cx, 'cy': cy, 't_in': remap(t_in), 't_out': remap(t_out), 'rot': rot, 'phase': phase, 'k': k}
+
+
+def R(a, b):
+    """Offset (edit timeline) from old time a to old time b, for timing beats inside animated cards."""
+    return remap(b) - remap(a)
 
 
 # ---------- the cut list (output-timeline seconds, synced to payoff words) ----------
 
 def specs():
+    import ui_cards as UI
     return {
         # s01 hook sticky replaced by the full-screen flight map (flightmap.py)
-        's02_price': {'elements': [E(price_card(), 360, 290, 4.55, 8.30, rot=-3),
-                                   E(badge('$1,240', 'after booking', d=290), 790, 300, 5.55, 8.30, rot=8, phase=1)],
-                      'sfx': [('pop', 5.55)]},
-        's03_layover': {'elements': [E(pill('cost + layover'), 380, 250, 12.40, 16.40, rot=-3),
-                                     E(badge('11 hr', 'layover', d=250, color=SKY, ink=INK), 820, 330, 15.70, 19.70, rot=7, phase=2),
-                                     E(sticky(['no luggage', 'either'], size=50, w=360), 330, 400, 17.70, 19.70, rot=-6)],
+        's02_price': {'elements': [E(UI.price_ticker(R(4.55, 5.55), [R(4.55, 6.29), R(4.55, 6.61), R(4.55, 7.65)]), 540, 300, 4.55, 8.30, rot=-2)],
+                      'sfx': [('pop', 4.55), ('cash', 5.55)]},
+        's03_layover': {'elements': [E(UI.itinerary(R(12.40, 15.73), R(12.40, 17.77)), 540, 300, 12.40, 19.70, rot=-1.5)],
                         'sfx': [('pop', 12.40)]},
-        's04_flex': {'elements': [E(pill('flexibility', bg=YELLOW, ink=BROWN), 540, 210, 22.05, 31.45, rot=-2),
-                                  E(sticky(['green card', 'interview!', 'fly back early'], size=50, w=380), 290, 420, 24.05, 31.45, rot=-6),
-                                  E(sticky(['visa appt', 'moved :('], size=50, w=340, color=(255, 200, 215), ink=(110, 20, 50)), 800, 440, 28.95, 31.45, rot=6, phase=1)],
-                     'sfx': [('pop', 22.05)]},
+        's04_flex': {'elements': [E(UI.calendar(R(22.05, 24.35), R(22.05, 25.65), R(22.05, 29.55)), 540, 320, 22.05, 31.45, rot=-1.5, k=0.92)],
+                     'sfx': [('pop', 22.05), ('whoosh', 25.65)]},
         's05_fees': {'elements': [E(badge('+$1,000', 'change fees', d=320), 540, 330, 34.65, 37.00, rot=-6),
                                   E(badge('+$2,000', 'change fees', d=340), 540, 330, 37.00, 40.85, rot=5)],
                      'sfx': [('cash', 34.65)]},
@@ -290,7 +323,7 @@ def specs():
                         'sfx': [('bloop', 47.95)]},
         # full-screen board while Harnoor reads off-camera (old 51.3 -> 60.8)
         's07_board': {'elements': [S(board_bg(), 51.30, 60.80),
-                                   E(wordmark(), 540, 380, 51.55, 57.10),
+                                   E(logo_card(720), 540, 380, 51.55, 57.10),
                                    E(pill('smarter routes', size=66), 400, 640, 52.45, 57.10, rot=-4),
                                    E(pill('shorter layovers', bg=YELLOW, ink=BROWN, size=66), 650, 820, 53.65, 57.10, rot=3, phase=1),
                                    E(pill('more flexible fares', bg=TOMATO, ink=WHITE, size=66), 470, 1000, 55.05, 57.10, rot=-2, phase=2),
@@ -298,18 +331,16 @@ def specs():
                                    E(sticky(['call for', 'phone-only fares'], size=60, w=500), 540, 520, 57.25, 60.80, rot=-4),
                                    E(badge('$200', 'saved', d=380, color=(46, 196, 110)), 560, 900, 59.70, 60.80, rot=6, phase=1)],
                       'sfx': [('whoosh', 51.30), ('ding', 55.90), ('pop', 57.25), ('cash', 59.70)]},
-        's09_human': {'elements': [E(pill('a real human', bg=SKY), 380, 250, 63.85, 67.20, rot=-3),
-                                   E(badge('24/7', d=230, color=YELLOW, ink=BROWN), 820, 330, 64.50, 67.20, rot=8, phase=1)],
-                      'sfx': [('pop', 63.85)]},
-        's10_parents': {'elements': [E(sticky(['booking for', 'your parents?'], size=52, w=400), 300, 320, 71.90, 75.60, rot=-5),
-                                     E(badge('2 AM', 'vs a chatbot', d=270, color=NAVY), 800, 360, 74.70, 75.60, rot=7, phase=1)],
-                        'sfx': [('pop', 71.90)]},
+        's09_human': {'elements': [E(UI.call_screen(), 540, 330, 63.85, 67.20, rot=-2, k=0.85)],
+                      'sfx': [('ding', 63.85)]},
+        's10_parents': {'elements': [E(UI.lock_screen(R(71.90, 72.21), R(71.90, 73.99)), 540, 330, 71.90, 75.60, rot=2, k=0.78)],
+                        'sfx': [('pop', 72.21), ('bloop', 73.99)]},
         's11_question': {'elements': [E(sticky(['what if', 'something', 'goes wrong?'], size=62, w=470), 540, 360, 81.55, 83.45, rot=-3)],
                          'sfx': [('pop', 81.55)]},
-        's12_cta': {'elements': [E(pill('comment "TRAVELOPOD"', bg=TOMATO, ink=WHITE, size=50), 540, 230, 83.55, 87.97, rot=-2),
-                                 E(badge('$50', 'off your flight', d=280, color=YELLOW, ink=BROWN), 780, 450, 85.25, 87.97, rot=8, phase=1),
-                                 E(arrow(), 330, 440, 85.25, 87.97, rot=10)],
-                    'sfx': [('ding', 83.55)]},
+        's12_cta': {'elements': [E(UI.comment_box(), 540, 200, 83.55, 87.97, rot=-1.5),
+                                 E(logo_card(560), 360, 440, 84.05, 87.97, rot=-3, phase=2),
+                                 E(badge('$50', 'off your flight', d=260, color=YELLOW, ink=BROWN), 800, 450, 85.25, 87.97, rot=8, phase=1)],
+                    'sfx': [('pop', 83.55), ('ding', 85.25)]},
     }
 
 

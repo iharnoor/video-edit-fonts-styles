@@ -1,7 +1,7 @@
 """Final preview: graded base + sticker overlays (PTS-shifted) + captions LAST + music bed + SFX, loudnormed."""
 import json, subprocess
 E = '/Users/harnoor/Downloads/travelopod/edit/'
-MUSIC_GAIN_DB = -24
+MUSIC_GAIN_DB = -28   # sponsor asked for the music slightly lower
 import sys
 sys.path.insert(0, E + 'scripts')
 from timemap import NEW_DUR as DUR

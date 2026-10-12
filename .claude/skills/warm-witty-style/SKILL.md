@@ -7,7 +7,7 @@ description: Harnoor's main video style ("warm & witty"). Use for ANY video grap
 
 This is the default for every new video. Only switch styles when Harnoor asks for a different one, e.g. one of the 20 animation styles in the README. The full reference build is **videos/travelopod/**: a sponsored 9:16 talking-head reel, Oct 2026.
 
-**Core idea:** visual, not text-heavy. Show results as objects (stickers, notes, UI) instead of sentences. Harnoor is the builder who tries things, with dry asides and a recurring verdict sticker.
+**Core idea:** visual, not text-heavy. Show results as objects (stickers, notes, UI) instead of sentences. **Default to an animated generic UI card that acts out the line** (a fare that counts up, an itinerary whose layover stretches, a calendar where the flight drags earlier, an incoming call, a 2 AM lock screen, a comment box typing the keyword). Use a word pill or sticky note only when no UI can show the idea. The handwritten asides stay. Harnoor is the builder who tries things, with dry asides and a recurring verdict sticker.
 
 ## Look
 
@@ -35,7 +35,8 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 
 ## Captions
 
-- **1–3 word chunks, lowercase**, in white Poppins ExtraBold at about 76px with a 6px dark outline (`#221E1C`).
+- **1–3 word chunks, lowercase, except that "I" (I, I'm, I'll…), the sponsor/brand and place names keep their capitals** (Travelopod, India, US). This was a sponsor note on Travelopod.
+- Chunks are in white Poppins ExtraBold at about 76px with a 6px dark outline (`#221E1C`).
 - **One key word per chunk sits in a sky-blue pill, rotated −3°.** Key words are nouns, numbers, the brand and "wrong"-type punch words.
 - Each chunk pops in with a 0.12s ease-out scale from 0.86 to 1.
 - **Position:** centred at **y ≈ 1250**, below the face and above the Reels UI. Move captions out of the way of full-screen or split-screen visuals: put them between the map and the card, or on the chest at y ≈ 1720.
@@ -55,7 +56,22 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 4. **Verdict stamp:** a green pill with a check, "it works!". The variants are ✗ "nope" and ¯\\_(ツ)_/¯ "kinda".
 5. **Full-screen paper board:** **use whenever Harnoor reads off-camera or looks away.** A cream `#FFF4DC` board with a faint dot grid slides up on a soft spring, the stickers build on it, and it drops away when Harnoor is back on camera.
 6. **Generic UI visual, full screen → split screen:** e.g. a flight-search map for "sorts flights by cheapest". It drops full screen, tabs flip on the spoken words, then it shrinks to the top half with the face in the bottom half, then lifts away. Keep it generic: **no real brand UI, logos or names.**
-7. **CTA:** a tomato pill, comment "KEYWORD", plus a yellow offer badge and an arrow.
+7. **CTA:** a generic comment box typing the KEYWORD letter by letter, with the send button turning tomato, plus a yellow offer badge.
+
+### Animated UI cards (preferred over word stickers)
+
+These are built in `videos/travelopod/scripts/ui_cards.py`. Each is a white card in the top band whose state changes on the spoken words. Times are offsets from the card's start, computed with `R(old_a, old_b)`.
+
+| Line | Card |
+| --- | --- |
+| price climbs after booking | **fare ticker:** $389 counts up to $1,240, the colour shifts to tomato, a trend line rises, and "+ bags / + seat / + change fee" chips stack on |
+| cost and layover, no luggage | **itinerary strip:** SFO ●—✈—● DEL with a plane looping. The layover segment and its "Nh layover" pill stretch on "more layover", and a crossed-out bag appears on "no luggage" |
+| flexibility, date changes | **two-week calendar:** a yellow "interview" day pops, the flight chip arcs from its old date to the new one, and a "+ change fee" chip shakes in |
+| human support 24/7 | **incoming-call screen:** navy, pulsing rings, a green headset button, "<brand> support · a real human · 24/7" |
+| a bad 2 AM moment | **lock screen:** a big "2:00 AM", a notification from Mom, then a failed bot reply in red |
+| comment CTA | **comment box** typing the keyword |
+
+Keep the UI generic, with no real app chrome or logos except the sponsor's own name. Make the text big enough to read on a phone: card text should be at least 24px at 1080 wide.
 
 ## Pacing
 
@@ -74,15 +90,22 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 
 ## Grade
 
-Light corrective grade, delivered as a `.cube` LUT that Harnoor applies in FCP with the Custom LUT effect. It cools the warm indoor cast (B ×1.06, R ×0.985), adds a gentle S-curve, lifts blacks slightly and adds +7% saturation. Keep skin natural. Reference LUT: `videos/travelopod/grade/travelopod_warm_witty.cube`. Re-measure for new lighting.
+**In FCP the grade lives on an adjustment layer, not on the clips.** The FCPXML puts Harnoor's installed **"Look Grade"** adjustment-layer title (`~/Titles.localized/Adjustment/Look Grade/Look Grade.moti`) on **lane 1** across the whole timeline. On it sits FCP's built-in **Custom LUT** effect (`uid="FxPlug:14B39AEF-607D-42DF-98DD-DB3DD345E925"`).
+- Stickers and UI visuals go on lane 2 and captions on lane 3, above the grade, so their colours stay true.
+- The spine stays ungraded original media.
+- Copy the `.cube` into `~/Library/Application Support/ProApps/Custom LUTs/` (e.g. `Warm Witty - Harnoor.cube`). The FCPXML can't carry the LUT file parameter, so in FCP select the adjustment layer → Custom LUT → pick "Warm Witty - Harnoor" (one click).
+- The preview MP4 bakes the same LUT in.
+
+The look itself is a light corrective grade, delivered as a `.cube` LUT. It cools the warm indoor cast (B ×1.06, R ×0.985), adds a gentle S-curve, lifts blacks slightly and adds +7% saturation. Keep skin natural. Reference LUT: `videos/travelopod/grade/travelopod_warm_witty.cube`. Re-measure for new lighting.
 
 ## Deliverables (always)
 
 1. `final_preview.mp4`: 1080×1920, 30 fps, H.264, −14 LUFS. Keep it local, since renders aren't committed.
 2. **FCPXML 1.11** linked to the original camera files:
-   - cuts on the spine
-   - stickers on lane 1
-   - captions on lane 2
+   - cuts on the spine (ungraded)
+   - grade adjustment layer on lane 1
+   - stickers and UI visuals on lane 2
+   - captions on lane 3
    - music on lane −1
    - SFX on lane −2
 
@@ -100,7 +123,7 @@ Paths at the top of each script are project-specific. Point `E`/`SRC` at the new
 | Tighten pauses | `tighten.py` → `tight_map.json`; `timemap.py` remaps old times | |
 | Grade | `make_lut.py` | builds the `.cube` |
 | Base render | `base_render.py` | **frame-exact** per-piece extract (exact frame counts, PCM audio concat, 30 ms fades, two-pass loudnorm). The stock video-use `render.py` drifts about 1 frame per piece, which desyncs overlays |
-| Stickers and boards | `stickers.py` | PIL engine → full-frame ProRes 4444 alpha clips + manifest |
+| Stickers and boards | `stickers.py` | PIL engine → full-frame ProRes 4444 alpha clips + manifest. Elements can be static images or animated `ui_cards.py` callables |
 | UI visual | `flightmap.py` | full → split-screen intro visual |
 | Captions | `captions.py` | alpha layer + SRT |
 | Audio | `audio.py` | SFX kit, cue list, beat-aligned music offset |
@@ -108,6 +131,13 @@ Paths at the top of each script are project-specific. Point `E`/`SRC` at the new
 | FCP | `make_fcpxml.py` (cuts only), `make_fcpxml_full.py` (everything) | |
 
 ## Rules
+
+- **Sponsored videos: use the brand's official logo every time the brand is mentioned, and show its website.**
+  - Ask for the logo files, ideally transparent PNGs in colour and white. Don't draw a stand-in wordmark.
+  - Put the colour logo on white cards and the white logo on dark cards.
+  - Add a website pill (e.g. "travelopod.com") on the main brand moment and on the CTA.
+- **Brand names are always spelled with their exact capitalisation**: in captions, cards and the CTA keyword.
+- Sponsors tend to want the music lower. For brand deals, start the bed at about −28 dB under the voice (−24 dB for organic posts).
 
 - **Don't invent claims for a sponsor.** Illustrative prices or durations on screen must be flagged to Harnoor or replaced with real numbers before a paid post.
 - Confirm the plan in plain English before cutting (video-use hard rule). After that, iterate quickly on feedback.

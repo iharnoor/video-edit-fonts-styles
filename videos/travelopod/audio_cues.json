@@ -1,6 +1,6 @@
 {
  "music": "/Users/harnoor/Music/Music and Additional Footage/ES_Long Distance Travel - Radio Night.mp3",
- "music_offset": 4.72,
+ "music_offset": 1.24,
  "sfx_cues": [
   [
    0.95,
@@ -11,8 +11,12 @@
    "pop"
   ],
   [
-   5.517,
+   4.517,
    "pop"
+  ],
+  [
+   5.517,
+   "cash"
   ],
   [
    12.133,
@@ -21,6 +25,10 @@
   [
    21.617,
    "pop"
+  ],
+  [
+   25.217,
+   "whoosh"
   ],
   [
    33.417,
@@ -48,11 +56,15 @@
   ],
   [
    60.583,
+   "ding"
+  ],
+  [
+   68.61,
    "pop"
   ],
   [
-   68.3,
-   "pop"
+   70.39,
+   "bloop"
   ],
   [
    77.517,
@@ -60,6 +72,10 @@
   ],
   [
    79.517,
+   "pop"
+  ],
+  [
+   81.217,
    "ding"
   ]
  ]
