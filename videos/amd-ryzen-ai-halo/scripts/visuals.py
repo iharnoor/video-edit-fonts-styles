@@ -533,9 +533,9 @@ def render(t):
         big = 1 + 0.35 * smooth((t - T['massive']) / 0.8)
         # model flies into the PC on "run locally"
         u = smooth((t - T['locally'] + 0.6) / 0.6)
-        nx, ny = 540, lerp(980, 1300, u); nsc = big * lerp(1, 0.12, u)
-        pcs = pop(t, T['locally'] - 0.9, out)
-        place(f, C('box', real_box), 540, 1360, pcs * 0.95, wob(t, 9, 1))
+        nx, ny = 540, lerp(1075, 1440, u); nsc = big * lerp(1, 0.12, u)
+        pcs = pop(t, T['s2_out'] - 0.05, out)      # box stays on screen from the assembly beat
+        place(f, C('box', real_box), 540, 1480, pcs * 0.8, wob(t, 9, 1))
         if u < 0.98:
             place(f, neural_net(t), nx, ny, sn * nsc, wob(t, 8, 1.2) * (1 - u))
         place(f, C('stamp_local', lambda: pill('runs locally', GREEN, WHITE, 60, check=True)), 540, 1700, pop(t, T['local_stamp'], out), -4 + wob(t, 10, 1))
