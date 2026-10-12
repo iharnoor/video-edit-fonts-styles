@@ -10,3 +10,4 @@ audio/intro-tense-tech/*.wav
 node_modules/
 
 videos/*/edit/*.wav
+__pycache__/
