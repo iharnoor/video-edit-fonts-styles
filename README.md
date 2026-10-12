@@ -2,6 +2,52 @@
 
 My favorite fonts and pairings for video editing.
 
+## Main style: warm & witty
+
+This is my signature style and the default for every video. It's visual, not text-heavy. I'm the builder who actually tries things.
+
+- **Stickers over the footage**, in the top band clear of my face, each landing on its payoff word:
+  - sticky notes in handwriting
+  - tomato number badges ("+$1,000 / change fees")
+  - chat bubbles
+  - pills
+  - an "it works!" verdict stamp
+  - a CTA pill
+- **Captions:** 1–3 lowercase words in white Poppins ExtraBold with a dark outline. The key word sits in a tilted sky-blue `#7CC6FF` pill.
+- **Palette:** sticky yellow `#FFE066`, tomato `#FF5D4A`, sky `#7CC6FF`, money green `#2EC46E`, white die-cut borders. No more than two accents per shot.
+- **Full-screen paper board** whenever I'm reading off-camera. **Generic UI visuals** (e.g. a flight-search map) go full screen, then split screen with my face in the bottom half.
+- **Pacing:** pauses over 0.3s are trimmed to about 0.15s, and every word is kept.
+- **Sound:** sparse SFX (pop, bloop, whoosh, ding, cash). A music bed that's beat-aligned to the sticker hits, about −24 dB under my voice, with a −14 LUFS final mix.
+- **Grade:** a light corrective LUT that cools the warm indoor cast.
+- **Deliverables:** an FCPXML (cuts, stickers, captions, music and SFX on separate lanes), a `.cube` LUT, an `.srt` and a preview MP4.
+
+Full spec for agents: [.claude/skills/warm-witty-style/SKILL.md](.claude/skills/warm-witty-style/SKILL.md). The reference build is a sponsored reel with its full toolkit: [videos/travelopod/](videos/travelopod/).
+
+## Reel music folder
+
+For future video edits, check `/Users/harnoor/Music/Reel Music/` for background music and choose a track that fits the script's mood. This is the user's preferred local music library.
+
+See [the reel music catalog](reels%20music/README.md) for track candidates and mood labels. Check the actual files in the music folder before selecting a track; the catalog alone does not confirm an audio file is available.
+
+## Sound effect vocabulary
+
+Reference: [@kienobifilms' ten sound effects reel](https://www.instagram.com/reel/Dc_LiRWx0Yl/). Names transcribed from the on-screen labels on October 11, 2026. The uses below are our editing suggestions, rather than claims from the reel. These are vocabulary references; exact audio files have not been downloaded or identified.
+
+| Sound effect | Suggested use in our edits |
+| --- | --- |
+| **Counting** | Number counters, countdowns, rising stats, or sequential list items; align ticks with each increment. |
+| **Glitch** | A brief digital interruption, error, abrupt switch, or distorted text reveal. |
+| **Cinematic Whoosh** | A large camera move, fast transition, or sweeping card entrance. |
+| **Metallic Riser** | Build tension before a reveal, key claim, or beat drop; end the rise at the reveal. |
+| **Low Hit** | A bass impact on a major title, reveal, or decisive cut. |
+| **Camera Flash** | A flash transition, photo reveal, or snapshot moment. |
+| **Camera Flash & Shutter Combined** | A photo capture beat combining a flash treatment with a shutter cue. |
+| **Page Flip** | Turning a page, swapping documents, or revealing a new chapter or receipt. |
+| **Shine** | A sparkle, polished detail, highlighted feature, or small success reveal. |
+| **Pop** | A small label, icon, bullet, sticker, or card appearing. |
+
+For future edits, use these names when discussing or searching for sounds. Match the sound's peak to the visual event and keep effects low enough for speech to stay clear. Choose effects for specific moments rather than placing one on every cut. Check existing local SFX assets before sourcing more.
+
 ## Favorites from @surosa.r
 
 Source: [Instagram reel Dav1dTzsVTN](https://www.instagram.com/reels/Dav1dTzsVTN/).

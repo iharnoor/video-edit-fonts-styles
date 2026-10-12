@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+<fcpxml version="1.11">
+  <resources>
+    <format id="r1" frameDuration="1/30s" width="1080" height="1920" colorSpace="1-1-1 (Rec. 709)"/>
+    <asset id="r2" name="IMG_0701" start="0s" duration="6174240/48000s" hasVideo="1" format="r1" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/IMG_0701.MOV"/>
+    </asset>
+    <asset id="r3" name="IMG_0703" start="0s" duration="14387440/48000s" hasVideo="1" format="r1" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/IMG_0703.MOV"/>
+    </asset>
+    <asset id="r4" name="s00_flightmap" start="0s" duration="134400/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s00_flightmap.mov"/>
+    </asset>
+    <asset id="r5" name="s02_price" start="0s" duration="180800/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s02_price.mov"/>
+    </asset>
+    <asset id="r6" name="s03_layover" start="0s" duration="342400/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s03_layover.mov"/>
+    </asset>
+    <asset id="r7" name="s04_flex" start="0s" duration="433600/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s04_flex.mov"/>
+    </asset>
+    <asset id="r8" name="s05_fees" start="0s" duration="272000/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s05_fees.mov"/>
+    </asset>
+    <asset id="r9" name="s06_chatbot" start="0s" duration="276800/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s06_chatbot.mov"/>
+    </asset>
+    <asset id="r10" name="s07_board" start="0s" duration="417600/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s07_board.mov"/>
+    </asset>
+    <asset id="r11" name="s09_human" start="0s" duration="148800/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s09_human.mov"/>
+    </asset>
+    <asset id="r12" name="s10_parents" start="0s" duration="177600/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s10_parents.mov"/>
+    </asset>
+    <asset id="r13" name="s11_question" start="0s" duration="89600/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s11_question.mov"/>
+    </asset>
+    <asset id="r14" name="s12_cta" start="0s" duration="212800/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/stickers/s12_cta.mov"/>
+    </asset>
+    <asset id="r15" name="captions (warm &amp; witty)" start="0s" duration="4028800/48000s" hasVideo="1" format="r1">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/animations/captions.mov"/>
+    </asset>
+    <asset id="r16" name="Long Distance Travel - Radio Night" start="0s" duration="5867077/48000s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Music/Music%20and%20Additional%20Footage/ES_Long%20Distance%20Travel%20-%20Radio%20Night.mp3"/>
+    </asset>
+    <asset id="r17" name="sfx whoosh" start="0s" duration="26400/48000s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/sfx/whoosh.wav"/>
+    </asset>
+    <asset id="r18" name="sfx pop" start="0s" duration="5760/48000s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/sfx/pop.wav"/>
+    </asset>
+    <asset id="r19" name="sfx cash" start="0s" duration="57600/48000s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/sfx/cash.wav"/>
+    </asset>
+    <asset id="r20" name="sfx bloop" start="0s" duration="8640/48000s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/sfx/bloop.wav"/>
+    </asset>
+    <asset id="r21" name="sfx ding" start="0s" duration="43200/48000s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/edit/sfx/ding.wav"/>
+    </asset>
+  </resources>
+  <library>
+    <event name="Travelopod">
+      <project name="Travelopod - full edit (warm and witty)">
+        <sequence format="r1" duration="2518/30s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+          <spine>
+          <asset-clip ref="r2" name="IMG_0701 seg01" offset="0s" start="549/30s" duration="127/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r4" lane="1" name="s00_flightmap" offset="577/30s" start="0s" duration="84/30s"/>
+            <video ref="r15" lane="2" name="captions" offset="549/30s" start="0s" duration="2518/30s"/>
+            <asset-clip ref="r16" lane="-1" name="music bed" offset="549/30s" start="142/30s" duration="2518/30s" audioRole="music"><adjust-volume amount="-24dB"/></asset-clip>
+            <asset-clip ref="r17" lane="-2" name="sfx whoosh" offset="577/30s" start="0s" duration="16/30s" audioRole="effects"><adjust-volume amount="-12dB"/></asset-clip>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="610/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r2" name="IMG_0701 seg02" offset="127/30s" start="1315/30s" duration="236/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r5" lane="1" name="s02_price" offset="1323/30s" start="0s" duration="113/30s"/>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="1354/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg03" offset="363/30s" start="255/30s" duration="210/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r6" lane="1" name="s03_layover" offset="256/30s" start="0s" duration="214/30s"/>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="256/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg04" offset="573/30s" start="470/30s" duration="9/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg05" offset="582/30s" start="2004/30s" duration="199/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r7" lane="1" name="s04_flex" offset="2070/30s" start="0s" duration="271/30s"/>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="2071/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg06" offset="781/30s" start="2208/30s" duration="131/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg07" offset="912/30s" start="2345/30s" duration="39/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg08" offset="951/30s" start="2397/30s" duration="85/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r8" lane="1" name="s05_fees" offset="2448/30s" start="0s" duration="170/30s"/>
+            <asset-clip ref="r19" lane="-2" name="sfx cash" offset="2449/30s" start="0s" duration="36/30s" audioRole="effects"><adjust-volume amount="-12dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg09" offset="1036/30s" start="2489/30s" duration="123/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg10" offset="1159/30s" start="2621/30s" duration="14/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg11" offset="1173/30s" start="2992/30s" duration="227/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r9" lane="1" name="s06_chatbot" offset="3086/30s" start="0s" duration="173/30s"/>
+            <asset-clip ref="r20" lane="-2" name="sfx bloop" offset="3195/30s" start="0s" duration="5/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg12" offset="1400/30s" start="3226/30s" duration="40/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg13" offset="1440/30s" start="5583/30s" duration="53/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r10" lane="1" name="s07_board" offset="5608/30s" start="0s" duration="261/30s"/>
+            <asset-clip ref="r17" lane="-2" name="sfx whoosh" offset="5608/30s" start="0s" duration="16/30s" audioRole="effects"><adjust-volume amount="-12dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg14" offset="1493/30s" start="5641/30s" duration="29/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg15" offset="1522/30s" start="5677/30s" duration="78/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <asset-clip ref="r21" lane="-2" name="sfx ding" offset="5746/30s" start="0s" duration="27/30s" audioRole="effects"><adjust-volume amount="-12dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg16" offset="1600/30s" start="5760/30s" duration="15/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg17" offset="1615/30s" start="5924/30s" duration="253/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r11" lane="1" name="s09_human" offset="6126/30s" start="0s" duration="93/30s"/>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="5928/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+            <asset-clip ref="r19" lane="-2" name="sfx cash" offset="6002/30s" start="0s" duration="36/30s" audioRole="effects"><adjust-volume amount="-12dB"/></asset-clip>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="6126/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg18" offset="1868/30s" start="6453/30s" duration="128/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg19" offset="1996/30s" start="7223/30s" duration="286/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r12" lane="1" name="s10_parents" offset="7276/30s" start="0s" duration="111/30s"/>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="7276/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg20" offset="2282/30s" start="7514/30s" duration="29/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          <asset-clip ref="r3" name="IMG_0703 seg21" offset="2311/30s" start="7551/30s" duration="72/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r13" lane="1" name="s11_question" offset="7566/30s" start="0s" duration="56/30s"/>
+            <asset-clip ref="r18" lane="-2" name="sfx pop" offset="7566/30s" start="0s" duration="4/30s" audioRole="effects"><adjust-volume amount="-9dB"/></asset-clip>
+          </asset-clip>
+          <asset-clip ref="r3" name="IMG_0703 seg22" offset="2383/30s" start="8821/30s" duration="135/30s" format="r1" tcFormat="NDF" audioRole="dialogue">
+            <video ref="r14" lane="1" name="s12_cta" offset="8823/30s" start="0s" duration="133/30s"/>
+            <asset-clip ref="r21" lane="-2" name="sfx ding" offset="8824/30s" start="0s" duration="27/30s" audioRole="effects"><adjust-volume amount="-12dB"/></asset-clip>
+          </asset-clip>
+          </spine>
+        </sequence>
+      </project>
+    </event>
+  </library>
+</fcpxml>

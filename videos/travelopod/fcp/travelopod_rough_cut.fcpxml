@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+<fcpxml version="1.11">
+  <resources>
+    <format id="r1" frameDuration="1/30s" width="1080" height="1920" colorSpace="1-1-1 (Rec. 709)"/>
+    <asset id="r2" name="IMG_0701" uid="IMG_0701" start="0s" duration="77178/600s" hasVideo="1" format="r1" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/IMG_0701.MOV"/>
+    </asset>
+    <asset id="r3" name="IMG_0703" uid="IMG_0703" start="0s" duration="179843/600s" hasVideo="1" format="r1" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+      <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/travelopod/IMG_0703.MOV"/>
+    </asset>
+  </resources>
+  <library>
+    <event name="Travelopod">
+      <project name="Travelopod - tightened cuts">
+        <sequence format="r1" duration="2518/30s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+          <spine>
+        <asset-clip ref="r2" name="IMG_0701 seg01" offset="0s" start="549/30s" duration="127/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r2" name="IMG_0701 seg02" offset="127/30s" start="1315/30s" duration="236/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg03" offset="363/30s" start="255/30s" duration="210/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg04" offset="573/30s" start="470/30s" duration="9/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg05" offset="582/30s" start="2004/30s" duration="199/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg06" offset="781/30s" start="2208/30s" duration="131/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg07" offset="912/30s" start="2345/30s" duration="39/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg08" offset="951/30s" start="2397/30s" duration="85/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg09" offset="1036/30s" start="2489/30s" duration="123/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg10" offset="1159/30s" start="2621/30s" duration="14/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg11" offset="1173/30s" start="2992/30s" duration="227/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg12" offset="1400/30s" start="3226/30s" duration="40/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg13" offset="1440/30s" start="5583/30s" duration="53/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg14" offset="1493/30s" start="5641/30s" duration="29/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg15" offset="1522/30s" start="5677/30s" duration="78/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg16" offset="1600/30s" start="5760/30s" duration="15/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg17" offset="1615/30s" start="5924/30s" duration="253/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg18" offset="1868/30s" start="6453/30s" duration="128/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg19" offset="1996/30s" start="7223/30s" duration="286/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg20" offset="2282/30s" start="7514/30s" duration="29/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg21" offset="2311/30s" start="7551/30s" duration="72/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+        <asset-clip ref="r3" name="IMG_0703 seg22" offset="2383/30s" start="8821/30s" duration="135/30s" format="r1" tcFormat="NDF" audioRole="dialogue"/>
+          </spine>
+        </sequence>
+      </project>
+    </event>
+  </library>
+</fcpxml>

@@ -226,5 +226,23 @@
       "terminal": "#1C1C1E",
       "sfx": "videos/rea-code-not-the-moat/scripts/sfx.mjs"
     }
-  ]
+  ],
+  "mainStyle": {
+    "name": "warm & witty",
+    "default": true,
+    "spec": ".claude/skills/warm-witty-style/SKILL.md",
+    "reference": "videos/travelopod/",
+    "palette": {
+      "stickyYellow": "#FFE066",
+      "tomato": "#FF5D4A",
+      "sky": "#7CC6FF",
+      "moneyGreen": "#2EC46E",
+      "ink": "#221E1C"
+    },
+    "type": {
+      "captions": "Poppins ExtraBold, lowercase, key word in sky pill",
+      "handwritten": "Caveat (Noteworthy Bold on macOS fallback)"
+    },
+    "addedOn": "2026-10-11"
+  }
 }
