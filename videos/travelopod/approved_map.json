@@ -1,0 +1,72 @@
+[
+ {
+  "source": "IMG_0701",
+  "start": 18.3,
+  "end": 22.52,
+  "approved_start": 0.0,
+  "approved_end": 4.22
+ },
+ {
+  "source": "IMG_0701",
+  "start": 43.786,
+  "end": 51.706,
+  "approved_start": 4.22,
+  "approved_end": 12.14
+ },
+ {
+  "source": "IMG_0703",
+  "start": 8.273,
+  "end": 15.953,
+  "approved_start": 12.14,
+  "approved_end": 19.82
+ },
+ {
+  "source": "IMG_0703",
+  "start": 66.787,
+  "end": 87.847,
+  "approved_start": 19.82,
+  "approved_end": 40.88
+ },
+ {
+  "source": "IMG_0703",
+  "start": 99.447,
+  "end": 108.997,
+  "approved_start": 40.88,
+  "approved_end": 50.43
+ },
+ {
+  "source": "IMG_0703",
+  "start": 186.063,
+  "end": 192.513,
+  "approved_start": 50.43,
+  "approved_end": 56.88
+ },
+ {
+  "source": "IMG_0703",
+  "start": 197.247,
+  "end": 205.907,
+  "approved_start": 56.88,
+  "approved_end": 65.54
+ },
+ {
+  "source": "IMG_0703",
+  "start": 214.84,
+  "end": 219.37,
+  "approved_start": 65.54,
+  "approved_end": 70.07
+ },
+ {
+  "source": "IMG_0703",
+  "start": 240.703,
+  "end": 254.093,
+  "approved_start": 70.07,
+  "approved_end": 83.46
+ },
+ {
+  "source": "IMG_0703",
+  "start": 294.027,
+  "end": 298.537,
+  "approved_start": 83.46,
+  "approved_end": 87.97
+ }
+]

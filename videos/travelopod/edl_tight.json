@@ -1,0 +1,143 @@
+{
+ "version": 1,
+ "sources": {
+  "IMG_0701": "/Users/harnoor/Downloads/travelopod/IMG_0701.MOV",
+  "IMG_0703": "/Users/harnoor/Downloads/travelopod/IMG_0703.MOV"
+ },
+ "ranges": [
+  {
+   "source": "IMG_0701",
+   "start": 18.3,
+   "end": 22.533333333333335,
+   "beat": "p01"
+  },
+  {
+   "source": "IMG_0701",
+   "start": 43.833333333333336,
+   "end": 51.7,
+   "beat": "p02"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 8.5,
+   "end": 15.5,
+   "beat": "p03"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 15.666666666666666,
+   "end": 15.966666666666667,
+   "beat": "p04"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 66.8,
+   "end": 73.43333333333334,
+   "beat": "p05"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 73.6,
+   "end": 77.96666666666667,
+   "beat": "p06"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 78.16666666666667,
+   "end": 79.46666666666667,
+   "beat": "p07"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 79.9,
+   "end": 82.73333333333333,
+   "beat": "p08"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 82.96666666666667,
+   "end": 87.06666666666666,
+   "beat": "p09"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 87.36666666666666,
+   "end": 87.83333333333333,
+   "beat": "p10"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 99.73333333333333,
+   "end": 107.3,
+   "beat": "p11"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 107.53333333333333,
+   "end": 108.86666666666666,
+   "beat": "p12"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 186.1,
+   "end": 187.86666666666667,
+   "beat": "p13"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 188.03333333333333,
+   "end": 189.0,
+   "beat": "p14"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 189.23333333333332,
+   "end": 191.83333333333334,
+   "beat": "p15"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 192.0,
+   "end": 192.5,
+   "beat": "p16"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 197.46666666666667,
+   "end": 205.9,
+   "beat": "p17"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 215.1,
+   "end": 219.36666666666667,
+   "beat": "p18"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 240.76666666666668,
+   "end": 250.3,
+   "beat": "p19"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 250.46666666666667,
+   "end": 251.43333333333334,
+   "beat": "p20"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 251.7,
+   "end": 254.1,
+   "beat": "p21"
+  },
+  {
+   "source": "IMG_0703",
+   "start": 294.03333333333336,
+   "end": 298.53333333333336,
+   "beat": "p22"
+  }
+ ],
+ "grade": "lut3d=/Users/harnoor/Downloads/travelopod/edit/grade/travelopod_warm_witty.cube",
+ "overlays": []
+}
