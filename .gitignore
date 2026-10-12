@@ -10,3 +10,6 @@ videos/*/assets/sfx/sfx-stem.wav
 audio/intro-tense-tech/*.wav
 node_modules/
 __pycache__/
+videos/*/source/*.m4a
+videos/*/source/*.wav
+videos/*/source/amd/
