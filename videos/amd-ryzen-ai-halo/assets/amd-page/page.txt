@@ -1,0 +1,291 @@
+Skip to main content
+AMD Website Accessibility Statement
+  Products  Ryzen AI Halo
+Build the AI You Want with AMD Ryzen™ AI Halo. Your Stack. Your Rules.
+
+The one-stop solution for local AI development and inference. Spend time building, not configuring.
+
+Developer Playbooks 
+View at Micro Center 
+ON THIS PAGE
+Go From Idea to Workflow in Minutes 
+
+Start building faster with AMD Ryzen™ AI Halo, from power-on to tokens in minutes, with pre-configured software, regular updates, OS flexibility, and expert support.
+
+With AMD Ryzen™ AI Max+ PRO 495
+With AMD Ryzen™ AI Max+ 395
+Up to 55 TOPS
+NPU Performance1
+61 FP16 TFLOPS
+GPU Performance
+16 core / 32 thread
+powered by AMD Zen 5 Architecture
+192GB
+LPDDR5x Unified Memory
+Up to 300B
+Parameter Models
+x86 Architecture
+Mature Ecosystem, No Emulation
+
+Available Soon
+
+The Ultimate AI Developer Platform
+
+AMD ROCm™ software powers class-leading Generative AI performance and Day 0 support.
+
+AMD Ryzen™ AI Halo vs. Intel Core Ultra X9 388H and Apple M5 Pro2,3
+Z Image Turbo INT8
+Up to 2.2x faster
+Krea 2 Turbo INT8
+Up to 2.3x
+Ideogram V4 INT8
+Up to 1.9x faster
+Flux 2 Klien 9b
+Up to 1.3x Faster
+X 4
+FastVideo H3
+Up to 2.1x faster
+X
+LTX 2.5
+Up to 3.1x faster
+Ace Step XL 1.5 Turbo
+Up to 10.8x faster
+Stable Music 3
+Up to 3.4x faster
+Microsoft Trellis 2
+Up to 1.3x Faster
+X
+
+X = Did Not Run
+
+AMD Ryzen™ AI Max+ PRO 495 processor
+
+Intel Core Ultra X9 388H
+
+Apple M5 Pro
+
+Build, Run, and Deploy Your Way
+Real Workflows, Ready to Run
+
+Instant productivity with streamlined onboarding experience, clear guides and ready-to-run apps for image generation, coding assistants, automations, LLMs and more. 
+
+Run Bigger AI Locally
+
+Experiment, prototype, and deploy faster – without constraints of cloud costs. With both Linux and Windows support, developers can power their entire journey from experiment to production.
+
+Build AI at Any Stage
+
+From first run to fine-tuning, AMD Ryzen AI Halo supports AI for everyone. Explore hands-on training from beginner to advanced AI workflows and receive prioritized AMD support in GitHub and the AMD AI Developer Program.
+
+AI That Works For You
+
+Unlock real‑time reasoning, persistent memory, and seamless automation across apps and browsers. No token tax.
+
+Explore Agent Computers for Consumer
+ 
+Explore Agent Computers for Enterprise
+Pay Once For Cloud Grade Intelligence4
+
+Run sustained AI inference locally with a one-time hardware investment and low estimated monthly electricity cost.
+
+Up to
+6x
+lower 3-year cost
+
+vs. equivalent cloud API usage in a modeled sustained-use scenario.
+
+Discover how much you could save running AI workloads locally on AMD Client devices.
+
+Use the Tokenomics Calculator 
+Enhance the Developer Experience with Software from AMD
+
+AMD Ryzen AI Halo is built for open frameworks and comes pre-installed with the AMD Ryzen AI Halo Developer Center app, a central hub for developers to easily access playbooks, tools and updates. 
+
+Getting started has never been easier. Take advantage of AMD AI Playbooks, guided learning path for developers, including quick and easy setups.
+
+Coming soon, AMD Sync is a powerful desktop application that lets you seamlessly monitor and manage your AMD Ryzen AI Halo from another device. Access and launch development tools and effortlessly sync files between your machines. 
+
+Discover curated AMD resources, stay aligned with validated software configurations for optimal performance, and seamlessly access and manage pre-installed tools, all from the AMD Ryzen AI Developer Center.
+
+Build What’s Next. Create Without Limits. Play Your Way.
+
+AMD Ryzen™ AI Halo brings powerful performance to a broad ecosystem of x86 apps, software partners, AI models, frameworks, and games. Explore local AI with familiar models and frameworks, bring complex 3D designs to life with creative apps, and tackle demanding video edits with professional tools. From generative AI and creative workflows to immersive gaming, turn your imagination into reality on one compact platform.
+
+Specifications
+
+Name
+
+	
+
+Graphics Model
+
+	
+
+# of CPU Cores
+
+	
+
+# of Threads
+
+	
+
+Max. Boost Clock
+
+	
+
+CPU Base Clock
+
+	
+
+NPU TOPS
+
+	
+
+Graphics Core Count
+
+	
+
+Default TDP
+
+	FP16 AI Compute
+
+
+AMD Ryzen™ AI Halo Developer Platform with Ryzen™ AI Max+ PRO 495 processor
+
+	
+
+AMD Radeon™ 8065S Integrated Graphics
+
+	
+
+16
+
+	
+
+32
+
+	
+
+Up to 5.2 GHz
+
+	
+
+3.1 GHz
+
+	
+
+Up to 55 TOPS
+
+	
+
+40
+
+	
+
+120W
+
+	Up to 61 TFLOPS
+
+
+AMD Ryzen™ AI Halo Developer Platform with Ryzen™ AI Max+ 395 processor
+
+	
+
+AMD Radeon™ 8060S Integrated Graphics
+
+	
+
+16
+
+	
+
+32
+
+	
+
+Up to 5.1 GHz
+
+	
+
+3 GHz
+
+	
+
+Up to 50 TOPS
+
+	
+
+40
+
+	
+
+120W
+
+	Up to 60 TFLOPS
+Resources
+Developer Resource
+
+Accelerate your AI development with curated playbooks and a connected developer community.
+
+Playbooks 
+Developer Community 
+User Manual 
+Legal and Regulatory Information
+Warranty 
+Legal Guide 
+Software
+
+Harness the full potential of the AMD Ryzen AI Halo developer platform for your AI workflows on both Linux® and Windows® with AMD ROCm.
+
+Learn More 
+
+This product is available for purchase and use in the United States. It has been designed and tested to comply with applicable U.S. regulatory requirements.
+
+Footnotes 
+Subscribe to the latest news from AMD
+Linkedin
+ 
+ 
+Instagram
+ 
+ 
+Facebook
+ 
+ 
+Subscriptions
+Company
+About AMD
+Management Team
+Corporate Responsibility
+Careers
+Contact Us
+News & Events
+Newsroom
+Events
+Media Library
+Resources
+Developer Central
+Blogs
+Case Studies
+Webinars
+Explore Resources
+Partners
+AMD Partner Hub
+Authorized Distributors
+AMD University Program
+Investors
+Investor Relations
+Financial Information
+Board of Directors
+Governance Documents
+SEC Filings
+Terms and Conditions
+Privacy
+Trademarks
+Supply Chain Transparency
+Fair & Open Competition
+UK Tax Strategy
+Cookies Policy
+Cookie Settings
+© 2026 Advanced Micro Devices, Inc.
+Feedback

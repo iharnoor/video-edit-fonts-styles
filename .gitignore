@@ -11,3 +11,8 @@ node_modules/
 
 videos/*/edit/*.wav
 __pycache__/
+videos/amd-ryzen-ai-halo/assets/banner_frames/
+videos/amd-ryzen-ai-halo/assets/amd-page/*.png
+!videos/amd-ryzen-ai-halo/assets/amd-page/spec_crop.png
+videos/amd-ryzen-ai-halo/assets/amd-page/img/*.mp4
+videos/amd-ryzen-ai-halo/assets/amd-page/img/*.jpg

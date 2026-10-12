@@ -379,6 +379,56 @@ def board():
         _board = b
     return _board
 
+# ---------------- real AMD product assets (from amd.com Ryzen AI Halo page) ----------------
+AMD = os.path.join(PROJ, 'assets', 'amd-page')
+LAYER = lambda i: os.path.join(AMD, 'img', f'5487300-ryzen-ai-halo-{i}.png')   # 1 lid, 2 cooler, 3 board, 4 chassis, 5 base
+
+def _up(im, k):
+    """Upscale a small product render cleanly (Lanczos + light unsharp)."""
+    im = im.resize((int(im.width * k), int(im.height * k)), Image.LANCZOS)
+    rgb, a = im.convert('RGB').filter(ImageFilter.UnsharpMask(2, 60, 2)), im.split()[3]
+    rgb.putalpha(a); return rgb
+
+def layer_img(i, k=1.6, border=True):
+    """One exploded layer, cropped to the shared bbox so every layer keeps its registration."""
+    im = Image.open(LAYER(i)).convert('RGBA').crop((20, 90, 386, 306))
+    im = _up(im, k)
+    return finish(im, border=10) if border else im
+
+def real_box(k=1.75):
+    """The assembled Ryzen AI Halo (AMD's lid render covers the whole unit)."""
+    im = Image.open(LAYER(1)).convert('RGBA'); im = im.crop(im.getbbox())
+    return finish(_up(im, k), border=12)
+
+_bf = {}
+def banner_frame(vt):
+    """AMD's product-reveal video (crop around the box), frame at video time vt (0..16s), held at the ends."""
+    i = int(min(479, max(0, round(vt * 30)))) + 1
+    if i not in _bf:
+        im = Image.open(os.path.join(PROJ, 'assets', 'banner_frames', f'f{i:03d}.jpg')).convert('RGBA')
+        m = Image.new('L', im.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, im.width - 1, im.height - 1], radius=34, fill=255)
+        im.putalpha(m); _bf.clear(); _bf[i] = finish(im, border=12)
+    return _bf[i]
+
+_spec = None
+def spec_card(c128, c200):
+    """Crop of the amd.com spec tiles (Max+ 395 tab): 128GB / Up to 200B, with hand-drawn circles."""
+    global _spec
+    if _spec is None:
+        im = Image.open(os.path.join(AMD, 'spec_crop.png')).convert('RGBA')
+        m = Image.new('L', im.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, im.width - 1, im.height - 1], radius=40, fill=255)
+        im.putalpha(m); _spec = im
+    im = _spec.copy(); d = ImageDraw.Draw(im)
+    for u, cy in ((c128, 176), (c200, 462)):
+        if u <= 0: continue
+        n = int(60 * min(1, u)); P = []
+        for j in range(n + 1):
+            a = -1.9 + j / 60 * 2 * math.pi * 1.08
+            r = 1 + 0.03 * math.sin(j * 0.35)
+            P.append((540 + 300 * r * math.cos(a), cy + 112 * r * math.sin(a)))
+        if len(P) > 1: d.line(P, fill=TOMATO + (255,), width=12, joint='curve')
+    return finish(im, border=12)
+
 # ---------------- timeline ----------------
 _cache = {}
 def C(key, fn):
@@ -408,7 +458,7 @@ def wob(t, seed=0, amp=1.6):
 
 # Key-word times on the cut timeline (phrase-level ASR, words placed by phrase timing).
 T = dict(
-    pc_in=-0.2, intel=1.55, little=3.3, halo=5.05,
+    pc_in=-0.7, intel=1.55, little=3.3, halo=5.05,
     event=7.6, thanks=9.55, s1_out=11.6,
     mem=12.75, cpu=15.1, gpu=15.65, npu=16.55, pool=17.2, s2_out=19.0,
     b200=20.95, massive=23.4, locally=26.6, local_stamp=27.4, s3_out=28.25,
@@ -423,11 +473,10 @@ def render(t):
     # ===== Scene 1: hook =====
     if t < T['s1_out'] + 0.3:
         out = T['s1_out']
-        # mini PC hero: centre, then nudges down to make room
+        # AMD's own reveal clip: the box lights up around "super intelligence"
         s = pop(t, T['pc_in'], out)
         y = 1000 + 40 * smooth((t - T['event']) / 0.6)
-        glow = 0.4 + 0.6 * smooth((t - T['intel']) / 0.8)
-        place(f, C(('pc', round(glow, 2)), lambda: mini_pc(1.0, glow)), 540, y, s, wob(t, 1, 1.0))
+        place(f, banner_frame(0.6 + t), 540, y, s * 0.78, wob(t, 1, 0.6))
         # orb: "super intelligence"
         so = pop(t, T['intel'], T['halo'] - 0.1, 0.3)
         place(f, orb(t, 380, 'working'), 540, 470, so)
@@ -436,7 +485,7 @@ def render(t):
         place(f, C('st1', lambda: sticky(['on this', 'little thing?!'], 66, 420)), 820, 560, ss, 6 + wob(t, 2))
         # wordmark pill
         sp = pop(t, T['halo'], out)
-        place(f, C('halo', lambda: pill('Ryzen AI Halo', INK, WHITE, 74, 46, 26)), 540, 1440, sp, -3 + wob(t, 3, 1))
+        place(f, C('halo', lambda: pill('Ryzen AI Halo', INK, WHITE, 74, 46, 26)), 540, 1300, sp, -3 + wob(t, 3, 1))
         # event badge on a lanyard
         se = pop(t, T['event'], out)
         place(f, C('event', event_badge), 290, 520, se, -7 + wob(t, 4))
@@ -446,29 +495,36 @@ def render(t):
 
     # ===== Scene 2: 128GB unified memory, one pool =====
     if T['s1_out'] < t < T['s3_out'] + 0.3:
-        # badge persists into scene 3 and morphs 128GB -> 200B
-        sb = pop(t, T['mem'], T['s3_out'])
-        if t < T['b200']:
-            bimg = C('b128', lambda: badge('128GB', 'unified memory', 380))
-        else:
-            bimg = C('b200', lambda: badge('200B', 'parameters', 380))
-        morph = 1.0
-        if T['b200'] - 0.12 < t < T['b200'] + 0.5:
-            morph = 0.82 + 0.18 * spring(t - T['b200']) if t >= T['b200'] else 1 - 0.18 * smooth((t - T['b200'] + 0.12) / 0.12)
-        place(f, bimg, 540, 400, sb * morph, -4 + wob(t, 6))
+        # real amd.com spec tiles persist into scene 3; circle 128GB, then 200B
+        sb = pop(t, T['mem'] - 0.25, T['s3_out'])
+        c128 = smooth((t - T['mem']) / 0.45) * (1 - smooth((t - T['b200'] + 0.15) / 0.15))
+        c200 = smooth((t - T['b200']) / 0.45)
+        place(f, spec_card(c128, c200), 540, 420, sb * 0.88, -2)
     if T['s1_out'] < t < T['s2_out'] + 0.3:
         out = T['s2_out']
-        sp = pop(t, T['mem'] + 0.5, out)
-        lvl = smooth((t - T['pool'] - 0.25) / 1.3)
-        place(f, pool(0.08 + 0.8 * lvl, t), 540, 1380, sp)
+        # AMD's exploded layers fan out, then stack into one box on "one powerful pool"
+        u = smooth((t - T['pool']) / 0.7)
+        cy = 1300
+        order = [5, 4, 3, 2, 1]                     # draw bottom-up so upper layers overlap
+        for n, i in enumerate(order):
+            k = 5 - n                               # 1 = lid (top) ... 5 = base
+            sl = pop(t, T['mem'] + 0.35 + n * 0.12, out)
+            yexp = cy + (k - 3) * 150 * 1.0
+            y = lerp(yexp, cy + (k - 3) * 8, u)
+            al = 1.0 if i == 1 else 1 - smooth((t - T['pool'] - 0.5) / 0.25)
+            place(f, C(('layer', i), lambda i=i: layer_img(i, 1.45)), 430, y, sl, 0, al)
+        # chips point at the mainboard layer, then dive into it
         for i, (k, lab, col) in enumerate([('cpu', 'CPU', SKY), ('gpu', 'GPU', YELLOW), ('npu', 'NPU', GREEN)]):
-            sc = pop(t, T[k], out)
-            x0, y0 = 220 + i * 320, 880
-            u = smooth((t - T['pool'] - i * 0.12) / 0.7)
-            x = lerp(x0, 540 + (i - 1) * 190, u); y = lerp(y0, 1330, u)
-            sc *= lerp(1, 0.55, u)
-            al = 1 - smooth((t - T['pool'] - 0.55 - i * 0.12) / 0.3)
-            place(f, C(('chip', lab), lambda lab=lab, col=col: chip(lab, col)), x, y + 10 * math.sin(t * 3 + i), sc, wob(t, 7 + i, 3), al)
+            sc = pop(t, T[k], out) * 0.62
+            x0, y0 = 880, 1000 + i * 170
+            v = smooth((t - T['pool'] - i * 0.08) / 0.5)
+            x = lerp(x0, 470, v); y = lerp(y0, 1300, v)
+            al = 1 - smooth((t - T['pool'] - 0.35 - i * 0.08) / 0.2)
+            place(f, C(('chip', lab), lambda lab=lab, col=col: chip(lab, col)), x, y + 8 * math.sin(t * 3 + i), sc * lerp(1, 0.4, v), wob(t, 7 + i, 3), al)
+        # "one pool": sky glow pulse under the assembled box
+        if t > T['pool'] + 0.6:
+            g = smooth((t - T['pool'] - 0.6) / 0.4) * (1 - smooth((t - out) / 0.18))
+            place(f, C('onepool', lambda: pill('one pool', SKY, INK, 58)), 540, 1560, g, -3 + wob(t, 30, 1))
 
     # ===== Scene 3: 200B models run locally =====
     if T['s2_out'] < t < T['s3_out'] + 0.3:
@@ -479,7 +535,7 @@ def render(t):
         u = smooth((t - T['locally'] + 0.6) / 0.6)
         nx, ny = 540, lerp(980, 1300, u); nsc = big * lerp(1, 0.12, u)
         pcs = pop(t, T['locally'] - 0.9, out)
-        place(f, C(('pc', 1.0), lambda: mini_pc(1.0, 1.0)), 540, 1330, pcs * 0.85, wob(t, 9, 1))
+        place(f, C('box', real_box), 540, 1360, pcs * 0.95, wob(t, 9, 1))
         if u < 0.98:
             place(f, neural_net(t), nx, ny, sn * nsc, wob(t, 8, 1.2) * (1 - u))
         place(f, C('stamp_local', lambda: pill('runs locally', GREEN, WHITE, 60, check=True)), 540, 1700, pop(t, T['local_stamp'], out), -4 + wob(t, 10, 1))
@@ -490,8 +546,8 @@ def render(t):
         place(f, C('st_ws', lambda: sticky(['local AI', 'workshop'], 76, 440)), 540, 420, pop(t, T['workshop'], out), -5 + wob(t, 11))
         # "I saw..." beat: a workshop machine thinking, before the cards land
         sw = pop(t, T['workshop'] + 1.2, T['engineering'] - 0.1)
-        place(f, C(('pc', 1.0), lambda: mini_pc(1.0, 1.0)), 540, 1150, sw * 0.8, wob(t, 26, 1))
-        place(f, orb(t, 300, 'working'), 540, 800, pop(t, T['workshop'] + 1.6, T['engineering'] - 0.1))
+        place(f, C('box', real_box), 540, 1150, sw * 0.9, wob(t, 26, 1))
+        place(f, orb(t, 300, 'working'), 540, 860, pop(t, T['workshop'] + 1.6, T['engineering'] - 0.1))
         place(f, code_card(T['engineering'], t), 330, 860, pop(t, T['engineering'], out), -4 + wob(t, 12))
         place(f, chart_card(T['data'], t), 770, 940, pop(t, T['data'], out), 5 + wob(t, 13))
         # video generation lands centre-bottom; small orb "solving" while it generates
@@ -510,7 +566,7 @@ def render(t):
     if T['s4_out'] < t < T['s5_out'] + 0.3:
         out = T['s5_out']
         pc_s = pop(t, T['pc2'], out)
-        place(f, C(('pc', 1.0), lambda: mini_pc(1.0, 1.0)), 540, 1150, pc_s * 0.9, wob(t, 15, 1))
+        place(f, C('box', real_box), 540, 1150, pc_s, wob(t, 15, 1))
         # dashed "stays here" ring around the PC
         if t > T['leave']:
             u = smooth((t - T['leave']) / 0.6) * (1 - smooth((t - out) / 0.18))
@@ -536,14 +592,14 @@ def render(t):
 
     # ===== Scene 6: CTA =====
     if t > T['s5_out']:
-        place(f, C(('pc', 1.0), lambda: mini_pc(1.0, 1.0)), 540, 820, pop(t, T['cta_pc']), wob(t, 23, 1))
-        place(f, C('halo2', lambda: pill('Ryzen AI Halo', INK, WHITE, 74, 46, 26)), 540, 1230, pop(t, T['cta_name']), -3 + wob(t, 24, 1))
-        place(f, C('bio', lambda: pill('link in bio', TOMATO, WHITE, 66)), 540, 1440, pop(t, T['bio']), 3 + wob(t, 25, 1))
+        place(f, banner_frame(9.0 + (t - T['cta_pc']) * 0.6), 540, 860, pop(t, T['cta_pc']) * 0.78, wob(t, 23, 0.6))
+        place(f, C('halo2', lambda: pill('Ryzen AI Halo', INK, WHITE, 74, 46, 26)), 540, 1170, pop(t, T['cta_name']), -3 + wob(t, 24, 1))
+        place(f, C('bio', lambda: pill('link in bio', TOMATO, WHITE, 66)), 540, 1380, pop(t, T['bio']), 3 + wob(t, 25, 1))
         if t > T['bio'] + 0.2:
             u = smooth((t - T['bio'] - 0.2) / 0.35)
             a, (ox, oy) = C('arr6', lambda: arrow(((0, 0), (120, 80), (40, 220))))
             a2 = a.crop((0, 0, a.width, max(1, int(a.height * u))))
-            place(f, a2, 800 + ox + a.width / 2, 1500 + oy + a2.height / 2)
+            place(f, a2, 800 + ox + a.width / 2, 1440 + oy + a2.height / 2)
 
     # gentle fade-in from paper on frame 0, fade to paper at the end
     return f.convert('RGB')

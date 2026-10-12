@@ -25,3 +25,18 @@
 - **Music:** none, because the ES library isn't on the machine.
 
 **Outstanding:** Harnoor's review; add an ES track; confirm the 128GB and 200B claims; DTD-validate the FCPXML on the Mac.
+
+## Session 1b — 2026-10-12 (real AMD assets)
+
+**Change:** Harnoor allowed www.amd.com and asked for the real Ryzen AI Halo box instead of the illustration.
+- **Fetched** (`scripts/fetch_amd_assets.sh`, browser UA required):
+  - AMD's transparent product renders: lid plus four exploded layers, 406 px wide, upscaled 1.45–1.75× with Lanczos and an unsharp mask
+  - the 16 s product-reveal video (2560×400), cropped to the box
+  - a full-page mobile screenshot with the Max+ 395 tab selected → `spec_crop.png`
+- **Replaced** the illustrated mini PC everywhere:
+  - hook: reveal clip, with the box lighting up at about 2.4 s
+  - memory: exploded layers fan out and stack into one box on "one powerful pool" (the pool bowl is gone)
+  - 128GB / 200B: the amd.com tiles get hand-drawn circles, replacing the tomato badges
+  - scenes 3–5: real box render
+  - CTA: lit reveal clip
+- **Verified specs:** Max+ 395 = 128GB and up to 200B, matching the VO. PRO 495 = 192GB and up to 300B.
