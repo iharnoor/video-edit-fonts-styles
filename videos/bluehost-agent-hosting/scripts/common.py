@@ -17,6 +17,12 @@ YELLOW, TOMATO, SKY, GREEN, INK, WHITE = (255, 224, 102), (255, 93, 74), (124, 1
 BROWN, GRAY = (90, 61, 0), (236, 236, 240)
 BRAND = (31, 91, 214)        # Bluehost blue, wordmark only
 
+# Green-screen delivery: stickers sit on #00FF00, so no soft shadows (they'd key as a dirty halo)
+# and no green ink. Success marks use dark ink instead of money green.
+GREEN_SCREEN = True
+KEY = (0, 255, 0)
+SUCCESS = INK if GREEN_SCREEN else GREEN
+
 CUES = json.load(open(os.path.join(ROOT, 'captions', 'cues.json')))
 DURATION = CUES[-1]['stop']
 

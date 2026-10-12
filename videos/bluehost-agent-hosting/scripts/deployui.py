@@ -41,7 +41,6 @@ def card(t):
     img = Image.new('RGBA', (CW, CH), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     d.text((60, 56), 'AI agent hosting', font=font(POP_XB, 64), fill=INK)
-    d.text((62, 146), 'your always-on server', font=font(POP_B, 36), fill=(130, 126, 120))
     # deploy button: presses down 4px on the word
     press = 4 if T_DEPLOY <= t < T_DEPLOY + 0.15 else 0
     bx, by = 60, 230 + press
@@ -65,8 +64,8 @@ def card(t):
             fr = orb_frames('working', 0.6, 160)[min(159, round((t - t_row) * FPS))]
             img.alpha_composite(paint_orb(fr, 110), (CW - 60 - 140, y + dy + 20))
         else:
-            d.ellipse([CW - 330, y + dy + 61, CW - 302, y + dy + 89], fill=GREEN + (255,))
-            d.text((CW - 286, y + dy + 46), 'running', font=font(POP_B, 44), fill=(30, 140, 80))
+            d.ellipse([CW - 330, y + dy + 61, CW - 302, y + dy + 89], fill=SUCCESS + (255,))
+            d.text((CW - 286, y + dy + 46), 'running', font=font(POP_B, 44), fill=SUCCESS)
         y += 180
     if t >= T_ON:
         u = min(1, spring(t - T_ON))
@@ -74,7 +73,7 @@ def card(t):
         pw, ph = tw + 130, th + 50
         pill = Image.new('RGBA', (pw, ph), (0, 0, 0, 0))
         pd = ImageDraw.Draw(pill)
-        pd.rounded_rectangle([0, 0, pw - 1, ph - 1], radius=ph // 2, fill=GREEN + (255,))
+        pd.rounded_rectangle([0, 0, pw - 1, ph - 1], radius=ph // 2, fill=SUCCESS + (255,))
         pd.ellipse([34, ph / 2 - 14, 62, ph / 2 + 14], fill=WHITE)
         pd.text((86 - b[0], 25 - b[1]), 'always-on VPS', font=f, fill=WHITE)
         s = max(0.01, u)

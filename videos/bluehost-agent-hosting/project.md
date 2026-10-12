@@ -34,3 +34,15 @@
 - **FCPXML:** generated against cloud paths. Re-run `build_all.py --source <clip>` on the Mac, then validate it against FCP's 1.11 DTD.
 - **LUT:** re-measure on the real footage.
 - **CTA keyword:** confirm "BLUEHOST".
+
+## Session 1b: 2026-10-12 (green screen, less wordy)
+
+**Harnoor's ask:** "visuals on green screen", "less wordy more visual".
+
+**Changes:**
+
+- **Icons instead of text:** most text stickers are now drawn icon tiles (`scripts/icons.py`). I dropped the asides that were sentences and kept only names, the "why bluehost?" sticky, the chat card (shortened) and the CTA.
+- **Green-screen render:** `scripts/greenscreen.py` writes two graphics MP4s on `#00FF00`, one with burned captions and one without.
+- **Key-safe stickers:** `GREEN_SCREEN` turns off soft shadows and replaces money green with ink so nothing keys out.
+- **Key check:** a test key over the face still is clean. Despill or FCP spill suppression shifts the yellow tiles orange, so set Spill Level to 0.
+- **Timing fixes:** s03 and s04 now land earlier ("comes" / "trying"), so they stay up long enough to read.

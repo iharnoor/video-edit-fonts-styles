@@ -22,7 +22,7 @@ def hand(size):
 
 # ---------- primitives (each returns an RGBA image, die-cut white border + soft shadow) ----------
 
-def finish(img, border=10, shadow=True):
+def finish(img, border=10, shadow=not GREEN_SCREEN):
     """Add a white die-cut border and a soft drop shadow around the alpha shape."""
     pad = border + 24
     canvas = Image.new('RGBA', (img.width + 2 * pad, img.height + 2 * pad), (0, 0, 0, 0))
@@ -133,7 +133,7 @@ def wordmark(s='Bluehost', size=84, color=BRAND):
     return finish(img)
 
 
-def check_stamp(text='it works!', color=GREEN, mark='check'):
+def check_stamp(text='it works!', color=SUCCESS, mark='check'):
     """Verdict stamp. mark='check' (it works!) or 'cross' (nope)."""
     f = font(POP_XB, 54)
     tmp = ImageDraw.Draw(Image.new('RGBA', (1, 1)))
@@ -291,10 +291,13 @@ def render(sid, spec):
 # Stickers live in the top band (y 80-560); the face sits at about y 470-1040 in the sample frame.
 
 def specs():
+    from icons import icon_tile
+    I = icon_tile
+    gear = lambda t0, **kw: (lambda t: I('gear', spin=(t - t0) * 120, **kw))       # spinning gear
     t_race, t_247, t_hold = at('ai race'), at('24/7'), at('hold')
-    t_prob = at('problem')
-    t_work = at('work', 12)
-    t_ar, t_kar, t_res = at('autoresearch'), at('karpathy'), at('researching', 16)
+    t_prob = at('comes', 8)
+    t_work = at('trying', 10)
+    t_ar, t_res = at('autoresearch'), at('researching', 16)
     t_sleep, t_night = at('sleeping'), at('overnight')
     t_fl, t_br = at('flights'), at('browsing')
     t_he, t_oc, t_vps = at('hermes'), at('openclaw'), at('virtual')
@@ -304,68 +307,77 @@ def specs():
     t_bh, t_solve = at('bluehost', 44), at('solve')
     t_man, t_why, t_yrs, t_bld = at('manually'), at('why'), at('years'), at('build it')
     t_pers, t_data, t_mem = at('persistent'), at('data', 66), at('memory')
-    t_n8n, t_he2, t_oc2, t_worry, t_bob = at('n8n'), at('hermes', 70), at('openclaw', 70), at('worry', 74), at('build on')
+    t_n8n, t_he2, t_oc2, t_bob = at('n8n'), at('hermes', 70), at('openclaw', 70), at('build on')
     t_cta, t_link = at('comment'), at('link', 77)
+    agent = lambda name, bg=SKY: I('robot', bg=bg, label=name)
     return {
-        's01_race': {'elements': [E(pill('the AI race', size=60), 540, 250, t_race, 3.20, rot=-3)],
+        # robots racing to the flag
+        's01_race': {'elements': [E(I('robot', bg=SKY), 330, 300, t_race, 3.20, rot=-6),
+                                  E(I('flag', bg=YELLOW), 760, 270, t_race + 0.35, 3.20, rot=5, phase=1)],
                      'sfx': [('pop', t_race)]},
-        's02_247': {'elements': [E(badge('24/7', 'agents', d=270), 790, 320, t_247, 6.20, rot=7),
-                                 E(sticky(['no more holding', 'your laptop'], size=56, w=400), 320, 300, t_hold, 6.20, rot=-5, phase=1)],
+        # 24/7 badge + the laptop you no longer hold
+        's02_247': {'elements': [E(badge('24/7', 'agents', d=260), 760, 300, t_247, 6.20, rot=7),
+                                 E(I('laptop', bg=YELLOW, badge='cross'), 320, 300, t_hold, 6.20, rot=-5, phase=1)],
                     'sfx': [('pop', t_247)]},
-        's03_problem': {'elements': [E(pill('but… a problem', bg=TOMATO, ink=WHITE), 540, 260, t_prob, 10.05, rot=-2)],
+        's03_problem': {'elements': [E(I('warning', bg=TOMATO, ink=WHITE, size=240), 540, 300, t_prob, 10.05, rot=-4)],
                         'sfx': [('pop', t_prob)]},
-        's04_work': {'elements': [E(sticky(["that's the", 'whole goal'], size=62, w=380), 540, 290, t_work, 14.20, rot=-4)],
+        # computer doing the work: laptop + spinning gear
+        's04_work': {'elements': [E(I('laptop', bg=SKY), 400, 300, t_work, 14.20, rot=-4),
+                                  E(gear(t_work, bg=YELLOW, size=170), 650, 230, t_work + 0.25, 14.20, rot=6, phase=1)],
                      'sfx': [('pop', t_work)]},
-        's05_autoresearch': {'elements': [E(pill('autoresearch', size=52), 270, 150, t_ar, t_sleep - 0.1, rot=-3),
-                                          E(sticky(['by andrej', 'karpathy'], size=50, w=300), 840, 200, t_kar, t_sleep - 0.1, rot=6, phase=1),
-                                          E(orb_card('searching', 'researching…', t_res, t_sleep - 0.1, px=170), 560, 345, t_res, t_sleep - 0.1, rot=-2, phase=2)],
+        # autoresearch: name pill + searching orb
+        's05_autoresearch': {'elements': [E(pill('autoresearch', size=52), 300, 150, t_ar, t_sleep - 0.1, rot=-3),
+                                          E(orb_card('searching', 'researching…', t_res, t_sleep - 0.1, px=170), 640, 350, t_res, t_sleep - 0.1, rot=-2, phase=2)],
                              'sfx': [('pop', t_ar)]},
-        's06_sleep': {'elements': [E(sticky(['researching', 'while you sleep'], size=58, w=440), 330, 280, t_sleep, t_fl - 1.0, rot=-5),
-                                   E(pill('improves overnight', bg=YELLOW, ink=BROWN, size=46), 740, 450, t_night, t_fl - 1.0, rot=4, phase=1)],
+        # while you sleep -> it improves overnight
+        's06_sleep': {'elements': [E(I('moon', bg=YELLOW), 330, 300, t_sleep, t_fl - 1.0, rot=-5),
+                                   E(I('chart', bg=SKY), 740, 320, t_night, t_fl - 1.0, rot=4, phase=1)],
                       'sfx': [('pop', t_sleep)]},
-        's07_browse': {'elements': [E(pill('flights', size=58), 380, 250, t_fl, 26.85, rot=-4),
-                                    E(pill('browsing', bg=YELLOW, ink=BROWN, size=58), 720, 360, t_br, 26.85, rot=4, phase=1)],
+        's07_browse': {'elements': [E(I('plane', bg=SKY), 360, 290, t_fl, 26.85, rot=-6),
+                                    E(I('globe', bg=YELLOW), 730, 300, t_br, 26.85, rot=5, phase=1)],
                        'sfx': [('pop', t_fl)]},
-        's08_agents': {'elements': [E(pill('hermes', size=56), 330, 200, t_he, 33.10, rot=-4),
-                                    E(pill('openclaw', bg=YELLOW, ink=BROWN, size=56), 750, 220, t_oc, 33.10, rot=3, phase=1),
-                                    E(badge('VPS', 'virtual private server', d=230, color=SKY, ink=INK), 540, 380, t_vps, 33.10, rot=-6, phase=2)],
+        # two agents -> one server
+        's08_agents': {'elements': [E(agent('hermes'), 220, 300, t_he, 33.10, rot=-6),
+                                    E(agent('openclaw', bg=YELLOW), 520, 280, t_oc, 33.10, rot=3, phase=1),
+                                    E(arrow(150, 110), 690, 300, t_vps - 0.2, 33.10, rot=4),
+                                    E(I('server', bg=TOMATO, ink=WHITE, label='VPS'), 870, 300, t_vps, 33.10, rot=5, phase=2)],
                        'sfx': [('pop', t_he)]},
-        # full-screen paper board for the DevOps list
+        # full-screen paper board: you become the DevOps engineer, then the pile-up
         's09_board': {'elements': [S(board_bg(), BOARD[0], BOARD[1]),
-                                   E(pill('the catch', bg=TOMATO, ink=WHITE, size=72), 540, 220, t_catch, BOARD[1] - 0.25, rot=-3, phase=3),
-                                   E(sticky(["wait, now you're a", 'devops engineer?!'], size=66, w=620), 540, 400, t_dev, BOARD[1] - 0.25, rot=-3),
-                                   E(pill('dependencies', size=64), 390, 660, t_dep, BOARD[1] - 0.25, rot=-4),
-                                   E(pill('SSL', bg=YELLOW, ink=BROWN, size=64), 760, 800, t_ssl, BOARD[1] - 0.25, rot=4, phase=1),
-                                   E(pill('VPS', bg=TOMATO, ink=WHITE, size=64), 460, 930, t_vps2, BOARD[1] - 0.25, rot=-2, phase=2),
-                                   E(chat_card([('why is my agent down?', 'me')]), 560, 1170, t_all, t_comes),
-                                   E(chat_card([('why is my agent down?', 'me'), ('ssl certificate expired', 'bot'), ("you're on call now", 'alert')]), 560, 1220, t_comes, BOARD[1] - 0.25),
-                                   E(check_stamp('nope', color=TOMATO, mark='cross'), 760, 1480, t_probs, BOARD[1] - 0.25, rot=-7, phase=1)],
+                                   E(I('warning', bg=TOMATO, ink=WHITE, size=200), 540, 250, t_catch, t_dev - 0.1, rot=-4),
+                                   E(I('hardhat', bg=YELLOW, size=300, label='devops'), 540, 330, t_dev, BOARD[1] - 0.25, rot=-3),
+                                   E(I('box', bg=SKY, size=230, label='deps'), 250, 760, t_dep, BOARD[1] - 0.25, rot=-6),
+                                   E(I('lock', bg=TOMATO, ink=WHITE, size=230, label='SSL'), 540, 790, t_ssl, BOARD[1] - 0.25, rot=4, phase=1),
+                                   E(I('server', bg=SKY, size=230, label='VPS'), 830, 760, t_vps2, BOARD[1] - 0.25, rot=-3, phase=2),
+                                   E(chat_card([('agent down?', 'me')]), 560, 1180, t_all, t_comes),
+                                   E(chat_card([('agent down?', 'me'), ('ssl expired', 'bot'), ('on call: you', 'alert')]), 560, 1220, t_comes, BOARD[1] - 0.25),
+                                   E(check_stamp('nope', color=TOMATO, mark='cross'), 780, 1490, t_probs, BOARD[1] - 0.25, rot=-7, phase=1)],
                       'sfx': [('whoosh', BOARD[0]), ('pop', t_dep), ('bloop', t_comes)]},
-        's10_bluehost': {'elements': [E(wordmark(), 540, 240, t_bh, 49.10, rot=-2),
-                                      E(check_stamp('solves that'), 560, 430, t_solve, 49.10, rot=-4, phase=1)],
+        's10_bluehost': {'elements': [E(wordmark(), 540, 230, t_bh, 49.10, rot=-2),
+                                      E(check_stamp('fixed'), 560, 420, t_solve, 49.10, rot=-4, phase=1)],
                          'sfx': [('ding', t_bh)]},
         # s11 is the deploy dashboard (deployui.py)
-        's12_nomanual': {'elements': [E(sticky(['no manual', 'setup'], size=60, w=340), 820, 330, t_man, 58.55, rot=5)],
+        's12_nomanual': {'elements': [E(I('wrench', bg=YELLOW, badge='cross'), 810, 320, t_man, 58.55, rot=5)],
                          'sfx': [('pop', t_man)]},
         's13_why': {'elements': [E(sticky(['why', 'bluehost?'], size=68, w=360), 540, 300, t_why, t_yrs - 0.1, rot=-3)],
                     'sfx': [('pop', t_why)]},
-        's14_years': {'elements': [E(pill('years of infrastructure', size=48), 540, 210, t_yrs, 65.40, rot=-2),
-                                   E(pill('you just build agents', bg=YELLOW, ink=BROWN, size=48), 540, 400, t_bld, 65.40, rot=3, phase=1)],
+        # years of infrastructure (their servers) -> you just run agents
+        's14_years': {'elements': [E(I('server', bg=SKY), 330, 300, t_yrs, 65.40, rot=-5),
+                                   E(I('robot', bg=YELLOW, badge='check'), 740, 300, t_bld, 65.40, rot=5, phase=1)],
                       'sfx': [('pop', t_yrs)]},
-        's15_files': {'elements': [E(pill('persistent files', size=56), 420, 210, t_pers, 69.90, rot=-3),
-                                   E(pill('data', bg=YELLOW, ink=BROWN, size=56), 330, 400, t_data, 69.90, rot=-5, phase=1),
-                                   E(pill('memory', bg=YELLOW, ink=BROWN, size=56), 720, 410, t_mem, 69.90, rot=4, phase=2)],
+        's15_files': {'elements': [E(I('folder', bg=SKY, badge='check'), 220, 300, t_pers, 69.90, rot=-5),
+                                   E(I('database', bg=YELLOW), 540, 280, t_data, 69.90, rot=3, phase=1),
+                                   E(I('chip', bg=TOMATO, ink=WHITE), 850, 300, t_mem, 69.90, rot=-4, phase=2)],
                       'sfx': [('pop', t_pers)]},
-        's16_stack': {'elements': [E(pill('n8n', bg=TOMATO, ink=WHITE, size=56), 250, 200, t_n8n, t_bob - 0.1, rot=-5),
-                                   E(pill('hermes', size=56), 540, 240, t_he2, t_bob - 0.1, rot=3, phase=1),
-                                   E(pill('openclaw', bg=TOMATO, ink=WHITE, size=56), 830, 205, t_oc2, t_bob - 0.1, rot=-3, phase=2),
-                                   E(sticky(["don't worry", 'about infra'], size=56, w=380), 540, 420, t_worry, t_bob - 0.1, rot=-3)],
+        's16_stack': {'elements': [E(agent('n8n', bg=TOMATO), 230, 290, t_n8n, t_bob - 0.1, rot=-5),
+                                   E(agent('hermes'), 540, 270, t_he2, t_bob - 0.1, rot=3, phase=1),
+                                   E(agent('openclaw', bg=YELLOW), 850, 290, t_oc2, t_bob - 0.1, rot=-3, phase=2)],
                       'sfx': [('pop', t_n8n)]},
-        's17_build': {'elements': [E(wordmark('build on Bluehost', size=70), 540, 260, t_bob, 76.90, rot=-2)],
+        's17_build': {'elements': [E(wordmark(), 540, 260, t_bob, 76.90, rot=-2)],
                       'sfx': [('pop', t_bob)]},
-        's18_cta': {'elements': [E(pill('comment "BLUEHOST"', bg=TOMATO, ink=WHITE, size=52), 540, 220, t_cta, DURATION, rot=-2),
-                                 E(arrow(), 330, 430, t_cta + 0.4, DURATION, rot=10),
-                                 E(sticky(['link in', 'your DMs'], size=58, w=320), 780, 430, t_link, DURATION, rot=6, phase=1)],
+        's18_cta': {'elements': [E(pill('comment "BLUEHOST"', bg=TOMATO, ink=WHITE, size=52), 540, 200, t_cta, DURATION, rot=-2),
+                                 E(arrow(), 360, 420, t_cta + 0.4, DURATION, rot=10),
+                                 E(I('send', bg=YELLOW, size=190), 760, 420, t_link, DURATION, rot=6, phase=1)],
                     'sfx': [('ding', t_cta)]},
     }
 
