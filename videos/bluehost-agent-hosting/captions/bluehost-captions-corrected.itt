@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xmlns="http://www.w3.org/ns/ttml" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:tts="http://www.w3.org/ns/ttml#styling" xml:lang="en-US" ttp:dropMode="nonDrop" ttp:frameRate="30" ttp:frameRateMultiplier="1 1" ttp:timeBase="smpte">
+  <head>
+    <styling>
+      <style xml:id="normal" tts:color="white" tts:fontFamily="sansSerif" tts:fontSize="100%" tts:fontStyle="normal" tts:fontWeight="normal"/>
+    </styling>
+    <layout>
+      <region xml:id="bottom" tts:displayAlign="after" tts:extent="100% 15%" tts:origin="0% 85%" tts:writingMode="lrtb"/>
+    </layout>
+  </head>
+  <body tts:color="white" region="bottom" style="normal">
+    <div>
+      <p begin="00:00:00:00" end="00:00:03:07" region="bottom">San Francisco is fighting an AI race where you can run AI</p>
+      <p begin="00:00:03:07" end="00:00:06:10" region="bottom">agents 24/7, so you don't have to hold your computer like this,</p>
+      <p begin="00:00:06:10" end="00:00:10:01" region="bottom">but you could do something like this. But this comes with a problem.</p>
+      <p begin="00:00:10:03" end="00:00:14:05" region="bottom">It might sound silly, but all we're trying to do is make your computer do work.</p>
+      <p begin="00:00:14:07" end="00:00:18:00" region="bottom">Think about autoresearch from Andrej Karpathy, where it's actually researching</p>
+      <p begin="00:00:18:00" end="00:00:21:19" region="bottom">while you're sleeping, or you're working on a project that improves</p>
+      <p begin="00:00:21:20" end="00:00:24:23" region="bottom">overnight, or maybe you just want to do simple research about</p>
+      <p begin="00:00:24:24" end="00:00:26:25" region="bottom">flights and browsing, et cetera.</p>
+      <p begin="00:00:26:27" end="00:00:27:27" region="bottom">And in this process,</p>
+      <p begin="00:00:28:09" end="00:00:31:09" region="bottom">you might want to run Hermes or OpenClaw and put them</p>
+      <p begin="00:00:31:09" end="00:00:33:03" region="bottom">on a virtual private server.</p>
+      <p begin="00:00:33:07" end="00:00:36:16" region="bottom">But then the problem is, while managing</p>
+      <p begin="00:00:36:16" end="00:00:40:07" region="bottom">that, you become a DevOps engineer, managing dependencies,</p>
+      <p begin="00:00:40:07" end="00:00:44:04" region="bottom">SSL, VPS... all of that comes with problems.</p>
+      <p begin="00:00:44:06" end="00:00:47:15" region="bottom">But now, thanks to Bluehost sponsoring this video,</p>
+      <p begin="00:00:47:15" end="00:00:48:28" region="bottom">it's trying to solve that problem.</p>
+      <p begin="00:00:49:07" end="00:00:52:12" region="bottom">With Bluehost AI Agent Hosting, you can deploy agents</p>
+      <p begin="00:00:52:12" end="00:00:53:29" region="bottom">like OpenClaw or Hermes</p>
+      <p begin="00:00:54:00" end="00:00:55:24" region="bottom">onto an always-on VPS,</p>
+      <p begin="00:00:55:25" end="00:00:58:17" region="bottom">without having to manually configure the infrastructure yourself.</p>
+      <p begin="00:00:58:18" end="00:01:01:18" region="bottom">And you'll be like, &quot;Why Bluehost?&quot; Because Bluehost has spent</p>
+      <p begin="00:01:01:18" end="00:01:05:12" region="bottom">years on infrastructure, so you don't have to build it for your agents.</p>
+      <p begin="00:01:05:13" end="00:01:08:20" region="bottom">Plus, your files are persistent, so you don't need to worry about your data,</p>
+      <p begin="00:01:08:20" end="00:01:09:27" region="bottom">memory, et cetera.</p>
+      <p begin="00:01:09:29" end="00:01:13:26" region="bottom">So now, if you're building agents on n8n, Hermes,</p>
+      <p begin="00:01:13:26" end="00:01:16:27" region="bottom">OpenClaw, don't worry about infrastructure. Build on Bluehost.</p>
+      <p begin="00:01:16:27" end="00:01:19:12" region="bottom">Comment &quot;BLUEHOST&quot; and I'll send you the link in your DMs.</p>
+    </div>
+  </body>
+</tt>

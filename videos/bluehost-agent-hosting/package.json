@@ -1,0 +1,12 @@
+{
+  "name": "bluehost-agent-hosting",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs swiss && node scripts/sfx.mjs",
+    "check": "npx --yes hyperframes@0.8.147 check",
+    "render:swiss": "node scripts/build.mjs swiss && npx --yes hyperframes@0.8.147 render -o renders/bluehost-A-swiss-graphics.mp4",
+    "render:glass": "node scripts/build.mjs glass && npx --yes hyperframes@0.8.147 render -o renders/bluehost-B-glass-graphics.mp4",
+    "render": "npm run render:swiss && npm run render:glass && node scripts/build.mjs swiss"
+  }
+}

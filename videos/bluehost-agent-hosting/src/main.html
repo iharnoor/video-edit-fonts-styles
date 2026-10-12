@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>__TITLE__</title>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/orbs/thinking-orbs-engine.js"></script>
+<style>
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-ExtraBold.ttf"); font-weight: 800; }
+  @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Black.ttf"); font-weight: 900; }
+  @font-face { font-family: "Playfair"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf"); font-weight: 400 900; font-style: italic; }
+
+  /* ---------- themes ---------- */
+  /* A · Swiss / REA board: off-white dotted board, white cards, one orange accent */
+  .theme-swiss {
+    --key: #00FF00; --ink: #1A1A1A; --ink2: #5B5B5B; --mute: #8C877F; --edge: #D8D5CF;
+    --card-bg: #FFFFFF; --term: #1C1C1E; --accent: #FF5A1F; --brand: #2152E6; --good: #19A463; --bad: #E5484D;
+    --chip: #F2F1EE; --cap-bg: rgba(18,18,18,.92); --cap-ink: #fff;
+  }
+  /* B · Glassmorphism: frosted cards over a dark violet/blue glow */
+  .theme-glass {
+    --key: #00FF00; --ink: #F5F6FF; --ink2: #B9BDE3; --mute: #7D82AD; --edge: rgba(255,255,255,.22);
+    --card-bg: linear-gradient(140deg, rgba(255,255,255,.17), rgba(255,255,255,.05)); --term: rgba(8,9,24,.78);
+    --accent: #9B8CFF; --brand: #5B7CFF; --good: #5BE49B; --bad: #FF6B81;
+    --chip: rgba(255,255,255,.10); --cap-bg: rgba(14,15,38,.72); --cap-ink: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #00FF00; }
+  #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--key);
+    font-family: "Poppins", sans-serif; color: var(--ink); }
+  .clip { position: absolute; inset: 0; }
+
+  /* full-screen board */
+  .theme-swiss .board { background-color: #EBEAE7;
+    background-image: radial-gradient(rgba(0,0,0,.085) 2.2px, transparent 2.6px); background-size: 46px 46px; }
+  .theme-glass .board { background:
+    radial-gradient(900px 700px at 12% 14%, rgba(110,72,255,.55), transparent 70%),
+    radial-gradient(800px 800px at 92% 78%, rgba(40,110,255,.45), transparent 70%),
+    radial-gradient(600px 500px at 70% 30%, rgba(255,90,200,.18), transparent 70%),
+    #07081A; }
+  .stage { position: absolute; left: 60px; right: 60px; top: 110px; bottom: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+  /* green bands, kept off the face (face ≈ y 460–1060) */
+  .band-top { position: absolute; left: 60px; right: 60px; top: 80px; height: 350px; display: flex; align-items: center; justify-content: center; }
+  .band-chest { position: absolute; left: 60px; right: 60px; top: 1110px; height: 470px; display: flex; align-items: center; justify-content: center; }
+
+  .card { background: var(--card-bg); border-radius: 32px; }
+  .theme-swiss .board .card { box-shadow: 0 14px 50px rgba(0,0,0,.11), 0 2px 6px rgba(0,0,0,.05); }
+  .theme-glass .board .card { border: 1.5px solid rgba(255,255,255,.26); backdrop-filter: blur(26px); -webkit-backdrop-filter: blur(26px);
+    box-shadow: 0 24px 70px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.25); }
+  /* on green: solid fills, hard edges, no shadow, no translucency, no green ink */
+  .theme-swiss .gs .card { border: 3px solid var(--edge); }
+  .theme-glass .gs .card { background: linear-gradient(140deg, #23244A, #141530); border: 2px solid #4A4C80; }
+  .term { background: var(--term); color: #fff; border-radius: 28px; }
+  .theme-glass .term { border: 1.5px solid rgba(255,255,255,.16); }
+  .theme-glass .gs .term { background: #0D0E22; }
+
+  .row { display: flex; align-items: center; }
+  .col { display: flex; flex-direction: column; }
+  .center { display: flex; align-items: center; justify-content: center; }
+  .acc { color: var(--accent); }
+  .serif { font-family: "Playfair", serif; font-style: italic; font-weight: 600; letter-spacing: -0.01em; }
+  .mono { font-family: "DejaVu Sans Mono", Menlo, monospace; }
+  .big { font-weight: 900; letter-spacing: -0.045em; line-height: 0.95; }
+  .h { font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+  .lbl { font-size: 30px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+  .pill { white-space: nowrap; border-radius: 999px; padding: 14px 30px; font-weight: 700; font-size: 38px; background: var(--chip); }
+  .theme-swiss .pill { border: 2px solid var(--edge); }
+  .theme-glass .pill { border: 1.5px solid rgba(255,255,255,.2); }
+  .chip { white-space: nowrap; border-radius: 22px; padding: 16px 28px; font-weight: 800; font-size: 40px; display: flex; align-items: center; gap: 16px; background: var(--chip); }
+  .theme-swiss .chip { border: 3px solid var(--edge); }
+  .theme-glass .chip { border: 1.5px solid rgba(255,255,255,.22); }
+  .theme-glass .gs .chip { background: #2A2C55; border-color: #50538A; }
+  .ico { width: 58px; height: 58px; border-radius: 16px; flex: none; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 30px; }
+  .stamp { border: 8px solid var(--accent); color: var(--accent); border-radius: 18px; padding: 4px 26px; font-weight: 900;
+    font-size: 76px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+  .theme-swiss .board .stamp { background: #1A1A1A !important; }
+  .theme-glass .stamp { background: rgba(155,140,255,.12); }
+  .theme-glass .gs .stamp { background: #1B1C3A; }
+  .dash { border: 6px dashed var(--accent); border-radius: 40px; padding: 14px; }
+  .dot { width: 22px; height: 22px; border-radius: 50%; flex: none; }
+  .bar { height: 16px; border-radius: 8px; background: rgba(255,255,255,.12); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left center; border-radius: 8px; }
+  .strike { position: absolute; left: -10px; right: -10px; top: 50%; height: 7px; background: var(--accent); border-radius: 4px; transform-origin: left center; }
+
+  #s08-flood { background: var(--brand); }
+  .theme-glass .gs .s11-blk { background: #3B3E78; }
+  .theme-glass #s08-flood { background: radial-gradient(700px 700px at 30% 30%, #7A5CFF, transparent 70%), radial-gradient(800px 800px at 80% 75%, #2F7BFF, transparent 70%), #1A1F6B; }
+
+  /* captions on full-screen scenes (same spot as the FCP captions) */
+  .capwrap { pointer-events: none; z-index: 50; }
+  .cap { position: absolute; left: 70px; right: 70px; bottom: 150px; display: flex; justify-content: center; }
+  .cap span { background: var(--cap-bg); color: var(--cap-ink); font-weight: 700; font-size: 46px; line-height: 1.28; letter-spacing: -0.01em;
+    padding: 14px 30px; border-radius: 22px; text-align: center; max-width: 940px; }
+  .theme-glass .cap span { border: 1.5px solid rgba(255,255,255,.22); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+</style>
+</head>
+<body>
+<div id="root" class="theme-__THEME__" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1080" data-height="1920">
+
+  <!-- S01 FULL 0.00–3.233  "San Francisco is fighting an AI race where you can run AI" -->
+  <section id="s01" class="clip board" data-start="0" data-duration="3.233" data-track-index="1">
+    <div class="stage" style="gap:54px">
+      <div id="s01-pin" class="pill row" style="gap:14px;font-size:40px"><svg width="34" height="34" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>San Francisco</div>
+      <div id="s01-title" class="big" style="font-size:210px;text-align:center">the <span class="acc">AI</span><br/>race</div>
+      <div class="row" style="gap:24px">
+        <div class="term s01-a row" style="padding:22px 28px;gap:14px;font-size:30px;font-weight:700"><span class="dot s01-led" style="background:var(--good)"></span><span class="mono">agent_01</span></div>
+        <div class="term s01-a row" style="padding:22px 28px;gap:14px;font-size:30px;font-weight:700"><span class="dot s01-led" style="background:var(--good)"></span><span class="mono">agent_02</span></div>
+        <div class="term s01-a row" style="padding:22px 28px;gap:14px;font-size:30px;font-weight:700"><span class="dot s01-led" style="background:var(--good)"></span><span class="mono">agent_03</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S02 GREEN top 3.233–6.2  "agents 24/7, so you don't have to hold your computer like this," -->
+  <section id="s02" class="clip gs" data-start="3.233" data-duration="2.967" data-track-index="1">
+    <div class="band-top"><div id="s02-card" class="card row" style="padding:30px 46px;gap:44px;width:900px;height:300px">
+      <div style="position:relative;width:220px;height:220px;flex:none">
+        <svg viewBox="0 0 100 100" width="220" height="220" style="position:absolute;inset:0">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="var(--edge)" stroke-width="8"/>
+          <circle id="s02-ring" cx="50" cy="50" r="42" fill="none" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div id="s02-hand" style="position:absolute;left:107px;top:40px;width:6px;height:72px;border-radius:3px;background:var(--ink);transform-origin:50% 100%"></div>
+        <div style="position:absolute;left:100px;top:100px;width:20px;height:20px;border-radius:50%;background:var(--ink)"></div>
+      </div>
+      <div class="col" style="gap:6px">
+        <div id="s02-n" class="big" style="font-size:150px">24/7</div>
+        <div id="s02-sub" class="h" style="font-size:44px;color:var(--ink2)">agents that <span class="serif acc" style="font-size:52px">never sleep</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S02b GREEN top 8.6–10.05  "...but this comes with a problem." -->
+  <section id="s02b" class="clip gs" data-start="8.6" data-duration="1.45" data-track-index="1">
+    <div class="band-top"><div id="s02b-card" class="card row" style="padding:34px 50px;gap:30px">
+      <svg width="110" height="110" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v5M12 18v.5" stroke-linecap="round"/></svg>
+      <div id="s02b-stamp" class="stamp" style="font-size:88px">a problem</div>
+    </div></div>
+  </section>
+
+  <!-- S03 FULL 10.05–14.2  "make your computer do work" -->
+  <section id="s03" class="clip board" data-start="10.05" data-duration="4.15" data-track-index="1">
+    <div class="stage" style="gap:56px">
+      <div id="s03-h" class="h" style="font-size:96px;text-align:center">make your computer<br/><span class="serif acc" style="font-size:132px">do the work</span></div>
+      <div id="s03-term" class="term col" style="width:900px;padding:36px 44px;gap:26px">
+        <div class="row" style="gap:12px"><span class="dot" style="background:#FF5F57"></span><span class="dot" style="background:#FEBC2E"></span><span class="dot" style="background:#28C840"></span><span class="mono" style="margin-left:18px;font-size:26px;color:#8A8A90">~/agents</span></div>
+        <div class="mono" style="font-size:40px"><span style="color:var(--accent)">❯</span> <span id="s03-cmd"></span><span id="s03-cur" style="display:inline-block;width:20px;height:40px;background:#fff;vertical-align:-6px;margin-left:4px"></span></div>
+        <div id="s03-l1" class="row" style="gap:22px;font-size:30px;color:#C9C9CF"><span class="mono" style="width:240px">research</span><div class="bar" style="flex:1"><i class="s03-b"></i></div></div>
+        <div id="s03-l2" class="row" style="gap:22px;font-size:30px;color:#C9C9CF"><span class="mono" style="width:240px">browse</span><div class="bar" style="flex:1"><i class="s03-b"></i></div></div>
+        <div id="s03-l3" class="row" style="gap:22px;font-size:30px;color:#C9C9CF"><span class="mono" style="width:240px">build</span><div class="bar" style="flex:1"><i class="s03-b"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S04 FULL 14.2–21.633  autoresearch (orb: searching) → improves overnight -->
+  <section id="s04" class="clip board" data-start="14.2" data-duration="7.433" data-track-index="1">
+    <div id="s04-a" class="stage" style="gap:40px">
+      <div id="s04-repo" class="card col" style="width:900px;padding:40px 46px;gap:16px">
+        <div class="row" style="gap:18px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--ink2)" stroke-width="2"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4V4z"/><path d="M8 4v12"/></svg>
+          <span class="mono" style="font-size:42px;color:var(--ink2)">karpathy / <b style="color:var(--ink)">autoresearch</b></span></div>
+        <div style="font-size:34px;font-weight:600;color:var(--ink2)">by <span style="color:var(--ink);font-weight:800">Andrej Karpathy</span></div>
+      </div>
+      <div id="s04-orbcard" class="card col center" style="width:560px;height:620px;gap:10px">
+        <canvas id="orb1" style="width:420px;height:420px"></canvas>
+        <div class="row" style="gap:14px;font-size:40px;font-weight:800"><span id="s04-state">researching</span><span id="s04-dots" class="acc">…</span></div>
+      </div>
+    </div>
+    <div id="s04-b" class="stage" data-layout-allow-overlap style="gap:44px">
+      <div class="row" style="gap:30px">
+        <svg id="s04-moon" width="150" height="150" viewBox="0 0 24 24" fill="var(--accent)"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <div id="s04-sleep" class="h" style="font-size:100px">while you<br/><span class="serif acc" style="font-size:124px">sleep</span></div>
+      </div>
+      <div id="s04-chart" class="card col" style="width:900px;padding:40px 46px 30px;gap:12px">
+        <div class="row" style="justify-content:space-between"><span class="lbl">project score</span><span id="s04-pct" class="h acc" style="font-size:56px">+0%</span></div>
+        <svg viewBox="0 0 800 300" width="808" height="303">
+          <path d="M0 290H800" stroke="var(--edge)" stroke-width="3"/>
+          <path id="s04-line" d="M0 270 C120 262 170 250 240 236 S360 220 420 180 S540 140 600 96 S720 40 800 18" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round"/>
+          <circle id="s04-pt" cx="800" cy="18" r="16" fill="var(--accent)"/>
+        </svg>
+        <div class="row" style="justify-content:space-between;font-size:28px;font-weight:700;color:var(--mute)"><span>11 PM</span><span>3 AM</span><span>7 AM</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S05 GREEN chest 21.633–26.85  "simple research about flights and browsing" -->
+  <section id="s05" class="clip gs" data-start="21.633" data-duration="5.217" data-track-index="1">
+    <div class="band-chest"><div id="s05-card" class="card col" style="width:920px;padding:30px 36px;gap:20px">
+      <div class="row" style="gap:12px"><span class="dot" style="background:#FF5F57"></span><span class="dot" style="background:#FEBC2E"></span><span class="dot" style="background:var(--mute)"></span>
+        <div class="pill row" style="margin-left:16px;flex:1;font-size:32px;padding:12px 26px;gap:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--ink2)" stroke-width="2.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span id="s05-q" style="font-weight:600"></span><span id="s05-cur" style="width:4px;height:34px;background:var(--ink)"></span></div></div>
+      <div id="s05-r1" class="row s05-r" style="justify-content:space-between;font-size:36px;font-weight:700;padding:6px 10px"><span class="row" style="gap:18px"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--ink)"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>SFO → JFK · 7:05 AM</span><span class="acc">$189</span></div>
+      <div id="s05-r2" class="row s05-r" style="justify-content:space-between;font-size:36px;font-weight:700;padding:6px 10px"><span class="row" style="gap:18px"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--ink)"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>SFO → JFK · 9:40 AM</span><span>$212</span></div>
+      <div id="s05-r3" class="row s05-r" style="justify-content:space-between;font-size:36px;font-weight:700;padding:6px 10px"><span class="row" style="gap:18px"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--ink)"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>SFO → JFK · 1:15 PM</span><span>$236</span></div>
+    </div></div>
+  </section>
+
+  <!-- S06 GREEN top 26.85–33.2  "Hermes or OpenClaw ... on a virtual private server." -->
+  <section id="s06" class="clip gs" data-start="26.85" data-duration="6.35" data-track-index="1">
+    <div class="band-top"><div id="s06-card" class="card row" style="width:920px;height:320px;padding:30px 40px;justify-content:space-between">
+      <div class="col" style="gap:22px">
+        <div id="s06-h" class="chip"><span class="ico" style="background:#6E56CF">H</span>Hermes</div>
+        <div id="s06-o" class="chip"><span class="ico" style="background:#E5484D"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M7 4c-3 3-3 8 0 11M17 4c3 3 3 8 0 11M9 9l3 3 3-3M12 12v8"/></svg></span>OpenClaw</div>
+      </div>
+      <div id="s06-arrow" style="font-size:90px;font-weight:800;color:var(--accent)">→</div>
+      <div id="s06-srv" class="col" style="align-items:center;gap:12px">
+        <div class="term col" style="width:250px;padding:20px;gap:12px">
+          <div class="row" style="gap:12px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px 14px"><span class="dot s06-led" style="background:#555"></span><span class="dot s06-led" style="background:#555"></span><span style="flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.18)"></span></div>
+          <div class="row" style="gap:12px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px 14px"><span class="dot s06-led" style="background:#555"></span><span class="dot s06-led" style="background:#555"></span><span style="flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.18)"></span></div>
+          <div class="row" style="gap:12px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px 14px"><span class="dot s06-led" style="background:#555"></span><span class="dot s06-led" style="background:#555"></span><span style="flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.18)"></span></div>
+        </div>
+        <div id="s06-lbl" class="h" style="font-size:34px;text-align:center;line-height:1.05">virtual private<br/><span class="acc">server</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S07 FULL 33.2–44.15  "you become a DevOps engineer... dependencies, SSL, VPS..." -->
+  <section id="s07" class="clip board" data-start="33.2" data-duration="10.95" data-track-index="1">
+    <div class="stage" style="gap:40px">
+      <div id="s07-top" class="h" style="font-size:72px;text-align:center;color:var(--ink2)">and suddenly you're a</div>
+      <div id="s07-you" class="card col center" style="width:600px;padding:44px 40px;gap:20px;position:relative">
+        <svg width="190" height="190" viewBox="0 0 64 64">
+          <circle cx="32" cy="40" r="20" fill="var(--mute)" opacity=".55"/>
+          <g id="s07-hat"><path d="M10 30a22 22 0 0 1 44 0z" fill="var(--accent)"/><rect x="6" y="28" width="52" height="7" rx="3.5" fill="var(--accent)"/><rect x="29" y="9" width="6" height="12" rx="2" fill="#fff" opacity=".6"/></g>
+        </svg>
+        <div id="s07-role" class="big" style="font-size:96px;text-align:center">DevOps<br/><span class="serif acc" style="font-size:110px;font-weight:600">engineer</span></div>
+      </div>
+      <div id="s07-chips" style="position:relative;width:960px;height:360px">
+        <div class="chip s07-c" style="position:absolute;left:10px;top:10px">dependencies</div>
+        <div class="chip s07-c" style="position:absolute;left:560px;top:0">SSL certs</div>
+        <div class="chip s07-c" style="position:absolute;left:380px;top:120px">VPS</div>
+        <div class="chip s07-c" style="position:absolute;left:30px;top:150px">firewall</div>
+        <div class="chip s07-c" style="position:absolute;left:640px;top:140px">uptime</div>
+        <div class="chip s07-c" style="position:absolute;left:150px;top:270px">updates</div>
+        <div class="chip s07-c" style="position:absolute;left:520px;top:265px">backups</div>
+      </div>
+    </div>
+    <div id="s07-err" class="term col" style="position:absolute;left:90px;right:90px;top:420px;padding:36px 40px;gap:16px;opacity:0">
+      <div class="mono s07-e" style="font-size:32px;color:#FF6B6B">✕ npm ERR! peer dependency conflict</div>
+      <div class="mono s07-e" style="font-size:32px;color:#FF6B6B">✕ SSL: certificate has expired</div>
+      <div class="mono s07-e" style="font-size:32px;color:#FFB84D">! port 443 already in use</div>
+      <div class="mono s07-e" style="font-size:32px;color:#FF6B6B">✕ agent process killed (OOM)</div>
+      <div class="mono s07-e" style="font-size:32px;color:#FF6B6B">✕ ssh: connection timed out</div>
+    </div>
+    <div id="s07-stamp" class="stamp" style="position:absolute;left:50%;top:1180px;transform:translateX(-50%);font-size:96px;opacity:0;background:var(--chip)">problems</div>
+  </section>
+
+  <!-- S08 FULL 44.15–49.2  "But now, thanks to Bluehost sponsoring this video, it's trying to solve that problem." -->
+  <section id="s08" class="clip board" data-start="44.15" data-duration="5.05" data-track-index="1">
+    <div id="s08-flood" style="position:absolute;inset:0"></div>
+        <div class="stage" style="gap:46px">
+      <div id="s08-spon" class="pill" style="background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.4);color:#fff;font-size:36px;letter-spacing:.12em;text-transform:uppercase">sponsored by</div>
+      <div id="s08-word" class="row" style="gap:30px">
+        <svg width="150" height="150" viewBox="0 0 48 48"><rect x="4" y="6" width="40" height="11" rx="4" fill="#fff"/><rect x="4" y="19" width="40" height="11" rx="4" fill="#fff" opacity=".85"/><rect x="4" y="32" width="40" height="11" rx="4" fill="#fff" opacity=".7"/><circle cx="11" cy="11.5" r="2.4" fill="var(--brand)"/><circle cx="11" cy="24.5" r="2.4" fill="var(--brand)"/><circle cx="11" cy="37.5" r="2.4" fill="var(--brand)"/></svg>
+        <div class="big" style="font-size:176px;color:#fff;letter-spacing:-0.05em">Bluehost</div>
+      </div>
+      <div id="s08-fix" class="row" style="gap:24px;background:#fff;color:#1A1A1A;border-radius:999px;padding:24px 50px 24px 30px">
+        <svg width="76" height="76" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="var(--good)"/><path id="s08-chk" d="M6.5 12.5l3.6 3.6 7.4-8" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="20" stroke-dashoffset="20"/></svg>
+        <span class="h" style="font-size:58px">solves that problem</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S09 GREEN top 49.2–53.97  "Bluehost AI Agent Hosting ... deploy agents like OpenClaw or Hermes" (orb: working) -->
+  <section id="s09" class="clip gs" data-start="49.2" data-duration="4.77" data-track-index="1">
+    <div class="band-top"><div id="s09-card" class="card col" style="width:920px;padding:30px 40px;gap:22px">
+      <div class="row" style="justify-content:space-between">
+        <div class="col"><span class="lbl" style="font-size:26px">Bluehost</span><span class="h" style="font-size:54px">AI Agent <span class="acc">Hosting</span></span></div>
+        <div id="s09-btn" class="row" style="background:var(--brand);color:#fff;border-radius:20px;padding:20px 30px;font-size:36px;font-weight:800;gap:12px;position:relative">Deploy →
+          <svg id="s09-cur" viewBox="0 0 24 24" width="70" height="70" style="position:absolute;right:-26px;bottom:-46px"><path d="M4 2l15 9-7 1.5L9 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="row" style="gap:20px">
+        <div id="s09-o" class="chip" style="font-size:36px"><span class="ico" style="background:#E5484D;width:50px;height:50px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M7 4c-3 3-3 8 0 11M17 4c3 3 3 8 0 11M9 9l3 3 3-3M12 12v8"/></svg></span>OpenClaw <span class="acc s09-ok">✓</span></div>
+        <div id="s09-h" class="chip" style="font-size:36px"><span class="ico" style="background:#6E56CF;width:50px;height:50px">H</span>Hermes <span class="acc s09-ok">✓</span></div>
+        <div id="s09-orbw" class="row" style="margin-left:auto"><canvas id="orb2" style="width:100px;height:100px"></canvas></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S10 FULL 53.97–58.6  "onto an always-on VPS, without having to manually configure the infrastructure yourself." -->
+  <section id="s10" class="clip board" data-start="53.97" data-duration="4.63" data-track-index="1">
+    <div class="stage" style="gap:40px">
+      <div id="s10-srv" class="term col" style="width:900px;padding:38px 44px;gap:22px">
+        <div class="row" style="justify-content:space-between"><span class="h" style="font-size:60px">VPS</span>
+          <span class="row" style="gap:14px;font-size:34px;font-weight:800;color:var(--good)"><span id="s10-pulse" class="dot" style="background:var(--good);width:26px;height:26px;box-shadow:0 0 0 0 rgba(25,164,99,.6)"></span>always on</span></div>
+        <div class="row" style="justify-content:space-between;font-size:30px;color:#A9A9B2"><span class="mono">uptime</span><span id="s10-up" class="mono" style="color:#fff;font-size:44px;font-weight:700">00:00:00</span></div>
+      </div>
+      <div id="s10-list" class="card col" style="width:900px;padding:36px 46px;gap:20px">
+        <span class="lbl">manual setup</span>
+        <div class="row s10-i" style="gap:20px;font-size:42px;font-weight:700;position:relative;width:max-content"><span class="acc">✕</span>install runtimes<i class="strike s10-s" data-layout-allow-occlusion></i></div>
+        <div class="row s10-i" style="gap:20px;font-size:42px;font-weight:700;position:relative;width:max-content"><span class="acc">✕</span>configure firewall<i class="strike s10-s" data-layout-allow-occlusion></i></div>
+        <div class="row s10-i" style="gap:20px;font-size:42px;font-weight:700;position:relative;width:max-content"><span class="acc">✕</span>renew SSL certs<i class="strike s10-s" data-layout-allow-occlusion></i></div>
+        <div class="row s10-i" style="gap:20px;font-size:42px;font-weight:700;position:relative;width:max-content"><span class="acc">✕</span>keep agents alive<i class="strike s10-s" data-layout-allow-occlusion></i></div>
+      </div>
+      <div id="s10-stamp" class="stamp" style="font-size:80px;background:var(--chip)">handled for you</div>
+    </div>
+  </section>
+
+  <!-- S11 GREEN chest 58.6–65.4  "Why Bluehost? ... spent years on infrastructure, so you don't have to build it" -->
+  <section id="s11" class="clip gs" data-start="58.6" data-duration="6.8" data-track-index="1">
+    <div class="band-chest"><div id="s11-card" class="card" style="width:920px;height:420px;position:relative;overflow:hidden">
+      <div id="s11-a" class="center col" style="position:absolute;inset:0;gap:10px">
+        <div class="big" style="font-size:120px">why <span style="color:var(--brand)">Bluehost</span><span id="s11-q" class="acc" style="display:inline-block">?</span></div>
+      </div>
+      <div id="s11-b" class="row" style="position:absolute;inset:0;padding:36px 50px;gap:46px;opacity:0">
+        <div class="col" style="gap:12px;width:250px;flex:none;justify-content:flex-end;height:100%">
+          <div class="term s11-blk" style="height:56px;border-radius:14px"></div>
+          <div class="term s11-blk" style="height:56px;border-radius:14px"></div>
+          <div class="term s11-blk" style="height:56px;border-radius:14px"></div>
+          <div class="term s11-blk" style="height:56px;border-radius:14px"></div>
+          <div class="term s11-blk" style="height:56px;border-radius:14px"></div>
+        </div>
+        <div class="col" style="gap:22px">
+          <div id="s11-yrs" class="h" style="font-size:68px">years of<br/><span class="serif acc" style="font-size:84px">infrastructure</span></div>
+          <div id="s11-you" class="row" style="gap:16px;font-size:40px;font-weight:700;color:var(--ink2)">you just build <span style="color:var(--ink);font-weight:800">agents</span></div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S12 FULL 65.4–69.95  "your files are persistent... data, memory, et cetera." -->
+  <section id="s12" class="clip board" data-start="65.4" data-duration="4.55" data-track-index="1">
+    <div class="stage" style="gap:44px">
+      <div id="s12-h" class="h" style="font-size:96px;text-align:center">your files<br/><span class="serif acc" style="font-size:124px">persist</span></div>
+      <div id="s12-card" class="card col" style="width:880px;padding:40px 46px;gap:16px">
+        <div class="row" style="justify-content:space-between"><span class="lbl">/home/agent</span><span id="s12-re" class="pill row" style="font-size:30px;gap:10px;padding:10px 22px"><span id="s12-spin" style="display:inline-block">↻</span> restart</span></div>
+        <div class="row s12-f" style="gap:22px;font-size:46px;font-weight:700"><svg width="54" height="54" viewBox="0 0 24 24" fill="var(--accent)"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>data/<span class="acc s12-k" style="margin-left:auto">✓</span></div>
+        <div class="row s12-f" style="gap:22px;font-size:46px;font-weight:700"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>memory.md<span class="acc s12-k" style="margin-left:auto">✓</span></div>
+        <div class="row s12-f" style="gap:22px;font-size:46px;font-weight:700"><svg width="54" height="54" viewBox="0 0 24 24" fill="var(--accent)"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>workspace/<span class="acc s12-k" style="margin-left:auto">✓</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S13 GREEN top 69.95–76.9  "building agents on n8n, Hermes, OpenClaw, don't worry about infrastructure. Build on Bluehost." -->
+  <section id="s13" class="clip gs" data-start="69.95" data-duration="6.95" data-track-index="1">
+    <div class="band-top"><div id="s13-card" class="card col center" style="width:920px;height:320px;padding:28px 40px;gap:26px;position:relative">
+      <div id="s13-row" class="row" style="gap:20px">
+        <div class="chip s13-c" style="font-size:38px"><span class="ico" style="background:#EA4B71;width:50px;height:50px;font-size:24px">n8n</span>n8n</div>
+        <div class="chip s13-c" style="font-size:38px"><span class="ico" style="background:#6E56CF;width:50px;height:50px">H</span>Hermes</div>
+        <div class="chip s13-c" style="font-size:38px"><span class="ico" style="background:#E5484D;width:50px;height:50px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M7 4c-3 3-3 8 0 11M17 4c3 3 3 8 0 11M9 9l3 3 3-3M12 12v8"/></svg></span>OpenClaw</div>
+      </div>
+      <div class="row" style="gap:30px;height:110px">
+        <div id="s13-inf" class="h" style="font-size:46px;white-space:nowrap;color:var(--ink2);position:relative">infrastructure<i id="s13-strk" class="strike"></i></div>
+        <div id="s13-cta" class="row" style="background:var(--brand);color:#fff;border-radius:24px;padding:18px 30px;font-size:42px;font-weight:800;gap:14px;white-space:nowrap">build on Bluehost</div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- S14 FULL 76.9–79.4  "Comment BLUEHOST and I'll send you the link in your DMs." -->
+  <section id="s14" class="clip board" data-start="76.9" data-duration="2.5" data-track-index="1">
+    <div class="stage" style="gap:44px">
+      <div id="s14-h" class="h" style="font-size:90px;text-align:center">comment</div>
+      <div id="s14-box" class="card row" style="width:920px;padding:30px 30px 30px 40px;gap:26px">
+        <div style="width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--brand));flex:none"></div>
+        <div class="big" style="font-size:96px;flex:1"><span id="s14-t" class="acc"></span><span id="s14-cur" style="display:inline-block;width:8px;height:84px;background:var(--ink);vertical-align:-10px;margin-left:6px"></span></div>
+        <div id="s14-send" class="center" style="width:104px;height:104px;border-radius:30px;background:var(--brand);flex:none"><svg width="54" height="54" viewBox="0 0 24 24" fill="#fff"><path d="M3 20.5 21 12 3 3.5l2.5 7.2L14 12l-8.5 1.3z"/></svg></div>
+      </div>
+      <div id="s14-dm" class="card row" style="width:760px;padding:28px 34px;gap:24px">
+        <div class="center" style="width:80px;height:80px;border-radius:24px;background:var(--accent);flex:none"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
+        <div class="col"><span style="font-size:30px;font-weight:700;color:var(--mute)">New message</span><span class="h" style="font-size:46px">link sent to your DMs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!--CAPTIONS-->
+
+  <audio id="sfx-stem" src="assets/sfx/sfx-stem.wav" data-start="0" data-duration="__DURATION__" data-track-index="5"></audio>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  const THEME = "__THEME__";
+  const B = "back.out(2.2)", E = "power3.out";
+  const pop = (sel, t, d = 0.38, from = 0.5) => tl.fromTo(sel, { scale: from, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: B }, t);
+  const rise = (sel, t, y = 60, d = 0.45) => tl.fromTo(sel, { y, opacity: 0 }, { y: 0, opacity: 1, duration: d, ease: E }, t);
+  const slam = (sel, t, from = 2.2, rot = 0) => tl.fromTo(sel, { scale: from, opacity: 0, rotation: rot * 2 }, { scale: 1, opacity: 1, rotation: rot, duration: 0.28, ease: "power4.in" }, t - 0.28); // lands ON t
+  const leave = (sel, t) => tl.to(sel, { scale: 0.92, opacity: 0, duration: 0.2, ease: "power2.in" }, t);
+  const shake = (sel, t) => tl.fromTo(sel, { x: -16 }, { x: 0, duration: 0.45, ease: "elastic.out(1.2,0.25)", immediateRender: false }, t);
+  const type = (id, text, t, d) => { const o = { n: 0 }; tl.to(o, { n: text.length, duration: d, ease: "none", onUpdate: () => { document.getElementById(id).textContent = text.slice(0, Math.round(o.n)); } }, t); };
+  const blink = (sel, t, n) => tl.fromTo(sel, { opacity: 1 }, { opacity: 0, duration: 0.25, repeat: n, yoyo: true, ease: "steps(1)" }, t);
+  // Thinking Orbs, painted from timeline time (deterministic, frame-accurate)
+  const orb = (id, state, t0, dur, dark, css) => {
+    const cv = document.getElementById(id), k = 2; cv.width = css * k; cv.height = css * k;
+    const ctx = cv.getContext("2d"), O = window.ThinkingOrbs, P = O.resolvePreset(state, 64), f = O.MODE_FRAMES[P.mode];
+    const draw = (t) => { ctx.setTransform(k, 0, 0, k, 0, 0); ctx.clearRect(0, 0, css, css); O.paintFrame(ctx, f(css, t * P.speed, P.opts), dark); };
+    draw(0.6); const o = { p: 0 };
+    tl.to(o, { p: 1, duration: dur, ease: "none", onUpdate: () => draw(0.6 + o.p * dur) }, t0);
+  };
+  const glass = THEME === "glass";
+
+  // S01 hook (0–3.233)
+  rise("#s01-pin", 0.05, 40, 0.35);
+  slam("#s01-title", 1.45, 1.9, -2);
+  tl.fromTo(".s01-a", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: B, stagger: 0.12 }, 2.3);
+  tl.fromTo(".s01-led", { scale: 0.4 }, { scale: 1.2, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.1 }, 2.7);
+
+  // S02 24/7 (3.233–6.2)
+  rise("#s02-card", 3.28, 50, 0.35);
+  slam("#s02-n", 3.62, 1.7);
+  tl.fromTo("#s02-ring", { attr: { "stroke-dashoffset": 264 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.6, ease: "power2.inOut" }, 3.5);
+  tl.fromTo("#s02-hand", { rotation: 0 }, { rotation: 720, duration: 2.4, ease: "power1.inOut" }, 3.5);
+  rise("#s02-sub", 4.2, 24, 0.35);
+  leave("#s02-card", 5.95);
+
+  // S02b problem (8.6–10.05)
+  rise("#s02b-card", 8.65, 50, 0.3);
+  slam("#s02b-stamp", 9.45, 2.2, -3);
+  shake("#s02b-card", 9.45);
+  leave("#s02b-card", 9.83);
+
+  // S03 do the work (10.05–14.2)
+  rise("#s03-term", 10.1, 120, 0.45);
+  blink("#s03-cur", 10.1, 7);
+  type("s03-cmd", "computer, do the work", 10.7, 1.2);
+  slam("#s03-h", 12.45, 1.6);
+  tl.fromTo(".s03-b", { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: "power2.inOut", stagger: 0.25 }, 12.7);
+
+  // S04 autoresearch + overnight (14.2–21.633)
+  rise("#s04-repo", 14.3, 60, 0.4);
+  tl.fromTo("#s04-orbcard", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: B }, 15.6);
+  orb("orb1", "searching", 15.6, 2.6, glass, 420);
+  blink("#s04-dots", 15.9, 6);
+  tl.to("#s04-a", { y: -260, opacity: 0, duration: 0.3, ease: "power2.in" }, 17.85);
+  tl.fromTo("#s04-b", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 18.0);
+  tl.fromTo("#s04-moon", { rotation: -50, scale: 0.3, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1, duration: 0.55, ease: B }, 18.05);
+  rise("#s04-sleep", 18.15, 40, 0.4);
+  rise("#s04-chart", 19.1, 80, 0.4);
+  { const len = 1000; tl.fromTo("#s04-line", { attr: { "stroke-dasharray": len, "stroke-dashoffset": len } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.7, ease: "power1.in" }, 19.4); }
+  pop("#s04-pt", 21.1, 0.3, 0.2);
+  { const o = { v: 0 }; tl.to(o, { v: 87, duration: 1.7, ease: "power1.in", onUpdate: () => { document.getElementById("s04-pct").textContent = "+" + Math.round(o.v) + "%"; } }, 19.4); }
+
+  // S05 flights (21.633–26.85)
+  rise("#s05-card", 21.7, 60, 0.4);
+  blink("#s05-cur", 21.7, 12);
+  type("s05-q", "cheap flights SFO → JFK", 23.6, 1.3);
+  tl.fromTo(".s05-r", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: E, stagger: 0.18 }, 25.0);
+  tl.to("#s05-r1", { scale: 1.04, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 25.9);
+  leave("#s05-card", 26.62);
+
+  // S06 Hermes / OpenClaw -> VPS (26.85–33.2)
+  rise("#s06-card", 26.95, 50, 0.4);
+  tl.set(["#s06-h", "#s06-o", "#s06-arrow", "#s06-lbl"], { opacity: 0 }, 26.85);
+  pop("#s06-h", 28.9); pop("#s06-o", 29.9);
+  pop("#s06-arrow", 30.9, 0.3, 0.2);
+  tl.to(["#s06-h", "#s06-o"], { x: 500, scale: 0.4, opacity: 0, duration: 0.4, ease: "power3.in", stagger: 0.12 }, 31.3);
+  tl.to(".s06-led", { backgroundColor: getComputedStyle(document.getElementById("root")).getPropertyValue("--accent").trim() || "#FF5A1F", duration: 0.05, stagger: 0.05 }, 31.75);
+  tl.fromTo("#s06-srv", { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 31.75);
+  rise("#s06-lbl", 31.9, 20, 0.3);
+  leave("#s06-card", 32.95);
+
+  // S07 DevOps chaos (33.2–44.15)
+  rise("#s07-top", 33.3, 40, 0.4);
+  tl.fromTo("#s07-you", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: E }, 33.5);
+  tl.set("#s07-role", { opacity: 0 }, 33.2);
+  tl.fromTo("#s07-hat", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "bounce.out" }, 37.1);
+  slam("#s07-role", 37.6, 1.8, -2);
+  tl.set(".s07-c", { opacity: 0 }, 33.2);
+  const chipT = [39.0, 40.45, 41.0, 41.45, 41.65, 41.85, 42.05];
+  gsap.utils.toArray(".s07-c").forEach((el, i) => tl.fromTo(el, { scale: 0.3, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: [-4, 3, -2, 5, -5, 2, -3][i], duration: 0.3, ease: B }, chipT[i]));
+  shake("#s07-chips", 42.1);
+  tl.to(["#s07-top", "#s07-you", "#s07-chips"], { opacity: 0.12, filter: "blur(6px)", duration: 0.25 }, 42.35);
+  tl.to("#s07-err", { opacity: 1, duration: 0.01 }, 42.4);
+  tl.fromTo(".s07-e", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.14, stagger: 0.17 }, 42.4);
+  tl.fromTo("#s07-err", { x: 0 }, { x: 18, duration: 0.04, repeat: 7, yoyo: true, ease: "steps(1)", immediateRender: false }, 43.25);
+  tl.fromTo("#s07-stamp", { scale: 2.2, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.25, ease: "power4.in" }, 43.3);
+
+  // S08 Bluehost reveal (44.15–49.2) — riser ends 44.15, silence, impact 44.3 with flood, word 45.25
+  tl.fromTo("#s08-flood", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(80% at 50% 50%)", duration: 0.45, ease: "power3.out" }, 44.3);
+  tl.set(["#s08-word", "#s08-spon", "#s08-fix"], { opacity: 0 }, 44.15);
+  slam("#s08-word", 45.25, 2.0);
+  rise("#s08-spon", 46.0, 30, 0.35);
+  rise("#s08-fix", 47.6, 60, 0.4);
+  tl.to("#s08-chk", { attr: { "stroke-dashoffset": 0 }, duration: 0.3, ease: "power2.out" }, 48.15);
+
+  // S09 AI Agent Hosting deploy (49.2–53.97)
+  rise("#s09-card", 49.3, 50, 0.4);
+  tl.set(["#s09-o", "#s09-h", "#s09-orbw", ".s09-ok"], { opacity: 0 }, 49.2);
+  tl.fromTo("#s09-cur", { x: 120, y: 90, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.45, ease: E }, 51.2);
+  tl.to("#s09-btn", { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1 }, 51.75);
+  tl.to("#s09-orbw", { opacity: 1, duration: 0.2 }, 51.9);
+  orb("orb2", "working", 51.9, 2.1, glass, 100);
+  pop("#s09-o", 52.55); pop("#s09-h", 53.2);
+  tl.to(".s09-ok", { opacity: 1, duration: 0.15, stagger: 0.55 }, 52.9);
+  leave("#s09-card", 53.75);
+
+  // S10 always-on VPS, no manual config (53.97–58.6)
+  rise("#s10-srv", 54.05, 100, 0.4);
+  tl.fromTo("#s10-pulse", { boxShadow: "0 0 0 0 rgba(25,164,99,.7)" }, { boxShadow: "0 0 0 26px rgba(25,164,99,0)", duration: 0.9, repeat: 4, ease: "power1.out" }, 54.4);
+  { const o = { s: 0 }; tl.to(o, { s: 72 * 3600 + 14 * 60 + 9, duration: 4.2, ease: "power2.in", onUpdate: () => { const s = Math.round(o.s), p = (n) => String(n).padStart(2, "0"); document.getElementById("s10-up").textContent = `${p(Math.floor(s / 3600))}:${p(Math.floor(s / 60) % 60)}:${p(s % 60)}`; } }, 54.3); }
+  rise("#s10-list", 55.85, 80, 0.4);
+  tl.fromTo(".s10-s", { scaleX: 0 }, { scaleX: 1, duration: 0.18, ease: "power2.out", stagger: 0.32 }, 56.5);
+  tl.to(".s10-i", { opacity: 0.45, duration: 0.15, stagger: 0.32 }, 56.62);
+  tl.set("#s10-stamp", { opacity: 0 }, 53.97);
+  slam("#s10-stamp", 57.95, 2.0, -3);
+
+  // S11 why Bluehost -> years of infra (58.6–65.4)
+  rise("#s11-card", 58.7, 60, 0.4);
+  tl.fromTo("#s11-q", { rotation: -25, scale: 1.6 }, { rotation: 0, scale: 1, duration: 0.6, ease: "elastic.out(1,0.35)" }, 59.8);
+  tl.to("#s11-a", { y: -120, opacity: 0, duration: 0.25, ease: "power2.in" }, 60.55);
+  tl.to("#s11-b", { opacity: 1, duration: 0.01 }, 60.8);
+  tl.fromTo(".s11-blk", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: B, stagger: { each: 0.14, from: "end" } }, 60.85);
+  rise("#s11-yrs", 61.4, 30, 0.4);
+  rise("#s11-you", 63.4, 30, 0.4);
+  leave("#s11-card", 65.15);
+
+  // S12 persistent files (65.4–69.95)
+  rise("#s12-h", 65.45, 40, 0.4);
+  tl.set(".s12-k", { opacity: 0 }, 65.4);
+  rise("#s12-card", 66.0, 80, 0.4);
+  tl.fromTo(".s12-f", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: E, stagger: 0.55 }, 67.1);
+  tl.fromTo("#s12-spin", { rotation: 0 }, { rotation: 360, duration: 0.6, ease: "power2.inOut" }, 68.85);
+  tl.to(".s12-f", { opacity: 0.35, duration: 0.12 }, 68.95);
+  tl.to(".s12-f", { opacity: 1, duration: 0.12 }, 69.25);
+  tl.fromTo(".s12-k", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: B, stagger: 0.08 }, 69.3);
+
+  // S13 n8n / Hermes / OpenClaw -> build on Bluehost (69.95–76.9)
+  rise("#s13-card", 70.05, 50, 0.4);
+  tl.set([".s13-c", "#s13-inf", "#s13-cta"], { opacity: 0 }, 69.95);
+  const c13 = gsap.utils.toArray(".s13-c"); [71.55, 72.55, 73.9].forEach((t, i) => pop(c13[i], t));
+  rise("#s13-inf", 74.4, 30, 0.3);
+  tl.fromTo("#s13-strk", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 75.1);
+  tl.to("#s13-inf", { opacity: 0.4, duration: 0.2 }, 75.4);
+  slam("#s13-cta", 76.05, 1.8, -2);
+  leave("#s13-card", 76.68);
+
+  // S14 CTA (76.9–79.4)
+  rise("#s14-h", 76.95, 30, 0.3);
+  rise("#s14-box", 77.0, 60, 0.35);
+  blink("#s14-cur", 77.0, 9);
+  type("s14-t", "BLUEHOST", 77.25, 0.7);
+  tl.to("#s14-send", { scale: 0.86, duration: 0.08, yoyo: true, repeat: 1 }, 78.05);
+  tl.fromTo("#s14-dm", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: B }, 78.45);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xmlns="http://www.w3.org/ns/ttml" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:tts="http://www.w3.org/ns/ttml#styling" xml:lang="en-US" ttp:dropMode="nonDrop" ttp:frameRate="30" ttp:frameRateMultiplier="1 1" ttp:timeBase="smpte">
+  <head>
+    <styling>
+      <style xml:id="normal" tts:color="white" tts:fontFamily="sansSerif" tts:fontSize="100%" tts:fontStyle="normal" tts:fontWeight="normal"/>
+    </styling>
+    <layout>
+      <region xml:id="bottom" tts:displayAlign="after" tts:extent="100% 15%" tts:origin="0% 85%" tts:writingMode="lrtb"/>
+    </layout>
+  </head>
+  <body tts:color="white" region="bottom" style="normal">
+    <div>
+      <p begin="00:00:03:07" end="00:00:06:10" region="bottom">agents 24/7, so you don't have to hold your computer like this,</p>
+      <p begin="00:00:06:10" end="00:00:10:01" region="bottom">but you could do something like this. But this comes with a problem.</p>
+      <p begin="00:00:21:20" end="00:00:24:23" region="bottom">overnight, or maybe you just want to do simple research about</p>
+      <p begin="00:00:24:24" end="00:00:26:25" region="bottom">flights and browsing, et cetera.</p>
+      <p begin="00:00:26:27" end="00:00:27:27" region="bottom">And in this process,</p>
+      <p begin="00:00:28:09" end="00:00:31:09" region="bottom">you might want to run Hermes or OpenClaw and put them</p>
+      <p begin="00:00:31:09" end="00:00:33:03" region="bottom">on a virtual private server.</p>
+      <p begin="00:00:49:07" end="00:00:52:12" region="bottom">With Bluehost AI Agent Hosting, you can deploy agents</p>
+      <p begin="00:00:52:12" end="00:00:53:29" region="bottom">like OpenClaw or Hermes</p>
+      <p begin="00:00:58:18" end="00:01:01:18" region="bottom">And you'll be like, &quot;Why Bluehost?&quot; Because Bluehost has spent</p>
+      <p begin="00:01:01:18" end="00:01:05:12" region="bottom">years on infrastructure, so you don't have to build it for your agents.</p>
+      <p begin="00:01:09:29" end="00:01:13:26" region="bottom">So now, if you're building agents on n8n, Hermes,</p>
+      <p begin="00:01:13:26" end="00:01:16:27" region="bottom">OpenClaw, don't worry about infrastructure. Build on Bluehost.</p>
+    </div>
+  </body>
+</tt>
