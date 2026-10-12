@@ -1,1 +1,10 @@
 .DS_Store
+
+# Rendered outputs and large audio (regenerable; kept local / in ~/Movies/FCP)
+videos/*/renders/
+videos/*/snapshots/
+videos/*/exports/*.png
+*.mov
+videos/*/assets/sfx/sfx-stem.wav
+audio/intro-tense-tech/*.wav
+node_modules/
