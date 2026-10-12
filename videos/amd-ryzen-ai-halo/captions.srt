@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:03,600
+I am about to experience super intelligence on this little computer.
+
+2
+00:00:03,600 --> 00:00:06,390
+This is AMD's Ryzen AI Halo
+
+3
+00:00:06,390 --> 00:00:09,300
+and it caught my attention at their Advancing AI event.
+
+4
+00:00:09,300 --> 00:00:11,850
+Thanks to AMD for sponsoring this video.
+
+5
+00:00:11,850 --> 00:00:15,080
+This thing has 128 gigs of unified memory.
+
+6
+00:00:15,080 --> 00:00:19,100
+CPU, GPU and NPU share one powerful pool.
+
+7
+00:00:19,100 --> 00:00:23,090
+And most importantly, you can run 200 billion parameter models.
+
+8
+00:00:23,090 --> 00:00:28,400
+That means massive models can run locally and reliably.
+
+9
+00:00:28,400 --> 00:00:32,180
+And you won't believe, at this workshop, which was about local AI,
+
+10
+00:00:32,180 --> 00:00:37,000
+I saw not just engineering and data-intensive tasks being done locally,
+
+11
+00:00:37,000 --> 00:00:41,800
+but also video generation happening right here at this workshop.
+
+12
+00:00:41,800 --> 00:00:46,070
+And you know what this means? You could give it your personal data,
+
+13
+00:00:46,070 --> 00:00:49,220
+which doesn't leave this computer, doesn't go to the cloud,
+
+14
+00:00:49,220 --> 00:00:52,470
+like your data for taxes and sensitive documents,
+
+15
+00:00:52,470 --> 00:00:55,000
+with peace of mind, so your info is secure.
+
+16
+00:00:55,000 --> 00:00:58,900
+To learn more about AMD Ryzen AI Halo, check out my link in bio.

@@ -8,3 +8,5 @@ videos/*/exports/*.png
 videos/*/assets/sfx/sfx-stem.wav
 audio/intro-tense-tech/*.wav
 node_modules/
+
+videos/*/edit/*.wav

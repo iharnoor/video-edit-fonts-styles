@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+<fcpxml version="1.11">
+ <resources>
+  <format id="r1" name="FFVideoFormat1080x1920p30" frameDuration="1/30s" width="1080" height="1920" colorSpace="1-1-1 (Rec. 709)"/>
+  <asset id="a_voice" name="voiceover" start="0s" duration="4834/30s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+   <media-rep kind="original-media" src="file:///Users/harnoor/Downloads/d2d1bcc4-659_Fillmore_St_Apt_4_6.m4a"/>
+  </asset>
+  <asset id="a_gfx" name="graphics" start="0s" duration="1786/30s" hasVideo="1" format="r1" videoSources="1">
+   <media-rep kind="original-media" src="file:///Users/harnoor/Movies/FCP/amd-ryzen-ai-halo-graphics/graphics.mp4"/>
+  </asset>
+  <asset id="a_bloop" name="bloop" start="0s" duration="1s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+   <media-rep kind="original-media" src="file:///Users/harnoor/Movies/FCP/amd-ryzen-ai-halo-graphics/sfx/bloop.wav"/>
+  </asset>
+  <asset id="a_ding" name="ding" start="0s" duration="1s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+   <media-rep kind="original-media" src="file:///Users/harnoor/Movies/FCP/amd-ryzen-ai-halo-graphics/sfx/ding.wav"/>
+  </asset>
+  <asset id="a_pop" name="pop" start="0s" duration="1s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+   <media-rep kind="original-media" src="file:///Users/harnoor/Movies/FCP/amd-ryzen-ai-halo-graphics/sfx/pop.wav"/>
+  </asset>
+  <asset id="a_whoosh" name="whoosh" start="0s" duration="1s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+   <media-rep kind="original-media" src="file:///Users/harnoor/Movies/FCP/amd-ryzen-ai-halo-graphics/sfx/whoosh.wav"/>
+  </asset>
+ </resources>
+ <library>
+  <event name="amd-ryzen-ai-halo">
+   <project name="AMD Ryzen AI Halo (warm &amp; witty)">
+    <sequence format="r1" duration="1786/30s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+     <spine>
+      <asset-clip ref="a_voice" name="vo 01" offset="0s" start="131/30s" duration="357/30s" audioRole="dialogue">
+       <asset-clip ref="a_gfx" lane="1" name="graphics" offset="131/30s" start="0s" duration="1786/30s" videoRole="video"/>
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="131/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_whoosh" lane="-2" name="whoosh" offset="173/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="283/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="359/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_whoosh" lane="-2" name="whoosh" offset="476/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 02" offset="357/30s" start="993/30s" duration="217/30s" audioRole="dialogue">
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="1018/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_bloop" lane="-2" name="bloop" offset="1089/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_bloop" lane="-2" name="bloop" offset="1106/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_bloop" lane="-2" name="bloop" offset="1132/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 03" offset="574/30s" start="1345/30s" duration="278/30s" audioRole="dialogue">
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="1399/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_ding" lane="-2" name="ding" offset="1593/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_whoosh" lane="-2" name="whoosh" offset="1615/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 04" offset="852/30s" start="2509/30s" duration="162/30s" audioRole="dialogue">
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 05" offset="1014/30s" start="3566/30s" duration="222/30s" audioRole="dialogue">
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="3568/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="3594/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_pop" lane="-2" name="pop" offset="3692/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 06" offset="1236/30s" start="3795/30s" duration="18/30s" audioRole="dialogue">
+       <asset-clip ref="a_whoosh" lane="-2" name="whoosh" offset="3804/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 07" offset="1254/30s" start="3958/30s" duration="222/30s" audioRole="dialogue">
+       <asset-clip ref="a_bloop" lane="-2" name="bloop" offset="4135/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 08" offset="1476/30s" start="4188/30s" duration="174/30s" audioRole="dialogue">
+       <asset-clip ref="a_ding" lane="-2" name="ding" offset="4329/30s" start="0s" duration="1s" audioRole="effects"/>
+       <asset-clip ref="a_whoosh" lane="-2" name="whoosh" offset="4354/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <asset-clip ref="a_voice" name="vo 09" offset="55s" start="4669/30s" duration="117/30s" audioRole="dialogue">
+       <asset-clip ref="a_ding" lane="-2" name="ding" offset="4741/30s" start="0s" duration="1s" audioRole="effects"/>
+      </asset-clip>
+      <gap name="tail" offset="1767/30s" start="0s" duration="19/30s"/>
+     </spine>
+    </sequence>
+   </project>
+  </event>
+ </library>
+</fcpxml>

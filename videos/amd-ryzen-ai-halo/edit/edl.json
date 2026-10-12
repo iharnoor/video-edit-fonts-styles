@@ -1,0 +1,78 @@
+{
+ "src": "/root/.claude/uploads/b4418056-7027-55ec-9dcc-d0cba7237df9/d2d1bcc4-659_Fillmore_St_Apt_4_6.m4a",
+ "pieces": [
+  {
+   "s": 4.3667,
+   "e": 16.2667,
+   "f_in": 131,
+   "f_out": 488,
+   "take": "hook: super intelligence / Ryzen AI Halo / Advancing AI / thanks AMD",
+   "rec": 0
+  },
+  {
+   "s": 33.1,
+   "e": 40.3333,
+   "f_in": 993,
+   "f_out": 1210,
+   "take": "128 gigs unified memory, CPU GPU NPU one pool",
+   "rec": 11.9
+  },
+  {
+   "s": 44.8333,
+   "e": 54.1,
+   "f_in": 1345,
+   "f_out": 1623,
+   "take": "200B parameter models, run locally and reliably",
+   "rec": 19.1333
+  },
+  {
+   "s": 83.6333,
+   "e": 89.0333,
+   "f_in": 2509,
+   "f_out": 2671,
+   "take": "workshop about local AI, I saw not just",
+   "rec": 28.4
+  },
+  {
+   "s": 118.8667,
+   "e": 126.2667,
+   "f_in": 3566,
+   "f_out": 3788,
+   "take": "engineering, data, video generation at this workshop",
+   "rec": 33.8
+  },
+  {
+   "s": 126.5,
+   "e": 127.1,
+   "f_in": 3795,
+   "f_out": 3813,
+   "take": "engineering, data, video generation at this workshop",
+   "rec": 41.2
+  },
+  {
+   "s": 131.9333,
+   "e": 139.3333,
+   "f_in": 3958,
+   "f_out": 4180,
+   "take": "personal data never leaves, peace of mind, secure",
+   "rec": 41.8
+  },
+  {
+   "s": 139.6,
+   "e": 145.4,
+   "f_in": 4188,
+   "f_out": 4362,
+   "take": "personal data never leaves, peace of mind, secure",
+   "rec": 49.2
+  },
+  {
+   "s": 155.6333,
+   "e": 159.5333,
+   "f_in": 4669,
+   "f_out": 4786,
+   "take": "CTA link in bio",
+   "rec": 55.0
+  }
+ ],
+ "dur": 58.9
+}
