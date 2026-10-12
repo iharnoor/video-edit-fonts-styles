@@ -1,0 +1,218 @@
+[
+ {
+  "begin": "00:00:00:00",
+  "end": "00:00:03:07",
+  "start": 0,
+  "stop": 3.233,
+  "text": "San Francisco is fighting an AI race where you can run AI",
+  "raw": "San Francisco is fighting an AI race where you can run AI"
+ },
+ {
+  "begin": "00:00:03:07",
+  "end": "00:00:06:10",
+  "start": 3.233,
+  "stop": 6.333,
+  "text": "agents 24/7, so you don't have to hold your computer like this,",
+  "raw": "agents 247, so you don't have to hold your computer like this,"
+ },
+ {
+  "begin": "00:00:06:10",
+  "end": "00:00:10:01",
+  "start": 6.333,
+  "stop": 10.033,
+  "text": "but you could do something like this. But this comes with a problem.",
+  "raw": "but you could do something like this, but this comes with a problem."
+ },
+ {
+  "begin": "00:00:10:03",
+  "end": "00:00:14:05",
+  "start": 10.1,
+  "stop": 14.167,
+  "text": "It might sound silly, but all we're trying to do is make your computer do work.",
+  "raw": "It might sound silly, but all we're trying to do is make your computer do work."
+ },
+ {
+  "begin": "00:00:14:07",
+  "end": "00:00:18:00",
+  "start": 14.233,
+  "stop": 18,
+  "text": "Think about autoresearch from Andrej Karpathy, where it's actually researching",
+  "raw": "Think about auto research from Andre Karpati, when you're actually researching"
+ },
+ {
+  "begin": "00:00:18:00",
+  "end": "00:00:21:19",
+  "start": 18,
+  "stop": 21.633,
+  "text": "while you're sleeping, or you're working on a project that improves",
+  "raw": "when you're sleeping, or you're actually working on your project that improves"
+ },
+ {
+  "begin": "00:00:21:20",
+  "end": "00:00:24:23",
+  "start": 21.667,
+  "stop": 24.767,
+  "text": "overnight, or maybe you just want to do simple research about",
+  "raw": "overnight, or maybe you just want to do simple research about"
+ },
+ {
+  "begin": "00:00:24:24",
+  "end": "00:00:26:25",
+  "start": 24.8,
+  "stop": 26.833,
+  "text": "flights and browsing, et cetera.",
+  "raw": "flights and just browsing, et cetera."
+ },
+ {
+  "begin": "00:00:26:27",
+  "end": "00:00:27:27",
+  "start": 26.9,
+  "stop": 27.9,
+  "text": "And in this process,",
+  "raw": "And in this process,"
+ },
+ {
+  "begin": "00:00:28:09",
+  "end": "00:00:31:09",
+  "start": 28.3,
+  "stop": 31.3,
+  "text": "you might want to run Hermes or OpenClaw and put them",
+  "raw": "might be wanting to do Hermes, open claw, and putting"
+ },
+ {
+  "begin": "00:00:31:09",
+  "end": "00:00:33:03",
+  "start": 31.3,
+  "stop": 33.1,
+  "text": "on a virtual private server.",
+  "raw": "on a virtual private server."
+ },
+ {
+  "begin": "00:00:33:07",
+  "end": "00:00:36:16",
+  "start": 33.233,
+  "stop": 36.533,
+  "text": "But then the problem is, while managing",
+  "raw": "But then the problem comes is, while managing"
+ },
+ {
+  "begin": "00:00:36:16",
+  "end": "00:00:40:07",
+  "start": 36.533,
+  "stop": 40.233,
+  "text": "that, you become a DevOps engineer, managing dependencies,",
+  "raw": "that, you become a dev ops engineer, managing dependencies,"
+ },
+ {
+  "begin": "00:00:40:07",
+  "end": "00:00:44:04",
+  "start": 40.233,
+  "stop": 44.133,
+  "text": "SSL, VPS... all of that comes with problems.",
+  "raw": "SSL, VPS, all that comes with a problem."
+ },
+ {
+  "begin": "00:00:44:06",
+  "end": "00:00:47:15",
+  "start": 44.2,
+  "stop": 47.5,
+  "text": "But now, thanks to Bluehost sponsoring this video,",
+  "raw": "But now, thanks to Blue Host sponsoring this widow,"
+ },
+ {
+  "begin": "00:00:47:15",
+  "end": "00:00:48:28",
+  "start": 47.5,
+  "stop": 48.933,
+  "text": "it's trying to solve that problem.",
+  "raw": "is trying to solve that problem."
+ },
+ {
+  "begin": "00:00:49:07",
+  "end": "00:00:52:12",
+  "start": 49.233,
+  "stop": 52.4,
+  "text": "With Bluehost AI Agent Hosting, you can deploy agents",
+  "raw": "With blue host AI agent hosting, you can deploy agents"
+ },
+ {
+  "begin": "00:00:52:12",
+  "end": "00:00:53:29",
+  "start": 52.4,
+  "stop": 53.967,
+  "text": "like OpenClaw or Hermes",
+  "raw": "like Open Claw or Hermes."
+ },
+ {
+  "begin": "00:00:54:00",
+  "end": "00:00:55:24",
+  "start": 54,
+  "stop": 55.8,
+  "text": "onto an always-on VPS,",
+  "raw": "Into always on VPS."
+ },
+ {
+  "begin": "00:00:55:25",
+  "end": "00:00:58:17",
+  "start": 55.833,
+  "stop": 58.567,
+  "text": "without having to manually configure the infrastructure yourself.",
+  "raw": "Without having to configure the infrastructure yourself."
+ },
+ {
+  "begin": "00:00:58:18",
+  "end": "00:01:01:18",
+  "start": 58.6,
+  "stop": 61.6,
+  "text": "And you'll be like, \"Why Bluehost?\" Because Bluehost has spent",
+  "raw": "And you'll be like, why, blue host, because blue host has spent"
+ },
+ {
+  "begin": "00:01:01:18",
+  "end": "00:01:05:12",
+  "start": 61.6,
+  "stop": 65.4,
+  "text": "years on infrastructure, so you don't have to build it for your agents.",
+  "raw": "years on infrastructure, so you don't have to build one for your agents."
+ },
+ {
+  "begin": "00:01:05:13",
+  "end": "00:01:08:20",
+  "start": 65.433,
+  "stop": 68.667,
+  "text": "Plus, your files are persistent, so you don't need to worry about your data,",
+  "raw": "Plus, your files are persistent as well, so you don't need to worry about your data"
+ },
+ {
+  "begin": "00:01:08:20",
+  "end": "00:01:09:27",
+  "start": 68.667,
+  "stop": 69.9,
+  "text": "memory, et cetera.",
+  "raw": "memory, et cetera."
+ },
+ {
+  "begin": "00:01:09:29",
+  "end": "00:01:13:26",
+  "start": 69.967,
+  "stop": 73.867,
+  "text": "So now, if you're building agents on n8n, Hermes,",
+  "raw": "So now, if you are building agents on NETN, Hermes,"
+ },
+ {
+  "begin": "00:01:13:26",
+  "end": "00:01:16:27",
+  "start": 73.867,
+  "stop": 76.9,
+  "text": "OpenClaw, don't worry about infrastructure. Build on Bluehost.",
+  "raw": "open cloud, do not worry about infrastructure, build on boo"
+ },
+ {
+  "begin": "00:01:16:27",
+  "end": "00:01:19:12",
+  "start": 76.9,
+  "stop": 79.4,
+  "text": "Comment \"BLUEHOST\" and I'll send you the link in your DMs.",
+  "raw": "host, Command W host, and I'll send you the link in your DM."
+ }
+]

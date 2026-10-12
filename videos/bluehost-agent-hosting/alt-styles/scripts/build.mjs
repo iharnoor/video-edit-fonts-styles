@@ -59,6 +59,6 @@ ${cues.map((c) => `      <p begin="${c.begin}" end="${c.end}" region="bottom">${
   </body>
 </tt>
 `;
-fs.writeFileSync(new URL("captions/bluehost-captions-corrected.itt", root), itt(CAPTIONS));
+fs.writeFileSync(new URL("../captions/bluehost-captions-corrected.itt", root), itt(CAPTIONS));
 fs.writeFileSync(new URL("captions/bluehost-captions-green-only.itt", root), itt(green));
 console.log(`built index.html (${theme}) · ${FULL.length} full-screen scenes · ${capClips.length} burned captions · ${green.length} green-only cues`);

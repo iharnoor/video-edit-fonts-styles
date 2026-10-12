@@ -326,5 +326,21 @@
     "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/bodonimoda/OFL.txt",
     "bytes": 4400,
     "sha256": "931dfe2e0cd3c9443295f5c1d754b8a8403bf060df50c1d5900267ade83d0046"
+  },
+  {
+    "path": "fonts/caveat/OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/OFL.txt",
+    "bytes": 4385,
+    "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b"
+  },
+  {
+    "path": "fonts/caveat/Caveat[wght].ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/Caveat%5Bwght%5D.ttf",
+    "bytes": 403648,
+    "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+    "family": [
+      "Caveat"
+    ],
+    "validated": true
   }
 ]
