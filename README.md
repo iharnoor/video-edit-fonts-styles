@@ -6,7 +6,8 @@ My favorite fonts and pairings for video editing.
 
 This is my signature style and the default for every video. It's visual, not text-heavy. I'm the builder who actually tries things.
 
-- **Stickers over the footage**, in the top band clear of my face, each landing on its payoff word:
+- **Animated UI cards first:** generic UI that acts out the line, such as a fare that counts up, an itinerary whose layover stretches, a calendar where the flight drags earlier, an incoming-call screen, a 2 AM lock screen, or a comment box typing the keyword.
+- **Stickers over the footage** where UI can't show the idea, in the top band clear of my face, each landing on its payoff word:
   - sticky notes in handwriting
   - tomato number badges ("+$1,000 / change fees")
   - chat bubbles
@@ -18,7 +19,7 @@ This is my signature style and the default for every video. It's visual, not tex
 - **Full-screen paper board** whenever I'm reading off-camera. **Generic UI visuals** (e.g. a flight-search map) go full screen, then split screen with my face in the bottom half.
 - **Pacing:** pauses over 0.3s are trimmed to about 0.15s, and every word is kept.
 - **Sound:** sparse SFX (pop, bloop, whoosh, ding, cash). A music bed that's beat-aligned to the sticker hits, about −24 dB under my voice, with a −14 LUFS final mix.
-- **Grade:** a light corrective LUT that cools the warm indoor cast.
+- **Grade:** a light corrective LUT that cools the warm indoor cast, on an FCP **adjustment layer** (Look Grade title plus Custom LUT) under the visuals.
 - **Deliverables:** an FCPXML (cuts, stickers, captions, music and SFX on separate lanes), a `.cube` LUT, an `.srt` and a preview MP4.
 
 Full spec for agents: [.claude/skills/warm-witty-style/SKILL.md](.claude/skills/warm-witty-style/SKILL.md). The reference build is a sponsored reel with its full toolkit: [videos/travelopod/](videos/travelopod/).
@@ -124,6 +125,16 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
   ```bash
   npx skills add wheresryan22/anatomy
   ```
+
+- **[OpenMontage](https://github.com/calesthio/OpenMontage)** by calesthio (AGPL-3.0, ~67K stars, [openmontage.video](https://openmontage.video)): an open-source, agentic video production system that turns an AI coding assistant like Claude Code into a production studio. It has 12 pipelines, 100+ tools and 700+ agent skill and knowledge files.
+  - **Start from a reference video:** paste a YouTube video, Short, Reel, TikTok or local clip. It analyzes the transcript, pacing, scenes, keyframes and style, then proposes 2–3 concepts with a tool path, cost estimate and sample before full production.
+  - **Pipelines worth trying for my edits:**
+    - Clip Factory: ranked short-form clips from one long source
+    - Hybrid: my footage plus generated support visuals
+    - Animation: kinetic type and motion graphics
+    - Animated Explainer, Documentary Montage, Cinematic
+  - **Setup:** Python 3.10+, FFmpeg, Node 18+, then clone the repo and follow its Quick Start.
+  - **License note:** AGPLv3, so use it as a tool rather than copying its code into anything I distribute.
 
 ## Favorite motion styles
 
