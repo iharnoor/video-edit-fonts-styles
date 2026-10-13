@@ -84,6 +84,7 @@ Keep the UI generic, with no real app chrome or logos except the sponsor's own n
 - **Music:** pick from Harnoor's library: `~/Music/Reel Music/` (preferred), then the Epidemic Sound (`ES_*`) folders.
   - **For paid partnerships, prefer Epidemic Sound tracks**, which are licensed. Copyrighted songs from "Reel Music" can't be used in branded content; Harnoor adds Instagram music in the app at upload.
   - Pick an upbeat, steady track (low dynamic range) so it sits under the voice.
+  - **Match the content type.** [reels music/README.md](../../../reels%20music/README.md) lists song ideas by type: Storytelling, Emotional, Educational, Day in the Life. Explainers and tool breakdowns are Educational. They're copyrighted, so they're for organic posts only. For sponsored posts, pick an Epidemic Sound track in the same spirit.
   - **Beat-align:** choose the track start offset that puts onsets on the sticker hits.
   - Mix at about −24 dB under the voice and fade in over 0.4s. The final mix is −14 LUFS / −1 dBTP.
   - **End the music naturally. Never hard-cut the full track.** Use one of the three endings from the README's **Ending background music** section:
