@@ -49,6 +49,26 @@ Reference: [@kienobifilms' ten sound effects reel](https://www.instagram.com/ree
 
 For future edits, use these names when discussing or searching for sounds. Match the sound's peak to the visual event and keep effects low enough for speech to stay clear. Choose effects for specific moments rather than placing one on every cut. Check existing local SFX assets before sourcing more.
 
+## Ending background music
+
+**Goal:** end the background music so it feels natural. Never hard-cut the full track. A sudden stop reads as a mistake.
+
+Use **one** of these three techniques per ending. They're alternatives, not a sequence.
+
+| Technique | How | Needs |
+| --- | --- | --- |
+| **1. Stem cut** | At the point where the music should end, cut the **melody stem** out of the track's tail, not the whole mix. Put **reverb on the end** of what's left so the music decays and smooths out instead of stopping dead. | Stems, or a stem-separated version of the track |
+| **2. Reverb tail** | Take a **continuous beat section** from inside the track and place it at the ending point. Put a **studio reverb** on that beat segment so the track closes on a natural reverb tail. | Just the track |
+| **3. Riser + whoosh stack** | At the exact frame the music stops, layer transition SFX over the cut to mask it, **5 layers in total**: 1 × riser/transition, 2 × mid whooshes, 2 × low whooshes. Stack them under and around the end of the music, timed to the stop. | Risers and whooshes from your SFX library |
+
+**Notes:**
+- The source reel is diagram-only. It names no plugins, decay times or numeric settings, so use your judgment on reverb settings and SFX levels.
+- For technique 3, keep the stack **under the music's final level** so it masks the cut rather than dominating it.
+- Any editor or DAW works (Final Cut Pro, Premiere, After Effects, …).
+- Our starting point, which is our own default and not from the reel, is a large-hall reverb with about 2–3s of decay, 100% wet on the tail clip, and the dry signal fading out over the first beat.
+- **Never ending under the voice.** The music ending should land after the last spoken word, or in the gap right before the CTA. Never let the tail land in the middle of a sentence.
+- A plain 1.5s fade-out is the fallback when none of the three techniques fits. It's still not a hard cut.
+
 ## Favorites from @surosa.r
 
 Source: [Instagram reel Dav1dTzsVTN](https://www.instagram.com/reels/Dav1dTzsVTN/).

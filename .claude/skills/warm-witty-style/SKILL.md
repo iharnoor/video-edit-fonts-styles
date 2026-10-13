@@ -85,7 +85,13 @@ Keep the UI generic, with no real app chrome or logos except the sponsor's own n
   - **For paid partnerships, prefer Epidemic Sound tracks**, which are licensed. Copyrighted songs from "Reel Music" can't be used in branded content; Harnoor adds Instagram music in the app at upload.
   - Pick an upbeat, steady track (low dynamic range) so it sits under the voice.
   - **Beat-align:** choose the track start offset that puts onsets on the sticker hits.
-  - Mix at about −24 dB under the voice, fade in over 0.4s and out over 1.5s, final mix −14 LUFS / −1 dBTP.
+  - Mix at about −24 dB under the voice and fade in over 0.4s. The final mix is −14 LUFS / −1 dBTP.
+  - **End the music naturally. Never hard-cut the full track.** Use one of the three endings from the README's **Ending background music** section:
+    - **Stem cut:** drop the melody stem from the tail and put reverb on what's left.
+    - **Reverb tail:** place a continuous beat section at the end with a studio reverb, so it closes on its tail.
+    - **Riser + whoosh stack:** 5 layers at the stop frame (1 riser, 2 mid whooshes, 2 low whooshes), kept under the music's final level.
+    - Land the ending after the last spoken word or in the gap before the CTA.
+    - A plain 1.5s fade-out is only the fallback.
 - **SFX: sparse, about one per sticker moment at most.** Pop for a sticker, bloop for a chat reply, whoosh into a full-screen board, ding for a verdict or CTA, cash register for money. The README "Sound effect vocabulary" has the names. A synthesized kit is in `videos/travelopod/sfx/`.
 
 ## Grade

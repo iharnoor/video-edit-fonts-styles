@@ -243,6 +243,26 @@
       "captions": "Poppins ExtraBold, lowercase, key word in sky pill",
       "handwritten": "Caveat (Noteworthy Bold on macOS fallback)"
     },
-    "addedOn": "2026-10-11"
+    "addedOn": "2026-10-11",
+    "musicEnding": {
+      "rule": "Never hard-cut the full track; end with one technique per ending",
+      "techniques": [
+        {
+          "name": "stem cut",
+          "how": "cut the melody stem from the tail, reverb the remaining end",
+          "needs": "stems"
+        },
+        {
+          "name": "reverb tail",
+          "how": "place a continuous beat section at the end with studio reverb so it decays"
+        },
+        {
+          "name": "riser + whoosh stack",
+          "how": "at the stop frame: 1 riser + 2 mid whooshes + 2 low whooshes, under the music's final level"
+        }
+      ],
+      "fallback": "1.5s fade-out",
+      "spec": "README.md#ending-background-music"
+    }
   }
 }
