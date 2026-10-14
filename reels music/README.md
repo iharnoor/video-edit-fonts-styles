@@ -51,6 +51,29 @@ Song ideas for background music, picked by what the video is. Source: an Instagr
 - Use an instrumental version under the voice where one exists, about −24 dB.
 - End it naturally (see the main README's **Ending background music**).
 
+## Vlog & storytelling picks
+
+Five songs from another Instagram reel, catalogued 2026-10-14. Its link wasn't saved.
+
+- It's one combined list. The reel's "Vlogs" and "Storytelling" labels only appear in the intro, and the tracks aren't split by category.
+- The order below is exactly as shown on screen, with spelling and capitalization verbatim. An earlier transcription listed Mozart first, following the platform's stored summary. A frame-by-frame watch puts Lukas Graham and Tom Odell first; the five tracks are the same either way.
+- Download links are gated behind commenting "MUSIC" on the post. The closing overlay reads "Me apko bhejdunga" ("I will send you"). The reel itself has no links.
+- The reel's audio is the creator's own voiceover. Source these from licensed libraries as usual.
+
+| # | Label on screen |
+| --- | --- |
+| 1 | Lukas Graham - 7 Years |
+| 2 | Tom Odell - Another Love |
+| 3 | Mozart - String Serenade |
+| 4 | joel sunny - luminary *(all lowercase on screen)* |
+| 5 | Alexandre Brovelli - Black Vertigo |
+
+**Usage:**
+- These fit the **Storytelling** and **Day in the Life** content types above.
+- Lukas Graham and Tom Odell are copyrighted pop songs, so they're for organic posts only, added as Instagram music at upload.
+- The Mozart is a public-domain composition, but a given recording usually isn't, so still source it from a licensed library.
+- Sponsored posts stay on Epidemic Sound.
+
 ## Future editing
 
 Preferred music folder supplied by the user: `/Users/harnoor/Music/Reel Music/`.

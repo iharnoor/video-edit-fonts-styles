@@ -28,7 +28,7 @@ Full spec for agents: [.claude/skills/warm-witty-style/SKILL.md](.claude/skills/
 
 For future video edits, check `/Users/harnoor/Music/Reel Music/` for background music and choose a track that fits the script's mood. This is the user's preferred local music library.
 
-See [the reel music catalog](reels%20music/README.md) for track candidates and mood labels. It also has **songs by content type**: Storytelling, Emotional, Educational and Day in the Life, 3 picks each. Those are copyrighted, so they're for organic posts only (added as Instagram music at upload). Sponsored posts use Epidemic Sound. Check the actual files in the music folder before selecting a track; the catalog alone does not confirm an audio file is available.
+See [the reel music catalog](reels%20music/README.md) for track candidates and mood labels. It also has **songs by content type**: Storytelling, Emotional, Educational and Day in the Life, 3 picks each. There are also five **vlog & storytelling picks** (Lukas Graham, Tom Odell, Mozart, joel sunny, Alexandre Brovelli). Those are copyrighted, so they're for organic posts only (added as Instagram music at upload). Sponsored posts use Epidemic Sound. Check the actual files in the music folder before selecting a track; the catalog alone does not confirm an audio file is available.
 
 ## Sound effect vocabulary
 
