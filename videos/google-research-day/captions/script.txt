@@ -1,0 +1,58 @@
+I just spent the day inside Google Research in Silicon Valley.
+And honestly, some of the most interesting AI announcements had nothing to do with chatbots.
+Google showed AI that can analyze the entire planet, help scientists discover new things, check research papers, and even power tiny wearable devices.
+Let me show you what actually matters.
+First — Google Earth AI.
+Imagine asking AI:
+Where should I build my next data center?
+Which neighborhoods are most at risk of flooding?
+Or where should a city invest in new infrastructure?
+Google's new Geospatial Reasoning agent connects Gemini with satellite imagery, weather models, population data, and more than 70 geospatial tools.
+And here's the interesting part.
+Instead of just generating an answer, the agent plans a workflow, gathers the relevant data, and performs spatial analysis.
+Google is also opening experimental access through Google Earth and an agent-to-agent API.
+For developers, this could become a completely new category of AI applications.
+Second — AI scientists.
+Google demonstrated a multi-agent system that helps scientists reproduce previous research and explore new discoveries.
+One example?
+Using AI-assisted research to design urinary catheters that performed better at preventing bacterial infections in simulations.
+And Google's AI Co-Scientist is exploring new scientific hypotheses, including potential drug treatments.
+This is where agents get interesting.
+Not just writing code — helping researchers discover things.
+Third — Deep Review.
+Everyone is using AI to generate content.
+But who's checking whether that content is actually correct?
+Google is making Deep Review publicly available.
+It's an AI system built to scrutinize complex technical documents, check reasoning, and identify possible mistakes.
+An earlier version was used with more than 16,000 research paper submissions.
+And now the technology is expanding beyond scientific papers to other complex documents.
+Fourth — Edge AI hardware.
+Google previewed a next-generation, low-power AI chip developed with Synaptics.
+Think smart glasses, smartwatches, cameras, and voice-enabled devices.
+Instead of sending everything to the cloud, more AI processing could happen directly on your device.
+For hardware developers, this is a space worth watching.
+Fifth — AI for numbers.
+Google has TimesFM and TabFM.
+These are foundation models designed for time-series and tabular data.
+Instead of training a separate forecasting model for every business problem, developers can use pretrained models to make predictions.
+Google is planning to integrate these capabilities into Gemini for business.
+Sixth — Medical AI.
+Google's AMIE is a research system for medical conversations and clinical reasoning.
+In a study involving 98 patients before urgent care visits, clinicians reported that AMIE's summaries helped them prepare in 75% of cases.
+And MedGemma provides open medical AI models that developers can adapt for specialized healthcare applications.
+These systems are still subject to important clinical and safety limitations.
+But the research is moving beyond basic symptom-checking chatbots.
+Seventh — AI predicting disasters.
+Google's Groundsource uses Gemini to turn historical flood reports into structured data.
+The resulting dataset contains more than 2.6 million flood events.
+That helped researchers build a model that can predict the likelihood of urban flash flooding up to 24 hours in advance.
+Now that's a real-world application of AI.
+And Google also showed AI-generated educational simulations and a collaborative prototyping tool called Play with Putty.
+But here's my biggest takeaway from today's event.
+We're moving from AI that generates text...
+To AI that can reason over physical-world data, check complex scientific work, support medical research, and run on specialized devices.
+And for software engineers, the opportunity isn't just to build another chatbot.
+It's to combine AI models with tools, real-world data, and domain-specific expertise.
+That's where I think the next wave of valuable AI products will come from.
+I also met the researchers building some of these systems, so more technical deep dives are coming.
+Which of these announcements would you actually build with?

@@ -13,3 +13,5 @@ __pycache__/
 videos/*/source/*.m4a
 videos/*/source/*.wav
 videos/*/source/amd/
+videos/*/source/pages/
+videos/google-research-day/source/face-sample.webp
