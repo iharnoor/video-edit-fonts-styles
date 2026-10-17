@@ -224,4 +224,28 @@ Reverse-engineered from Eric Tech's [How To Use REA To Clone Any Software In Min
 - **Sound:** a pop or click on every card entrance, typing ticks under prompts, whooshes on camera moves, and for big reveals a riser, then about 0.15s of dead silence, then an impact. Synthesized library: [videos/rea-code-not-the-moat/scripts/sfx.mjs](videos/rea-code-not-the-moat/scripts/sfx.mjs).
 - **Over talking-head footage:** green-screen cards go in the top band (y 80–430) or chest band (y 1110–1580) of a 1080×1920 frame, clear of the face. No green artwork and no soft shadows on green, so the key stays clean.
 
+## Popular editing styles
+
+Creator names transcribed from an on-screen list, in the order shown. Handles are included where known. The full set of 15 style links is only available by commenting "STYLES" on the source post, so they aren't saved here. No style recipes are listed below unless this repo already has them.
+
+| # | Creator | Handle / channel |
+| --- | --- | --- |
+| 1 | **Vox** | @vox |
+| 2 | **Johnny Harris** | @johnny.harris |
+| 3 | **MagnatesMedia** | @magnatesmedia |
+| 4 | **Iman Gadzhi** | @imangadzhi |
+| 5 | **Ali Abdaal** | @aliabdaal |
+| 6 | **Imperial** | — |
+| 7 | **Maximize** | @bymaximise |
+| 8 | **Devin Jatho** | @devinjatho |
+| 9 | **Arsacre** | — |
+| 10 | **Natt Jongsala** | — |
+| 11 | **Gawx** | YouTube [@GawxArt](https://www.youtube.com/@GawxArt) |
+| 12 | **Sam Kolder** | @samkolder |
+| 13 | **Kurzgesagt** | @kurzgesagt |
+| 14 | **LEMMiNO** | — |
+| 15 | **Metro Media** | @metromedia.house |
+
+Spelling note for #9: one read said "Arscare"; **Arsacre** is used here for now. #11 is **Gawx** (YouTube Gawx Art), not GRAWX.
+
 Machine-readable favorites are in [favorites.json](favorites.json).
