@@ -8,7 +8,7 @@ This is my signature style and the default for every video. It's visual, not tex
 
 - **Animated UI cards first:** generic UI that acts out the line, such as a fare that counts up, an itinerary whose layover stretches, a calendar where the flight drags earlier, an incoming-call screen, a 2 AM lock screen, or a comment box typing the keyword.
 - **Stickers over the footage** where UI can't show the idea, in the top band clear of my face, each landing on its payoff word:
-  - sticky notes in handwriting
+  - small drawn visuals for asides (icons, mini illustrations), with no sticky notes or handwritten sentences
   - tomato number badges ("+$1,000 / change fees")
   - chat bubbles
   - pills

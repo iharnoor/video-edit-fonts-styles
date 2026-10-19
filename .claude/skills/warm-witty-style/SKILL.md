@@ -7,7 +7,7 @@ description: Harnoor's main video style ("warm & witty"). Use for ANY video grap
 
 This is the default for every new video. Only switch styles when Harnoor asks for a different one, e.g. one of the 20 animation styles in the README. The full reference build is **videos/travelopod/**: a sponsored 9:16 talking-head reel, Oct 2026.
 
-**Core idea:** visual, not text-heavy. Show results as objects (stickers, notes, UI) instead of sentences. **Default to an animated generic UI card that acts out the line** (a fare that counts up, an itinerary whose layover stretches, a calendar where the flight drags earlier, an incoming call, a 2 AM lock screen, a comment box typing the keyword). Use a word pill or sticky note only when no UI can show the idea. The handwritten asides stay. Harnoor is the builder who tries things, with dry asides and a recurring verdict sticker.
+**Core idea:** visual, not text-heavy. Show results as objects (stickers, drawings, UI) instead of sentences. **Default to an animated generic UI card that acts out the line** (a fare that counts up, an itinerary whose layover stretches, a calendar where the flight drags earlier, an incoming call, a 2 AM lock screen, a comment box typing the keyword). Use a word pill only when no UI can show the idea. **No sticky notes or handwritten text asides.** Harnoor's dry aside becomes a **visual aside**: a small drawn object, icon or mini illustration with a label of 3 words at most (see signature move 2). Harnoor is the builder who tries things, with dry asides told in pictures and a recurring verdict sticker.
 
 ## Look
 
@@ -16,7 +16,7 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 
   | Name | Hex | Use |
   | --- | --- | --- |
-  | sticky yellow | `#FFE066` | notes, ink `#5A3D00` |
+  | sticky yellow | `#FFE066` | highlight fills, offer badges and warning pills, ink `#5A3D00` |
   | tomato | `#FF5D4A` | number/price badges, alerts |
   | sky | `#7CC6FF` | caption key-word pill, primary pills, ink `#221E1C` |
   | money green | `#2EC46E` | savings and success stamps |
@@ -26,11 +26,11 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 - **Shapes.**
   - Stickers get a **10px white die-cut border**, a soft drop shadow and a tilt between −8° and 8°.
   - Pills are fully rounded.
-  - Sticky notes have a darker strip along the top.
+  - Drawings are flat: solid fills, a 3–4px dark outline (`#221E1C` or a darker shade of the fill), no gradients. Draw at 2× and downsample for clean edges.
   - Arrows are hand-drawn and slightly wobbly.
 - **Type.**
   - **Poppins ExtraBold/Bold** (`fonts/poppins/`) for captions, stickers and UI.
-  - Handwritten face for sticky notes and asides: **Caveat** (OFL, Google Fonts). The Travelopod build used macOS **Noteworthy Bold** because Caveat wasn't installed. On Linux or cloud agents, download Caveat from the official Google Fonts repo.
+  - Labels on visuals use Poppins ExtraBold, 1–3 words. The handwritten face (Caveat / Noteworthy) is **retired** along with sticky notes; don't put handwritten sentences on screen.
   - Playfair Display Italic is allowed for a rare fancy word.
 
 ## Captions
@@ -51,7 +51,14 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 ## Signature moves (reuse these)
 
 1. **Number badge:** a tomato circle with a big number and a small label ("+$1,000 / change fees"). Morph to the next number when it's spoken.
-2. **Sticky-note asides:** handwritten honesty in Harnoor's voice ("green card interview! fly back early", "booking for your parents?").
+2. **Visual asides (replaces sticky notes, Oct 2026):** the aside is shown, not written. Use one drawn object or icon that acts out the thought, with a label of 3 words at most, landing on the payoff word with the usual pop and wobble. For example:
+   - "green card interview! fly back early" → a mini calendar where the interview day pops and a plane arcs to an earlier date
+   - "booking for your parents?" → two small person icons with a plane
+   - "brain ≈ hard drive" → brain icon ≈ drive icon
+   - "testing ideas got cheap" → a price tag dropping
+   - "largest brain map yet" → a trophy or "#1" badge
+
+   **Text budget:** a card or board carries about 6 words at most besides numbers and the source line. If an idea needs a sentence, draw it instead. Drawing kit: [`kit/illus.py`](kit/illus.py) in this skill (PIL only, self-contained). It has a human brain (neuron-net, spark and rewired overlays), a fruit fly with a brain and nerve cord that light up, neuron trees, wiring networks, a zebrafish, and microscope, image stack, cube, chip, bulb, eye, person, globe, clock, drive, larva, pupa, path-arrow, bar and waffle icons. Add new drawings there and keep them generic.
 3. **Chat-bubble card:** a user bubble, then a bot reply ("I didn't understand that"), then an alert pill ("no human available").
 4. **Verdict stamp:** a green pill with a check, "it works!". The variants are ✗ "nope" and ¯\\_(ツ)_/¯ "kinda".
 5. **Full-screen paper board:** **use whenever Harnoor reads off-camera or looks away.** A cream `#FFF4DC` board with a faint dot grid slides up on a soft spring, the stickers build on it, and it drops away when Harnoor is back on camera.

@@ -8,6 +8,7 @@ This repo holds Harnoor's favorite fonts, pairings, motion styles and the graphi
 
 In short:
 - Make it visual, not text-heavy. Prefer **animated generic UI cards that act out the line** (fare ticker, itinerary, calendar, call screen, lock screen, comment box) over word pills. Put them in the top band, timed to the payoff words.
+- **No sticky notes or wordy text asides.** Show the aside as a small drawn visual (icon or mini illustration, label of 3 words at most). Keep every card or board to about 6 words besides numbers and sources. The drawing kit is `.claude/skills/warm-witty-style/kit/illus.py`.
 - Captions are lowercase Poppins ExtraBold with the key word in a sky-blue pill.
 - Use a full-screen paper board whenever Harnoor reads off-camera.
 - Trim pauses over 0.3s.
