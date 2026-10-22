@@ -24,6 +24,18 @@ This is my signature style and the default for every video. It's visual, not tex
 
 Full spec for agents: [.claude/skills/warm-witty-style/SKILL.md](.claude/skills/warm-witty-style/SKILL.md). The reference build is a sponsored reel with its full toolkit: [videos/travelopod/](videos/travelopod/).
 
+## Alternative style: editorial
+
+My premium alternative to warm & witty, for when a video should feel like a magazine page instead of a sticker sheet. Use it only when I ask for it.
+
+- **Type:** Instrument Serif headlines and captions. The key word is in Instrument Serif Italic with an oxblood rule drawn under it. Labels are Helvetica Neue Medium in tracked caps.
+- **Palette:** paper `#F3EFE6`, ink `#181614` and one accent, oxblood `#B2221E`. Labels are stone `#786F64` and hairlines are `#C8C0B2`.
+- **Cards:** paper pages numbered like a magazine ("No. 03 — The degree", "Fig. 07 — Primary source"). A serif statement is followed by an italic oxblood payoff on the beat. Real assets are framed documents, and drawings are re-inked in one ink.
+- **Motion:** quint ease-out fades and rises (0.7 s in, 0.35 s out). No springs, wobble or tilt.
+- **Sound and grade:** quiet paper-slide and tick SFX, and a soft film LUT (lifted blacks, −20% saturation, fine grain in the preview).
+
+Full spec and kit: [.claude/skills/editorial-style/SKILL.md](.claude/skills/editorial-style/SKILL.md).
+
 ## Reel music folder
 
 For future video edits, check `/Users/harnoor/Music/Reel Music/` for background music and choose a track that fits the script's mood. This is the user's preferred local music library.
