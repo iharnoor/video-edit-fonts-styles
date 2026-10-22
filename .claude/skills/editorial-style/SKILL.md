@@ -30,7 +30,7 @@ Warm & witty stays the default. Use this look **only when Harnoor asks** for edi
 ## Captions
 
 - Lowercase except "I" and proper names. 1–4 words per chunk, never ending on "the / to / of / and".
-- Instrument Serif at 92 px in cream, with a soft blurred shadow (no outline). The key word is **italic**, with a 4 px oxblood rule that draws under it as it's spoken.
+- Instrument Serif at 92 px in cream, with a strong soft shadow (no outline) over a constant soft dark scrim behind the caption zone (`scrim()`), so it reads over light walls. The key word is **italic**, with a 4 px oxblood rule that draws under it as it's spoken.
 - Each word fades and rises 12 px in at its own spoken time (quint ease-out, 0.35 s). The chunk fades out over 0.12 s.
 - Position: centred at y ≈ 230, above the head. Cards sit in the chest band (y ≈ 1450).
 - Ship an `.srt` too.

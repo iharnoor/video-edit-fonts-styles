@@ -104,6 +104,16 @@ def shadowed(card, pad=50):
     return c
 
 
+@lru_cache(maxsize=None)
+def scrim(cy=230):
+    """Soft dark band behind the caption zone so cream serif reads over light walls. Keep it on the whole captions layer."""
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    for y in range(0, cy + 240):
+        v = max(0.0, 1 - abs(y - cy) / 240) ** 1.4
+        d.line([0, y, W, y], fill=(10, 8, 6, int(165 * v)))
+    return im
+
+
 def caption_frame(words, starts, key, t, end, cy=230, size=92):
     """words: lowercase tokens; starts: each word's spoken time; key: index of the italic word (or None); end: chunk end.
     Each word fades + rises in at its own time; the key word gets an oxblood rule drawn under it."""
@@ -127,12 +137,12 @@ def caption_frame(words, starts, key, t, end, cy=230, size=92):
         if a > 0:
             dy = 12 * (1 - ease(u / 0.35))
             d.text((x, 90 + dy), w, font=f, fill=CREAM + (int(255 * a),))
-            sd.text((x, 90 + dy), w, font=f, fill=(0, 0, 0, int(140 * a)))
+            sd.text((x, 90 + dy), w, font=f, fill=(0, 0, 0, int(210 * a)))
             if i == key:
                 d.line([x, 90 + f.size + 12, x + ws[i] * ease((u - 0.1) / 0.6), 90 + f.size + 12], fill=OXBLOOD + (int(255 * a),), width=4)
         x += ws[i] + gap
-    frame = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-    frame.alpha_composite(sh.filter(ImageFilter.GaussianBlur(12)), (0, cy - 150))
+    frame = scrim(cy).copy()
+    frame.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)), (0, cy - 150))
     frame.alpha_composite(txt, (0, cy - 150))
     return frame
 
