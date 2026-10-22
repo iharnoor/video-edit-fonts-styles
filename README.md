@@ -36,6 +36,18 @@ My premium alternative to warm & witty, for when a video should feel like a maga
 
 Full spec and kit: [.claude/skills/editorial-style/SKILL.md](.claude/skills/editorial-style/SKILL.md).
 
+## Alternative style: dark cinematic
+
+My moody premium alternative, for serious or high-stakes scripts. The shot stays the hero and the graphics look like lit glass. Use it only when I ask for it.
+
+- **Type:** Helvetica Neue Medium for captions, with the key word in amber and no pill. Helvetica Bold for payoff lines. Labels are tracked caps at 55% white.
+- **Palette:** white `#F5F5F2` with one accent, amber `#ECB65C`. Glass is `#0A0A0C` at 62% over the blurred shot, with a 2 px white edge at 18%.
+- **Cards:** frosted dark glass panels that sample the footage behind them, with one soft light sweep per card. Real assets sit on the glass (dark logos inverted to white), and status changes get an amber glow outline.
+- **Motion:** blur-in plus a 50 px rise (quint ease-out, 0.8 s), then a slow 18 px parallax drift. No springs, wobble or tilt.
+- **Sound and grade:** riser and sub boom on the hook, soft air whooshes and low ticks. A teal-shadow / warm-highlight film LUT with darker mids and −26% saturation, plus a vignette and grain in the preview.
+
+Full spec, kit and LUT: [.claude/skills/dark-cinematic-style/SKILL.md](.claude/skills/dark-cinematic-style/SKILL.md).
+
 ## Reel music folder
 
 For future video edits, check `/Users/harnoor/Music/Reel Music/` for background music and choose a track that fits the script's mood. This is the user's preferred local music library.
