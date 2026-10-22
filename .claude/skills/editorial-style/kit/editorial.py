@@ -1,7 +1,7 @@
 """Editorial style kit (Harnoor's alternative look, Oct 2026): magazine-page cards, serif captions, quiet motion, film LUT.
 Self-contained (PIL + numpy). Every function is a pure function of its args, so frames render independently.
 
-  page(w, h, label, foot)        paper card with caps label, hairline rule, optional source line -> (img, draw)
+  page(w, h)                     paper card with a 2px ink rule on top (no label / source line by default) -> (img, draw)
   inked(img)                     re-ink a flat kit/illus.py drawing in one dark ink (engraving feel)
   framed(p, d, im, x, y)         place a real asset (paper page, screenshot) as a framed document
   strike(d, x, y, length, prog)  oxblood strike/underline that draws on
@@ -51,10 +51,13 @@ def tracked(d, x, y, s, f, fill, track=0.16):
     return x
 
 
-def page(w, h, label, foot=None):
-    """Paper card: 'No. 01 — The claim' caps label, a 2px ink rule, optional hairline + source line at the foot."""
+def page(w, h, label=None, foot=None):
+    """Paper card with a 2px ink rule on top. Default is no label and no foot (Harnoor, Oct 2026: "remove the extra
+    wordy stuff"): crop the empty top band (~44px) and foot band (~34px) when you finish the card. label / foot are
+    kept only for the rare card that truly needs one."""
     p = paper(w, h).copy(); d = ImageDraw.Draw(p, 'RGBA')
-    tracked(d, 48, 38, label.upper(), caps(24), STONE)
+    if label:
+        tracked(d, 48, 38, label.upper(), caps(24), STONE)
     d.line([48, 82, w - 48, 82], fill=INK, width=2)
     if foot:
         d.line([48, h - 58, w - 48, h - 58], fill=RULE, width=1)

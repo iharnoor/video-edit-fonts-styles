@@ -5,14 +5,14 @@ description: Harnoor's alternative "editorial" video style, a magazine-page look
 
 # Editorial: Harnoor's premium alternative look
 
-Warm & witty stays the default. Use this look **only when Harnoor asks** for editorial, magazine or "premium, not Claude-like". It was picked from four directions (editorial, dark cinematic, Swiss tech, riso) on the IMG_0889 reel, Oct 2026.
+Warm & witty stays the default. Use this look **only when Harnoor asks** for editorial, magazine or "premium, not Claude-like". It was picked from four directions (editorial, dark cinematic, Swiss tech, riso) on the IMG_0889 reel, Oct 2026. The Tsenta reel (`videos/tsenta-reel/`, sponsored) is the second build, with label-free cards.
 
 **Core idea:** a magazine page, not a sticker sheet. The type does the work: a serif headline with an italic payoff in one accent colour. Real sources appear as framed documents. Motion is slow and quiet.
 
 ## Type
 
 - **Instrument Serif** (`fonts/instrumentserif/`) for headlines and captions; **Instrument Serif Italic** for the payoff or key word.
-- **Helvetica Neue Medium** in tracked caps (+0.16 em) for labels and source lines ("NO. 01 — THE CLAIM", "CLAYMATH.ORG / …").
+- **Helvetica Neue Medium** in tracked caps (+0.16 em), only for tiny unit labels that a number or row needs ("MINUTES", "OFF", "I. II. III."). No card titles, figure numbers or source lines.
 - Instrument Serif has no ∫ √ π Σ ² glyphs, so set equations in Times New Roman Italic.
 - No Poppins, no pills, no outlines.
 
@@ -37,13 +37,12 @@ Warm & witty stays the default. Use this look **only when Harnoor asks** for edi
 
 ## Cards
 
-- **A magazine page:** paper card, 860 px wide, with a caps label and a 2 px ink rule on top. A hairline and a source line at the foot when there's a source. Soft paper shadow. No die-cut border, no tilt.
+- **A magazine page:** paper card, 860 px wide, with a 2 px ink rule on top and nothing else around the content. **No caps label ("No. 01 — …", "Fig. 07 — …") and no source line or username at the foot.** Harnoor asked for these to go on the Tsenta reel (Oct 2026) because they're extra words. Soft paper shadow. No die-cut border, no tilt.
 - **Headline pattern:** a serif statement, then the italic oxblood payoff on the beat. For example "Not your ~~job~~." / *"Your existence."*, "~~Solving answers.~~" / *"Asking questions."*, "Not just solve." / *"Explain."*
-- **Number the cards like a magazine:** "No. 03 — The degree" for ideas, "Fig. 07 — Primary source" for real assets.
-- **Real-asset rule still applies.** Every named book, paper, school or organisation gets its real cover, title page, logo or page capture, placed as a framed document with a hairline. Status changes are drawn on top: a strike on "unsolved", an italic "active", a red underline over the real page.
+- **Real-asset rule still applies.** Every named book, paper, school or organisation gets its real cover, title page, logo or page capture, placed as a framed document with a hairline. When Harnoor shares a screenshot (a post, a tweet), show the original early, framed, with an oxblood rule drawn under its key line. Status changes are drawn on top: a strike on "unsolved", an italic "active", a red underline over the real page.
 - **Drawn asides** are the `warm-witty-style/kit/illus.py` icons re-inked in one ink with `inked()`, which gives an engraving feel. Keep about 6 words per card besides numbers and the source.
-- **Numbers:** a big serif figure counting up, plus thin bars (oxblood for the hero, ink for the comparison) and a source line.
-- **CTA:** a "Letters — your turn" strip with the question typed in italic and an oxblood caret.
+- **Numbers:** a big serif figure counting up, plus thin bars (oxblood for the hero, ink for the comparison). Keep the source in the voiceover or the project notes, not on the card.
+- **CTA:** a comment strip with the keyword or question typed in italic and an oxblood caret. No strip title.
 - **Thinking Orbs** still work as an accent, in ink.
 
 ## Motion
@@ -64,7 +63,7 @@ A soft film look: warm shadows, neutral highlights, lifted blacks (0.035), rolle
 
 ## Kit and workflow
 
-[`kit/editorial.py`](kit/editorial.py) has `page`, `inked`, `framed`, `strike`, `tick`, `card_state`, `shadowed`, `caption_frame` and `write_lut`. Every frame is a pure function of t.
+[`kit/editorial.py`](kit/editorial.py) has `page` (no label or foot by default; crop the empty top ~44 px and foot ~34 px bands), `inked`, `framed`, `strike`, `tick`, `card_state`, `shadowed`, `caption_frame` and `write_lut`. Every frame is a pure function of t.
 
 The pipeline is the warm & witty one: cut, frame-exact base render, a ProRes 4444 alpha card per beat, a captions layer, beat-aligned audio, and the composite with a two-pass loudnorm.
 
