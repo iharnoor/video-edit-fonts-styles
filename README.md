@@ -272,4 +272,26 @@ Creator names transcribed from an on-screen list, in the order shown. Handles ar
 
 Spelling note for #9: one read said "Arscare"; **Arsacre** is used here for now. #11 is **Gawx** (YouTube Gawx Art), not GRAWX.
 
+## Claude reel skills (Claude mobile app)
+
+Slash-command reel templates from the Claude mobile app (Code tab). Attach a talking-head clip, run a command, and Claude generates a styled reel. No voiceover — music only, with one spoken line at the end. Setup lives in the creator's guide (comment "CUT" for a free editing template), not in the reel itself. Descriptions below are from the skill list and short previews; no build recipes are listed here.
+
+Selected skills, in the order shown:
+
+| # | Skill | What it shows |
+| --- | --- | --- |
+| 1 | `/glass-explainer-reel` | Explainer panel with graphics on glass cards. Preview flashed ~1–2s; visuals unverified. |
+| 2 | `/cinematic-type-reel` | Orange card, big serif "more reps", smaller "than you've already" beneath. Spelling verified via the on-screen "Editing with …" pill. |
+| 3 | `/depth-ui-reel` | Interfaces behind your head, cheat captions… Preview: floating UI behind the head, bottom caption "Number one". |
+| 4 | `/image-cluster-reel` | Metaphor images cluster above your head. Preview: chess pieces, yin-yang stones, classical two-hands painting above him; caption "pair two opposites and let the gap do the work". |
+| 5 | `/cutout-grid-reel` | 2×2 grid (fan of cash, dollar close-up, horse artwork, him), overlay "For example one dollar". Spelling verified via the result pill. |
+| 6 | `/split-reel` | Face on top, animations below, full-screen windows. Preview mid-generation (dark dot-matrix card). |
+
+Also in suggestion lists but not selected (the library has at least eight):
+
+| # | Skill | What it shows |
+| --- | --- | --- |
+| 7 | `/explainer-panel-reel` | Close-ups plus a bottom panel with explainers |
+| 8 | `/split-screen-document-plus-animations` | Document on the left, you on the right |
+
 Machine-readable favorites are in [favorites.json](favorites.json).
