@@ -73,6 +73,14 @@ Reference: [@kienobifilms' ten sound effects reel](https://www.instagram.com/ree
 
 For future edits, use these names when discussing or searching for sounds. Match the sound's peak to the visual event and keep effects low enough for speech to stay clear. Choose effects for specific moments rather than placing one on every cut. Check existing local SFX assets before sourcing more.
 
+### Pro SFX tools for AI video editing
+
+Tools that help an AI agent find, place or critique real sound effects for motion and talking-head edits. Check local SFX first; use these when sourcing or reviewing a pass. Short pointers only — follow each link for setup.
+
+- **[Openverse API](https://api.openverse.org/v1/)** — search openly licensed media, including audio and sound effects (`/v1/audio/`, with filters such as `category=sound_effect`). Attribution and licence come with each result.
+- **[Real SFX](https://github.com/Clipwing/skills/tree/edbefcbc3474869e6cc1e8a7ca583b0efd0dab7e/skills/real-sfx)** — a Claude Code skill (Clipwing) that places real recordings from your own library on the exact frame, keeps music and voice, and returns a new MP4 plus a separate SFX WAV.
+- **[earshot](https://github.com/Leonxlnx/earshot)** — ears for coding agents: describe, match, find, critique and forge sound locally (CLI, Python API or MCP). CPU-only, open source.
+
 ## Favorites from @surosa.r
 
 Source: [Instagram reel Dav1dTzsVTN](https://www.instagram.com/reels/Dav1dTzsVTN/).
