@@ -21,6 +21,16 @@ description: Harnoor's alternative "Split Stage" video style, from the Nick Sara
 - **Full face (opinion beats and the close):** the plain camera, or a 1.15 punch-in, with no stage.
 - Cut between modes on hard cuts. The hook is always split, with a two-line **title header**.
 
+## Kallaway crop (pop-out head), Harnoor's preferred camera framing
+
+When Harnoor asks for the **Kallaway crop** (and by default on Split Stage split shots since Oct 25, 2026), the camera doesn't fade into the stage. Instead, it sits in a **rounded card** at the bottom and the head **pops out above the card's top edge**, with its background removed. The look is from Kallaway's reels (a "VIBE-CODE" reel screenshot).
+
+- **Card:** inset 24 px from the sides and bottom, top edge at y≈1330, corner radius about 96 px. It has a soft dark shadow and a thin white rim on the stage. The camera keeps its real background inside the card.
+- **Pop-out:** everything of the person above the card top (hair, forehead, a raised hand) draws over the stage, with a soft contact shadow. The stage is otherwise **opaque everywhere**, so `stage_bg(seed, solid=True)`.
+- **Matte:** `npx hyperframes remove-background SOURCE.MOV -o matte.mov` (a local model running on CoreML, about 110 ms/frame) gives a ProRes 4444 cut-out of the source. Shift its alpha down by the same `dy` as the camera and pass it to `kallaway(stage, person)`. That punches holes for the card and the person, so in FCP the stage clip sits on the spine camera and the head shows through.
+- Keep the head clear of the graphics band (y < 940). Captions stay at y≈1012, just above the hair.
+- Full-face and dark beats are unchanged.
+
 ## Objects (the real-asset rule applies, so never a drawn stand-in for a real page)
 
 | Object | When | Kit |
@@ -66,7 +76,7 @@ description: Harnoor's alternative "Split Stage" video style, from the Nick Sara
 
 ## Kit and workflow
 
-[`kit/split_stage.py`](kit/split_stage.py) has `stage_bg`, `dark_bg`, `window`, `logo_card`, `pill`, `callout`, `gradient_text`, `stat`, `Pop`, `Mark`, `Glint`, `caption`, `title`, `cta` and `write_lut`. Every frame is a pure function of t.
+[`kit/split_stage.py`](kit/split_stage.py) has `stage_bg`, `card_mask`, `kallaway`, `dark_bg`, `window`, `logo_card`, `pill`, `callout`, `gradient_text`, `stat`, `Pop`, `Mark`, `Glint`, `caption`, `title`, `cta` and `write_lut`. Every frame is a pure function of t.
 
 **Pipeline:**
 1. Cut (pauses over 0.3 s trimmed). Mark each piece `split`, `full` or `punch`. Split pieces carry `dy=620`.

@@ -21,6 +21,9 @@ Self-contained (PIL + numpy). Every frame is a pure function of t.
   title(l1, l2, t, t0, t1)           hook header: black SF Pro Bold line + white Playfair italic on a blue block
   cta(small, big, t, t0)             italic "comment" + big green glowing quoted word
   write_lut(path)                    clean, bright, slightly cool camera look
+  card_mask() / kallaway(stage, person)   "Kallaway crop": the camera sits in a rounded card at the bottom and the head
+                                     pops out above the card's top edge (background removed). `person` is the matte
+                                     (L, frame space, already shifted with the camera); returns the stage with holes
 """
 import math, os
 from functools import lru_cache
@@ -33,6 +36,7 @@ SF = '/System/Library/Fonts/SFNS.ttf'
 SERIF_IT = _REPO + '/fonts/playfairdisplay/PlayfairDisplay-Italic[wght].ttf'
 INK, BLUE, BLUE_LT, GREEN = (14, 14, 16), (38, 116, 245), (120, 176, 255), (74, 222, 128)
 STAGE_SOLID, STAGE_FADE = 960, 1110        # stage is opaque above STAGE_SOLID and fades out by STAGE_FADE
+KC_TOP, KC_MARGIN, KC_R = 1330, 24, 96     # Kallaway crop card: top edge, side/bottom inset, corner radius
 
 
 @lru_cache(maxsize=None)
@@ -81,8 +85,9 @@ def outlined(im, r, col=BLUE, width=3, glow=True, pad=50):
 
 
 # ---------------- backdrops ----------------
-def stage_bg(seed=0):
-    """light frosted wall: pale blue-white gradient, blurred leaf-like shadows, grain. RGBA with the bottom faded out."""
+def stage_bg(seed=0, solid=False):
+    """light frosted wall: pale blue-white gradient, blurred leaf-like shadows, grain. RGBA with the bottom faded out
+    (solid=True: opaque everywhere, for the Kallaway crop)."""
     rng = np.random.default_rng(seed)
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
     base = np.stack([233 + 10 * (yy / H), 239 + 8 * (yy / H), 246 + 4 * (yy / H)], -1)
@@ -95,9 +100,40 @@ def stage_bg(seed=0):
     sh = np.asarray(sh.filter(ImageFilter.GaussianBlur(38))).astype(np.float32)[..., None]
     a = base - sh * np.array([0.9, 0.8, 0.55]) + rng.normal(0, 2.2, (H, W, 1))
     im = Image.fromarray(a.clip(0, 255).astype(np.uint8)).convert('RGBA')
+    if solid: return im
     alpha = np.clip((STAGE_FADE - yy) / (STAGE_FADE - STAGE_SOLID), 0, 1)
     alpha = (alpha * alpha * (3 - 2 * alpha) * 255).astype(np.uint8)
     im.putalpha(Image.fromarray(alpha)); return im
+
+
+@lru_cache(maxsize=4)
+def card_mask(top=KC_TOP, margin=KC_MARGIN, r=KC_R):
+    m = Image.new('L', (W, H), 0)
+    ImageDraw.Draw(m).rounded_rectangle([margin, top, W - margin - 1, H - margin - 1], radius=r, fill=255)
+    return m
+
+
+@lru_cache(maxsize=4)
+def _card_rim(top=KC_TOP, margin=KC_MARGIN, r=KC_R):
+    """soft shadow + thin rim around the card, drawn on the stage"""
+    rim = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(rim)
+    d.rounded_rectangle([margin - 2, top - 2, W - margin + 1, H - margin + 1], radius=r + 2, outline=(20, 30, 50, 90), width=10)
+    rim = rim.filter(ImageFilter.GaussianBlur(14))
+    ImageDraw.Draw(rim).rounded_rectangle([margin - 1, top - 1, W - margin, H - margin], radius=r + 1, outline=(255, 255, 255, 200), width=3)
+    return rim
+
+
+def kallaway(stage, person, top=KC_TOP, margin=KC_MARGIN, r=KC_R):
+    """Kallaway crop: stage (opaque RGBA) gets a rounded-card hole at the bottom plus a hole wherever the person matte
+    is, so the head (and raised hands) pop out of the card over the stage. Adds a card rim and a soft contact shadow
+    under the popped-out head."""
+    fr = stage.copy()
+    above = Image.fromarray(np.asarray(person) * (np.arange(H)[:, None] < top + r).astype(np.uint8))
+    sh = Image.new('RGBA', (W, H), (25, 35, 60, 0)); sh.putalpha(above.point(lambda v: v * 70 // 255))
+    fr.alpha_composite(sh.filter(ImageFilter.GaussianBlur(18)), (0, 10))
+    fr.alpha_composite(_card_rim(top, margin, r))
+    hole = np.maximum(np.asarray(card_mask(top, margin, r)), np.asarray(person))
+    fr.putalpha(Image.fromarray(255 - hole)); return fr
 
 
 def dark_bg(frame):
