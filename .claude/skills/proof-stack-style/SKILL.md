@@ -1,11 +1,11 @@
 ---
 name: proof-stack-style
-description: Harnoor's alternative "Proof Stack" video style, from his favourite reference reel (example videos/fav style.mp4). The talking head opens and closes; the middle is full-screen b-roll where real proof objects (logo tiles, tilted paper pages, polaroid photos, hanging lanyard badges, browser windows) land one by one in a dark, defocused space and stack up. Small white sentence-case captions, an occasional big italic serif word, a "Comment X" pill CTA. Use only when Harnoor asks for Proof Stack, "my fav style", or the example-video look (warm & witty stays the default).
+description: Harnoor's alternative "Proof Stack" video style, from an earlier favourite reference reel (example videos/fav style.mp4). The talking head opens and closes; the middle is full-screen b-roll where real proof objects (logo tiles, tilted paper pages, polaroid photos, hanging lanyard badges, browser windows) land one by one in a dark, defocused space and stack up. Small white sentence-case captions, an occasional big italic serif word, a "Comment X" pill CTA. Use only when Harnoor asks for Proof Stack or the fav-style.mp4 example look (warm & witty stays the default).
 ---
 
 # Proof Stack: real proof, stacking up
 
-Warm & witty stays the default. Use this look **only when Harnoor asks** for Proof Stack, "my fav style" or "the example video style". It was reverse-engineered on Oct 24, 2026 from `example videos/fav style.mp4`, a 46 s reel about a student AI-research programme (NeurIPS, Stanford/MIT/Berkeley, Google/OpenAI/Anthropic badges, "Comment AI").
+Warm & witty stays the default. Use this look **only when Harnoor asks** for Proof Stack or the `fav style.mp4` example look. ("My fav style" now means Split Stage, see `split-stage-style`.) It was reverse-engineered on Oct 24, 2026 from `example videos/fav style.mp4`, a 46 s reel about a student AI-research programme (NeurIPS, Stanford/MIT/Berkeley, Google/OpenAI/Anthropic badges, "Comment AI").
 
 **Core idea:** credibility through accumulation. Every name in the script becomes a real object that lands, centre stage and sharp. When the next one arrives, it shrinks back into a soft, dim satellite slot. By the end of a beat the screen is a constellation of proof.
 

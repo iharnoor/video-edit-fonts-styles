@@ -1,11 +1,11 @@
 ---
 name: split-stage-style
-description: Harnoor's alternative "Split Stage" video style, from the Nick Saraev reference reel (example videos/Nick Saraev style.mp4). A light, airy stage fills the top of the frame and the talking head sits low; real browser windows with a blue outline land in the stage with blue marker highlights and magnified callouts. Big 1–3 word captions in bold black SF Pro with the key word in blue Playfair italic, dark full-screen stat beats with a big blue-gradient number, and a full-face close with a green glowing "comment" word. Use only when Harnoor asks for the Nick Saraev style or Split Stage (warm & witty stays the default).
+description: Harnoor's alternative "Split Stage" video style, from the Nick Saraev reference reel (example videos/Nick Saraev style.mp4). A light, airy stage fills the top of the frame and the talking head sits low; real browser windows with a blue outline land in the stage with blue marker highlights and magnified callouts. Big 1–3 word captions in bold black SF Pro with the key word in blue Playfair italic, dark full-screen stat beats with a big blue-gradient number, and a full-face close with a green glowing "comment" word. Harnoor's favourite style: use it when he asks for "my fav style", "my favorite", the Nick Saraev style or Split Stage (warm & witty stays the default).
 ---
 
 # Split Stage: the Nick Saraev look
 
-Warm & witty stays the default. Use this look **only when Harnoor asks** for the Nick Saraev style or "Split Stage". It was reverse-engineered on Oct 24, 2026 from `example videos/Nick Saraev style.mp4`, a 33 s reel ("Let Claude Code use a real phone": Google's Artemis repo, a 99% benchmark, 13.8k stars, an MCP diagram, "comment Google").
+**Harnoor's favourite style** since October 25, 2026 ("love this style this becomes my favorite"). Warm & witty stays the default; use this look when Harnoor asks for "my fav style", "my favorite", the Nick Saraev style or "Split Stage". It was reverse-engineered on Oct 24, 2026 from `example videos/Nick Saraev style.mp4`, a 33 s reel ("Let Claude Code use a real phone": Google's Artemis repo, a 99% benchmark, 13.8k stars, an MCP diagram, "comment Google").
 
 **Core idea:** the proof sits *above* the speaker, not over them. The top of the frame is a bright, clean stage where real pages show up as tidy browser windows. The face stays visible underneath the whole time, so it reads like a smart friend showing you their screen.
 
