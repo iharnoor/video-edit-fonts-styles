@@ -168,6 +168,21 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
   - **Setup:** Python 3.10+, FFmpeg, Node 18+, then clone the repo and follow its Quick Start.
   - **License note:** AGPLv3, so use it as a tool rather than copying its code into anything I distribute.
 
+### Opus 5.5 motion-design repos to clone
+
+These come from [@0xMovez](https://x.com/0xMovez)'s X article ["How to build motion design studio with Opus 5.5 (Full-course)"](https://x.com/0xMovez/status/2104216919033192746) (September 27, 2026). All credit for the list goes to Movez. The descriptions are from each repo, as of October 2026.
+
+| Use | Repo | What it is |
+| --- | --- | --- |
+| Music video | [JohnHeibel/PDoomVideo](https://github.com/JohnHeibel/PDoomVideo) | Source code for the Claude Opus 5.5 music video "I'm Upping My P(doom)". No license file, so it's for reference only |
+| Starter | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) | Starter kit for hand-painted cartoon animation with Claude: p5.js + p5.brush, the Clawd character, 31 acted emotions and a guide for the model (MIT) |
+| Node canvas | [buildwithhanif/claude-animation-skill](https://github.com/buildwithhanif/claude-animation-skill) | Hand-drawn 2D animation as code: a detail bible, an ant rig, brush/watercolour pens, a frame-matched recreation loop and synthesized sound, using Node canvas + ffmpeg (MIT) |
+| Framework (HTML) | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | "Write HTML. Render video. Built for agents." HyperFrames, the framework behind this repo's video skills (Apache-2.0) |
+| Framework (React) | [Remotion AI skills](https://www.remotion.dev/docs/ai/skills) | Remotion's official Agent Skills for building React video compositions with Claude Code. Remotion needs a company license for teams over 3 |
+| Long form | [WinterArc21/Battle-of-Austerlitz-Film](https://github.com/WinterArc21/Battle-of-Austerlitz-Film) | A long-form historical film built with code. No license file, so it's for reference only |
+| Prompt library | [guanmo-ai/awesome-ai-motion](https://github.com/guanmo-ai/awesome-ai-motion) | Curated motion design, creative video and interactive art, with source code, prompts and making-of notes |
+| Dataset | [athemeroy/awesome-opus-5-5-videos](https://github.com/athemeroy/awesome-opus-5-5-videos) (now `awesome-claude-5-5-videos`) | Source-linked Claude 5.5 video workflows: demos, prompts, tools and production evidence (CC-BY-4.0) |
+
 ## Favorite motion styles
 
 - **[Prompt Motion](https://prompt-motion.com/)**, curated by [@p4nthera_](https://x.com/p4nthera_): a gallery of motion videos made with Claude Opus 5.5. Each entry shows the prompt or skill behind it, and you can customize any prompt for your own project. Rights stay with each entry's linked creator.

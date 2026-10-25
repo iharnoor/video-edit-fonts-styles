@@ -7,16 +7,36 @@ W, H, FPS = 1080, 1920, 30
 E = '/Users/harnoor/Downloads/travelopod/edit/'
 FONT = '/Users/harnoor/Developer/video edit fonts styles/fonts/poppins/Poppins-ExtraBold.ttf'
 SKY, INK, WHITE = (124, 198, 255), (34, 30, 28), (255, 255, 255)
-CY = 1250          # caption centre: below the face, above the Reels UI
+CY = 360           # caption centre: ~200px above the hair, inside the top safe zone (Harnoor's reference)
+
+
+GLIDE = 0.3        # seconds for captions to ease between positions (no jumps)
+
+
+SEAM = 1010         # middle of the frame: seam between the flight map and the face in split screen
+
+
+def zones():
+    """(start, end, y): stretches where captions leave their home spot above the head."""
+    return [(remap(51.30), remap(60.80), 1250)]     # paper board: logo card sits up top
 
 
 def cy_for(t):
-    """Caption centre per chunk start: dodge the intro flight map (full screen, then split screen)."""
-    if 0.95 <= t < 1.95:
-        return 1030    # between the map and the results card
-    if 1.95 <= t < 3.4:
-        return 1720    # on the chest, below the face in split screen
-    return CY
+    """Caption centre at time t. During the flight map it rides the map's bottom edge (never over the map or the face):
+    follows it down on entry, holds the middle seam, follows it back up as the map lifts away. Elsewhere it sits above
+    the head and eases (smoothstep, GLIDE s) into/out of the paper-board zone."""
+    from flightmap import curtain, T_IN, T_END
+    if T_IN <= t < T_END:
+        return int(round(max(CY, min(SEAM, curtain(t) + 50))))
+    y = CY
+    for a, b, zy in zones():
+        u = min((t - (a - GLIDE / 2)) / GLIDE, ((b + GLIDE / 2) - t) / GLIDE)
+        u = max(0.0, min(1.0, u))
+        y += (zy - CY) * u * u * (3 - 2 * u)
+    return int(round(y))
+
+
+from timemap import remap
 SIZE = 76
 
 FIX = {'travelpod': 'travelopod', '2,000': '$2,000', '2:00': '2', 'a.m.': 'am', 'a.m': 'am'}
@@ -132,10 +152,11 @@ if __name__ == '__main__':
             p.stdin.write(blank); continue
         u = min(1.0, (t - c['s']) / 0.12)
         sc = round(0.86 + 0.14 * (1 - (1 - u) ** 3), 3)   # quick ease-out pop per chunk
-        k = (id(c), sc)
+        y = cy_for(t)
+        k = (id(c), sc, y)
         if k not in cache:
             frame = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-            frame.alpha_composite(draw_chunk(c['words'], sc), (0, cy_for(c['s']) - 130))
+            frame.alpha_composite(draw_chunk(c['words'], sc), (0, y - 130))
             cache[k] = frame.tobytes()
         p.stdin.write(cache[k])
     p.stdin.close(); p.wait()

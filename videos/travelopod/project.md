@@ -30,3 +30,8 @@
 - Official Travelopod logo (brand Drive: travelopod_logo_tp.png / _white_tp.png in assets/) wherever Travelopod is mentioned: board logo card with travelopod.com, white logo on the support call card, CTA logo card with travelopod.com; comment box types "Travelopod".
 - Music bed −24 → −28 dB.
 - Logo swapped to the NEW Travelopod logo (brand Drive "New Logo": Logo-White_BG-08.svg / Logo-Blue_BG-07.svg, background rect stripped, rendered to transparent PNG via headless Chrome → assets/new_logo_*.png). Navy #002764 + orange #FCA800, no tagline. Website pill and call card now brand navy.
+
+## Session 3 — 2026-10-12 (layout flip)
+
+Harnoor's new layout: captions above the head, cards below the face with a gap. Captions moved from y 1250 to y 360 (~200px above the hair, top safe zone, per Harnoor's reference reel); they still dodge the flight map and drop to y 1250 over the paper board. All top-band cards moved to the chest band (centre y ≈ 1530–1610, about 250px under the chin). Taller cards were scaled down: call screen to 0.70, lock screen to 0.62, calendar to 0.82. Timings, SFX and music are unchanged.
+- Captions during the flight map (0.95–3.75 s) ride the map's bottom edge (`flightmap.curtain`). They follow it down, hold the middle seam (y 1010, between the map and the face in split screen), follow it back up as the map lifts, then settle at y 360. Moves on and off the paper board ease over 0.3 s (smoothstep), so captions no longer jump.
