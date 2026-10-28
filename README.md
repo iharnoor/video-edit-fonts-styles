@@ -213,6 +213,36 @@ These come from [@0xMovez](https://x.com/0xMovez)'s X article ["How to build mot
 | Prompt library | [guanmo-ai/awesome-ai-motion](https://github.com/guanmo-ai/awesome-ai-motion) | Curated motion design, creative video and interactive art, with source code, prompts and making-of notes |
 | Dataset | [athemeroy/awesome-opus-5-5-videos](https://github.com/athemeroy/awesome-opus-5-5-videos) (now `awesome-claude-5-5-videos`) | Source-linked Claude 5.5 video workflows: demos, prompts, tools and production evidence (CC-BY-4.0) |
 
+## AI film stack (references)
+
+This is a full pipeline for code-made films, one tool per stage. Follow each link for setup. These are references for when a piece needs more than our house styles. Keep warm & witty, editorial, dark cinematic, Proof Stack and Split Stage as the defaults for reels.
+
+```
+┣  STORY
+┃  ┗  Superpowers brainstorming skill: pins down the story, hook and beats before anything gets built
+┣  STYLE
+┃  ┗  lemo-opuscar: 59 film styles made in code, pick one instead of the AI default look
+┣  SETS
+┃  ┗  MCP for Blender: Claude builds and lights every set, then looks at its own frames
+┣  CHARACTERS
+┃  ┣  ClaudeAnimationBase: a cartoon character kit with 31 acted emotions
+┃  ┗  motion-design-skill: Disney's 12 principles rewritten for agents
+┣  SOUND
+┃  ┗  earshot: the agent hears its own mix and fixes the timing
+┗  CUT
+   ┗  HyperFrames: captions, voice and the final edit, written as HTML
+```
+
+| Stage | Repo | What it is | Get it |
+| --- | --- | --- | --- |
+| Story | [obra/superpowers](https://github.com/obra/superpowers) | An agentic skills framework. Its brainstorming skill locks the story, hook and beats before the build (MIT) | Claude Code plugin; see the repo |
+| Style | [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | 59 film styles made in code, each a style prompt plus a demo film made by Claude Opus 5.5, plus a guide for making your own style. [Gallery](https://lemomo-ai.github.io/lemo-opuscar/). Code is MIT; films and docs are CC BY 4.0 | `claude plugin marketplace add lemomo-ai/lemo-opuscar` then `claude plugin install lemo-opuscar@lemolab` |
+| Sets | [ahujasid/mcp-for-blender](https://github.com/ahujasid/mcp-for-blender) | Community MCP plugin that lets an LLM build, light and render Blender scenes and check its own frames (MIT; not affiliated with the Blender Foundation) | Blender add-on plus MCP server; see the repo |
+| Characters | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) | Hand-painted cartoon starter: p5.js + p5.brush, the Clawd character, 31 acted emotions and `ANIMATION_GUIDE.md` (MIT) | Clone, `npm install`, then ask Claude to read `ANIMATION_GUIDE.md` |
+| Characters / motion | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | Motion principles for agents: timing, easing, choreography and Disney's 12 principles adapted for UI (MIT) | `npx skills add LottieFiles/motion-design-skill` |
+| Sound | [Leonxlnx/earshot](https://github.com/Leonxlnx/earshot) | Ears for coding agents: hear, critique and fix a mix, find and forge SFX. CPU-only, as a CLI, Python API or MCP server (MIT) | Python venv + `pip install -e ".[mcp]"`; see the repo |
+| Cut | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | "Write HTML. Render video." Captions, voice and the final edit as HTML. It's already the framework behind this repo's video skills (Apache-2.0) | Already installed here as the `hyperframes` skills |
+
 ## Favorite motion styles
 
 - **[Prompt Motion](https://prompt-motion.com/)**, curated by [@p4nthera_](https://x.com/p4nthera_): a gallery of motion videos made with Claude Opus 5.5. Each entry shows the prompt or skill behind it, and you can customize any prompt for your own project. Rights stay with each entry's linked creator.
