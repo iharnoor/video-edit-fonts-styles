@@ -2,7 +2,19 @@
 
 My favorite fonts and pairings for video editing.
 
+## Style gallery
+
+Every named style, with a frame from its reference build. Click a name for its spec.
+
+| [Warm & witty](#main-style-warm--witty) (default) | [Editorial](#alternative-style-editorial) | [Dark cinematic](#alternative-style-dark-cinematic) | [Proof Stack](#alternative-style-proof-stack) |
+| --- | --- | --- | --- |
+| <img src="styles/screenshots/warm-witty.jpg" alt="Warm & witty" width="180"> | <img src="styles/screenshots/editorial.jpg" alt="Editorial" width="180"> | <img src="styles/screenshots/dark-cinematic.jpg" alt="Dark cinematic" width="180"> | <img src="styles/screenshots/proof-stack.jpg" alt="Proof Stack" width="180"> |
+| **[Split Stage](#alternative-style-split-stage-nick-saraev-style-my-favourite)** (my favourite) | **[Kallaway crop](#kallaway-crop-pop-out-head)** (Split Stage framing) | **[Dark Stage](#alternative-style-dark-stage)** | **[Minimal Proof](#alternative-style-minimal-proof)** |
+| <img src="styles/screenshots/split-stage.jpg" alt="Split Stage" width="180"> | <img src="styles/screenshots/kallaway-crop.jpg" alt="Kallaway crop" width="180"> | <img src="styles/screenshots/dark-stage.jpg" alt="Dark Stage" width="180"> | <img src="styles/screenshots/minimal-proof.jpg" alt="Minimal Proof" width="180"> |
+
 ## Main style: warm & witty
+
+<img src="styles/screenshots/warm-witty.jpg" alt="Warm & witty: Zoox reel" width="270">
 
 This is my signature style and the default for every video. It's visual, not text-heavy. I'm the builder who actually tries things.
 
@@ -26,6 +38,8 @@ Full spec for agents: [.claude/skills/warm-witty-style/SKILL.md](.claude/skills/
 
 ## Alternative style: editorial
 
+<img src="styles/screenshots/editorial.jpg" alt="Editorial: Tsenta reel" width="270">
+
 My premium alternative to warm & witty, for when a video should feel like a magazine page instead of a sticker sheet. Use it only when I ask for it.
 
 - **Type:** Instrument Serif headlines and captions. The key word is in Instrument Serif Italic with an oxblood rule drawn under it. Labels are Helvetica Neue Medium in tracked caps.
@@ -37,6 +51,8 @@ My premium alternative to warm & witty, for when a video should feel like a maga
 Full spec and kit: [.claude/skills/editorial-style/SKILL.md](.claude/skills/editorial-style/SKILL.md).
 
 ## Alternative style: dark cinematic
+
+<img src="styles/screenshots/dark-cinematic.jpg" alt="Dark cinematic: IMG_0924 reel" width="270">
 
 My moody premium alternative, for serious or high-stakes scripts. The shot stays the hero and the graphics look like lit glass. Use it only when I ask for it.
 
@@ -50,6 +66,8 @@ Full spec, kit and LUT: [.claude/skills/dark-cinematic-style/SKILL.md](.claude/s
 
 ## Alternative style: Proof Stack
 
+<img src="styles/screenshots/proof-stack.jpg" alt="Proof Stack: Kimi K3.1 reel" width="270">
+
 An earlier favourite reference reel ([example videos/fav style.mp4](<example videos/fav style.mp4>)), made into a style. It turns every name in the script into real proof that stacks up on screen. Use it when I ask for Proof Stack.
 
 - **Structure:** the face carries the hook, the opinion beats and the CTA. The middle is full-screen b-roll in a dark, defocused paper-floor space.
@@ -60,6 +78,8 @@ An earlier favourite reference reel ([example videos/fav style.mp4](<example vid
 Full spec and kit: [.claude/skills/proof-stack-style/SKILL.md](.claude/skills/proof-stack-style/SKILL.md).
 
 ## Alternative style: Split Stage (Nick Saraev style), my favourite
+
+<img src="styles/screenshots/split-stage.jpg" alt="Split Stage: AI bank hack reel" width="270">
 
 **My favourite style** (since October 25, 2026). The look from the Nick Saraev reference reel ([example videos/Nick Saraev style.mp4](<example videos/Nick Saraev style.mp4>)), made into a style. The proof sits above me instead of on top of me: a bright stage fills the top of the frame and my face stays visible underneath. Use it when I ask for "my fav style", the Nick Saraev style or Split Stage.
 
@@ -72,11 +92,38 @@ Full spec and kit: [.claude/skills/split-stage-style/SKILL.md](.claude/skills/sp
 
 ### Kallaway crop (pop-out head)
 
+<img src="styles/screenshots/kallaway-crop.jpg" alt="Kallaway crop: coding interview reel" width="270">
+
 When I ask for the **Kallaway crop**, the camera goes in a rounded card at the bottom of the frame and my head **pops out above the card's top edge**, with the background removed. Raised hands break out too. It's from a Kallaway reel ("VIBE-CODE": a terminal window on top, the title above his head, his curly hair poking out over the card), October 2026. Since then it's my preferred framing for Split Stage split shots.
 
 - **Card:** inset 24 px from the sides and bottom, top edge at y≈1330, about 96 px corner radius, a soft shadow and a thin rim. The camera keeps its real background inside the card. Everything outside the card is the stage.
 - **Cut-out:** `npx hyperframes remove-background SOURCE.MOV -o matte.mov` (a local model, about 110 ms/frame on CoreML). The matte's alpha moves with the camera, and `kallaway(stage, person)` in the Split Stage kit punches holes in the stage for the card and the person. In FCP the stage clip sits on the camera, so the head shows through.
 - Graphics stay above y≈940 and captions sit just above the hair (y≈1012). Full-face and dark beats are unchanged.
+
+## Alternative style: Dark Stage
+
+<img src="styles/screenshots/dark-stage.jpg" alt="Dark Stage: Microsoft buyouts reel" width="270">
+
+Split Stage's visuals on Proof Stack's dark floor ("best of both worlds"). Use it when I ask for Dark Stage, "the mix" or "like the Kimi reel".
+
+- **Visuals from Split Stage:** the Kallaway card with the pop-out head, blue-outlined browser windows, marker highlights, magnifier callouts, logo cards, gradient stat numbers and the green glowing "comment" CTA.
+- **Backdrop and captions from Proof Stack:** the dark, defocused paper floor made from the reel's own pages, small white sentence-case Helvetica captions and the occasional Instrument Serif Italic accent word.
+- **"Lights out" variant:** the reel opens on Split Stage's white wall, then the lights go out on a key word and it stays dark (dark cinematic LUT and a soft vignette).
+
+Full spec and kit: [.claude/skills/dark-stage-style/SKILL.md](.claude/skills/dark-stage-style/SKILL.md).
+
+## Alternative style: Minimal Proof
+
+<img src="styles/screenshots/minimal-proof.jpg" alt="Minimal Proof: Anthropic Residency reel" width="270">
+
+Quiet captions, real receipts. It comes from the Looki L1 sponsored cut and the Anthropic Residency / Canva reels (November 2026). Use it when I ask for Minimal Proof, "minimal captions" or the Looki / Anthropic residency style.
+
+- **Captions:** lowercase Poppins Bold 62 px, white on a soft 55% black pill, 2–3 words a line, above my head (y≈200–300).
+- **Proof:** recreated browser windows around real page crops (the exact line gets a yellow marker), real post screenshots with a source tag, and small chips. They pop in under my chin (y 1110–1580). Full-screen beats use a paper dot-grid board with a slow push-in.
+- **Accuracy first:** every on-screen claim is checked against the source. When my line is looser than the page, the page's own wording goes on screen.
+- **Sound and grade:** a light warm LUT on the adjustment layer, an Epidemic bed drop-aligned to the first card (~19 LU under my voice), and one CC0 Openverse SFX per card (whoosh, click, pop, cash).
+
+Full spec and kit: [.claude/skills/minimal-proof-style/SKILL.md](.claude/skills/minimal-proof-style/SKILL.md).
 
 ## Reel music folder
 
