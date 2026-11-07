@@ -245,6 +245,46 @@ Download sources, sizes and SHA-256 hashes are recorded in [font-downloads.json]
   - **Setup:** Python 3.10+, FFmpeg, Node 18+, then clone the repo and follow its Quick Start.
   - **License note:** AGPLv3, so use it as a tool rather than copying its code into anything I distribute.
 
+### Motion and drawing skills
+
+Confirmed agent skills for motion graphics and code-drawn stills. Frames below are from each project's own demo assets (or its sibling's, where noted). Keep warm & witty / Split Stage as the defaults for my reels; reach for these when a piece wants a full opener, explainer film or draw-on GIF.
+
+- **[Bang Motion](https://github.com/bangtutorial/bang-motion)** by Bang Tutorial (MIT) — turns a coding agent into a motion designer: openers, promos, kinetic type and explainers as one continuous HTML world (not slides). Output is a single `index.html`, 16:9 or 9:16, with an optional frame-by-frame export to MP4.
+
+  <img src="styles/screenshots/bang-motion.jpg" alt="Bang Motion: grainy-gradient opener still from the repo gallery" width="270">
+
+  ```text
+  /plugin marketplace add bangtutorial/bang-motion
+  /plugin install bang-motion@bang-motion
+  ```
+
+- **[Vox Explainer](https://github.com/CK42BB/vox-explainer-skill)** (MIT) — one topic in, a finished Vox-style explainer out: script, voiceover, Seedream keyframes, Omni Flash animation, MiniMax music, local ffmpeg assembly. Needs an [Atlas Cloud](https://atlascloud.ai) API key; roughly $3–8 per 60-second film. A full film was not smoke-run here (no key). **Honesty note:** collage clips shown in the reel actually come from the sibling skill [Vox Director](https://github.com/Alisa0808/vox-director) — list that too when pointing people at the look. Screenshot below is a Vox Director Tang Dynasty thumb for that reason.
+
+  <img src="styles/screenshots/vox-explainer.jpg" alt="Vox Director Tang Dynasty thumb (sibling of Vox Explainer)" width="270">
+
+  ```bash
+  git clone https://github.com/CK42BB/vox-explainer-skill.git ~/.claude/skills/vox-explainer
+  # also useful: git clone https://github.com/Alisa0808/vox-director.git ~/.claude/skills/vox-director
+  export ATLASCLOUD_API_KEY=…
+  ```
+
+- **[Huashu Art Motion](https://github.com/alchaincyf/huashu-art-motion)** by 花叔 / Huashu (MIT) — art styles written as code that actually move. **36 art styles per the repo** (reel said 30+), plus explainer grammars and a long-scroll skeleton. Skill docs are mostly Chinese; the English README only covers the overview. Needs uv, ffmpeg and Playwright Chromium.
+
+  <img src="styles/screenshots/huashu-art-motion.jpg" alt="Huashu Art Motion: showcase hero from the repo" width="270">
+
+  ```bash
+  npx skills add alchaincyf/huashu-art-motion
+  ```
+
+- **[Claude Drawing Skill](https://github.com/cloveric/claude-drawing-skill)** by cloveric (MIT) — Claude paints with code: **eighty styles per the repo** (an earlier note said 77). No image model — numpy + Pillow only — and it exports draw-on GIFs (plus stills). Clone into Claude skills and `pip install -r requirements.txt`.
+
+  <img src="styles/screenshots/claude-drawing-skill.jpg" alt="Claude Drawing Skill: watercolour draw-on GIF frame" width="270">
+
+  ```bash
+  git clone https://github.com/cloveric/claude-drawing-skill.git ~/.claude/skills/claude-drawing
+  pip install -r ~/.claude/skills/claude-drawing/requirements.txt
+  ```
+
 ### Opus 5.5 motion-design repos to clone
 
 These come from [@0xMovez](https://x.com/0xMovez)'s X article ["How to build motion design studio with Opus 5.5 (Full-course)"](https://x.com/0xMovez/status/2104216919033192746) (September 27, 2026). All credit for the list goes to Movez. The descriptions are from each repo, as of October 2026.
