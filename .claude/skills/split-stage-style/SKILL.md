@@ -27,7 +27,7 @@ When Harnoor asks for the **Kallaway crop** (and by default on Split Stage split
 
 - **Card:** inset 24 px from the sides and bottom, top edge at y≈1330, corner radius about 96 px. It has a soft dark shadow and a thin white rim on the stage. The camera keeps its real background inside the card.
 - **Pop-out:** everything of the person above the card top (hair, forehead, a raised hand) draws over the stage, with a soft contact shadow. The stage is otherwise **opaque everywhere**, so `stage_bg(seed, solid=True)`.
-- **Matte:** `npx hyperframes remove-background SOURCE.MOV -o matte.mov` (a local model running on CoreML, about 110 ms/frame) gives a ProRes 4444 cut-out of the source. Shift its alpha down by the same `dy` as the camera and pass it to `kallaway(stage, person)`. That punches holes for the card and the person, so in FCP the stage clip sits on the spine camera and the head shows through.
+- **Matte:** `./scripts/remove-background SOURCE.MOV -o matte.mov` (rembg / `u2net_human_seg` → ProRes 4444; install once with `pip install -r scripts/requirements-cutout.txt`). Shift its alpha down by the same `dy` as the camera and pass it to `kallaway(stage, person)`. That punches holes for the card and the person, so in FCP the stage clip sits on the spine camera and the head shows through.
 - Keep the head clear of the graphics band (y < 940). Captions stay at y≈1012, just above the hair.
 - Full-face and dark beats are unchanged.
 
@@ -81,10 +81,11 @@ When Harnoor asks for the **Kallaway crop** (and by default on Split Stage split
 **Pipeline:**
 1. Cut (pauses over 0.3 s trimmed). Mark each piece `split`, `full` or `punch`. Split pieces carry `dy=620`.
 2. A frame-exact base with the LUT. Split pieces are shifted down by `dy`.
-3. One ProRes 4444 **stage clip per contiguous run of split pieces** (stage backdrop plus objects, transparent below the fade), plus one opaque clip per dark stat scene.
-4. A captions layer that also carries the CTA.
-5. Beat-aligned audio.
-6. The composite, with a two-pass loudnorm.
+3. Run the matte for Kallaway pops: `./scripts/remove-background SOURCE.MOV -o matte.mov`.
+4. One ProRes 4444 **stage clip per contiguous run of split pieces** (stage backdrop plus objects, transparent below the fade), plus one opaque clip per dark stat scene.
+5. A captions layer that also carries the CTA.
+6. Beat-aligned audio.
+7. The composite, with a two-pass loudnorm.
 
 **FCPXML lanes:**
 - spine: cuts. Split pieces get `<adjust-transform position="0 -32.2917"/>` (620 px down).

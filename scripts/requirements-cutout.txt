@@ -1,0 +1,6 @@
+# Talking-head cutouts for Kallaway / Split Stage / Dark Stage.
+# Install: python3 -m pip install -r scripts/requirements-cutout.txt
+rembg>=2.0.57
+onnxruntime>=1.17.0
+Pillow>=10.0.0
+numpy>=1.24.0
