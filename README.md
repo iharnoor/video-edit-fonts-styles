@@ -20,6 +20,17 @@ Every long-form look I've used, with a frame from its build. All long form follo
 | --- | --- | --- | --- |
 | <img src="styles/screenshots/long-screen-share.jpg" alt="Screen Share" width="220"> | <img src="styles/screenshots/long-light-stage.jpg" alt="Light Stage" width="220"> | <img src="styles/screenshots/long-paper-podcast.jpg" alt="Paper Podcast" width="220"> | <img src="styles/screenshots/long-night-desk.jpg" alt="Night Desk-Typecraft" width="220"> |
 
+#### Worth trying next (not built yet)
+
+These are four long-form looks that fit the topics I cover. Each one says what makes it work and which pieces of this repo it would reuse. None has a build or screenshot yet. Once one is used on a real video, it moves into the table above with a frame.
+
+| Style | What it is | Use it when | Build it with |
+| --- | --- | --- | --- |
+| **Paper Trail** | Real documents shot or rebuilt as paper on a desk: a policy page, a court filing, a map. Marker circles and underlines draw on as I read the line, and the camera pushes into each one. | Immigration, H-1B, layoffs, law and policy, where the source document *is* the story. | Playwright page captures laid on a paper texture, Split Stage's `Mark` for the marker and a slow push. Real sources only, with the URL in a corner tag. |
+| **Data Story** | One chart per beat, full frame with the corner cam. Lines draw left to right, bars grow and the key number counts up on the word I say it. Honest axes, the source under every chart. | Salaries, job numbers, CapEx, model benchmarks: any video where a number carries the argument. | The `dataviz` skill for chart rules, rendered as frames with the corner cam baked in (like the Light Stage scenes). One idea per chart, ≤6 words of labels. |
+| **Build Log** | I build something live. The screen speed-ramps through the boring parts (4–8×, with a small timer chip) and drops to 1× for the moments that matter: the first run, the bug, the fix. | "I built X with Claude in a day", agent and coding videos. | Screen Share's sync and corner cam, plus speed ramps on lane 2 (frame-exact FCPXML `timeMap`). The cut still keeps every line I say over the 1× parts. |
+| **Walk & Talk** | Handheld on location: a stabilised walk-and-talk, b-roll cut to the music bed between thoughts, and a small place tag ("Nothing store · London") on arrival. | Store visits, campus tours, events, travel; the vlogs I already shoot. | The reel builds in `videos/nothing-store-london/` and `videos/halloween-reel/` for b-roll and beat-cutting, the warm & witty LUT and no captions. |
+
 ## Main style: warm & witty
 
 <img src="styles/screenshots/warm-witty.jpg" alt="Warm & witty: Zoox reel" width="270">
