@@ -8,3 +8,9 @@ videos/*/exports/*.png
 videos/*/assets/sfx/sfx-stem.wav
 audio/intro-tense-tech/*.wav
 node_modules/
+
+# Local Python caches and reproducible release builds
+__pycache__/
+*.py[cod]
+.venv/
+/dist/

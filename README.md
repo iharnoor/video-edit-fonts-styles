@@ -2,6 +2,37 @@
 
 My favorite fonts and pairings for video editing.
 
+## Getting started and releases
+
+Download [ready-fonts.zip](ready-fonts.zip) for all eight font families, their
+licenses, the font catalogs, installation instructions and checksums. Unzip it,
+then open the fonts you want in Font Book on macOS or install them through your
+editor. Start with **Poppins ExtraBold + Playfair Display Italic**.
+
+The font bundle is self-contained. Individual video projects may depend on local
+source footage, licensed music, Final Cut Pro and project-specific tools.
+
+Maintainers can validate and rebuild the bundle with **Python 3.10+**, with no
+third-party Python packages or network access:
+
+```sh
+python3 scripts/release_fonts.py check
+python3 -m unittest discover -s tests -v
+python3 scripts/release_fonts.py build
+```
+
+The build writes `dist/ready-fonts.zip`. To refresh the download checked into this
+repository, run `python3 scripts/release_fonts.py build --output ready-fonts.zip`.
+The builder checks file sizes, SHA-256 hashes, font headers, family licenses and
+catalog references before packaging an explicit list of files. It preserves an
+existing bundle if validation fails. ZIP timestamps and permissions are fixed
+for reproducible builds within the same Python/zlib toolchain.
+
+Run these checks locally before each release. GitHub Actions installation is
+still pending a credential with workflow permission. See
+[the release guide](docs/releases.md) for scope, verification and the remaining
+video-delivery checks.
+
 ## Style gallery
 
 Every named style, with a frame from its reference build. Click a name for its spec.
