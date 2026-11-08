@@ -95,9 +95,10 @@ def hline(w):
 
 
 def mattes(matte_mov, src_frame, n, dy=DY):
-    """person alpha for n frames from source frame src_frame of a `scripts/remove-background` matte, shifted down dy"""
+    """person alpha for n frames from source frame src_frame of a `scripts/remove-background` matte, shifted down dy.
+    The matte keeps the source size (e.g. 2160x3840), so it is scaled and centre-cropped to the W x H frame first."""
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-ss', f'{src_frame / FPS:.4f}', '-i', matte_mov, '-frames:v', str(n),
-                          '-vf', f'fps={FPS},alphaextract,format=gray', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'], capture_output=True, check=True).stdout
+                          '-vf', f'fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},alphaextract,format=gray', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'], capture_output=True, check=True).stdout
     fs = W * H; k = max(1, len(raw) // fs); out = []
     for j in range(n):
         a = np.frombuffer(raw[min(j, k - 1) * fs:][:fs], np.uint8).reshape(H, W)
