@@ -12,6 +12,14 @@ Every named style, with a frame from its reference build. Click a name for its s
 | **[Split Stage](#alternative-style-split-stage-nick-saraev-style-my-favourite)** (my favourite) | **[Kallaway crop](#kallaway-crop-pop-out-head)** (Split Stage framing) | **[Dark Stage](#alternative-style-dark-stage)** | **[Minimal Proof](#alternative-style-minimal-proof)** |
 | <img src="styles/screenshots/split-stage.jpg" alt="Split Stage" width="180"> | <img src="styles/screenshots/kallaway-crop.jpg" alt="Kallaway crop" width="180"> | <img src="styles/screenshots/dark-stage.jpg" alt="Dark Stage" width="180"> | <img src="styles/screenshots/minimal-proof.jpg" alt="Minimal Proof" width="180"> |
 
+### Long-form styles (16:9)
+
+Every long-form look I've used, with a frame from its build. All long form follows the same rules: **no captions**, loose cuts close to the raw take (keep my lines and add a small context note instead of cutting a claim), and screen recording + corner cam where there's a screen. Click a name for its spec.
+
+| [Screen Share](#long-form-screen-share-default) (default) | [Light Stage](#long-form-light-stage) | [Paper Podcast](#long-form-paper-podcast) | [Night Desk](#long-form-night-desk) (new) |
+| --- | --- | --- | --- |
+| <img src="styles/screenshots/long-screen-share.jpg" alt="Screen Share" width="220"> | <img src="styles/screenshots/long-light-stage.jpg" alt="Light Stage" width="220"> | <img src="styles/screenshots/long-paper-podcast.jpg" alt="Paper Podcast" width="220"> | <img src="styles/screenshots/long-night-desk.jpg" alt="Night Desk" width="220"> |
+
 ## Main style: warm & witty
 
 <img src="styles/screenshots/warm-witty.jpg" alt="Warm & witty: Zoox reel" width="270">
@@ -124,6 +132,46 @@ Quiet captions, real receipts. It comes from the Looki L1 sponsored cut and the 
 - **Sound and grade:** a light warm LUT on the adjustment layer, an Epidemic bed drop-aligned to the first card (~19 LU under my voice), and one CC0 Openverse SFX per card (whoosh, click, pop, cash).
 
 Full spec and kit: [.claude/skills/minimal-proof-style/SKILL.md](.claude/skills/minimal-proof-style/SKILL.md).
+
+## Long form: Screen Share (default)
+
+<img src="styles/screenshots/long-screen-share.jpg" alt="Screen Share: We need to talk" width="480">
+
+My real screen recording (or the pages rebuilt in Playwright when the recording is off) fills the frame, with my graded camera as a rounded corner cam at the bottom right. Full-face beats for opinions and stories.
+
+- **Use it when:** the video walks through sites, data, articles or tools on screen. This is the default long form.
+- **Built in:** `videos/h1b-lca/` (first build: rebuilt sites on a paper board, 288×360 corner cam), `videos/we-need-to-talk/` (frame above: synced screen recording, 300×375 corner cam, hand-drawn chapter boards) and `videos/fear-future-cs/` (ultrawide screen recording).
+- **Recipe:** sync the screen by audio cross-correlation (`camera = screen + offset`), and bake the corner cam into opaque section clips on lane 2. Use punch-ins on the screen for the line being read, a light highlight box on the numbers and the grade on the lane-1 adjustment layer.
+
+## Long form: Light Stage
+
+<img src="styles/screenshots/long-light-stage.jpg" alt="Light Stage: Microsoft 60,000 buyouts" width="480">
+
+Split Stage's light frosted stage, made 16:9: real page crops in blue-outlined browser windows, gradient stat cards, chips and drawn diagrams land on the stage, with the corner cam baked in. Face beats stay plain, with small context notes bottom left.
+
+- **Use it when:** a news or opinion take has no screen recording but needs receipts (pages, numbers, logos), or a podcast needs visuals between the two-shot.
+- **Built in:** `videos/img1095/` (frame above, Microsoft buyouts) and `videos/shubham-podcast/` (TinyFish podcast, with 2× punch-ins from the 4K master); also the v2 scenes in `videos/we-need-to-talk/`.
+- **Recipe:** `scenes.py` renders one 1920×1080 stage clip per scene on lane 2, with chips and lower thirds on lane 3. Every claim gets a real source, and loose lines keep a note on screen.
+
+## Long form: Paper Podcast
+
+<img src="styles/screenshots/long-paper-podcast.jpg" alt="Paper Podcast: Michał Januszewski" width="480">
+
+A two-person conversation from one locked wide shot, made dynamic with **punch-ins on cuts** (wide two-shot, then 1.7× close-ups on whoever's talking). It cuts to cream paper boards with small drawn science visuals, a blue tag title, a source line and the two-shot as a corner cam.
+
+- **Use it when:** a podcast or interview with a researcher or expert, where the ideas need simple drawings rather than screenshots.
+- **Built in:** `videos/michal-podcast/` (frame above, Google Research connectomics).
+- **Recipe:** framing changes only at cut points. Wide holds ≥5 s, close-ups run 3–10 s, and a close-up needs ≥85% of the speech from that person. Use the FCPXML `adjust-transform` scale and position; `fill` conform is ignored, so use fit + explicit scale. Boards are drawn with the warm-witty `illus.py`, with ≤3-word labels.
+
+## Long form: Night Desk
+
+<img src="styles/screenshots/long-night-desk.jpg" alt="Night Desk: sample stills" width="480">
+
+Learned in Nov 2026 from a dark, punchy dev-tool review. My face at the desk alternates with a full-frame **dark-mode** screen recording, which carries a **yellow-outlined portrait corner cam**. The picture changes about every 3.5 s (punch-ins, screen zooms, red boxes on what I point at), but the words aren't cut fast. One-word **keyword slams** land beside my head ("AGENTS"). **Chapter cards** sit on a dark scanline wall ("CODE to CALL"), and **neon diagram boards** with spaced mono titles build one box per step. It all runs under a moody night grade.
+
+- **Use it when:** I ask for Night Desk or a darker, more energetic long form; tool reviews, "how I use X", setups, agent workflows.
+- **Built in:** sample stills from `videos/we-need-to-talk/` footage (`styles/samples/night-desk/`). There's no full build yet.
+- **Recipe:** spec, kit (`night_desk.py`: `punch`, `screen`, `corner_cam`, `red_box`, `slam`, `chapter`, `board`, `write_lut`) and LUT are in [.claude/skills/night-desk-style/SKILL.md](.claude/skills/night-desk-style/SKILL.md). Still no captions, and still loose cuts.
 
 ## Reel music folder
 
