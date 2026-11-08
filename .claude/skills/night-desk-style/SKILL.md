@@ -1,11 +1,11 @@
 ---
 name: night-desk-style
-description: Harnoor's "Night Desk" long-form 16:9 style (learned Nov 2026 from a 13-min dev-tool review video). It alternates a full-frame talking head at the desk, with punch-ins on cuts, and full-frame dark-mode screen recording with a yellow-outlined portrait corner cam. Big one-word keyword slams land beside the head, chapter cards sit on a dark scanline wall ("CODE to CALL"), and neon diagram boards with spaced mono titles carry the how-it-works beats. Red boxes mark what he points at, under a moody night grade. No captions; loose cuts close to the raw take. Use when Harnoor asks for Night Desk, "the herdr style", "the dark dev review look" or a darker, more energetic long form (Screen Share stays the default long form).
+description: Harnoor's "Night Desk-Typecraft" long-form 16:9 style (learned Nov 2026 from Typecraft's "I LOVE the herdr desktop app" video). It alternates a full-frame talking head at the desk, with punch-ins on cuts, and full-frame dark-mode screen recording with a yellow-outlined portrait corner cam. Big one-word keyword slams land beside the head, chapter cards sit on a dark scanline wall ("CODE to CALL"), and neon diagram boards with spaced mono titles carry the how-it-works beats. Red boxes mark what he points at, under a moody night grade. No captions; loose cuts close to the raw take. Use when Harnoor asks for Night Desk, Night Desk-Typecraft, "the Typecraft style", "the herdr style", "the dark dev review look" or a darker, more energetic long form (Screen Share stays the default long form).
 ---
 
-# Night Desk (long form, 16:9)
+# Night Desk-Typecraft (long form, 16:9)
 
-Learned on Nov 7, 2026 from a reference tool-review video, 12:56 at 720p60. Harnoor asked to "learn from this long form style… and create similar style for my long form videos". These notes keep the techniques only. Don't copy the creator's branding, set, logos, sign-off or clips.
+**Name and credit:** "Night Desk-Typecraft". Learned on Nov 7, 2026 from Typecraft's "I LOVE the herdr desktop app" ([youtube.com/watch?v=bBsNFZ1-HUs](https://www.youtube.com/watch?v=bBsNFZ1-HUs)), 12:56 at 720p60. Short name: Night Desk. Harnoor asked to "learn from this long form style… and create similar style for my long form videos". These notes keep the techniques only. Don't copy the creator's branding, set, logos, sign-off or clips.
 
 **Core idea:** two shots carry the whole video, his face at the desk and his screen. The edit feels fast because the *picture* changes about every 3.5 s: punch-ins, screen zooms, slams and cards. **The words aren't cut fast.** That's how it fits Harnoor's long-form rule of loose cuts close to the raw take.
 
