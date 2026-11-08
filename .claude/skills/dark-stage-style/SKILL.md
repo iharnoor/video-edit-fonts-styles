@@ -18,7 +18,7 @@ Load both parent skills for the details of each piece: [split-stage-style](../sp
 | Piece | From | Notes |
 |---|---|---|
 | Backdrop (every non-face shot) | Proof Stack | `ps.backdrop(pages, seed)` made from the reel's own real pages, plus `ps.camera` with its slow push. It replaces Split Stage's pale `stage_bg` **and** its teal `dark_bg`. |
-| Split layout + Kallaway card, pop-out head | Split Stage | Camera drops `DY = 620`, card top at y≈1330. The matte comes from `npx hyperframes remove-background`. |
+| Split layout + Kallaway card, pop-out head | Split Stage | Camera drops `DY = 620`, card top at y≈1330. The matte comes from `./scripts/remove-background SOURCE.MOV -o matte.mov`. |
 | Windows, `Mark`, `callout`, `logo_card`, `pill` diagrams, `Glint`, `Pop` | Split Stage | The blue outline and glow read well on dark. Keep one main window at a time. |
 | Stat numbers on dark beats | Split Stage | `Stat` (`ss.stat`), the gradient number at the top, with a real window under it. |
 | Hook header | Split Stage, inverted | `Title`: white SF Pro line over white Playfair italic on a blue block. |
@@ -49,7 +49,7 @@ Load both parent skills for the details of each piece: [split-stage-style](../sp
 **Pipeline:** the same as Split Stage.
 1. Cut, mark each piece `split`, `dark` or `face`.
 2. Build a base with the split pieces dropped `DY`.
-3. Run the matte.
+3. Run the matte: `./scripts/remove-background SOURCE.MOV -o matte.mov`.
 4. Render one overlay clip per run.
 5. Render the captions layer with the CTA.
 6. Make beat-aligned audio.

@@ -1,0 +1,268 @@
+#!/usr/bin/env python3
+"""Remove the background from a talking-head clip → ProRes 4444 matte.
+
+Default (and only) path for Kallaway / Split Stage / Dark Stage cutouts in this
+repo. Uses rembg with u2net_human_seg — same model family HyperFrames used, as a
+thin local CLI with no HyperFrames dependency.
+
+Usage:
+  ./scripts/remove-background SOURCE.MOV -o matte.mov
+
+Needs: ffmpeg on PATH, and `pip install -r scripts/requirements-cutout.txt`
+(first run also downloads the ~176 MB model weights).
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+
+MODEL = "u2net_human_seg"
+PRORES_PIX_FMT = "yuva444p10le"
+
+
+def die(msg: str, code: int = 1) -> None:
+    print(f"remove-background: {msg}", file=sys.stderr)
+    raise SystemExit(code)
+
+
+def ensure_deps() -> None:
+    if shutil.which("ffmpeg") is None or shutil.which("ffprobe") is None:
+        die("ffmpeg/ffprobe not found on PATH")
+    try:
+        import rembg  # noqa: F401
+        import numpy  # noqa: F401
+        from PIL import Image  # noqa: F401
+    except ImportError:
+        req = Path(__file__).resolve().parent / "requirements-cutout.txt"
+        die(
+            "missing Python deps. Install with:\n"
+            f"  python3 -m pip install -r {req}"
+        )
+
+
+def probe(path: Path) -> tuple[int, int, float, int | None]:
+    raw = subprocess.check_output(
+        [
+            "ffprobe",
+            "-v",
+            "error",
+            "-select_streams",
+            "v:0",
+            "-count_frames",
+            "-show_entries",
+            "stream=width,height,avg_frame_rate,nb_read_frames",
+            "-of",
+            "json",
+            str(path),
+        ],
+        text=True,
+    )
+    stream = json.loads(raw)["streams"][0]
+    w, h = int(stream["width"]), int(stream["height"])
+    num, den = stream["avg_frame_rate"].split("/")
+    fps = float(num) / float(den) if float(den) else 30.0
+    n = stream.get("nb_read_frames")
+    return w, h, fps, int(n) if n and n != "N/A" else None
+
+
+def build_session():
+    """Always rembg + u2net_human_seg. Prefer CoreML / CUDA when ORT exposes them."""
+    from rembg import new_session
+
+    providers: list[str] = []
+    try:
+        import onnxruntime as ort
+
+        available = set(ort.get_available_providers())
+        for name in (
+            "CoreMLExecutionProvider",
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider",
+        ):
+            if name in available:
+                providers.append(name)
+    except Exception:
+        providers = []
+
+    if providers:
+        session = new_session(MODEL, providers=providers)
+    else:
+        session = new_session(MODEL)
+    used = providers[0] if providers else "default"
+    print(f"remove-background: model={MODEL} provider={used}", file=sys.stderr)
+    return session
+
+
+def cutout_video(src: Path, dst: Path) -> None:
+    from rembg import remove
+    from PIL import Image
+    import numpy as np
+
+    w, h, fps, nframes = probe(src)
+    session = build_session()
+    dst.parent.mkdir(parents=True, exist_ok=True)
+
+    decode = subprocess.Popen(
+        [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            str(src),
+            "-f",
+            "rawvideo",
+            "-pix_fmt",
+            "rgb24",
+            "-",
+        ],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    encode = subprocess.Popen(
+        [
+            "ffmpeg",
+            "-y",
+            "-v",
+            "error",
+            "-f",
+            "rawvideo",
+            "-pix_fmt",
+            "rgba",
+            "-s",
+            f"{w}x{h}",
+            "-r",
+            f"{fps:.6f}",
+            "-i",
+            "-",
+            "-c:v",
+            "prores_ks",
+            "-profile:v",
+            "4444",
+            "-pix_fmt",
+            PRORES_PIX_FMT,
+            "-an",
+            str(dst),
+        ],
+        stdin=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert decode.stdout is not None and encode.stdin is not None
+
+    frame_bytes = w * h * 3
+    i = 0
+    try:
+        while True:
+            buf = decode.stdout.read(frame_bytes)
+            if not buf or len(buf) < frame_bytes:
+                break
+            rgb = np.frombuffer(buf, dtype=np.uint8).reshape((h, w, 3))
+            rgba = remove(Image.fromarray(rgb, "RGB"), session=session)
+            if rgba.mode != "RGBA":
+                rgba = rgba.convert("RGBA")
+            encode.stdin.write(np.asarray(rgba, dtype=np.uint8).tobytes())
+            i += 1
+            if nframes:
+                if i == 1 or i % 30 == 0 or i == nframes:
+                    print(f"remove-background: frame {i}/{nframes}", file=sys.stderr)
+            elif i == 1 or i % 30 == 0:
+                print(f"remove-background: frame {i}", file=sys.stderr)
+    finally:
+        decode.stdout.close()
+        encode.stdin.close()
+        dec_err = decode.wait()
+        enc_err = encode.wait()
+
+    if dec_err != 0:
+        err = decode.stderr.read().decode("utf-8", "replace") if decode.stderr else ""
+        die(f"ffmpeg decode failed ({dec_err}): {err.strip()}")
+    if enc_err != 0:
+        err = encode.stderr.read().decode("utf-8", "replace") if encode.stderr else ""
+        die(f"ffmpeg encode failed ({enc_err}): {err.strip()}")
+    if i == 0:
+        die("no frames decoded from input")
+    print(f"remove-background: wrote {dst} ({i} frames, {w}x{h} @ {fps:.3f} fps)")
+
+
+def cutout_image(src: Path, dst: Path) -> None:
+    from rembg import remove
+    from PIL import Image
+
+    session = build_session()
+    img = Image.open(src).convert("RGB")
+    out = remove(img, session=session)
+    if out.mode != "RGBA":
+        out = out.convert("RGBA")
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if dst.suffix.lower() == ".mov":
+        # Single-frame ProRes for callers that always pass -o *.mov
+        with tempfile.TemporaryDirectory() as td:
+            png = Path(td) / "frame.png"
+            out.save(png)
+            subprocess.check_call(
+                [
+                    "ffmpeg",
+                    "-y",
+                    "-v",
+                    "error",
+                    "-loop",
+                    "1",
+                    "-i",
+                    str(png),
+                    "-frames:v",
+                    "1",
+                    "-c:v",
+                    "prores_ks",
+                    "-profile:v",
+                    "4444",
+                    "-pix_fmt",
+                    PRORES_PIX_FMT,
+                    str(dst),
+                ]
+            )
+    else:
+        out.save(dst)
+    print(f"remove-background: wrote {dst}")
+
+
+def main(argv: list[str] | None = None) -> None:
+    p = argparse.ArgumentParser(
+        prog="remove-background",
+        description="Cut a talking-head subject out of a clip (rembg / u2net_human_seg → ProRes 4444).",
+    )
+    p.add_argument("input", type=Path, help="Source video (.mov/.mp4/…) or image")
+    p.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        required=True,
+        help="Output path (.mov ProRes 4444, or .png for a still)",
+    )
+    args = p.parse_args(argv)
+
+    ensure_deps()
+    src = args.input.expanduser().resolve()
+    dst = args.output.expanduser().resolve()
+    if not src.exists():
+        die(f"input not found: {src}")
+
+    suffix = src.suffix.lower()
+    if suffix in {".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"}:
+        cutout_image(src, dst)
+    else:
+        if dst.suffix.lower() not in {".mov", ".mkv", ".webm"}:
+            print(
+                "remove-background: tip — use -o matte.mov (ProRes 4444) for FCP / Kallaway",
+                file=sys.stderr,
+            )
+        cutout_video(src, dst)
+
+
+if __name__ == "__main__":
+    main()

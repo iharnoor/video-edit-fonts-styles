@@ -95,7 +95,7 @@ def hline(w):
 
 
 def mattes(matte_mov, src_frame, n, dy=DY):
-    """person alpha for n frames from source frame src_frame of a `hyperframes remove-background` matte, shifted down dy"""
+    """person alpha for n frames from source frame src_frame of a `scripts/remove-background` matte, shifted down dy"""
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-ss', f'{src_frame / FPS:.4f}', '-i', matte_mov, '-frames:v', str(n),
                           '-vf', f'fps={FPS},alphaextract,format=gray', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'], capture_output=True, check=True).stdout
     fs = W * H; k = max(1, len(raw) // fs); out = []
