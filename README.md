@@ -19,17 +19,19 @@ Every long-form look I've used, with a frame from its build. All long form follo
 | [Screen Share](#long-form-screen-share-default) (default) | [Light Stage](#long-form-light-stage) | [Paper Podcast](#long-form-paper-podcast) | [Night Desk-Typecraft](#long-form-night-desk-typecraft) (new) |
 | --- | --- | --- | --- |
 | <img src="styles/screenshots/long-screen-share.jpg" alt="Screen Share" width="220"> | <img src="styles/screenshots/long-light-stage.jpg" alt="Light Stage" width="220"> | <img src="styles/screenshots/long-paper-podcast.jpg" alt="Paper Podcast" width="220"> | <img src="styles/screenshots/long-night-desk.jpg" alt="Night Desk-Typecraft" width="220"> |
+| **[Paper Explainer](#long-form-paper-explainer)** |  |  |  |
+| <img src="styles/screenshots/long-paper-explainer.jpg" alt="Paper Explainer" width="220"> |  |  |  |
 
 #### Worth trying next (not built yet)
 
-These are four long-form looks that fit the topics I cover. Each one says what makes it work and which pieces of this repo it would reuse. None has a build or screenshot yet. Once one is used on a real video, it moves into the table above with a frame.
+These are four long-form looks that fit the topics I cover. Each one says what makes it work and which pieces of this repo it would reuse. None has been used on a real video yet, so each example is a mock-up made from footage I already have (IMG_1255, the IMG_1095 sources, the we-need-to-talk screen recording and the Zoox ride), with `styles/samples/long-ideas/examples.py`. Once a style is used for real, it moves into the table above with a frame from that build.
 
-| Style | What it is | Use it when | Build it with |
-| --- | --- | --- | --- |
-| **Paper Trail** | Real documents shot or rebuilt as paper on a desk: a policy page, a court filing, a map. Marker circles and underlines draw on as I read the line, and the camera pushes into each one. | Immigration, H-1B, layoffs, law and policy, where the source document *is* the story. | Playwright page captures laid on a paper texture, Split Stage's `Mark` for the marker and a slow push. Real sources only, with the URL in a corner tag. |
-| **Data Story** | One chart per beat, full frame with the corner cam. Lines draw left to right, bars grow and the key number counts up on the word I say it. Honest axes, the source under every chart. | Salaries, job numbers, CapEx, model benchmarks: any video where a number carries the argument. | The `dataviz` skill for chart rules, rendered as frames with the corner cam baked in (like the Light Stage scenes). One idea per chart, ≤6 words of labels. |
-| **Build Log** | I build something live. The screen speed-ramps through the boring parts (4–8×, with a small timer chip) and drops to 1× for the moments that matter: the first run, the bug, the fix. | "I built X with Claude in a day", agent and coding videos. | Screen Share's sync and corner cam, plus speed ramps on lane 2 (frame-exact FCPXML `timeMap`). The cut still keeps every line I say over the 1× parts. |
-| **Walk & Talk** | Handheld on location: a stabilised walk-and-talk, b-roll cut to the music bed between thoughts, and a small place tag ("Nothing store · London") on arrival. | Store visits, campus tours, events, travel; the vlogs I already shoot. | The reel builds in `videos/nothing-store-london/` and `videos/halloween-reel/` for b-roll and beat-cutting, the warm & witty LUT and no captions. |
+| Style | Example | What it is | Use it when | Build it with |
+| --- | --- | --- | --- | --- |
+| **Paper Trail** | <img src="styles/screenshots/long-paper-trail.jpg" alt="Paper Trail example" width="260"> | Real documents shot or rebuilt as paper on a desk: a policy page, a court filing, a map. Marker circles and underlines draw on as I read the line, and the camera pushes into each one. | Immigration, H-1B, layoffs, law and policy, where the source document *is* the story. | Playwright page captures laid on a paper texture, Split Stage's `Mark` for the marker and a slow push. Real sources only, with the URL in a corner tag. |
+| **Data Story** | <img src="styles/screenshots/long-data-story.jpg" alt="Data Story example" width="260"> | One chart per beat, full frame with the corner cam. Lines draw left to right, bars grow and the key number counts up on the word I say it. Honest axes, the source under every chart. | Salaries, job numbers, CapEx, model benchmarks: any video where a number carries the argument. | The `dataviz` skill for chart rules, rendered as frames with the corner cam baked in (like the Light Stage scenes). One idea per chart, ≤6 words of labels. |
+| **Build Log** | <img src="styles/screenshots/long-build-log.jpg" alt="Build Log example" width="260"> | I build something live. The screen speed-ramps through the boring parts (4–8×, with a small timer chip) and drops to 1× for the moments that matter: the first run, the bug, the fix. | "I built X with Claude in a day", agent and coding videos. | Screen Share's sync and corner cam, plus speed ramps on lane 2 (frame-exact FCPXML `timeMap`). The cut still keeps every line I say over the 1× parts. |
+| **Walk & Talk** | <img src="styles/screenshots/long-walk-and-talk.jpg" alt="Walk & Talk example" width="260"> | Handheld on location: a stabilised walk-and-talk, b-roll cut to the music bed between thoughts, and a small place tag ("Nothing store · London") on arrival. | Store visits, campus tours, events, travel; the vlogs I already shoot. | The reel builds in `videos/nothing-store-london/` and `videos/halloween-reel/` for b-roll and beat-cutting, the warm & witty LUT and no captions. |
 
 ## Main style: warm & witty
 
@@ -173,6 +175,16 @@ A two-person conversation from one locked wide shot, made dynamic with **punch-i
 - **Use it when:** a podcast or interview with a researcher or expert, where the ideas need simple drawings rather than screenshots.
 - **Built in:** `videos/michal-podcast/` (frame above, Google Research connectomics).
 - **Recipe:** framing changes only at cut points. Wide holds ≥5 s, close-ups run 3–10 s, and a close-up needs ≥85% of the speech from that person. Use the FCPXML `adjust-transform` scale and position; `fill` conform is ignored, so use fit + explicit scale. Boards are drawn with the warm-witty `illus.py`, with ≤3-word labels.
+
+## Long form: Paper Explainer
+
+<img src="styles/screenshots/long-paper-explainer.jpg" alt="Paper Explainer: Zoox robotaxi" width="480">
+
+Warm & witty's cream paper boards, made 16:9. Drawn explainers (timelines, maps, sensor diagrams, a levels ladder) build up step by step while I talk, with my graded camera as a 512×288 corner cam baked into the board clips. Full face for the intro, my take and the stories, and real ride b-roll between.
+
+- **Use it when:** an explainer topic with no screen to record, where the idea is easier to draw than to screenshot (how a robotaxi sees, levels of self-driving, 70 years of history).
+- **Built in:** `videos/zoox-reel/longform/` (frame above, "Is the robotaxi future finally real?").
+- **Recipe:** warm & witty boards and `illus.py` drawings with labels of ≤3 words, a source line under each board and real page captures as cards. No captions; the grade goes on the lane-1 adjustment layer.
 
 ## Long form: Night Desk-Typecraft
 
