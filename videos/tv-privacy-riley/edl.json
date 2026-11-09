@@ -1,0 +1,31 @@
+{
+  "source": "raw/full.mp4 = concat(part0 0-31.05 s, part1 31.05-64.39 s, part2 64.39-90.11 s), 1080x1920 30p",
+  "note": "source seconds; cut points sit on AssemblyAI word boundaries (words.json). out = running sum.",
+  "cut": [
+    [0.00, 22.38, "walk-in, count-ins, take 1 hook ('this guy proved it by building this'), fumbled take 2 ('your TV is actually listen- your own-')"],
+    [40.80, 41.00, "pause before 'and then'"],
+    [44.72, 47.48, "'what it does is, because most TVs are based on Android,' (Samsung/LG are not Android; kept the claim out)"],
+    [48.42, 51.70, "'Samsung, all these have OS which is Android' (wrong: Samsung runs Tizen)"],
+    [54.54, 59.08, "'connect with wireless, wireless, like, and, and and' stumble"],
+    [66.15, 66.48, "pause"],
+    [73.76, 74.00, "pause"],
+    [76.32, 76.58, "pause"],
+    [80.70, 80.86, "pause"],
+    [84.30, 90.11, "'thank you' and walk-out"]
+  ],
+  "keep": [
+    [22.38, 40.80, "your TV is listening to you always, and somebody just fixed it with this vibe coded app. most TVs are bloated with hundreds of apps, and this guy bought a $3,000 Samsung TV and noticed that in some settings, microphone was always listening, it was tracking a bunch of activities for relevant ads."],
+    [41.00, 44.72, "and then this developer built an app called Clean Your TV."],
+    [47.48, 48.42, "this is a Google TV,"],
+    [51.70, 54.54, "you could go to settings, go to developer options, and then"],
+    [59.08, 66.15, "connect wirelessly through your Claude Code or Codex and then install this repo which has already 50,000 stars."],
+    [66.48, 71.15, "and this does the magic of removing and stripping down all the apps you don't use."],
+    [71.30, 73.76, "you can enable them tomorrow and next"],
+    [74.00, 76.32, "you get a TV which is cleaned up."],
+    [76.58, 80.70, "only the apps I use and I picked a San Francisco Diwali theme."],
+    [80.86, 84.30, "you can customize it even more. comment down and I'll send you the link in your DM."]
+  ],
+  "broll": [
+    {"src": [84.6, 90.0], "what": "his cleaned-up Google TV home screen (empty chair, SF Golden Gate + fireworks theme)"}
+  ]
+}

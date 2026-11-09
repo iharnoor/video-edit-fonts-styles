@@ -1,0 +1,21 @@
+{
+  "music": {
+    "title": "Digital Lemonade",
+    "artist": "Kevin MacLeod",
+    "source": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Digital%20Lemonade.mp3",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "credit_line": "\"Digital Lemonade\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  "sfx": "synthesised in scripts/audio.py; no third-party samples",
+  "screenshots": {
+    "tweet1": "https://x.com/log4j/status/2113014142600953868 (rendered via platform.twitter.com embed, 2026-11-09)",
+    "tweet2": "https://x.com/log4j/status/2113028209612644795 (embed, 2026-11-09); tw2media.jpg is the post's own attached image",
+    "repo": "https://github.com/Gathin23/cleanyourtv (2026-11-09, 54,876 stars)",
+    "trending_badge": "https://github.com/Gathin23/cleanyourtv/blob/main/docs/trending-badge.png",
+    "not_android": "https://cleanyour.tv/not-android (2026-11-09)",
+    "view_count": "fxtwitter API, tweet 1 views 4,864,252 on 2026-11-09"
+  },
+  "logos": "GitHub, Claude, OpenAI marks from simple-icons (CC0 icon data; marks are their owners' trademarks, used to identify the products); CleanYourTV icon from cleanyour.tv",
+  "fonts": "Poppins (OFL), Virgil (OFL) from the repo"
+}
