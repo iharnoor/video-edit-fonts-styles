@@ -50,8 +50,8 @@ Every long-form look I've used, with a frame from its build. All long form follo
 | [Screen Share](#long-form-screen-share-default) (default) | [Light Stage](#long-form-light-stage) | [Paper Podcast](#long-form-paper-podcast) | [Night Desk-Typecraft](#long-form-night-desk-typecraft) (new) |
 | --- | --- | --- | --- |
 | <img src="styles/screenshots/long-screen-share.jpg" alt="Screen Share" width="220"> | <img src="styles/screenshots/long-light-stage.jpg" alt="Light Stage" width="220"> | <img src="styles/screenshots/long-paper-podcast.jpg" alt="Paper Podcast" width="220"> | <img src="styles/screenshots/long-night-desk.jpg" alt="Night Desk-Typecraft" width="220"> |
-| **[Paper Explainer](#long-form-paper-explainer)** |  |  |  |
-| <img src="styles/screenshots/long-paper-explainer.jpg" alt="Paper Explainer" width="220"> |  |  |  |
+| **[Paper Explainer](#long-form-paper-explainer)** | **[Riley](#long-form-riley)** (new) |  |  |
+| <img src="styles/screenshots/long-paper-explainer.jpg" alt="Paper Explainer" width="220"> | <img src="styles/screenshots/long-riley.jpg" alt="Riley" width="220"> |  |  |
 
 #### Worth trying next (not built yet)
 
@@ -226,6 +226,16 @@ Learned in Nov 2026 from Typecraft's "I LOVE the herdr desktop app" video ([watc
 - **Use it when:** I ask for Night Desk, "the Typecraft style" or a darker, more energetic long form; tool reviews, "how I use X", setups, agent workflows.
 - **Built in:** sample stills from `videos/we-need-to-talk/` footage (`styles/samples/night-desk/`). There's no full build yet.
 - **Recipe:** spec, kit (`night_desk.py`: `punch`, `screen`, `corner_cam`, `red_box`, `slam`, `chapter`, `board`, `write_lut`) and LUT are in [.claude/skills/night-desk-style/SKILL.md](.claude/skills/night-desk-style/SKILL.md). Still no captions, and still loose cuts.
+
+## Long form: Riley
+
+<img src="styles/screenshots/long-riley.jpg" alt="Riley: phone demo on the dot-grid page" width="480">
+
+Learned in Nov 2026 from Riley Brown's AI-tool videos ("Claude Duet's NEW Update Is INSANE", [watch](https://youtu.be/zU0jqYKTgMs)), so the name credits him. It takes the techniques only, not his set, mascots or branding. It's bright and friendly, the opposite of Night Desk. My face at a warm, lit desk gets **white app tiles** popping in beside my head on each product name, **scramble labels** ("POWERED BY OPUS 5.5"), a **giant word behind my head** and an occasional **pull-phrase** (said words white, coming words grey). Every demo uses the same **white dot-grid page**: the screen sits in one big rounded card with my face in a plain portrait card on the right and a tomato bar along the bottom. There's a wide layout for phone and app demos and a tall one for browser and Excalidraw recordings. **Numbered chapter cards** sit on the same page, a **dark numbered tile grid** handles list overviews, and a **dark Excalidraw sketch board** covers "how it works".
+
+- **Use it when:** I ask for Riley or "the Riley Brown style"; AI tool walkthroughs, "X just changed a lot", "how I use X", list videos.
+- **Built in:** sample stills only (`styles/samples/riley/`, from the Canva reel's 540p A-roll, so the face beats are soft). There's no full build yet. YouTube blocked the download, so it was learned from 64 real frames across 16 of his videos: layouts and colours are measured, but timings aren't yet.
+- **Recipe:** spec, kit (`riley.py`: `face`, `demo`, `phone`, `tiles`, `scramble`, `behind`, `phrase`, `chapter`, `grid`, `sketch`, `write_lut`) and LUT are in [.claude/skills/riley-style/SKILL.md](.claude/skills/riley-style/SKILL.md). Still no captions, and still loose cuts.
 
 ## Reel music folder
 
