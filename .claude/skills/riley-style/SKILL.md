@@ -62,5 +62,13 @@ Sample stills: [styles/samples/riley/](../../../styles/samples/riley/) (built fr
 - **SFX (sparse, CC0 from Openverse, `credits.json`):** a soft pop on each tile, a tick-roll under scramble labels, a whoosh on chapter cards and clicks on grid moves. Peaks at −3 dBFS.
 - **Final mix:** −14 LUFS, −1.5 dBTP.
 
+## Vertical reel (9:16) variant
+First build: [videos/tv-privacy-riley/](../../../videos/tv-privacy-riley/) (Nov 2026). When Harnoor asks for Riley on a short, keep the look but use the reel rules:
+- **Demo page:** the content card is on top (x 40–1040, y 70–1030), the portrait face card is underneath (x 350–730, y 1210–1670) and the tomato bar runs along the bottom. Put the source line in 24 px grey under the card. The motion is the same: the card rises 24 px and fades in over 8 frames, and the face card follows 4 frames later.
+- **Tiles and scramble labels:** put them beside the head in the hook and in the empty top band (y 90–470) after that. On light walls, put a soft dark backing (~60%) behind scramble labels.
+- **Captions** (reels only): use chunks of 3 words or fewer in the pull-phrase colours. Said words are white on face beats and ink on the page, coming words are grey, and the active word sits on a tomato pill. Use Poppins Bold 70 (62 on the page), at y≈1330 on face beats and y≈1128 on the page.
+- **Cuts:** tight, with pauses over 0.25 s trimmed. Punch-ins of 1.0 and 1.12 change only on cuts.
+- **Deliver** a 1080×1920 30p MP4 and an SRT. The renderer is `scripts/build.py` (it imports this kit with `R.W, R.H = 1080, 1920`), and the mix is `scripts/audio.py`.
+
 ## Build order and delivery
 Same as Night Desk ([night-desk-style/SKILL.md](../night-desk-style/SKILL.md), **Build order** and **FCPXML delivery**). Transcribe, cut loose, then sync the screen. Render the demo, chapter, grid and board sections as opaque 1920×1080 clips with the face card **baked in** on lane 2. Put tiles, scramble labels, pull-phrases and notes as ProRes 4444 alpha on lane 3, with behind-the-head beats baked (they need the matte). Then do the audio, preview and FCPXML 1.11+. Deliver the FCPXML, the LUT, a preview MP4, YouTube chapters in `youtube.md` (from the chapter cards), a thumbnail (formula above, with Harnoor's face and the product's real icon), and the graphics to `~/Movies/FCP/<name>-graphics/`. **No SRT.**
