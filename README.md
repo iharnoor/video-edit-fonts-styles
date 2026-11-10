@@ -533,6 +533,30 @@ Confirmed agent skills for motion graphics and code-drawn stills. Frames below a
   pip install -r ~/.claude/skills/claude-drawing/requirements.txt
   ```
 
+### Premium design skills (from the RPN cheat sheet)
+
+The eight free design skills from Roberto P. Nickson's "8 free design skills" reel (the RPN reference, Nov 2026). They are built for web and app UI, but my graphics are HTML and code too, so several of them carry over to video. Installed on Nov 9, 2026 as user-level Claude Code skills in `~/.claude/skills/` with `npx skills add <repo> -g -a claude-code`. They are not in this repo.
+
+**Best for video, in order:**
+
+| # | Skill | Use it in a video for | Status |
+| --- | --- | --- | --- |
+| 1 | **[Stageshow](https://github.com/benjitaylor/skills)** (`stageshow`) | Animated product-style UI: browser and phone windows, terminals, notifications, bento grids and cursor walkthroughs. The closest match to the RPN top half, warm & witty's UI cards and Riley-style demo rebuilds. Only for generic UI or ideas with no real screen: a real page or app still gets a real capture. | Installed |
+| 2 | **[Emil Kowalski's skills](https://github.com/emilkowalski/skills)** (`animate`, `choreograph`, `animation-vocabulary`, `review-animations`, `apple-design` and more) | Motion decisions: whether something should move at all, which curve and duration, how a group staggers and what stays still. Run `review-animations` on a HyperFrames or GSAP composition as the check for the 10-frame budget in [What makes it premium](#what-makes-it-premium). | Installed (17 skills; his `prototype` was skipped because I already have a skill with that name) |
+| 3 | **[Dimensional Drawing](https://github.com/enesozturk/dimensional-drawing)** (`dimensional-drawing`, `dimensional-drawing-motion`) | An Apple-style spec sheet of a product or component, then a ~10 s film where the lines draw in and the layers lift into an exploded view. Good for gadget and "how it's built" beats (phone, glasses, robotaxi sensors) and for the Line art look. | Installed |
+| 4 | **[Impeccable](https://github.com/pbakaus/impeccable)** (`impeccable`) | A polish and critique pass on any HTML card, cheat sheet or end frame: `polish`, `typeset`, `quieter`, `critique`, `audit`. It catches the generic AI look before a frame ships. | Installed |
+| 5 | **[Taste Skill](https://github.com/Leonxlnx/taste-skill)** | Art direction with a real-browser check, for picking a direction on a new board or title-card design. | Already installed as a plugin |
+
+**Less useful for video:**
+
+| Skill | What it is | Status |
+| --- | --- | --- |
+| **Awwwards MCP** (`claude mcp add awwwards -- npx -y awwwards-mcp`) | References from award-winning sites, as an MCP server. Useful for look references, not for building frames. | Not installed: it runs an npm server from a small publisher in every session, so it waits for my OK |
+| **[Oil UI](https://github.com/oil-oil/oil-ui)** | Explores several UI directions side by side. Web and app design, instructions in Chinese. | Not installed: it ships an updater that calls its own site and can update itself, so it waits for my OK |
+| **design.how** | Design systems for agents. The cheat sheet gives no install command. | Nothing to install |
+
+Repo rules still win over any of these: warm & witty is the default, real sources for claims, about 6 words per card, cards out of the face area, and the sound and polish rules in [What makes it premium](#what-makes-it-premium).
+
 ### Opus 5.5 motion-design repos to clone
 
 These come from [@0xMovez](https://x.com/0xMovez)'s X article ["How to build motion design studio with Opus 5.5 (Full-course)"](https://x.com/0xMovez/status/2104216919033192746) (September 27, 2026). All credit for the list goes to Movez. The descriptions are from each repo, as of October 2026.
