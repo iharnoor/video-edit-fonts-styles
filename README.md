@@ -42,6 +42,8 @@ Every named style, with a frame from its reference build. Click a name for its s
 | <img src="styles/screenshots/warm-witty.jpg" alt="Warm & witty" width="180"> | <img src="styles/screenshots/editorial.jpg" alt="Editorial" width="180"> | <img src="styles/screenshots/dark-cinematic.jpg" alt="Dark cinematic" width="180"> | <img src="styles/screenshots/proof-stack.jpg" alt="Proof Stack" width="180"> |
 | **[Split Stage](#alternative-style-split-stage-nick-saraev-style-my-favourite)** (my favourite) | **[Kallaway crop](#kallaway-crop-pop-out-head)** (Split Stage framing) | **[Dark Stage](#alternative-style-dark-stage)** | **[Minimal Proof](#alternative-style-minimal-proof)** |
 | <img src="styles/screenshots/split-stage.jpg" alt="Split Stage" width="180"> | <img src="styles/screenshots/kallaway-crop.jpg" alt="Kallaway crop" width="180"> | <img src="styles/screenshots/dark-stage.jpg" alt="Dark Stage" width="180"> | <img src="styles/screenshots/minimal-proof.jpg" alt="Minimal Proof" width="180"> |
+| **[RPN](#alternative-style-rpn)** |  |  |  |
+| <img src="styles/screenshots/rpn.jpg" alt="RPN" width="180"> |  |  |  |
 
 ### Long-form styles (16:9)
 
@@ -176,6 +178,20 @@ Quiet captions, real receipts. It comes from the Looki L1 sponsored cut and the 
 - **Sound and grade:** a light warm LUT on the adjustment layer, an Epidemic bed drop-aligned to the first card (~19 LU under my voice), and one CC0 Openverse SFX per card (whoosh, click, pop, cash).
 
 Full spec and kit: [.claude/skills/minimal-proof-style/SKILL.md](.claude/skills/minimal-proof-style/SKILL.md).
+
+## Alternative style: RPN
+
+<img src="styles/screenshots/rpn.jpg" alt="RPN: Microsoft buyouts sample" width="270">
+
+The real thing on top, me underneath. Learned from a reel by Roberto P. Nickson ([@rpn](https://www.instagram.com/rpn/), November 2026): techniques only, none of his footage or branding. Use it when I ask for RPN or "the RPN style". It suits tool lists and how-to reels where every item has a real page or demo to show.
+
+- **Layout:** a hard 50/50 split at y 960 for about 70% of the reel. A real screen recording or page fills the top half and changes about once a second, on the word that names it. My face sits still in the lower half.
+- **Captions:** 1–3 words in mono caps, white on a small near-black box that sits on the seam. No highlight colour and no animation.
+- **Full-screen beats:** a wide-caps title card for each named item (its own screen blurred behind, sharp in a window), one full-face punch-in on the thesis line, a typed terminal for the how-to, and a black "screenshot this" cheat sheet before the sign-off.
+- **Sign-off:** full face with big wide-caps words, one at a time. The CTA is the screenshot and the caption, not a comment word.
+- **Cuts and sound:** hard cuts only, pauses over 0.3 s trimmed, a fast levelled voice at −14 LUFS. The reference's music and SFX could not be measured.
+
+Full spec and kit: [.claude/skills/rpn-style/SKILL.md](.claude/skills/rpn-style/SKILL.md). Sample stills: [styles/samples/rpn/](styles/samples/rpn/).
 
 ## Long form: Screen Share (default)
 
