@@ -52,8 +52,8 @@ Every long-form look I've used, with a frame from its build. All long form follo
 | [Screen Share](#long-form-screen-share-default) (default) | [Light Stage](#long-form-light-stage) | [Paper Podcast](#long-form-paper-podcast) | [Night Desk-Typecraft](#long-form-night-desk-typecraft) (new) |
 | --- | --- | --- | --- |
 | <img src="styles/screenshots/long-screen-share.jpg" alt="Screen Share" width="220"> | <img src="styles/screenshots/long-light-stage.jpg" alt="Light Stage" width="220"> | <img src="styles/screenshots/long-paper-podcast.jpg" alt="Paper Podcast" width="220"> | <img src="styles/screenshots/long-night-desk.jpg" alt="Night Desk-Typecraft" width="220"> |
-| **[Paper Explainer](#long-form-paper-explainer)** | **[Riley](#long-form-riley)** (new) |  |  |
-| <img src="styles/screenshots/long-paper-explainer.jpg" alt="Paper Explainer" width="220"> | <img src="styles/screenshots/long-riley.jpg" alt="Riley" width="220"> |  |  |
+| **[Paper Explainer](#long-form-paper-explainer)** | **[Riley](#long-form-riley)** (new) | **[Midnight Board](#long-form-midnight-board-sam-witteveen-reference)** (new) |  |
+| <img src="styles/screenshots/long-paper-explainer.jpg" alt="Paper Explainer" width="220"> | <img src="styles/screenshots/long-riley.jpg" alt="Riley" width="220"> | <img src="styles/screenshots/long-midnight-board.jpg" alt="Midnight Board" width="220"> |  |
 
 #### Worth trying next (not built yet)
 
@@ -337,6 +337,29 @@ Learned in Nov 2026 from Riley Brown's AI-tool videos ("Claude Duet's NEW Update
 - **Use it when:** I ask for Riley or "the Riley Brown style"; AI tool walkthroughs, "X just changed a lot", "how I use X", list videos ("5 reasons…").
 - **Built in:** sample stills only (`styles/samples/riley/`). There's no full build yet. Stills 7 and 8 show the Nov 9 additions.
 - **Recipe:** spec, kit (`riley.py`: `face`, `demo`, `phone`, `tiles`, `scramble`, `agenda`, `zoom`, `ring`, `push`, `proof`, `behind`, `phrase`, `chapter`, `grid`, `sketch`, `write_lut`) and LUT are in [.claude/skills/riley-style/SKILL.md](.claude/skills/riley-style/SKILL.md). Still no captions, and still loose cuts.
+
+## Long form: Midnight Board (Sam Witteveen reference)
+
+<img src="styles/screenshots/long-midnight-board.jpg" alt="Midnight Board: section board with tracker, links and a hand note" width="480">
+
+Learned in Nov 2026 from Sam Witteveen's "Gemini 4 Carbon is Live" ([watch](https://www.youtube.com/watch?v=l32KKNKdpIk)), so the heading credits him. It takes the techniques only, not his channel, logo, wording or frames. It's a **faceless, narrated explainer**: there's no camera anywhere in the reference. One **near-black board with a blue glow** carries the whole video. **Real captures** (the launch post, the leaderboard, the price line, the app, the code) sit on it as rounded cards, cropped to the line being read. **Drawn blue UI graphics** explain the idea, and short **yellow handwritten notes** with circles, underlines and strike-throughs give the opinion. Blue is the subject, orange is the rival, yellow is my voice.
+
+<img src="styles/samples/witteveen/3_capture.jpg" alt="Midnight Board: a capture card with a circled score" width="320"> <img src="styles/samples/witteveen/4_price.jpg" alt="Midnight Board: struck-out price and comparison bars" width="320">
+
+**Measured from the full reference** (16:02, 1080p60; scene detection, a 10 fps frame-difference pass, sampled pixels and a transcript):
+- **Layouts (judged from 120 stills):** real capture on the board 51%, drawn graphic 24%, type card 13%, full-bleed demo footage 9%, in-between 3%. No talking head, corner cam, lower third or end card.
+- **58 boards**, median hold 10.5 s (mean 16.6 s). **19.4 picture changes a minute**, one every 2.5 s, nearly all single elements landing on the current board.
+- **Motion:** an element lands in 0.3 s; strokes and bars take up to 1 s. Boards change with a 0.33 s push (old slides right and fades, new fades in). Captures "zoom" by swapping to a tight crop. Nothing drifts.
+- **A numbered section tracker** (1 2 3 4 plus the section title, top left) replaces chapter cards.
+- **Every drawn stand-in is labelled** "illustrative", and every capture or redrawn number has its source beside it.
+- **Palette:** floor `#000002`, glow `#00154B`, navy `#00104A`, blue `#0C7BFD`, ice `#A3D1FF`, yellow `#FBF457`, orange `#F37545`.
+- **Type:** Inter Black and Bold with tight tracking (SF Pro in the kit, Poppins as fallback), a monospace for code and tags (SF Mono), and a casual handwriting font I couldn't identify (Virgil in the kit).
+
+- **Use it when:** I ask for the Sam Witteveen style or Midnight Board by name; model launches, benchmark and pricing breakdowns, tool comparisons, paper walkthroughs where the sources carry the argument. It's optional: Screen Share stays the default long form.
+- **Built in:** sample stills only (`styles/samples/witteveen/`, sample data). There's no full build yet.
+- **Recipe:** spec and kit (`witteveen.py`: `board`, `title_card`, `stepper`, `heading`, `capture`, `footage`, `pill`, `chip`, `panel`, `link`, `stat`, `bar_row`, `code_card`, `hand`, `circle`, `underline`, `strike`, `arrow`, `bubble`, `source`, `push`) are in [.claude/skills/witteveen-style/SKILL.md](.claude/skills/witteveen-style/SKILL.md). Still no captions, and my cuts stay loose (the reference trims pauses to 0.43 s; I don't).
+- **Sound:** the reference has no music anywhere (measured: the quiet gaps sit 31 dB under the voice with no steady floor) and no sound effects I could find (not verified). Mine: voice at −14 LUFS, no music under the body, an optional bed in the first 20–30 s and last 15–20 s at 22 LU under, silent builds by default.
+- **Premium polish:** nothing takes longer than 15 frames, a finished board holds 1.5 s, 6 words or fewer per board and 4 or fewer per hand note, one blue and one yellow, real captures before drawings. The last frame is the question bubbles, not an end card. See [What makes it premium](#what-makes-it-premium).
 
 ## Reel music folder
 
