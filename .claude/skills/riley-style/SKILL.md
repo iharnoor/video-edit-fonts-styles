@@ -31,7 +31,7 @@ Sample stills: [styles/samples/riley/](../../../styles/samples/riley/). Stills 1
 | Face returns | **One**, at 2:35 for 5.4 s, when he points at the real computers in the room. It uses a second, closer side angle. |
 | Outro | About 40 s, on the demo page with the face card. He never returns to a full-screen face. He recaps, asks for a subscribe, then plugs his own project while showing it. |
 | Speech | 188 words per minute. Only 13 gaps over 1 s. The longest (2–7 s) are him waiting for the agent to answer, left in. |
-| Sound | No music under the body: gaps fall to about −70 dB. The hook has a quiet bed, 15–25 dB under the voice. |
+| Sound | No music or SFX under the body: the non-voice stem sits at −78 dB. The hook has a quiet pulsing bed about 26 dB under the voice, out 2 s before the first demo (see **Sound and grade**). |
 | Page layout | At 1920 wide: card x 33–1665, y 81–998; face card x 1685–1895, y 383–698; 24 px bar; dots every 45 px. This matches the first pass. The same wide layout is used for the phone, the desktop app, the browser and the sketch board. |
 
 ### The techniques
@@ -88,10 +88,32 @@ For Harnoor this means: record the screen and the phone mirror for the whole vid
 
 ## Sound and grade
 - **Grade:** `kit/riley_desk.cube` (made by `write_lut`) on the **Look Grade adjustment layer**, lane 1, `start="3600s"`: soft matte blacks, gentle S, warm highlights and +6% saturation. Demo-page clips are baked and skip it (keep the page pure white). For the look, shoot with warm practicals on behind him and the room a bit darker than his face.
-- **Music (corrected Nov 9, full video):** a quiet bed in the **hook only**, 15–25 dB under the voice, out by the first demo. **No music under the demos**: the reference is voice and app sounds alone there. Use a light lo-fi / electronic Epidemic Sound track at about −30 LUFS for the hook and, if wanted, the last 10 s. What the reference's hook bed actually is (music or effect tails) couldn't be told from the levels.
-- **SFX (sparse, CC0 from Openverse, `credits.json`):** a soft pop on each tile, a tick-roll under scramble labels, a whoosh on chapter cards and clicks on grid moves. Peaks at −3 dBFS.
+- **Sound, measured Nov 9, 2026** (Demucs split of 0:00–2:30 and 6:40–7:40 of the reference; nobody listened):
+
+  | Thing | Number |
+  |---|---|
+  | Voice | File at −24 LUFS (don't copy that), loudness range 3.8–4.8 LU, high-passed (almost nothing under 100 Hz). |
+  | Hook bed | 0:00 to 0:20.5, mono, with a soft low pulse about every 0.45–0.5 s (roughly 120–130 BPM, low confidence). **About 26 dB under the voice.** It is gone about 2 s **before** the cut to the demo page at 0:22.8. |
+  | Body | Nothing but voice and app audio: the non-voice stem sits at −78 dB. **No SFX on punch-ins, pushes, the click ring or the board.** |
+
+- **Voice:** −14 LUFS on the voice alone, loudness range **≤5 LU** (*ref* 3.8–4.8 LU, looser than a short because the cuts are loose). High-pass at 80–100 Hz. Peaks ≤ −1.5 dBTP.
+- **Music:** a light lo-fi or soft electronic bed, **110–125 BPM**, in the **hook only**. In on frame 0, **22–26 LU under the voice** (about −38 LUFS; the *ref* is 26 dB under), faded out over 1.5 s so it ends 1–2 s before the first demo. **No music under the demos.** Optional: the same bed for the last 10 s. Use Epidemic Sound (`~/Music/documentary es/`, `~/Music/new ES/`); check the file exists.
+- **SFX palette (3 sounds), hook only:** soft pop (each app tile), tick-roll (under a scramble label), soft whoosh (into the race graphic or the proof beat). **At most 4 in the whole hook, and none in the body** (*ref*: none were found in the body). If chapter cards or the list grid are used, one whoosh per card is the limit. CC0 from Openverse with `credits.json`. Pops and ticks peak at −16 dBFS, the whoosh at −12 dBFS.
 - **Final mix:** −14 LUFS, −1.5 dBTP. (The reference file measures −24 LUFS; don't copy that.)
 - **Agent audio stays in.** When the phone or the agent talks back, keep its audio and the wait before it, up to a few seconds. It shows the thing working.
+
+## Premium polish
+
+- **One layout, held.** The demo page is the same wide layout for every kind of screen; never restyle it mid-video (*ref*: 96% of the runtime).
+- **Type scale:** scramble label 64 px, pull-phrase 50 px, chapter title 64 px with a 40 px subtitle, context note 28 px. Poppins only, plus Virgil on boards.
+- **Motion budget:** push 10 frames, punch-in 8–10 frames, tile pop 9 frames. Nothing takes longer than 10 frames (*ref*), and nothing moves inside a demo except the zoom.
+- **Holds:** zooms hold 3–20 s; the board holds 8–20 s; a scramble label holds 1.5 s.
+- **Shadows and borders:** card radius 18 px, face card 16 px, no ring; one soft shadow for tiles. The page stays pure white.
+- **One accent:** tomato (bar, click ring, version number).
+- **Silence is part of the look:** real waits and the agent's own audio stay in; don't cover them with music.
+- **End frame:** the filled "N reasons" board is the recap and the screenshot.
+
+Shared rules across all styles: [What makes it premium](../../../README.md#what-makes-it-premium).
 
 ## Build order and delivery
 Same as Night Desk ([night-desk-style/SKILL.md](../night-desk-style/SKILL.md), **Build order** and **FCPXML delivery**). Transcribe, cut loose, then sync the screen. Render the demo, chapter, grid and board sections as opaque 1920×1080 clips with the face card **baked in** on lane 2. Put tiles, scramble labels, pull-phrases and notes as ProRes 4444 alpha on lane 3, with behind-the-head beats baked (they need the matte). Then do the audio, preview and FCPXML 1.11+. Deliver the FCPXML, the LUT, a preview MP4, YouTube chapters in `youtube.md` (from the chapter cards), a thumbnail (formula above, with Harnoor's face and the product's real icon), and the graphics to `~/Movies/FCP/<name>-graphics/`. **No SRT.**

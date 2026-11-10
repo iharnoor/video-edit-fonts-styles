@@ -45,9 +45,24 @@ Sample stills: [styles/samples/night-desk/](../../../styles/samples/night-desk/)
 
 ## Sound and grade
 - **Grade:** `kit/night_desk.cube` (made by `write_lut`) on the **Look Grade adjustment layer**, lane 1, `start="3600s"`. It's a −4% exposure, gentle S, −8% saturation look with cool shadows and warm highlights. The screen sections skip it (they're baked and graded in the kit, with no vignette on screen). Practicals warm and the room a bit darker reads best; if he can, shoot with the room lights low and a desk lamp on.
-- **Music:** a low synth / lo-fi bed from Epidemic Sound (`~/Music/documentary es/`), about −30 LUFS under a −14 LUFS voice. It's in for the hook and outro and dips out for dense screen walkthroughs. Put the drop on the first chapter card.
-- **SFX (sparse, CC0 from Openverse, `credits.json`):** a whoosh-hit on each slam, a CRT power-on / low thump on chapter cards, soft clicks as board boxes land and a tick on red boxes. Peaks at −3 dBFS and clip gains of −10 to −16 dB.
+- **Voice:** −14 LUFS on the voice alone, loudness range **≤5 LU** (*ref* 3.8–4.8 LU, looser than a short because the cuts are loose). High-pass at 80–100 Hz. Peaks ≤ −1.5 dBTP.
+- **Music:** a low synth or lo-fi bed, **80–95 BPM**, from Epidemic Sound (`~/Music/documentary es/`, `~/Music/new ES/`; check the file exists). **Hook and outro only**: in on frame 0, **20–22 LU under the voice** (about −35 LUFS), out over 2 s before the first long screen walkthrough, back for the last 15–20 s. No bed under dense screen sections (*ref*: Riley runs no music under demos). Put the drop on the first chapter card; cut on the words, then slide the track to fit.
+- **SFX palette (4 sounds; CC0 from Openverse, `credits.json`):** whoosh-hit (a keyword slam), CRT power-on or low thump (a chapter card), soft click (a board box lands), tick (a red box).
+  - **No more than 4 a minute over the whole video**, and none on punch-in cuts or screen zooms (*ref*: both references leave plain cuts and zooms silent).
+  - Levels: click and tick peak at −16 dBFS, whoosh-hit and thump at −10 dBFS (normalise to −3 dBFS, then clip gains of −7 to −13 dB).
 - **Final mix:** −14 LUFS, −1.5 dBTP.
+
+## Premium polish
+
+- **Type scale:** slam 150 px, chapter words 190 px, board title 64 px mono, chips 28–32 px, context note 28 px. Poppins Black plus SF Mono only.
+- **Motion budget:** slam 6 frames, corner cam 8 frames, red box 6 frames, board box 6 frames, screen re-frame 12 frames. The re-frame is the slowest move in the style; nothing else goes over 10 frames (*ref*).
+- **Holds:** slam 1.2 s; red box until he moves on; a finished board 1.5 s or more; screen zooms 3 s or more.
+- **Borders:** the 7 px yellow ring and the 4 px red box are the only outlines. One soft shadow for the corner cam.
+- **One accent per shot:** yellow on the cam, red on the box; neon colours stay on boards.
+- **Grade:** LUT on the face only; screen sections are baked and skip it.
+- **End frame:** the last diagram board, complete, as the recap behind the sign-off line.
+
+Shared rules across all styles: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026; music and SFX picks are judgement.
 
 ## Build order
 1. Transcribe with AssemblyAI (`~/Developer/video-use/helpers/transcribe.py`; the key is in `~/.zshrc`, never print it).
