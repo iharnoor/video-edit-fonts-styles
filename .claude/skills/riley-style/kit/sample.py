@@ -18,7 +18,7 @@ def face_beat(c):
 # 1. face beat: app tiles pop in beside the head, scramble label resolves under the first tile
 a = face_beat(cam[16])
 a = rl.tiles(a, [(rl.tile(rl.glyph_dot(), 230), (360, 330), 0.0), (rl.tile(rl.glyph_text('AI'), 190), (1600, 470), 0.2)], 1.2)
-a = rl.scramble(a, 'Powered by\nOpus 5.5', (230, 520), 2.0)
+a = rl.scramble(a, 'Powered by\nOpus 5.5', (360, 470), 2.0, accent='5.5')   # centred under the tile (Nov 9 update)
 a.convert('RGB').save(OUT + '/1_face_tiles.jpg', quality=90)
 
 # 2. face beat: giant word behind the head (rembg matte) + a short pull-phrase on the left

@@ -17,6 +17,12 @@ the motion helpers take t (seconds into the beat).
   chapter(icon, title, sub, t)       numbered chapter card on the dot-grid page ("USING X: 05" + tomato subtitle)
   grid(title, items, active, t)      dark numbered tile grid (listicle overview); the active tile glows warm orange
   sketch(lines, boxes, t)            dark Excalidraw-style board in Virgil, built line by line (goes in demo 'tall')
+Added Nov 9, 2026 after measuring the full reference video (zU0jqYKTgMs, 12:31):
+  zoom(content, focus, k, s)         punch into the card content (phone button, small desktop text); 8-10 frames in
+  ring(content, xy, r, k)            tomato ring around a click / tap, drawn on the content before zoom()
+  push(old, new, k)                  horizontal push between two contents inside the card (10 frames)
+  agenda(title, items, filled, t)    numbered "N reasons" board: empty boxes that get their label typed in one by one
+  proof(post, clip, t)               hook proof beat: the real announcement post left, its clip in a portrait card right
 Reference samples: styles/samples/riley/ (built with kit/sample.py).
 """
 import hashlib, math, os
@@ -149,11 +155,12 @@ def page():
     return _page().copy()
 
 
-def demo(content, cam, face_xy, layout='wide', t=1.0):
+def demo(content, cam, face_xy, layout='wide', t=99.0):
     """Screen content in a rounded card on the dot-grid page, portrait face card to the right (no ring, no label).
     content: any image (recording frame, phone(), sketch()); it is fitted to the card by cover-crop.
     cam: the camera frame; face_xy: face centre in cam px. t: seconds since the demo section started.
-    The card rises 24 px and fades in over 8 frames; the face card follows 4 frames later."""
+    The reference HARD-CUTS from the face to the finished page (measured), so t defaults to "already in".
+    Pass t (seconds since the section started) only if you want the optional 8-frame rise."""
     L = LAYOUTS[layout]; fr = page()
     for i, (key, img) in enumerate((('card', content), ('cam', None))):
         x0, y0, x1, y1 = L[key]; w, h = x1 - x0, y1 - y0
@@ -259,27 +266,35 @@ def _tracked(d, xy, text, f, fill, track):
     return x
 
 
-def scramble(base, text, xy, t=1.0, size=46, per_char=1.2, settle=10):
-    """Spaced-caps label (Poppins SemiBold, white, soft shadow). Each letter cycles random glyphs at random sizes,
-    then locks: letter i locks at (i * per_char + settle) frames. Lines split on '\n'. Under 4 words."""
-    base = base.convert('RGBA'); f = font(POP('SemiBold'), size); fr = int(t * FPS)
+def scramble(base, text, xy, t=1.0, size=64, per_char=1.2, settle=10, track=0.04, center=True, accent=None,
+             accent_col=(255, 196, 186), out_t=None):
+    """Caps label under a tile (Poppins Bold, white, soft shadow). Each letter cycles random glyphs at random sizes,
+    then locks: letter i locks at (i * per_char + settle) frames. Lines split on '\n'. Under 4 words.
+    Measured on the reference: bold, tight tracking, about 66 px at 1080p, two centred lines, in over ~1 s,
+    held ~1.5 s, and it leaves the same way (pass out_t = the second the exit starts).
+    xy is the top-centre of the block when center=True (else top-left). accent: a word to tint (the version number)."""
+    base = base.convert('RGBA'); f = font(POP('Bold'), size); fr = int(t * FPS)
+    if out_t is not None and t > out_t: fr = int(max(0, (out_t + 0.5 - t)) * FPS * 2)      # run it backwards, 2x speed
     L = Image.new('RGBA', base.size, (0, 0, 0, 0)); d = ImageDraw.Draw(L)
-    pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; idx = 0
+    pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; idx = 0; tr = size * track
     for li, line in enumerate(text.upper().split('\n')):
-        x, y = xy[0], xy[1] + li * int(size * 1.5)
-        for ch in line:
+        lw = sum(d.textlength(ch, font=f) + tr if ch != ' ' else size * 0.34 for ch in line) - tr
+        x, y = (xy[0] - lw / 2 if center else xy[0]), xy[1] + li * int(size * 1.22)
+        tint = set()
+        if accent and accent.upper() in line:
+            a0 = line.index(accent.upper()); tint = set(range(a0, a0 + len(accent)))
+        for ci, ch in enumerate(line):
             lock = idx * per_char + settle; idx += 1
-            if ch == ' ': x += size * 0.5; continue
+            if ch == ' ': x += size * 0.34; continue
+            col = accent_col if ci in tint else WHITE
             if fr >= lock:
-                d.text((x, y), ch, font=f, fill=WHITE); x += d.textlength(ch, font=f) + size * 0.32
+                d.text((x, y), ch, font=f, fill=col)
             elif fr >= lock - settle - 6:
                 r = _rand(text, idx, fr // 2)
                 if r > 0.25:
-                    c = pool[int(r * 1000) % len(pool)]; fs = font(POP('SemiBold'), int(size * (0.45 + 0.6 * _rand(idx, fr))))
-                    d.text((x, y + size - fs.size), c, font=fs, fill=WHITE + (int(200 * r),))
-                x += d.textlength(ch, font=f) + size * 0.32
-            else:
-                x += d.textlength(ch, font=f) + size * 0.32
+                    c = pool[int(r * 1000) % len(pool)]; fs = font(POP('Bold'), int(size * (0.45 + 0.6 * _rand(idx, fr))))
+                    d.text((x, y + size - fs.size), c, font=fs, fill=col + (int(200 * r),))
+            x += d.textlength(ch, font=f) + tr
     sh = Image.new('RGBA', base.size, (0, 0, 0, 0)); sh.paste((0, 0, 0, 150), (3, 6), L.getchannel('A'))
     base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8))); base.alpha_composite(L)
     return base
@@ -428,4 +443,89 @@ def sketch(lines, boxes=(), t=99.0, w=1557, h=1007, chrome=True):
         if k <= 0: continue
         f = font(VIRGIL, size); n = max(1, int(round(len(text) * k)))
         d.text((x, y + top), text[:n], font=f, fill=col)
+    return fr
+
+
+# ---------------------------------------------------------------- added Nov 9, 2026 (measured on the full video)
+AGENDA_BG, AGENDA_BOX, AGENDA_EDGE = (12, 12, 13), (22, 48, 84), (132, 178, 226)
+
+
+def ring(content, xy, r=34, k=1.0, color=BAR, width=6):
+    """Ring around a click or tap, drawn on the card CONTENT (before zoom(), so it scales with it).
+    k 0..1 over 6 frames: the ring shrinks from 1.5x to 1x as it fades in. Keep it up while the zoom holds."""
+    im = content.convert('RGBA'); k = ease_out(k)
+    if k <= 0: return im
+    L = Image.new('RGBA', im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(L); rr = r * (1.5 - 0.5 * k)
+    d.ellipse((xy[0] - rr, xy[1] - rr, xy[0] + rr, xy[1] + rr), outline=color + (int(255 * k),), width=width)
+    im.alpha_composite(L); return im
+
+
+def zoom(content, focus, k=1.0, s=2.2):
+    """Punch into the card content around focus=(x, y) (content px). k 0..1; use ease_out over 8-10 frames in
+    and out. s is the final scale: about 2.2 for a phone button, 1.6-2.0 for small desktop text.
+    The page, the card outline and the face card never move: only the content inside the card scales."""
+    im = content.convert('RGB'); w, h = im.size; sc = 1 + (s - 1) * ease_out(k)
+    cw, ch = w / sc, h / sc
+    cx = w / 2 + (focus[0] - w / 2) * ease_out(k); cy = h / 2 + (focus[1] - h / 2) * ease_out(k)
+    x0 = min(max(cx - cw / 2, 0), w - cw); y0 = min(max(cy - ch / 2, 0), h - ch)
+    return im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((w, h), Image.LANCZOS)
+
+
+def push(old, new, k):
+    """Switch what the card shows (desktop -> phone, phone -> board): the new content slides in from the left and
+    pushes the old one out to the right. k 0..1 over 10 frames, eased. Both images must be the card size."""
+    w, h = old.size; e = ease_out(k); fr = Image.new('RGB', (w, h), (0, 0, 0)); off = int(w * e)
+    fr.paste(old.convert('RGB'), (off, 0)); fr.paste(new.convert('RGB').resize((w, h)), (off - w, 0))
+    return fr
+
+
+def agenda(title, items, filled=0, t=99.0, icons=None, w=1634, h=918):
+    """The "N reasons" board that replaces chapter cards in a list video. A dark sketch board with one numbered
+    box per item, stacked. Box i shows only its number until its section starts; then its label is typed in
+    (Virgil, <= 6 words). filled = how many boxes already carry their label; the next one types on over
+    t seconds (25 chars/s). icons: optional small images, one per row, left of the boxes.
+    Come back to this board for 8-20 s at the start of every section, then go to the demo."""
+    fr = Image.new('RGBA', (w, h), AGENDA_BG + (255,)); d = ImageDraw.Draw(fr)
+    n = len(items); bw, gap = 520, 18; bh = min(120, int((h - 250 - gap * (n - 1)) / n))
+    x0 = (w - bw) // 2; y0 = 190
+    ft = font(VIRGIL, 54); tw = d.textlength(title, font=ft); d.text(((w - tw) / 2, 84), title, font=ft, fill=SKETCH_WHITE)
+    fl, fn = font(VIRGIL, 34), font(VIRGIL, 44)
+    for i, lab in enumerate(items):
+        y = y0 + i * (bh + gap); box = (x0, y, x0 + bw, y + bh)
+        d.rectangle(box, fill=AGENDA_BOX)
+        for e, (p, q) in enumerate((((box[0], box[1]), (box[2], box[1])), ((box[2], box[1]), (box[2], box[3])),
+                                    ((box[2], box[3]), (box[0], box[3])), ((box[0], box[3]), (box[0], box[1])))):
+            _wobble(d, p, q, AGENDA_EDGE, 3, ('agenda', i, e))
+        if i < filled or (i == filled and t < 90):
+            txt = lab if i < filled else lab[:int(max(0, t) * 25)]
+            words = txt.split(' '); lines, cur = [], ''
+            for w_ in words:
+                if d.textlength((cur + ' ' + w_).strip(), font=fl) > bw - 50: lines.append(cur); cur = w_
+                else: cur = (cur + ' ' + w_).strip()
+            lines.append(cur)
+            for li, ln in enumerate(lines):
+                lw = d.textlength(ln, font=fl)
+                d.text((x0 + (bw - lw) / 2, y + bh / 2 - len(lines) * 21 + li * 42), ln, font=fl, fill=SKETCH_WHITE)
+        else:
+            lw = d.textlength(str(i + 1), font=fn); d.text((x0 + (bw - lw) / 2, y + bh / 2 - 28), str(i + 1), font=fn, fill=SKETCH_WHITE)
+        if icons and i < len(icons) and icons[i] is not None:
+            ic = icons[i].convert('RGBA').resize((bh - 20, bh - 20), Image.LANCZOS); fr.alpha_composite(ic, (x0 - bh - 14, y + 10))
+    return fr
+
+
+def proof(post, clip, t=1.0):
+    """Hook proof beat (about 7 s): near-black page with faint stars, the REAL announcement post on the left
+    (dark-mode screenshot, about 44% of the width) and the product's own clip playing in a rounded portrait card on
+    the right. Both drift up 12 px over the beat. Use the real post and the real clip; never rebuild them."""
+    fr = Image.new('RGBA', (W, H), (8, 9, 12, 255)); d = ImageDraw.Draw(fr)
+    for i in range(160):
+        x, y = _rand('st', i) * W, _rand('st', i, 1) * H; a = int(40 + 90 * _rand('st', i, 2))
+        d.point((x, y), fill=(255, 255, 255, a))
+    dy = int(-12 * clamp(t / 7)); k = ease_out(t * FPS / 10)
+    pw = int(W * 0.44); p = post.convert('RGBA'); p = p.resize((pw, int(p.height * pw / p.width)), Image.LANCZOS)
+    if k < 1: p.putalpha(p.getchannel('A').point(lambda v: int(v * k)))
+    fr.alpha_composite(p, (70, (H - p.height) // 2 + dy))
+    ch = int(H * 0.9); cw = int(ch * 0.56); c = _rounded(_cover(clip.convert('RGB'), cw, ch), 26)
+    if k < 1: c.putalpha(c.getchannel('A').point(lambda v: int(v * k)))
+    fr.alpha_composite(c, (W - cw - 70, (H - ch) // 2 + dy))
     return fr

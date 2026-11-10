@@ -247,11 +247,22 @@ Learned in Nov 2026 from Typecraft's "I LOVE the herdr desktop app" video ([watc
 
 <img src="styles/screenshots/long-riley.jpg" alt="Riley: phone demo on the dot-grid page" width="480">
 
-Learned in Nov 2026 from Riley Brown's AI-tool videos ("Claude Duet's NEW Update Is INSANE", [watch](https://youtu.be/zU0jqYKTgMs)), so the name credits him. It takes the techniques only, not his set, mascots or branding. It's bright and friendly, the opposite of Night Desk. My face at a warm, lit desk gets **white app tiles** popping in beside my head on each product name, **scramble labels** ("POWERED BY OPUS 5.5"), a **giant word behind my head** and an occasional **pull-phrase** (said words white, coming words grey). Every demo uses the same **white dot-grid page**: the screen sits in one big rounded card with my face in a plain portrait card on the right and a tomato bar along the bottom. There's a wide layout for phone and app demos and a tall one for browser and Excalidraw recordings. **Numbered chapter cards** sit on the same page, a **dark numbered tile grid** handles list overviews, and a **dark Excalidraw sketch board** covers "how it works".
+Learned in Nov 2026 from Riley Brown's AI-tool videos ("Claude Duet's NEW Update Is INSANE", [watch](https://youtu.be/zU0jqYKTgMs)), so the name credits him. It takes the techniques only, not his set, mascots or branding. It's bright and friendly, the opposite of Night Desk. A **20-second hook on my face** at a warm, lit desk gets a **white app tile** and a **scramble label** ("POWERED BY OPUS 5.5"), one comparison graphic and a **proof beat** (the real announcement post next to the product's own clip). After that almost the whole video lives on one **white dot-grid page**: the screen sits in a big rounded card with my face in a plain portrait card on the right and a tomato bar along the bottom.
 
-- **Use it when:** I ask for Riley or "the Riley Brown style"; AI tool walkthroughs, "X just changed a lot", "how I use X", list videos.
-- **Built in:** sample stills only (`styles/samples/riley/`, from the Canva reel's 540p A-roll, so the face beats are soft). There's no full build yet. YouTube blocked the download, so it was learned from 64 real frames across 16 of his videos: layouts and colours are measured, but timings aren't yet.
-- **Recipe:** spec, kit (`riley.py`: `face`, `demo`, `phone`, `tiles`, `scramble`, `behind`, `phrase`, `chapter`, `grid`, `sketch`, `write_lut`) and LUT are in [.claude/skills/riley-style/SKILL.md](.claude/skills/riley-style/SKILL.md). Still no captions, and still loose cuts.
+<img src="styles/samples/riley/7_agenda.jpg" alt="Riley: the N reasons board" width="320"> <img src="styles/samples/riley/8_phone_zoom.jpg" alt="Riley: phone punch-in with a click ring" width="320">
+
+**Updated Nov 9, 2026 from the full reference video** (12:31, measured with scene detection and a transcript; the first version only had 64 still frames):
+- **The split is 96% demo page, 2% full-screen face, 2% graphics.** The hook is 23 s in five shots, about one change every 4 s. There's one face return (5 s, a second closer angle, when he points at the room) and the outro stays on the demo page.
+- **"N reasons" board instead of chapter cards.** A dark sketch board with five numbered boxes. At the start of each section I come back to it for 8–20 s and type that reason into its box, so the list fills in and ends up as the recap.
+- **Phone demos:** the phone is mirrored to the Mac and sits in a phone frame on one blurred wallpaper, with the mouse cursor visible. That was 61% of the runtime.
+- **Punch-in with a click ring:** the card's content zooms to about 2.2× in a third of a second, a tomato ring marks the tap, and it holds 3–20 s. There are no cuts inside a demo, only zooms.
+- **Push between phone, desktop and board:** the new content slides in from the left in 10 frames. The content changes about every 40 s.
+- **Sound:** a quiet bed in the hook only, and no music under the demos. The agent's spoken replies and the waits before them stay in.
+- **Corrected:** the page arrives on a hard cut (not a rise), one wide layout covers every kind of screen, and the scramble label is bold and tight (not spaced caps). The giant word behind the head, pull-phrases, chapter cards and the list grid aren't in this video; they came from frames of his other videos and stay as optional extras.
+
+- **Use it when:** I ask for Riley or "the Riley Brown style"; AI tool walkthroughs, "X just changed a lot", "how I use X", list videos ("5 reasons…").
+- **Built in:** sample stills only (`styles/samples/riley/`). There's no full build yet. Stills 7 and 8 show the Nov 9 additions.
+- **Recipe:** spec, kit (`riley.py`: `face`, `demo`, `phone`, `tiles`, `scramble`, `agenda`, `zoom`, `ring`, `push`, `proof`, `behind`, `phrase`, `chapter`, `grid`, `sketch`, `write_lut`) and LUT are in [.claude/skills/riley-style/SKILL.md](.claude/skills/riley-style/SKILL.md). Still no captions, and still loose cuts.
 
 ## Reel music folder
 
