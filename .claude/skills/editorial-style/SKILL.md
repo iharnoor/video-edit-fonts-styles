@@ -53,9 +53,28 @@ Warm & witty stays the default. Use this look **only when Harnoor asks** for edi
 
 ## Sound
 
-- Same beat-aligned music bed. Check the bed's loudness: aim for about 18–20 LU under the voice, measured, not a fixed dB value.
-- **Quiet SFX:** a soft paper slide when a real-asset card enters, a soft tick on a status change or a number. Keep the riser and boom for the hook. No pops or dings.
-- Final mix −14 LUFS / −1 dBTP.
+- **Voice:** −14 LUFS measured on the voice alone, loudness range **≤3 LU** (*ref* 2.3 LU). High-pass at 80–100 Hz (*ref*: almost nothing under 100 Hz), level it before the bed goes in, peaks ≤ −1 dBTP.
+- **Music:** slow and warm, **70–90 BPM**: felt piano, soft strings, upright bass, brushed or no drums. Nothing bright or busy. Look in `~/Music/documentary es/` first (Epidemic Sound, safe for sponsors), then `~/Music/Reel Music/` for organic posts. Check the file exists.
+  - In on frame 0 with a 0.6 s fade, out over 2 s. One level for the whole bed, no ducking automation (*ref*: the bed held within ±2 dB).
+  - **Level: 20 LU under the voice, measured** (22 LU for sponsors).
+  - **Beat-align after the cut:** cut on the words, then slide the track so a bar line lands on the first italic payoff. Never move a cut to reach a beat (*ref*: cuts landed on beats no more often than chance).
+- **SFX palette (4 sounds):** paper slide (a real-asset card enters), soft tick (a status change or a number landing), pencil stroke (a strike or underline drawing on), and one riser into a soft boom on the hook only.
+  - **No more than 4 a minute.** No pops, dings or whooshes. Never on a plain cut.
+  - Levels: slide, tick and pencil peak at −16 to −18 dBFS (this style runs quieter than the 6–10 dB under the voice of the *ref*). The hook boom peaks at −8 dBFS.
+  - Sources: Openverse CC0 for paper and pencil, `~/Music/Intro sound effects/Risers/` for the riser. Keep `credits.json`.
+- **Final mix:** −14 LUFS / −1 dBTP.
+
+## Premium polish
+
+- **Type scale:** captions 92 px; card statement 72–84 px; italic payoff the same size or one step up; caps unit labels 22–24 px at +0.16 em. Serif tracking stays at 0. Three sizes per card at most.
+- **Motion:** quint ease-out only. The 0.7 s card rise is 96% done after 10 frames, so it reads as fast as the *ref* moves (≤0.35 s) with a soft tail; don't lengthen it. Exits 0.35 s. One element moves at a time.
+- **Holds:** the statement holds at least 0.8 s before the payoff arrives; the finished card holds at least 1.5 s (*ref*).
+- **Shadow and rule:** one soft paper shadow (blur 20 px, offset 14 px, 43% black, as in `shadowed()`), the 2 px ink rule on top, hairlines 1 px. No glow.
+- **One accent:** oxblood only, and on one thing per card.
+- **Grade:** the film LUT is for the face. Real-asset captures keep their own colour inside the frame.
+- **End frame:** the last card is the takeaway as a single serif line with its italic payoff, held 1.5 s, then the comment strip.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.
 
 ## Grade
 

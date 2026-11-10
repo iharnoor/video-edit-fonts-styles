@@ -54,9 +54,28 @@ Warm & witty stays the default. Use this look **only when Harnoor asks** for dar
 
 ## Sound
 
-- A darker, low-pulse bed (e.g. the Social Network soundtrack style), beat-aligned. Measure it: aim for about 18–20 LU under the voice.
-- **SFX are sparse and low:** a riser into a sub boom on the hook, a soft air whoosh as glass enters on real-asset beats, and a low tick on a status change. No pops or dings.
-- Final mix −14 LUFS / −1 dBTP.
+- **Voice:** −14 LUFS measured on the voice alone, loudness range **≤3 LU** (*ref* 2.3 LU). High-pass at 80–100 Hz (*ref*: almost nothing under 100 Hz), level it before the bed goes in, peaks ≤ −1 dBTP.
+- **Music:** dark and low, **80–100 BPM** half-time pulse: sub bass, analog synth, sparse piano notes (the Social Network soundtrack feel). Keep the energy under ~250 Hz and little at 2–4 kHz so it never sits on the voice (*ref*: the RPN bed is built this way). Audition `~/Music/new ES/` and `~/Music/documentary es/` (Epidemic Sound, safe for sponsors); check the file exists.
+  - In on frame 0 under the riser, out over 2 s. One level for the whole bed, no ducking automation (*ref*: the bed held within ±2 dB).
+  - **Level: 18–20 LU under the voice, measured** (22 LU for sponsors).
+  - **Beat-align after the cut:** cut on the words, then slide the track so the first pulse after the hook boom lands on the first glass card. Never move a cut to reach a beat (*ref*: cuts landed on beats no more often than chance).
+- **SFX palette (4 sounds):** riser into a sub boom (hook only, once), soft air whoosh (glass entering on a real-asset beat), low tick (a status change or glow outline), and a filtered swell (0.3–0.5 s) on a section change.
+  - **No more than 4 a minute.** No pops or dings. Never on a plain cut.
+  - Levels: tick peaks at −16 dBFS, whoosh and swell at −12 dBFS, the boom at −6 dBFS.
+  - Sources: `~/Music/Intro sound effects/Risers/`, `Hits/` and `Wooshes/`, plus the `ES_*` risers in `~/Music/Intro sound effects/`.
+- **Final mix:** −14 LUFS / −1 dBTP.
+
+## Premium polish
+
+- **Type scale:** captions 66 px; card line 64–76 px; caps labels 22 px at +0.22 em and 55% white. Two weights per card (Medium and Bold).
+- **Motion:** the 0.8 s quint blur-in is 97% settled after 10 frames, in line with the *ref* (≤0.35 s moves); keep the long soft tail, it is the style. One light sweep per card and never two cards moving at once.
+- **Holds:** a glass card holds at least 1.5 s after its last line (*ref*); the drift covers the hold so it never looks frozen.
+- **Edge:** 2 px white edge at 18% and no drop shadow; the 28 px blur under the glass is what separates it from the shot. No coloured glows except the amber status outline.
+- **One accent:** amber, on one word or one outline per shot.
+- **Grade:** the LUT, vignette and grain are for the camera. Real captures on the glass stay ungraded.
+- **End frame:** one glass card with the single line worth saving, held 1.5 s, before the CTA.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.
 
 ## Grade
 

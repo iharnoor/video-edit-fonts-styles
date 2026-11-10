@@ -66,13 +66,29 @@ When Harnoor asks for the **Kallaway crop** (and by default on Split Stage split
 
 ## Sound
 
-- A light, forward bed, beat-aligned and about 19 LU under the voice.
-- **SFX are sparse:**
-  - a soft pop or tick as each window or callout lands
-  - a whoosh into a dark stat scene
-  - a riser into the biggest number
-  - a boom only on the hook
-- Mix to −14 LUFS / −1 dBTP.
+- **Voice:** −14 LUFS measured on the voice alone, loudness range **≤3 LU** (*ref* 2.3 LU). High-pass at 80–100 Hz (*ref*: almost nothing under 100 Hz), level it before the bed goes in, peaks ≤ −1 dBTP.
+- **Music:** light, clean and bright, **105–120 BPM**: marimba or plucks, soft house kick, airy pad. Organic: `~/Music/Reel Music/`. Sponsored: Epidemic Sound only (`~/Music/Other ES music/`, `~/Music/new ES/`). Check the file exists.
+  - In on frame 0, out over 1.5 s. One level for the whole bed, no ducking automation (*ref*: the bed held within ±2 dB).
+  - **Level: 19 LU under the voice, measured** (22 LU for sponsors).
+  - **Beat-align after the cut:** cut on the words, then slide the track so the drop lands on the first window and a bar line lands on the big stat number. Never move a cut to reach a beat (*ref*: cuts landed on beats no more often than chance).
+- **SFX palette (5 sounds):** soft pop (a window lands), tick (a callout or marker highlight), whoosh (into a dark stat scene), riser (into the biggest number, ends on it), boom (hook only, once).
+  - One per object, **no more than 10 a minute**. Split-to-face cuts and caption changes are silent (*ref*: 3 of 36 cuts carried a sound).
+  - Levels: pop and tick peak at −14 to −16 dBFS, 6–10 dB under the voice (*ref*). Whoosh and riser peak at −10 dBFS, the boom at −6 dBFS.
+  - Sources: `~/Music/30 WHOOSH SWOOSH/`, `~/Music/Intro sound effects/Risers/` and `Hits/`.
+- **Final mix:** −14 LUFS / −1 dBTP.
+
+## Premium polish
+
+- **The real thing on the stage.** Every window is a real capture, and on a split shot the stage should change with each named thing rather than sit on one window (*ref*: the RPN top half changed every 0.96 s; here aim for a new or changed object every 2–3 s).
+- **Type scale:** captions 78 px, title header 64–72 px, callout numbers 96–120 px, stat number 300+ px. SF Pro Bold plus Playfair italic only.
+- **Motion:** `Pop` in 0.3 s expo-out (9 frames, in line with the *ref*), exits 0.18 s, callouts 0.5 s after their window. One object moves at a time; the face framing never drifts on a split shot (*ref*).
+- **Holds:** a window holds at least 1.2 s before its marker highlight; the stat number holds 1.5 s.
+- **Shadow and outline:** one blue-tinted shadow (blur 24 px, offset 14 px) and one 3 px blue outline for every window. The Kallaway card keeps its thin white rim.
+- **One accent:** blue. Green appears once, on the CTA word.
+- **Grade:** LUT on the camera only; the stage and windows sit above it.
+- **End frame:** before the full-face close, one stage frame that holds the proof together (the key window with its callout, or a 3–5 pill recap) for 1.5 s.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.
 
 ## Kit and workflow
 

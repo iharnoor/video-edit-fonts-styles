@@ -23,6 +23,7 @@ Screenshot: [styles/screenshots/rpn.jpg](../../../styles/screenshots/rpn.jpg). S
 | Layout share | 50/50 split **~71%**, full-screen graphics ~22%, full face ~7% |
 | Captions | 1–3 words, a new one about every 0.6 s |
 | Loudness | −14.2 LUFS, loudness range 2.1 LU (heavily levelled voice) |
+| Music and SFX | A constant low bed ~15 LU under the voice; 23 short SFX, almost all on named things, 3 of 36 cuts with a sound (see **Sound**) |
 
 ## Structure (62 s reel)
 
@@ -70,7 +71,7 @@ The CTA is the screenshot and the caption ("I'll list the others below in the ca
 
 ## Motion and cuts
 
-- **Hard cuts everywhere.** No dissolves, no whooshes between halves.
+- **Hard cuts everywhere.** No dissolves, and plain cuts are silent: sounds mark named things and section changes (see **Sound**).
 - The top half changes about **once a second** and each change lands on the word that names it.
 - The face has jump cuts where pauses were removed; they hide under the top-half changes.
 - **One punch-in** per reel, on the thesis line, full face for 2–3 s.
@@ -78,10 +79,37 @@ The CTA is the screenshot and the caption ("I'll list the others below in the ca
 
 ## Sound, grade, edit
 
-- **Voice:** fast and levelled, −14 LUFS with a ~2 LU range. Trim pauses over 0.3 s (Harnoor's usual rule matches the reference).
-- **Music and SFX:** not confirmed. Speech gaps sit ~13–19 dB under the voice, so there is a quiet bed or room tone, but the stems can't be separated from the reel. Until Harnoor says otherwise, use a soft bed ~19 LU under the voice and at most a key click under the terminal typing.
+**Measured on Nov 9, 2026** by splitting the reference's audio into voice and everything else with Demucs (a separation model, so levels are good to a few dB and nobody listened):
+
+| Thing | Number |
+|---|---|
+| Voice | −14.4 LUFS, loudness range 2.3 LU, peaks at −0.5 dBFS. Almost nothing under 100 Hz (high-passed). |
+| Music bed | **Present the whole reel**, from frame 0 to a fade over the last ~0.8 s. −29.8 LUFS, so **about 15 LU under the voice**. Level held within ±2 dB: no ducking moves. |
+| Bed character | Low and dark: most of its energy is under 120 Hz and it is 16 dB down by 2–4 kHz, so it stays out of the voice. No clear tempo could be found. |
+| Cuts vs beats | Cuts landed within 70 ms of a detected beat 28% of the time against 21% by chance. **He cuts on words, not beats.** |
+| SFX | 23 short events in 62.8 s (about 22 a minute). 19 are **ticks of 40–120 ms** on a named thing appearing (three in the hook as the icons pop in, five in a row on "Claude Code, Codex, Gemini CLI, Cursor, your harness"). 4 are **swells of 0.3–0.5 s** on section changes ("Listen,", "So", the first title card, "One for…"). |
+| SFX vs cuts | Only **3 of 36** top-half cuts have a sound. Plain cuts are silent. |
+| SFX level | Ticks sit 6–10 dB under the voice. Swells sit at about voice level. |
+
+- **Voice:** fast and levelled, −14 LUFS with a ~2 LU range, high-pass at 80–100 Hz. Trim pauses over 0.3 s.
+- **Music:** one dark, low bed with little above 2 kHz and no strong beat (an ambient pad or a sub-heavy minimal track). In on frame 0, out with a 0.8 s fade, **15 LU under the voice** (about −29 LUFS), one level throughout. Sponsored posts: Epidemic Sound only, 19 LU under; audition `~/Music/new ES/` and `~/Music/documentary es/` and check the file exists. No beat alignment is needed here: cut on the words.
+- **SFX palette (4 sounds):** tick (a named icon, label or terminal result appears), key click (under the terminal typing, one every 3–4 characters, very low), soft swell or whoosh (a section change or a title card), camera shutter (on "take a screenshot"; `~/Music/SFX sting/` has shutters. The reference has a sound there, the kind is a guess).
+  - Ticks only on things that are named, never on a plain top-half cut. **No more than 16 ticks and 4 swells a minute** (the reference ran 22 in total; this keeps Harnoor's sparse rule).
+  - Levels: ticks peak at −14 to −16 dBFS, swells at −8 to −10 dBFS.
+- **Final mix:** −14 LUFS / −1 dBTP.
 - **Grade:** face only. Warm skin against a teal/dark room with warm practical lights and a shallow depth of field. Screens on top stay ungraded. In FCP the grade goes on the Look Grade adjustment layer on lane 1, and the top-half screens sit above it.
 - **Deliver** the usual set: FCPXML, LUT, SRT, preview, and graphics to `~/Movies/FCP/<name>-graphics/`.
+
+## Premium polish
+
+- **Type scale, three sizes:** caption 46 px mono caps in a 68 px box; wide caps 84 px (sign-off, title labels); cheat-sheet rows 40–48 px with dim mono notes at 28 px.
+- **Motion:** hard cuts; text slides in 0.3 s (9 frames) with a smear; labels fade in 10 frames; nothing eases for longer than 10 frames. The face framing is locked on split shots.
+- **Holds:** top-half screens change about once a second but each must move while it is up; title cards hold 1.5 s or more; the cheat sheet holds 1.5 s complete.
+- **Borders:** one white 3 px outline for labels and windows, radius 24. No shadows on the split; soft shadows only on hook-canvas objects.
+- **One accent:** terminal green `#78DC82`. Everything else is white, near-black and the real screens.
+- **End frame:** the cheat sheet. It must make sense as a still with no audio.
+
+Shared rules across all styles: [What makes it premium](../../../README.md#what-makes-it-premium).
 
 ## Build notes
 
@@ -91,6 +119,7 @@ The CTA is the screenshot and the caption ("I'll list the others below in the ca
 
 ## Not measured or verified
 
-- Whether the reel has a music bed or SFX, and what they are.
+- **Nobody listened.** The sound numbers come from a Demucs split, loudness meters and onset detection. What the bed actually is (genre, instruments, track) and what each SFX is (tick, pop, click, whoosh, shutter) are guesses from length and spectrum.
+- The bed's tempo: no stable beat was found.
 - The exact caption and title fonts (described by look, matched with repo and system fonts).
 - This is one reel, so anything here may be specific to it rather than his usual style.

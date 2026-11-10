@@ -54,13 +54,28 @@ Warm & witty stays the default. Use this look **only when Harnoor asks** for Pro
 
 ## Sound
 
-- A light, forward-moving bed, beat-aligned and about 19 LU under the voice.
-- **SFX are sparse:**
-  - a soft whoosh into each b-roll scene
-  - a paper slide when a page lands
-  - soft ticks as grouped badges or tiles drop
-  - a boom only on the hook
-- Mix to −14 LUFS / −1 dBTP.
+- **Voice:** −14 LUFS measured on the voice alone, loudness range **≤3 LU** (*ref* 2.3 LU). High-pass at 80–100 Hz (*ref*: almost nothing under 100 Hz), level it before the bed goes in, peaks ≤ −1 dBTP.
+- **Music:** light and forward, **100–115 BPM**: muted kick, plucks, soft bass, minimal electronic. Organic: `~/Music/Reel Music/`. Sponsored: Epidemic Sound only (`~/Music/Other ES music/`, `~/Music/documentary es/`). Check the file exists.
+  - In on frame 0, out over 1.5 s. One level for the whole bed, no ducking automation (*ref*: the bed held within ±2 dB).
+  - **Level: 19 LU under the voice, measured** (22 LU for sponsors).
+  - **Beat-align after the cut:** cut on the words, then slide the track so the drop lands on the first cut to b-roll. Never move a cut to reach a beat (*ref*: cuts landed on beats no more often than chance).
+- **SFX palette (4 sounds):** soft whoosh (into each b-roll scene), paper slide (a page or polaroid lands), soft tick (each badge or tile in a grouped drop), boom (hook only, once).
+  - A single object landing gets one sound; a grouped drop gets one tick per object. **No more than 10 a minute.** Hard cuts back to the face are silent (*ref*: 3 of 36 cuts carried a sound).
+  - Levels: ticks peak at −14 to −16 dBFS, 6–10 dB under the voice (*ref*). Whoosh and slide peak at −12 dBFS, the boom at −6 dBFS.
+  - Sources: `~/Music/30 WHOOSH SWOOSH/`, `~/Music/Intro sound effects/Hits/`, Openverse CC0 for paper.
+- **Final mix:** −14 LUFS / −1 dBTP.
+
+## Premium polish
+
+- **Type scale:** captions 44 px, accent word 130–150 px, CTA pill 40 px. Nothing in between.
+- **Motion:** land in 0.35 s expo-out (10 frames, matching the *ref*), recede in 0.45 s. One object travels at a time; the next one waits for its word.
+- **Holds:** every object stays sharp and centred at least 0.8 s before it recedes; the last object of a scene holds 1.5 s.
+- **Shadow:** one recipe for every object (blur 26 px, offset 18 px, about 60% black on the dark floor). Receded objects keep the shadow but lose 45% brightness.
+- **Colour:** none of the style's own. The yellow highlighter is the only mark, once per page.
+- **Grade:** near-neutral LUT on the camera only; the b-roll space carries its own look.
+- **End frame:** the last b-roll scene ends with the whole stack in view for 1.5 s (a frame that shows every receipt), then the cut to the face and the CTA pill.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.
 
 ## Kit and workflow
 

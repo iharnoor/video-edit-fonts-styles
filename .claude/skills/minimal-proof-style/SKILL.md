@@ -44,6 +44,26 @@ Screenshot: [styles/screenshots/minimal-proof.jpg](../../../styles/screenshots/m
   - Normalise to −3 dBFS peak, then use clip gains of −9 to −16 dB on lane −2, role effects.
 - **Mix:** the final preview is loudnormed to −14 LUFS, −1.5 dBTP.
 
+## Sound (premium pass)
+
+The **Grade, music, SFX** section above holds this style's own recipe. These add to it:
+
+- **Voice:** −14 LUFS measured on the voice alone, loudness range **≤3 LU** (*ref* 2.3 LU). High-pass at 80–100 Hz (*ref*: almost nothing under 100 Hz), level it before the bed goes in, peaks ≤ −1 dBTP.
+- **Music:** calm documentary bed, **85–100 BPM**: soft keys, light pulse, no lead melody. `~/Music/documentary es/` (Epidemic Sound, so it is safe for sponsors). One level for the whole bed, no ducking automation (*ref*: the bed held within ±2 dB). Keep it at −33 LUFS, about 19 LU under the voice; that is 4 LU quieter than the RPN *ref* (15 LU), on purpose.
+- **SFX palette (4 sounds):** whoosh (board), click (browser window), pop (chip, post or CTA), cash register (a money line). One per card entrance, **no more than 6 a minute**, none on plain cuts or caption changes. Clicks and pops should peak 6–10 dB under the voice (*ref*), which the −9 to −16 dB clip gains already give.
+
+## Premium polish
+
+- **Type scale:** captions 62 px, chips 40–46 px, URL pill 22 px, source tag 22–24 px. Poppins only.
+- **Motion:** 8-frame pop, 5-frame fade, 9-frame marker wipe: all inside the *ref*'s 10-frame budget. One object lands per beat.
+- **Holds:** a window is on at least 1.2 s before its marker wipes; a board holds 1.5 s complete.
+- **Shadow and border:** one soft shadow (blur 26 px, offset 12 px, 28% black) and a 1 px hairline on every card. No glow.
+- **One accent:** marker yellow, once per card.
+- **Grade:** warm LUT on the camera only; page crops stay as shot.
+- **End frame:** a paper board with the one source line that proves the reel, marker on it, held 1.5 s before the CTA pill.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.
+
 ## Edit
 - Trim pauses over 0.3 s down to ~0.18 s and drop retakes and flubs. Hooks may come from the end take (e.g. the pay line).
 - Keep the face on opinions and CTA; use proof cards on named things (page, company, post, document).

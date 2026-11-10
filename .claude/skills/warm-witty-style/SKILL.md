@@ -88,12 +88,17 @@ Keep the UI generic, with no real app chrome or logos except the sponsor's own n
 
 ## Sound and music
 
-- **Music:** pick from Harnoor's library: `~/Music/Reel Music/` (preferred), then the Epidemic Sound (`ES_*`) folders.
-  - **For paid partnerships, prefer Epidemic Sound tracks**, which are licensed. Copyrighted songs from "Reel Music" can't be used in branded content; Harnoor adds Instagram music in the app at upload.
-  - Pick an upbeat, steady track (low dynamic range) so it sits under the voice.
-  - **Beat-align:** choose the track start offset that puts onsets on the sticker hits.
-  - Mix at about −24 dB under the voice, fade in over 0.4s and out over 1.5s, final mix −14 LUFS / −1 dBTP.
-- **SFX: sparse, about one per sticker moment at most.** Pop for a sticker, bloop for a chat reply, whoosh into a full-screen board, ding for a verdict or CTA, cash register for money. The README "Sound effect vocabulary" has the names. A synthesized kit is in `videos/travelopod/sfx/`.
+- **Voice:** −14 LUFS measured on the voice alone, loudness range **≤3 LU** (*ref* 2.3 LU). High-pass at 80–100 Hz (*ref*: almost nothing under 100 Hz), level it before the bed goes in, peaks ≤ −1 dBTP.
+- **Music:** upbeat and steady, **100–120 BPM**: plucks, claps, light funk or bouncy lo-fi, no vocals, low dynamic range so it sits under the voice.
+  - Organic posts: `~/Music/Reel Music/` first. **Sponsored posts: Epidemic Sound only** (`~/Music/Other ES music/`, `~/Music/new ES/`, `~/Music/documentary es/`). Copyrighted songs from Reel Music can't go in branded content; Harnoor adds Instagram music in the app at upload. Check the file is really there before picking it.
+  - In on frame 0 with a 0.4 s fade, out over 1.5 s. One level for the whole bed, no ducking automation (*ref*: the bed held within ±2 dB).
+  - **Level: 18–20 LU under the voice, measured** (bed at about −32 to −34 LUFS). Sponsors want it lower: 22 LU. Older builds set a gain of −24 dB (−28 dB for sponsors); measure LU instead of trusting a gain.
+  - **Beat-align after the cut:** cut on the words, then slide the track so its onsets land on the sticker hits and the drop lands on the first sticker or board. Never move a cut to reach a beat (*ref*: cuts landed on beats no more often than chance).
+- **SFX palette (5 sounds):** pop (a sticker lands), bloop (a chat reply), whoosh (into a full-screen board or the split), ding (verdict stamp or CTA), cash register (a money line).
+  - One per sticker moment at most, **no more than 8 a minute**, and never on a plain cut (*ref*: 3 of 36 cuts carried a sound).
+  - Levels: pop and bloop peak at −14 to −16 dBFS, 6–10 dB under the voice (*ref*). Whoosh, ding and cash peak at −10 dBFS.
+  - Sources: the synthesized kit in `videos/travelopod/sfx/`, `~/Music/Other ES music/think sound effects/`, `~/Music/30 WHOOSH SWOOSH/`. The README "Sound effect vocabulary" has the names.
+- **Final mix:** −14 LUFS / −1 dBTP.
 
 ## Grade
 
@@ -104,6 +109,19 @@ Keep the UI generic, with no real app chrome or logos except the sponsor's own n
 - The preview MP4 bakes the same LUT in.
 
 The look itself is a light corrective grade, delivered as a `.cube` LUT. It cools the warm indoor cast (B ×1.06, R ×0.985), adds a gentle S-curve, lifts blacks slightly and adds +7% saturation. Keep skin natural. Reference LUT: `videos/travelopod/grade/travelopod_warm_witty.cube`. Re-measure for new lighting.
+
+## Premium polish
+
+- **The real thing first.** If the line names a page, app or product, show the real one (a capture in a card) before reaching for a drawn UI card. Generic UI cards are for ideas with no real screen.
+- **Type scale, three sizes only:** captions 76 px, sticker and UI labels 44–56 px, big numbers 120–150 px. Poppins ExtraBold throughout, tracking 0, never more than two weights in a shot.
+- **Motion:** every entrance settles within **10 frames** (0.33 s, *ref*). The sticker spring (damping 0.5, 2.6 Hz) should overshoot once and stop; if it rings twice, raise damping to 0.6. Exits 0.18 s. One thing moves at a time.
+- **Holds:** a sticker stays at least 1.2 s; a board or UI card with numbers at least 1.5 s after its last element lands (*ref*: the cheat sheet held 1.5 s complete).
+- **Shadows and borders:** one shadow recipe for every sticker (blur 24 px, offset 12 px down, 28% black) and the 10 px white die-cut border. No glows, no gradients.
+- **Colour:** two accents per shot stays the rule; pick **one accent for the whole reel's key moments** (usually tomato or sky) so the reel has a colour of its own.
+- **Grade:** face only, on the adjustment layer. Screens, cards and boards sit above it ungraded (*ref*).
+- **End frame:** finish on something worth a screenshot: the verdict stamp plus the one number, or a 3–5 row recap board, complete for 1.5 s before the CTA pill.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.
 
 ## Deliverables (always)
 
@@ -144,7 +162,7 @@ Paths at the top of each script are project-specific. Point `E`/`SRC` at the new
   - Put the colour logo on white cards and the white logo on dark cards.
   - Add a website pill (e.g. "travelopod.com") on the main brand moment and on the CTA.
 - **Brand names are always spelled with their exact capitalisation**: in captions, cards and the CTA keyword.
-- Sponsors tend to want the music lower. For brand deals, start the bed at about −28 dB under the voice (−24 dB for organic posts).
+- Sponsors tend to want the music lower. For brand deals, start the bed 22 LU under the voice (18–20 LU for organic posts), measured.
 
 - **Don't invent claims for a sponsor.** Illustrative prices or durations on screen must be flagged to Harnoor or replaced with real numbers before a paid post.
 - Confirm the plan in plain English before cutting (video-use hard rule). After that, iterate quickly on feedback.

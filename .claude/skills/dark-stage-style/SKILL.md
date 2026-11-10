@@ -55,11 +55,7 @@ Load both parent skills for the details of each piece: [split-stage-style](../sp
 6. Make beat-aligned audio.
 7. Composite, with a two-pass loudnorm.
 
-**SFX:**
-- a boom on the hook
-- a whoosh into each dark run
-- soft ticks on window and callout landings
-- page slides on big windows
+**SFX and music:** see **Sound** below.
 
 **FCPXML lanes:**
 - spine: cuts. Split clips get `<adjust-transform position="0 -32.2917"/>`.
@@ -79,3 +75,28 @@ Load both parent skills for the details of each piece: [split-stage-style](../sp
 Copy the graphics to `~/Movies/FCP/<name>-graphics/`.
 
 The reference build (not committed) is `videos/img1047-reel/scripts/mix.py`, the IMG_1047 "Kimi K3.1 Pro" reel, v2. It has the hook header, the Claude pricing windows with a `$20` callout, the `$2 · $10`, `2.8T` and `1M` stat beats, Matthew Berman's credited clip, the BenchCAD marks with a `96.2` callout, a Moonshot → Kimi.com / Kimi Code / Kimi API pill diagram, and a `comment “KIMI”` close.
+
+
+## Sound
+
+- **Voice:** −14 LUFS measured on the voice alone, loudness range **≤3 LU** (*ref* 2.3 LU). High-pass at 80–100 Hz (*ref*: almost nothing under 100 Hz), level it before the bed goes in, peaks ≤ −1 dBTP.
+- **Music:** darker and minimal, **90–105 BPM**: sub bass, muted kick, a soft pad. Keep the energy low in the spectrum so it stays out of the voice. Organic: `~/Music/Reel Music/`. Sponsored: Epidemic Sound only (`~/Music/new ES/`, `~/Music/documentary es/`). Check the file exists.
+  - In on frame 0, out over 1.5 s. One level for the whole bed, no ducking automation (*ref*: the bed held within ±2 dB).
+  - **Level: 19 LU under the voice, measured** (22 LU for sponsors).
+  - **Beat-align after the cut:** cut on the words, then slide the track so the drop lands on the first dark run. Never move a cut to reach a beat (*ref*: cuts landed on beats no more often than chance). In the "lights out" variant put the drop on the lights-out word.
+- **SFX palette (4 sounds):** boom (hook only, once), whoosh (into each dark run), soft tick (a window or callout lands), page slide (a big window).
+  - **No more than 10 a minute.** Hard cuts between modes are silent unless they start a dark run.
+  - Levels: ticks peak at −14 to −16 dBFS, 6–10 dB under the voice (*ref*). Whoosh and slide peak at −12 dBFS, the boom at −6 dBFS.
+- **Final mix:** −14 LUFS / −1 dBTP.
+
+## Premium polish
+
+- **Type scale:** captions 44 px (Proof Stack's), accent word 130–150 px, stat number 300+ px, title header 64–72 px.
+- **Motion:** Split Stage's `Pop` (0.3 s expo-out) for everything that lands; one object at a time; no drift on the camera card.
+- **Holds:** windows 1.2 s before a marker, stat numbers 1.5 s.
+- **Shadow and outline:** the blue outline and glow from Split Stage, on the dark floor. Keep the glow radius the same on every window.
+- **One accent:** blue, with green once on the CTA.
+- **Grade:** dark cinematic LUT on the camera only in "lights out"; windows stay ungraded.
+- **End frame:** the last dark run ends on the stat and its source window together, held 1.5 s.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.
