@@ -12,10 +12,21 @@ In short:
 - Captions are lowercase Poppins ExtraBold with the key word in a sky-blue pill.
 - Use a full-screen paper board whenever Harnoor reads off-camera.
 - Trim pauses over 0.3s.
-- Keep SFX sparse.
-- Beat-align the music bed: Epidemic Sound tracks for sponsored posts.
+- Keep SFX sparse: they mark named things and section changes, never plain cuts.
+- Cut on the words, then beat-align the music bed to the cut. Epidemic Sound tracks for sponsored posts.
 - In FCP, the grade goes on an **adjustment layer** ("Look Grade" title plus the Custom LUT effect) on lane 1, with visuals above it.
 - Deliver an FCPXML, a LUT, an SRT and a preview.
+
+## Premium checklist (applies to every style)
+
+The README's **[What makes it premium](README.md#what-makes-it-premium)** section holds the shared rules measured from the RPN and Riley references (Nov 9, 2026), and every style skill has a **Sound** and a **Premium polish** section that applies them. Read both before an edit. In short:
+- Show the real page, app or post being named; drawn visuals are for ideas with no real screen.
+- Voice at −14 LUFS, range ≤3 LU on shorts and ≤5 LU on long form, levelled before the music goes in.
+- One music bed at one level: 15–20 LU under the voice on shorts (22 LU for sponsors); on long form, hook and outro only and nothing under demos.
+- Each style has a 3–5 sound SFX palette and a cap per minute. No sound on plain cuts, zooms or caption changes.
+- Entrances settle within 10 frames, one thing moves at a time, and anything to be read holds 1.5 s.
+- One accent colour, three type sizes, grade on the face only.
+- End on a frame worth a screenshot.
 
 ## When making video graphics
 

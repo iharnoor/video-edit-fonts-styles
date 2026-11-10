@@ -35,7 +35,7 @@ video-delivery checks.
 
 ## Style gallery
 
-Every named style, with a frame from its reference build. Click a name for its spec.
+Every named style, with a frame from its reference build. Click a name for its spec. All of them follow the shared checklist in [What makes it premium](#what-makes-it-premium).
 
 | [Warm & witty](#main-style-warm--witty) (default) | [Editorial](#alternative-style-editorial) | [Dark cinematic](#alternative-style-dark-cinematic) | [Proof Stack](#alternative-style-proof-stack) |
 | --- | --- | --- | --- |
@@ -66,6 +66,55 @@ These are four long-form looks that fit the topics I cover. Each one says what m
 | **Build Log** | <img src="styles/screenshots/long-build-log.jpg" alt="Build Log example" width="260"> | I build something live. The screen speed-ramps through the boring parts (4–8×, with a small timer chip) and drops to 1× for the moments that matter: the first run, the bug, the fix. | "I built X with Claude in a day", agent and coding videos. | Screen Share's sync and corner cam, plus speed ramps on lane 2 (frame-exact FCPXML `timeMap`). The cut still keeps every line I say over the 1× parts. |
 | **Walk & Talk** | <img src="styles/screenshots/long-walk-and-talk.jpg" alt="Walk & Talk example" width="260"> | Handheld on location: a stabilised walk-and-talk, b-roll cut to the music bed between thoughts, and a small place tag ("Nothing store · London") on arrival. | Store visits, campus tours, events, travel; the vlogs I already shoot. | The reel builds in `videos/nothing-store-london/` and `videos/halloween-reel/` for b-roll and beat-cutting, the warm & witty LUT and no captions. |
 
+## What makes it premium
+
+On Nov 9, 2026 I asked for every style to be lifted to the level of two creators whose videos feel premium to me: **RPN** (Roberto P. Nickson, short form) and **Riley** (Riley Brown, long form). This is what their videos have in common, with the numbers behind each rule. Every style's spec has a **Sound** and a **Premium polish** section that applies it.
+
+**How the sound was measured.** Nobody listened. Each reference's audio was split into voice and everything else with Demucs, then measured with ffmpeg's loudness meter, onset detection and scene detection, and lined up with the transcript. Levels are good to a few dB. What a sound *is* (pop, click, whoosh; which track) is a guess from its length and spectrum.
+
+| | RPN reel (62.8 s) | Riley video (12:31) |
+| --- | --- | --- |
+| Voice | −14.4 LUFS, loudness range 2.3 LU, high-passed near 100 Hz | File at −24 LUFS, loudness range 3.8–4.8 LU, high-passed near 100 Hz |
+| Music | A constant low bed for the whole reel, **15 LU under the voice**, held within ±2 dB, fading over the last 0.8 s. Dark: most energy under 120 Hz, 16 dB down by 2–4 kHz | A soft pulsing bed in the **first 20.5 s only**, about **26 dB under the voice**, gone 2 s before the first demo. **Nothing under the other 12 minutes** |
+| SFX | 23 short sounds (22 a minute): 19 ticks of 40–120 ms on named things appearing, 4 swells of 0.3–0.5 s on section changes | None found in the body: no sound on zooms, pushes or the click ring |
+| SFX and cuts | **3 of 36 cuts** carry a sound | Cuts are silent |
+| Cuts and beats | On words. No more beat-aligned than chance (28% vs 21%) | On words |
+| Picture | 43 changes on top, one every 0.96 s, each the real page or app | 96% of the runtime is the real screen on one fixed page layout |
+| Motion | Hard cuts; text moves take 0.3 s; the face never drifts | Push 10 frames, punch-in under 0.35 s, holds of 3–20 s |
+| Colour | White, near-black, one green | White page, one tomato accent |
+| End | A full-screen cheat sheet held 1.5 s: "take a screenshot" | The "5 reasons" board, filled in, is the recap |
+
+### The checklist
+
+1. **Show the real thing.** The page, app, post or document being named is on screen within a beat of the word. Drawn or generic visuals are for ideas that have no real screen.
+2. **One layout, held.** Pick the frame (split, stage, demo page) and keep it. Variety comes from what is inside it.
+3. **Voice first.** −14 LUFS on the voice alone. Loudness range ≤3 LU on shorts and ≤5 LU on long form. High-pass at 80–100 Hz. Level the voice before any music goes in.
+4. **Music is felt, not heard.** Shorts: one bed, 15–20 LU under the voice (22 LU for sponsors), one level from frame 0 to a short fade, no ducking moves. Long form: a bed in the hook (and outro if wanted) at 20–26 LU under, out before the first demo, and nothing under demos.
+5. **Pick a bed that stays out of the voice.** Low and steady, little going on at 2–4 kHz, no vocals, no lead melody.
+6. **Cut on words, then fit the music.** Never move a cut to reach a beat. Once the cut is locked, slide the track so its drop or a bar line lands on the first graphic. That is what "beat-aligned" means in this repo.
+7. **SFX mark things, not cuts.** A short quiet tick when a named thing appears, a soft swell or whoosh when a section changes, and silence on plain cuts, zooms and caption changes. Each style has a palette of 3–5 sounds and a cap per minute.
+8. **Keep SFX under the voice.** Ticks, pops and clicks peak 6–10 dB under it (about −14 to −16 dBFS in a −14 LUFS mix). Whooshes and swells peak around −8 to −12 dBFS. One boom at most, on the hook.
+9. **Motion is quick and then still.** Entrances settle within 10 frames (0.33 s). One thing moves at a time. The face framing changes only on a cut.
+10. **Hold what must be read.** At least 1.5 s after the last element lands. Zooms hold 3 s or more.
+11. **A small type scale.** Three sizes per style, one or two families, small captions of 1–3 words on shorts, none on long form.
+12. **One accent colour**, used on one thing per shot. The real screens bring the rest of the colour.
+13. **Grade the face, not the screens.** The LUT sits on the adjustment layer under the visuals; captures and recordings stay as shot.
+14. **End on a frame worth a screenshot:** a cheat sheet, a filled-in list, the one number with its source. It should make sense as a still.
+15. **Leave real moments in.** Waits for an app or agent to answer, and its own audio, are proof that it works.
+
+### Sound defaults by format
+
+| | Shorts and reels | Long form |
+| --- | --- | --- |
+| Voice | −14 LUFS, range ≤3 LU | −14 LUFS, range ≤5 LU |
+| Bed level | 15–20 LU under the voice; 22 LU for sponsors | 20–26 LU under, hook and outro only |
+| Bed timing | Frame 0 to the end, 0.4 s in, 0.8–1.5 s out | Out 1–2 s before the first demo; none under demos |
+| SFX | Style palette, 4–10 a minute (RPN up to 20), none on plain cuts | Hook and section cards only; none inside demos |
+| Final mix | −14 LUFS, −1 dBTP | −14 LUFS, −1.5 dBTP |
+| Sponsored | Epidemic Sound tracks only | Epidemic Sound tracks only |
+
+**Not measured:** what the references' music tracks and effects actually are, the RPN bed's tempo, either creator's voice chain (EQ, compressor and de-noise settings), and anything about how they sound on a phone speaker. Tempo ranges, instruments and the per-minute caps in each style are my editing judgement on top of the measurements. Two references is a small sample.
+
 ## Main style: warm & witty
 
 <img src="styles/screenshots/warm-witty.jpg" alt="Warm & witty: Zoox reel" width="270">
@@ -84,7 +133,8 @@ This is my signature style and the default for every video. It's visual, not tex
 - **Palette:** sticky yellow `#FFE066`, tomato `#FF5D4A`, sky `#7CC6FF`, money green `#2EC46E`, white die-cut borders. No more than two accents per shot.
 - **Full-screen paper board** whenever I'm reading off-camera. **Generic UI visuals** (e.g. a flight-search map) go full screen, then split screen with my face in the bottom half.
 - **Pacing:** pauses over 0.3s are trimmed to about 0.15s, and every word is kept.
-- **Sound:** sparse SFX (pop, bloop, whoosh, ding, cash). A music bed that's beat-aligned to the sticker hits, about −24 dB under my voice, with a −14 LUFS final mix.
+- **Sound:** an upbeat 100–120 BPM bed, 18–20 LU under my voice (22 LU for sponsors, who get Epidemic Sound only), slid so its drop lands on the first sticker. Five SFX (pop, bloop, whoosh, ding, cash), one per sticker moment, 8 a minute at most, none on plain cuts. −14 LUFS final mix.
+- **Premium polish:** real captures before drawn UI, three type sizes, every entrance settled in 10 frames, boards held 1.5 s, and a screenshot-worthy recap before the CTA. See [What makes it premium](#what-makes-it-premium).
 - **Grade:** a light corrective LUT that cools the warm indoor cast, on an FCP **adjustment layer** (Look Grade title plus Custom LUT) under the visuals.
 - **Deliverables:** an FCPXML (cuts, stickers, captions, music and SFX on separate lanes), a `.cube` LUT, an `.srt` and a preview MP4.
 
@@ -100,7 +150,9 @@ My premium alternative to warm & witty, for when a video should feel like a maga
 - **Palette:** paper `#F3EFE6`, ink `#181614` and one accent, oxblood `#B2221E`. Labels are stone `#786F64` and hairlines are `#C8C0B2`.
 - **Cards:** plain paper pages with an ink rule on top and no labels, numbers or source lines. A serif statement is followed by an italic oxblood payoff on the beat. Real assets (including screenshots Harnoor shares) are framed documents, and drawings are re-inked in one ink.
 - **Motion:** quint ease-out fades and rises (0.7 s in, 0.35 s out). No springs, wobble or tilt.
-- **Sound and grade:** quiet paper-slide and tick SFX, and a soft film LUT (lifted blacks, −20% saturation, fine grain in the preview).
+- **Sound:** a slow 70–90 BPM bed (felt piano, soft strings) 20 LU under my voice. Four quiet SFX (paper slide, tick, pencil stroke, one hook riser), 4 a minute at most.
+- **Grade:** a soft film LUT (lifted blacks, −20% saturation, fine grain in the preview), on my face only.
+- **Premium polish:** three type sizes per card, statement held 0.8 s before the payoff, finished cards held 1.5 s. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/editorial-style/SKILL.md](.claude/skills/editorial-style/SKILL.md).
 
@@ -114,7 +166,9 @@ My moody premium alternative, for serious or high-stakes scripts. The shot stays
 - **Palette:** white `#F5F5F2` with one accent, amber `#ECB65C`. Glass is `#0A0A0C` at 62% over the blurred shot, with a 2 px white edge at 18%.
 - **Cards:** frosted dark glass panels that sample the footage behind them, with one soft light sweep per card. Real assets sit on the glass (dark logos inverted to white), and status changes get an amber glow outline.
 - **Motion:** blur-in plus a 50 px rise (quint ease-out, 0.8 s), then a slow 18 px parallax drift. No springs, wobble or tilt.
-- **Sound and grade:** riser and sub boom on the hook, soft air whooshes and low ticks. A teal-shadow / warm-highlight film LUT with darker mids and −26% saturation, plus a vignette and grain in the preview.
+- **Sound:** a dark 80–100 BPM half-time bed (sub bass, analog synth) 18–20 LU under my voice. Four SFX (hook riser into a sub boom, air whoosh, low tick, section swell), 4 a minute at most.
+- **Grade:** a teal-shadow / warm-highlight film LUT with darker mids and −26% saturation, plus a vignette and grain in the preview. Captures on the glass stay ungraded.
+- **Premium polish:** one light sweep and one moving card at a time, glass held 1.5 s, amber on one thing per shot. See [What makes it premium](#what-makes-it-premium).
 
 Full spec, kit and LUT: [.claude/skills/dark-cinematic-style/SKILL.md](.claude/skills/dark-cinematic-style/SKILL.md).
 
@@ -127,7 +181,9 @@ An earlier favourite reference reel ([example videos/fav style.mp4](<example vid
 - **Structure:** the face carries the hook, the opinion beats and the CTA. The middle is full-screen b-roll in a dark, defocused paper-floor space.
 - **Objects:** real logo tiles, tilted paper pages, polaroid photos, lanyard badges that drop from the top, and browser windows. Each one lands sharp and centred on its word (0.35 s expo-out with motion blur). When the next one arrives, it recedes to a soft, dim satellite slot, so the proof accumulates.
 - **Type:** small white Helvetica Neue Medium captions, sentence case, low in the frame. An occasional big Instrument Serif Italic accent word. A white "Comment X" pill CTA.
-- **Grade and sound:** a clean, near-neutral camera LUT on the adjustment layer. A whoosh into each scene, paper slides, soft ticks on grouped drops, and a boom only on the hook.
+- **Grade:** a clean, near-neutral camera LUT on the adjustment layer.
+- **Sound:** a light 100–115 BPM bed 19 LU under my voice, with its drop on the first cut to b-roll. Four SFX (whoosh into a scene, paper slide, tick per grouped drop, one hook boom), 10 a minute at most; cuts back to my face are silent.
+- **Premium polish:** each object sharp for 0.8 s before it recedes, and the full stack in view for 1.5 s as the end frame. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/proof-stack-style/SKILL.md](.claude/skills/proof-stack-style/SKILL.md).
 
@@ -140,7 +196,9 @@ Full spec and kit: [.claude/skills/proof-stack-style/SKILL.md](.claude/skills/pr
 - **Structure:** on most shots the camera drops so my head sits low, under a light, frosted stage (pale blue-white with soft leaf shadows). The hook opens with a two-line title header. Stat beats cut to a dark, blurred full screen with a huge blue-gradient number. Opinion beats and the close are full-face.
 - **Objects:** real pages as tidy browser windows with a blue outline and glow, light-blue marker highlights on the quoted line, magnified callouts ("13.8k stars", "400+ banks targeted"), logo cards and simple pill-and-line flow diagrams. Each one pops in (0.3 s expo-out, scale 0.9→1, blur to sharp) on its word.
 - **Type:** big 1–3 word captions in black SF Pro Bold between the stage and the head, with the key word in blue Playfair Display italic. The title header is black SF Pro over white italic on a blue block. The CTA is a green glowing quoted word ("comment “Google”").
-- **Grade and sound:** a clean, bright, slightly cool camera LUT on the adjustment layer. Soft pops as windows land, a whoosh into the dark stat scene, a riser into the big number, and a boom only on the hook.
+- **Grade:** a clean, bright, slightly cool camera LUT on the adjustment layer.
+- **Sound:** a light, bright 105–120 BPM bed 19 LU under my voice. Five SFX (pop on a window, tick on a callout, whoosh into the dark stat scene, riser into the big number, one hook boom), 10 a minute at most.
+- **Premium polish:** the stage changes with each named thing (every 2–3 s), windows hold 1.2 s before their highlight, blue is the only accent. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/split-stage-style/SKILL.md](.claude/skills/split-stage-style/SKILL.md).
 
@@ -153,6 +211,7 @@ When I ask for the **Kallaway crop**, the camera goes in a rounded card at the b
 - **Card:** inset 24 px from the sides and bottom, top edge at y≈1330, about 96 px corner radius, a soft shadow and a thin rim. The camera keeps its real background inside the card. Everything outside the card is the stage.
 - **Cut-out:** `./scripts/remove-background SOURCE.MOV -o matte.mov` (rembg / `u2net_human_seg` → ProRes 4444; `pip install -r scripts/requirements-cutout.txt` once). The matte's alpha moves with the camera, and `kallaway(stage, person)` in the Split Stage kit punches holes in the stage for the card and the person. In FCP the stage clip sits on the camera, so the head shows through.
 - Graphics stay above y≈940 and captions sit just above the hair (y≈1012). Full-face and dark beats are unchanged.
+- **Premium polish:** the card never moves or zooms during a split shot, the matte edge must be clean on every kept take (check hair and raised hands frame by frame), and the card takes no sound of its own. Sound follows the parent style (Split Stage or Dark Stage). See [What makes it premium](#what-makes-it-premium).
 
 ## Alternative style: Dark Stage
 
@@ -163,6 +222,8 @@ Split Stage's visuals on Proof Stack's dark floor ("best of both worlds"). Use i
 - **Visuals from Split Stage:** the Kallaway card with the pop-out head, blue-outlined browser windows, marker highlights, magnifier callouts, logo cards, gradient stat numbers and the green glowing "comment" CTA.
 - **Backdrop and captions from Proof Stack:** the dark, defocused paper floor made from the reel's own pages, small white sentence-case Helvetica captions and the occasional Instrument Serif Italic accent word.
 - **"Lights out" variant:** the reel opens on Split Stage's white wall, then the lights go out on a key word and it stays dark (dark cinematic LUT and a soft vignette).
+- **Sound:** a darker 90–105 BPM bed 19 LU under my voice, with the drop on the first dark run (or the lights-out word). Four SFX (hook boom, whoosh into a dark run, tick on a landing, page slide), 10 a minute at most.
+- **Premium polish:** one object at a time, stat numbers held 1.5 s with their source window as the end frame. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/dark-stage-style/SKILL.md](.claude/skills/dark-stage-style/SKILL.md).
 
@@ -175,7 +236,8 @@ Quiet captions, real receipts. It comes from the Looki L1 sponsored cut and the 
 - **Captions:** lowercase Poppins Bold 62 px, white on a soft 55% black pill, 2–3 words a line, above my head (y≈200–300).
 - **Proof:** recreated browser windows around real page crops (the exact line gets a yellow marker), real post screenshots with a source tag, and small chips. They pop in under my chin (y 1110–1580). Full-screen beats use a paper dot-grid board with a slow push-in.
 - **Accuracy first:** every on-screen claim is checked against the source. When my line is looser than the page, the page's own wording goes on screen.
-- **Sound and grade:** a light warm LUT on the adjustment layer, an Epidemic bed drop-aligned to the first card (~19 LU under my voice), and one CC0 Openverse SFX per card (whoosh, click, pop, cash).
+- **Sound and grade:** a light warm LUT on the adjustment layer, a calm 85–100 BPM Epidemic bed drop-aligned to the first card (~19 LU under my voice), and one CC0 Openverse SFX per card (whoosh, click, pop, cash), 6 a minute at most.
+- **Premium polish:** everything moves inside 10 frames, windows hold 1.2 s before the marker, and the reel ends on the one source line that proves it. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/minimal-proof-style/SKILL.md](.claude/skills/minimal-proof-style/SKILL.md).
 
@@ -189,7 +251,9 @@ The real thing on top, me underneath. Learned from a reel by Roberto P. Nickson 
 - **Captions:** 1–3 words in mono caps, white on a small near-black box that sits on the seam. No highlight colour and no animation.
 - **Full-screen beats:** a wide-caps title card for each named item (its own screen blurred behind, sharp in a window), one full-face punch-in on the thesis line, a typed terminal for the how-to, and a black "screenshot this" cheat sheet before the sign-off.
 - **Sign-off:** full face with big wide-caps words, one at a time. The CTA is the screenshot and the caption, not a comment word.
-- **Cuts and sound:** hard cuts only, pauses over 0.3 s trimmed, a fast levelled voice at −14 LUFS. The reference's music and SFX could not be measured.
+- **Cuts:** hard cuts only, on the words, pauses over 0.3 s trimmed.
+- **Sound (measured Nov 9, 2026):** a fast levelled voice at −14 LUFS with a 2 LU range, over one dark low bed 15 LU under it for the whole reel. Short ticks land on named things (the reference has 19 in a minute) and soft swells on section changes; only 3 of 36 cuts carry a sound. My cap is 16 ticks and 4 swells a minute.
+- **Premium polish:** three type sizes, nothing eases longer than 10 frames, green is the only accent, and the cheat sheet must work as a still. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/rpn-style/SKILL.md](.claude/skills/rpn-style/SKILL.md). Sample stills: [styles/samples/rpn/](styles/samples/rpn/).
 
@@ -202,6 +266,8 @@ My real screen recording (or the pages rebuilt in Playwright when the recording 
 - **Use it when:** the video walks through sites, data, articles or tools on screen. This is the default long form.
 - **Built in:** `videos/h1b-lca/` (first build: rebuilt sites on a paper board, 288×360 corner cam), `videos/we-need-to-talk/` (frame above: synced screen recording, 300×375 corner cam, hand-drawn chapter boards) and `videos/fear-future-cs/` (ultrawide screen recording).
 - **Recipe:** sync the screen by audio cross-correlation (`camera = screen + offset`), and bake the corner cam into opaque section clips on lane 2. Use punch-ins on the screen for the line being read, a light highlight box on the numbers and the grade on the lane-1 adjustment layer.
+- **Sound:** voice at −14 LUFS with a range of 5 LU or less. A calm 85–100 BPM Epidemic bed (`~/Music/documentary es/`) in the hook and the last 15 s only, 22–26 LU under my voice, out 1–2 s before the first screen section. **No music and no SFX under screen sections** (measured on Riley). Up to three sounds in the hook (a soft whoosh into the first screen, a tick on a highlight box, a page flip on a chapter board), peaking at −16 dBFS. System and app audio from the recording stays in when it shows the thing working. Final mix −14 LUFS / −1.5 dBTP.
+- **Premium polish:** one corner-cam size and position for the whole video (300×375, bottom right; move it only when it covers what I'm pointing at). Punch-ins take 8–10 frames, reach 1.6–2.2×, and hold 3 s or more; use a punch-in instead of a cut inside a section. One highlight colour. The screen stays ungraded. Come back to the same chapter board at each section so it fills in and ends as the recap. See [What makes it premium](#what-makes-it-premium).
 
 ## Long form: Light Stage
 
@@ -212,6 +278,8 @@ Split Stage's light frosted stage, made 16:9: real page crops in blue-outlined b
 - **Use it when:** a news or opinion take has no screen recording but needs receipts (pages, numbers, logos), or a podcast needs visuals between the two-shot.
 - **Built in:** `videos/img1095/` (frame above, Microsoft buyouts) and `videos/shubham-podcast/` (TinyFish podcast, with 2× punch-ins from the 4K master); also the v2 scenes in `videos/we-need-to-talk/`.
 - **Recipe:** `scenes.py` renders one 1920×1080 stage clip per scene on lane 2, with chips and lower thirds on lane 3. Every claim gets a real source, and loose lines keep a note on screen.
+- **Sound:** voice at −14 LUFS with a range of 5 LU or less. A light, bright 100–115 BPM Epidemic bed in the hook and outro, 22 LU under my voice; it can return at 24–26 LU under stage scenes that have no app audio, and stays out of long face beats. Three SFX (soft pop on a window, tick on a callout or chip, soft whoosh into a stat card), **2 a minute at most**, peaking at −16 dBFS (whoosh −12 dBFS). Final mix −14 LUFS / −1.5 dBTP.
+- **Premium polish:** the same blue outline, 0.3 s `Pop` and shadow as Split Stage; one object lands at a time; a stage scene holds 1.5 s after its last object; stat numbers 200 px or more, chips 36–40 px, context notes 28 px; blue is the only accent; the corner cam never changes size. End on a stage with the 3–5 receipts together. See [What makes it premium](#what-makes-it-premium).
 
 ## Long form: Paper Podcast
 
@@ -222,6 +290,8 @@ A two-person conversation from one locked wide shot, made dynamic with **punch-i
 - **Use it when:** a podcast or interview with a researcher or expert, where the ideas need simple drawings rather than screenshots.
 - **Built in:** `videos/michal-podcast/` (frame above, Google Research connectomics).
 - **Recipe:** framing changes only at cut points. Wide holds ≥5 s, close-ups run 3–10 s, and a close-up needs ≥85% of the speech from that person. Use the FCPXML `adjust-transform` scale and position; `fill` conform is ignored, so use fit + explicit scale. Boards are drawn with the warm-witty `illus.py`, with ≤3-word labels.
+- **Sound:** two voices matched to each other first (each at −14 LUFS, within 1 LU of the other, range 5 LU or less), room tone left under the gaps. A warm 70–90 BPM Epidemic bed (soft keys, no drums) for the cold open and the outro only, 24 LU under the voices. **No music under the conversation.** Two SFX (a paper slide when a board comes in, a pencil tick as a drawing lands), **1 a minute at most**, peaking at −18 dBFS. No sound on punch-ins. Final mix −14 LUFS / −1.5 dBTP.
+- **Premium polish:** punch-ins are cuts, never animated zooms; boards dissolve in over 8–10 frames and hold 4 s or more; one blue tag title (40–44 px), labels 32–36 px, source line 24 px; one accent (the blue tag). End on the board that sums up the guest's main idea. See [What makes it premium](#what-makes-it-premium).
 
 ## Long form: Paper Explainer
 
@@ -232,6 +302,8 @@ Warm & witty's cream paper boards, made 16:9. Drawn explainers (timelines, maps,
 - **Use it when:** an explainer topic with no screen to record, where the idea is easier to draw than to screenshot (how a robotaxi sees, levels of self-driving, 70 years of history).
 - **Built in:** `videos/zoox-reel/longform/` (frame above, "Is the robotaxi future finally real?").
 - **Recipe:** warm & witty boards and `illus.py` drawings with labels of ≤3 words, a source line under each board and real page captures as cards. No captions; the grade goes on the lane-1 adjustment layer.
+- **Sound:** voice at −14 LUFS with a range of 5 LU or less. A warm, curious 90–105 BPM Epidemic bed (plucks, soft keys) in the hook and outro at 22 LU under my voice, and under b-roll stretches where I'm not talking at 16–18 LU under where the voice would be. Out under long board explanations. Three SFX (pencil tick as a drawing step lands, paper slide for a new board, soft whoosh into b-roll), **3 a minute at most**, peaking at −16 dBFS. Real ride audio stays in under b-roll. Final mix −14 LUFS / −1.5 dBTP.
+- **Premium polish:** one drawing step per spoken step, each landing in 8–10 frames; a finished board holds 1.5 s; board title 56–64 px, labels 36–40 px, source line 24 px; two accents per board at most and one for the video; real captures before drawings wherever a real page exists. End on the finished ladder, map or timeline as the recap. See [What makes it premium](#what-makes-it-premium).
 
 ## Long form: Night Desk-Typecraft
 
@@ -242,6 +314,8 @@ Learned in Nov 2026 from Typecraft's "I LOVE the herdr desktop app" video ([watc
 - **Use it when:** I ask for Night Desk, "the Typecraft style" or a darker, more energetic long form; tool reviews, "how I use X", setups, agent workflows.
 - **Built in:** sample stills from `videos/we-need-to-talk/` footage (`styles/samples/night-desk/`). There's no full build yet.
 - **Recipe:** spec, kit (`night_desk.py`: `punch`, `screen`, `corner_cam`, `red_box`, `slam`, `chapter`, `board`, `write_lut`) and LUT are in [.claude/skills/night-desk-style/SKILL.md](.claude/skills/night-desk-style/SKILL.md). Still no captions, and still loose cuts.
+- **Sound:** a low synth or lo-fi bed at 80–95 BPM in the hook and outro only, 20–22 LU under my voice, and none under dense screen sections. Four SFX (whoosh-hit on a slam, thump on a chapter card, click on a board box, tick on a red box), 4 a minute at most, none on punch-ins.
+- **Premium polish:** nothing but the 12-frame screen re-frame takes longer than 10 frames, finished boards hold 1.5 s, and the last board is the recap. See [What makes it premium](#what-makes-it-premium).
 
 ## Long form: Riley
 
@@ -257,7 +331,7 @@ Learned in Nov 2026 from Riley Brown's AI-tool videos ("Claude Duet's NEW Update
 - **Phone demos:** the phone is mirrored to the Mac and sits in a phone frame on one blurred wallpaper, with the mouse cursor visible. That was 61% of the runtime.
 - **Punch-in with a click ring:** the card's content zooms to about 2.2× in a third of a second, a tomato ring marks the tap, and it holds 3–20 s. There are no cuts inside a demo, only zooms.
 - **Push between phone, desktop and board:** the new content slides in from the left in 10 frames. The content changes about every 40 s.
-- **Sound:** a quiet bed in the hook only, and no music under the demos. The agent's spoken replies and the waits before them stay in.
+- **Sound (re-measured Nov 9, 2026 with a voice/music split):** a soft pulsing bed in the hook only, about 26 dB under the voice and gone 2 s before the first demo. Under the demos there is no music and no SFX at all, not even on the punch-ins or the click ring. The agent's spoken replies and the waits before them stay in. My version: bed 22–26 LU under in the hook, at most 4 soft sounds in the hook, none in the body. See [What makes it premium](#what-makes-it-premium).
 - **Corrected:** the page arrives on a hard cut (not a rise), one wide layout covers every kind of screen, and the scramble label is bold and tight (not spaced caps). The giant word behind the head, pull-phrases, chapter cards and the list grid aren't in this video; they came from frames of his other videos and stay as optional extras.
 
 - **Use it when:** I ask for Riley or "the Riley Brown style"; AI tool walkthroughs, "X just changed a lot", "how I use X", list videos ("5 reasons…").
@@ -267,6 +341,25 @@ Learned in Nov 2026 from Riley Brown's AI-tool videos ("Claude Duet's NEW Update
 ## Reel music folder
 
 For future video edits, check `/Users/harnoor/Music/Reel Music/` for background music and choose a track that fits the script's mood. This is the user's preferred local music library.
+
+**Which folder for what** (folder names as of Nov 9, 2026; always check the file is there before picking it):
+
+| Folder under `~/Music/` | What it is | Use it for |
+| --- | --- | --- |
+| `Reel Music/` | My preferred library. Mostly well-known songs and instrumentals | Organic posts only. Never in sponsored posts |
+| `documentary es/` | Epidemic Sound, calm documentary beds | Sponsored posts; Minimal Proof, editorial, Night Desk, Riley, Screen Share hooks |
+| `new ES/`, `Other ES music/` | Epidemic Sound, more upbeat and electronic | Sponsored posts; warm & witty, Split Stage, Proof Stack, dark cinematic, Dark Stage |
+| `Intro sound effects/` (`Risers/`, `Hits/`, `Wooshes/`, `Atmosphere/`) | Risers, hits, whooshes, room and city atmospheres | Hook risers and booms, whooshes into full-screen scenes |
+| `30 WHOOSH SWOOSH/` | Thirty whooshes | Scene and board entrances |
+| `SFX sting/` | Camera shutters | "Take a screenshot" and photo beats |
+| `Other ES music/think sound effects/` | Assorted effects, including a cash register | Money lines, comedy beats in warm & witty |
+
+**Choosing and placing a bed** (from [What makes it premium](#what-makes-it-premium)):
+- Pick low and steady: no vocals, no lead melody, little going on at 2–4 kHz where the voice sits. Each style's **Sound** section gives a tempo range and instruments.
+- Sponsored posts use Epidemic Sound tracks only.
+- Set the level in LU under the voice, measured, not as a gain: 15–20 LU on shorts (22 LU for sponsors), 20–26 LU on long-form hooks. One level for the whole bed, with no ducking moves.
+- Shorts: in on frame 0 and out with a 0.8–1.5 s fade. Long form: hook and outro only, out 1–2 s before the first demo, nothing under demos.
+- Cut on the words first. Then slide the track so its drop or a bar line lands on the first graphic. Never move a cut to reach a beat.
 
 See [the reel music catalog](reels%20music/README.md) for track candidates and mood labels. Check the actual files in the music folder before selecting a track; the catalog alone does not confirm an audio file is available.
 
@@ -288,6 +381,22 @@ Reference: [@kienobifilms' ten sound effects reel](https://www.instagram.com/ree
 | **Pop** | A small label, icon, bullet, sticker, or card appearing. |
 
 For future edits, use these names when discussing or searching for sounds. Match the sound's peak to the visual event and keep effects low enough for speech to stay clear. Choose effects for specific moments rather than placing one on every cut. Check existing local SFX assets before sourcing more.
+
+**Placement rules** (measured on the RPN and Riley references, Nov 9, 2026; see [What makes it premium](#what-makes-it-premium)):
+
+| Event | Sound | Length | Peak in a −14 LUFS mix |
+| --- | --- | --- | --- |
+| A named thing appears (icon, window, chip, label, list row) | Tick, Pop or click | 40–120 ms | −14 to −16 dBFS (6–10 dB under the voice) |
+| A section changes, or a full-screen scene or title card starts | Soft swell or Cinematic Whoosh | 0.3–0.5 s | −8 to −12 dBFS |
+| A number counts up | Counting | as long as the count | −16 dBFS |
+| The hook's one big claim | Metallic Riser into a Low Hit, once per video | riser 0.5–1 s | −6 dBFS |
+| "Take a screenshot", a photo | Camera Flash & Shutter | under 0.3 s | −12 dBFS |
+| A plain cut, a punch-in, a zoom, a caption change | **Nothing** | | |
+| Inside a long-form demo | **Nothing**, except the app's own audio | | |
+
+- In the RPN reel only 3 of 36 cuts carried a sound, and 19 of its 23 sounds were short ticks on things he named. In Riley's 12 minutes of demos there were none.
+- Each style lists its own palette of 3–5 sounds and a cap per minute (4 for editorial and dark cinematic, 6–10 for the proof styles, 8 for warm & witty, up to 20 for RPN, hook-only for long form).
+- Glitch, Page Flip and Shine stay available but are style-specific: Glitch for the Glitch and Night Desk looks, Page Flip for paper styles, Shine at most once per video.
 
 ### Pro SFX tools for AI video editing
 
@@ -537,6 +646,20 @@ Source: [@andremass.ai's Instagram reel DeIwVxbCvPr](https://www.instagram.com/r
 | 18 | **Isometric** | Isometric pastel city blocks rising | 30° isometric projection, pastel blocks that rise from the ground staggered by 2 frames |
 | 19 | **Low poly** | Faceted low-poly Earth spinning on dark teal | Flat-shaded faceted 3D (three.js, flatShading), slow rotation, single key light |
 | 20 | **Line art** | Low-poly Earth with an orbiting moon traced as lines | Single-weight strokes drawn on with SVG stroke-dashoffset, monochrome on a dark or light background |
+
+**Premium pass for all 20** (Nov 9, 2026; the rules are in [What makes it premium](#what-makes-it-premium)). The look changes per style; the discipline doesn't:
+
+- **Picture:** real captures of anything named still come first; the style dresses the frame around them. One accent colour from the style's palette, three type sizes, one thing moving at a time, entrances settled within 10 frames (stepped or looping styles such as Pixel art and Flat 2D keep their own motion but still hold finished frames 1.5 s). End on a frame worth a screenshot.
+- **Voice and mix:** the same as every style: −14 LUFS voice, bed 15–20 LU under on shorts, SFX on things and section changes rather than cuts, final mix −14 LUFS / −1 dBTP. Sponsored posts use Epidemic Sound only.
+- **Music and SFX by tone** (my judgement, not measured):
+
+| Tone | Styles | Bed | SFX palette (cap per minute) |
+| --- | --- | --- | --- |
+| Clean and credible | Swiss, Bauhaus, Flat 2D, Line art | Minimal 90–110 BPM: soft keys, light pulse, no melody | Tick, soft click, soft whoosh (4) |
+| Loud and fun | Pop art, Neobrutalism, Memphis, Kinetic type, Paper collage | Punchy 110–125 BPM: claps, bass, funk or breakbeat | Pop, slap or paper hit, whoosh, one hook hit (10) |
+| Tech and AI | Glassmorphism, Particles, Glitch, Y2K chrome | Dark electronic 90–110 BPM: sub bass, soft arps, pads | Low tick, air whoosh, short glitch burst (Glitch only), shine once (6) |
+| Nostalgic | Synthwave, Vaporwave, Pixel art, Risograph | Synthwave or lo-fi 80–105 BPM; chiptune for Pixel art | 8-bit blip or tape click, soft whoosh, one riser (6) |
+| Dimensional | Clay 3D, Isometric, Low poly | Warm and bouncy 95–115 BPM: marimba, plucks | Soft pop, wooden tick as blocks land, soft whoosh (8) |
 
 **Pick a style by the script's tone:**
 
