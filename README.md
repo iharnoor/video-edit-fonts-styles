@@ -42,8 +42,8 @@ Every named style, with a frame from its reference build. Click a name for its s
 | <img src="styles/screenshots/warm-witty.jpg" alt="Warm & witty" width="180"> | <img src="styles/screenshots/editorial.jpg" alt="Editorial" width="180"> | <img src="styles/screenshots/dark-cinematic.jpg" alt="Dark cinematic" width="180"> | <img src="styles/screenshots/proof-stack.jpg" alt="Proof Stack" width="180"> |
 | **[Split Stage](#alternative-style-split-stage-nick-saraev-style-my-favourite)** (my favourite) | **[Kallaway crop](#kallaway-crop-pop-out-head)** (Split Stage framing) | **[Dark Stage](#alternative-style-dark-stage)** | **[Minimal Proof](#alternative-style-minimal-proof)** |
 | <img src="styles/screenshots/split-stage.jpg" alt="Split Stage" width="180"> | <img src="styles/screenshots/kallaway-crop.jpg" alt="Kallaway crop" width="180"> | <img src="styles/screenshots/dark-stage.jpg" alt="Dark Stage" width="180"> | <img src="styles/screenshots/minimal-proof.jpg" alt="Minimal Proof" width="180"> |
-| **[RPN](#alternative-style-rpn)** |  |  |  |
-| <img src="styles/screenshots/rpn.jpg" alt="RPN" width="180"> |  |  |  |
+| **[RPN](#alternative-style-rpn)** | **[Graph Paper](#alternative-style-graph-paper-from-a-reference-reel)** |  |  |
+| <img src="styles/screenshots/rpn.jpg" alt="RPN" width="180"> | <img src="styles/screenshots/graph-paper.jpg" alt="Graph Paper" width="180"> |  |  |
 
 ### Long-form styles (16:9)
 
@@ -256,6 +256,23 @@ The real thing on top, me underneath. Learned from a reel by Roberto P. Nickson 
 - **Premium polish:** three type sizes, nothing eases longer than 10 frames, green is the only accent, and the cheat sheet must work as a still. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/rpn-style/SKILL.md](.claude/skills/rpn-style/SKILL.md). Sample stills: [styles/samples/rpn/](styles/samples/rpn/).
+
+## Alternative style: Graph Paper (from a reference reel)
+
+<img src="styles/screenshots/graph-paper.jpg" alt="Graph Paper: timeline sample" width="270">
+
+A whiteboard explainer with my face under it. Learned from a reference reel on Nov 13, 2026 (the creator's handle isn't visible in the video): techniques only, none of their footage or branding. Use it when I ask for Graph Paper or "the graph paper style". It suits news with a backstory: a history, a mechanism, a before and after.
+
+- **Layout:** one sheet of pale graph paper (`#F0F1EC`, 54 px squares) for the whole reel. The camera is a rounded card 900 px wide on the lower half (top edge at y 1010), and it never moves. The reference holds this for 96% of its 79 s.
+- **Top band:** a small drawing that builds on the words in y 190–870: a white title card, real photos, pages and charts as rounded cards with a mono credit line, a timeline rail with the year set big in serif, dark chip grids, outlined pills, a typed quote callout and a red stamp. Something lands about every 1.3 s, and a scene lasts about 5 s.
+- **Captions:** 1–3 words in mono caps, white on a small near-black box at y 940, between the drawing and the camera card. No highlight colour and no animation.
+- **Motion:** elements fade up in 0.2–0.3 s and then stay still. A scene leaves by blurring back to bare paper in 0.3 s. No punch-ins on the face.
+- **Full-face break:** once, for 3 s on the personal line, the camera card grows to fill the frame. Then a closer with one serif line and one image with two labels.
+- **Colour and type:** ink, white cards and one brick-red accent (`#C7655C`). Archivo Black for the hook title, Instrument Serif for years, title lines and quotes, SF Pro for labels, SF Mono for captions and credits.
+- **Sound (measured Nov 13, 2026, from the mix):** −14.1 LUFS with a 2 LU range. No music for the first 55 s, then one bed from the turn to the last frame, about 15 dB under the voice. At least 15 short sounds, each on an element landing and none on camera cuts. My palette is Ocular Utility ticks, desk foley, marker and page turns, plus one trimmed Foundation impact for the stamp, capped at 12 a minute, with the "Proof Stack explainer" bed from `_Harnoor beds/`.
+- **Premium polish:** three type sizes, entrances settle in 6–9 frames, red on one thing per scene, every real image carries a credit, and the closer must work as a still. See [What makes it premium](#what-makes-it-premium).
+
+Full spec and kit: [.claude/skills/graph-paper-style/SKILL.md](.claude/skills/graph-paper-style/SKILL.md). Sample stills: [styles/samples/graph-paper/](styles/samples/graph-paper/).
 
 ## Long form: Screen Share (default)
 
