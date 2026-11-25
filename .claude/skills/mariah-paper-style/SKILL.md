@@ -45,12 +45,12 @@ Measured on Nov 15, 2026 with ffprobe, ffmpeg scene detection, pixel sampling an
 
 - **Face shot:** full 1080×1920, seated, head in the upper middle (eyes at about y 620–700, *judged*), hands and table in frame. Wide and tight versions of the same shot (`face(tight=True)` is about 112%).
 - **Caption line:** centre **y 1437** (75% down), on the chest (measured: text rows 1416–1458).
-- **Hook title:** two lines at **y 480–610**, over the forehead and hairline (measured).
+- **Hook title:** the reference puts two lines at **y 480–610**, over the forehead and hairline (measured). On Harnoor's footage put it above the hair instead (`hook(..., top=220)`, about y 220–350): no text goes over his face.
 - **Card over the face** (`card()`): 840–900 px wide, radius about 28, at chest height (y 900–1380) or as a slim strip at the top (y 150–320). It may cover the chin or the whole face for up to 3 s on the hook.
 - **Top screenshot** (`top_split()`): edge to edge, from y 0 down to **y 540–570**; the face is reframed so the eyes sit just under it. A taller version (to y 760) holds a post on cream paper.
 - **Boards:** the card is centred with 50–110 px side margins; the caption sits **80–100 px under the card** (y 1300–1500, wherever the card ends), not at the face caption line.
 - **Small pop-ins:** reaction image or logo chip top-left, x 60–300, y 200–420.
-- This breaks the usual face-safe rule on purpose on the hook card and the emphasis words. Everywhere else keep cards off y 460–1060.
+- This breaks the usual face-safe rule on purpose for **proof cards only** (the hook card, up to 3 s). Words never go over the face: titles sit above the hair and emphasis words on the caption line. Everywhere else keep cards off y 460–1060.
 
 ## Palette
 
@@ -97,7 +97,7 @@ Almost everything is a real screenshot on a card. Only the diagram is drawn.
 - **Cream board** (`crumpled()`): for reading. One post or one diagram, with the **red marker bar** (`post(mark=…)` on the placeholder; in a build, a red rectangle set to multiply over the real screenshot) stepping through the phrases as they are said.
 - **Red board** (`red_board()`): for numbers and line-ups. A white table or chart card (`table()` is the placeholder), or square-cornered images stacked down the frame (`stack()`), one per named thing.
 - **Diagram** (`agent_card()`, `dotted()`): white cards with an art header, a dotted bracket, small progress bars. This is the one drawn graphic; keep it to cards and connectors.
-- **Emphasis beat** (`accent()`): white italic serif lead-in with a heavy red phrase under it, slightly overlapping. Two or three a reel. A variant puts single heavy red caps words over the face, one per word said.
+- **Emphasis beat** (`accent()`): white italic serif lead-in with a heavy red phrase under it, slightly overlapping. Two or three a reel. A variant shows single heavy red caps words one per word said (`accent(..., caps=True)`). The reference puts them over the face; in Harnoor's builds they sit on the caption line (y 1437), off the face.
 - **Comment call** (`cta()`): italic serif "comment" (or "if you comment") above the keyword in white heavy caps on a red box, over the head. One per keyword.
 - **Pop-ins:** a reaction image or logo chips, top-left, 1–2 s each.
 - `post()`, `table()` and `art()` only exist so the samples need no real screenshots. A real build uses the real post, table and release art, credited or visibly sourced.

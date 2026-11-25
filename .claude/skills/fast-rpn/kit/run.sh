@@ -3,7 +3,9 @@
 # Usage: run.sh <slug e.g. img1805-rpn> [stills seconds ...]. Prints a timestamp per stage.
 set -e
 SLUG=$1; shift; NUM=${SLUG//[^0-9]/}
-R="$HOME/Developer/personal edit/video-edit-fonts-styles/videos/$SLUG"; G="$HOME/Movies/FCP/$SLUG-graphics"; V=~/.cache/fast-rpn/venv/bin/python
+KIT=${0:A:h}; REPO=${FAST_RPN_REPO:-${KIT:h:h:h:h}}   # repo root = 4 levels up from .claude/skills/fast-rpn/kit
+[[ -d $REPO/videos ]] || REPO="$HOME/Developer/personal edit/video-edit-fonts-styles"
+R="$REPO/videos/$SLUG"; G="$HOME/Movies/FCP/$SLUG-graphics"; V=~/.cache/fast-rpn/venv/bin/python
 DTD=${FCPXML_DTD:-$HOME/.cache/fast-rpn/FCPXMLv1_14.dtd}   # copied from Final Cut Pro.app/Contents/Frameworks/Interchange.framework/.../Resources (xmllint chokes on the spaces)
 cd "$R/scripts"
 st() { echo "== $(date +%T) $1"; }

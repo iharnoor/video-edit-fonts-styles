@@ -5,7 +5,7 @@ description: Harnoor's match-cut move for shorts. A fast burst of 4–8 public-d
 
 # Match-cut burst / intro
 
-Learned Nov 19–20, 2026, on the two ElevenLabs avatar reels (Anthropic IPO and Protocol Explorer). Harnoor went through three rounds of feedback:
+Learned Nov 19–20, 2026, on the two ElevenLabs avatar reels (Anthropic IPO and Protocol Explorer). Harnoor's feedback, in order:
 1. "Make it a match cut with multiple images, not a 1-second card."
 2. "Even faster, after 2.5 s in the video, then show it."
 3. "Add 3–4 more images, it becomes more intense, keep it fast."

@@ -124,14 +124,14 @@ On Nov 9, 2026 I asked for every style to be lifted to the level of two creators
 This is my signature style and the default for every video. It's visual, not text-heavy. I'm the builder who actually tries things.
 
 - **Animated UI cards first:** generic UI that acts out the line, such as a fare that counts up, an itinerary whose layover stretches, a calendar where the flight drags earlier, an incoming-call screen, a 2 AM lock screen, or a comment box typing the keyword.
-- **Stickers over the footage** where UI can't show the idea, in the top band clear of my face, each landing on its payoff word:
+- **Stickers over the footage** where UI can't show the idea, in the chest band under my chin (captions sit above my head), each landing on its payoff word:
   - small drawn visuals for asides (icons, mini illustrations), with no sticky notes or handwritten sentences
   - tomato number badges ("+$1,000 / change fees")
   - chat bubbles
   - pills
   - an "it works!" verdict stamp
   - a CTA pill
-- **Captions:** 1–3 lowercase words in white Poppins ExtraBold with a dark outline. The key word sits in a tilted sky-blue `#7CC6FF` pill.
+- **Captions:** 1–3 lowercase words in white Poppins ExtraBold with a dark outline, above my head. The key word sits in a tilted sky-blue `#7CC6FF` pill.
 - **Palette:** sticky yellow `#FFE066`, tomato `#FF5D4A`, sky `#7CC6FF`, money green `#2EC46E`, white die-cut borders. No more than two accents per shot.
 - **Full-screen paper board** whenever I'm reading off-camera. **Generic UI visuals** (e.g. a flight-search map) go full screen, then split screen with my face in the bottom half.
 - **Pacing:** pauses over 0.3s are trimmed to about 0.15s, and every word is kept.
@@ -261,6 +261,10 @@ The real thing on top, me underneath. Learned from a reel by Roberto P. Nickson 
 
 Full spec and kit: [.claude/skills/rpn-style/SKILL.md](.claude/skills/rpn-style/SKILL.md). Sample stills: [styles/samples/rpn/](styles/samples/rpn/).
 
+### Fast RPN reel (`/fast`)
+
+The pixel variant, built in about 12 minutes from the newest sister reel's scripts (first used on IMG_1805, Nov 23, 2026). It keeps a 4–5 word opening title on its own FCPXML lane, a match-cut burst at about 2 s, 2–4 key visuals (the page that proves the claim, a number card, a logo card) and full face with captions everywhere else. Each reel gets a new accent and a seam tied to its topic. Workflow and kit: [.claude/skills/fast-rpn/SKILL.md](.claude/skills/fast-rpn/SKILL.md). It looks like the RPN screenshot above.
+
 ## Alternative style: Graph Paper (from a reference reel)
 
 <img src="styles/screenshots/graph-paper.jpg" alt="Graph Paper: timeline sample" width="270">
@@ -305,7 +309,8 @@ A playful "someone just built a free X" tool-share reel. I learned it on Nov 20,
 - **Cartoon type:** captions are 1–3 lowercase words in **Gaegu Bold** (handwritten, 7 px tracking, white with a navy glow) on the seam, never on my face. Multicolour **bubble-letter word art** (Poppins Black, dot texture, navy outline) titles the hook. A white "comment KEYWORD" pill closes it.
 - **Script:** hook (who, free, what, the twist), then proof (a count, three topics, two famous examples), then "these aren't videos" plus a concrete demo, then who it's for, then a fast feature list, then the comment CTA. That's 30–35 s with no pauses. Check every feature on the live product first.
 - **Match cut:** opens on the split for about 2 s, then a public-domain burst that lands back on my head (match-cut skill).
-- **Sound:** the Ocular "Split Stage reels" bed at −9 dB, a bouncy whoosh on each blue card, a mouse click on each lesson switch and a tick on each stack card. It mixes to about −13 LUFS.
+- **Sound:** the Ocular "Split Stage reels" bed 15 LU under my voice (−9 dB of gain on that file), a bouncy whoosh on each blue card, a mouse click on each lesson switch and a tick on each stack card, 10 a minute at most. Final mix −14 LUFS.
+- **Premium polish:** cards pop in 0.28 s and then only push, each blue card holds 1.5 s, cobalt is the one accent, and the word art appears once, on the hook. See [What makes it premium](#what-makes-it-premium).
 
 Full spec and kit: [.claude/skills/toybox-style/SKILL.md](.claude/skills/toybox-style/SKILL.md). Sample stills: [styles/samples/toybox/](styles/samples/toybox/).
 
@@ -320,6 +325,8 @@ My avatar-reel look, named Nov 20, 2026. It also works on real talking-head foot
 - **Top-half visuals:** live-site captures with blue marker highlights on the words I say, and drawn stat cards for numbers.
 - **Match cut:** an 8-image public-domain burst at about 2 s.
 - **Full face:** two or three full-face beats, and a full-face CTA that shows the link on screen at the end.
+- **Sound:** voice at −14 LUFS and no music bed by default; the only SFX are the match-cut ticks and whoosh.
+- **Premium polish:** captures hold 1.5 s after their marker, sky blue is the one accent, and the last frame shows the comment pill and the link together. See [What makes it premium](#what-makes-it-premium).
 
 Full spec: [.claude/skills/sky-blue-split-style/SKILL.md](.claude/skills/sky-blue-split-style/SKILL.md).
 
@@ -474,7 +481,7 @@ When the visuals feel "basic", print the proof on paper. Each real screenshot or
 
 Learned Nov 20, 2026. The full recipe and the kit are in [.claude/skills/match-cut-intro/SKILL.md](.claude/skills/match-cut-intro/SKILL.md).
 
-- **Default:** the reel opens on a split, with his face plus the visuals on half the screen, for about 2 s. At about 2 s it cuts out of the reel's own shape (his head, a laptop card) into 8 public-domain images at 4 frames each, then cuts back in on the same shape.
+- **Default:** the reel opens on a split, with my face plus the visuals on half the screen, for about 2 s. At about 2 s it cuts out of the reel's own shape (my head, a laptop card) into 8 public-domain images at 4 frames each, then cuts back in on the same shape.
 - **Every shape sits on the same spot and size**, measured on the reel frame (disc to disc to head, or laptop to icon to globe to laptop).
 - **Sound:** a soft Ocular Utility tick on each cut and the Foundation whoosh "Be Gentle". The narration is unchanged.
 - **Fill the frame:** when the landing shape is a whole top-half card, land at about 1000 px so the photos fill it. The Library of Congress JSON API is the quickest public-domain source.

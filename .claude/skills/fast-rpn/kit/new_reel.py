@@ -5,9 +5,12 @@
   - extracts 16 kHz mono + AAC audio, runs the AssemblyAI transcript (key from ~/.config/assemblyai/config.json, never printed)
   - prints the transcript with word indices and writes a frame strip (every 2 s) to spot object-in-hand beats
 Usage: ~/.cache/fast-rpn/venv/bin/python new_reel.py ~/Downloads/IMG_1805.MOV [--sister img1843-rpn]
-Run from anywhere; the repo is ~/Developer/personal edit/video-edit-fonts-styles."""
+Run from anywhere. The repo is the one this kit lives in (.claude/skills/fast-rpn/kit -> repo root); set
+FAST_RPN_REPO to point at another checkout, e.g. when running the user-scope copy in ~/.claude/skills/fast/."""
 import json, os, re, shutil, subprocess, sys
-REPO = os.path.expanduser('~/Developer/personal edit/video-edit-fonts-styles'); CACHE = os.path.expanduser('~/.cache/fast-rpn')
+_here = os.path.dirname(os.path.abspath(__file__)); _root = os.path.abspath(os.path.join(_here, '../../../..'))
+REPO = os.environ.get('FAST_RPN_REPO') or (_root if os.path.isdir(f'{_root}/videos') else os.path.expanduser('~/Developer/personal edit/video-edit-fonts-styles'))
+CACHE = os.path.expanduser('~/.cache/fast-rpn'); os.makedirs(CACHE, exist_ok=True)
 src = os.path.abspath(os.path.expanduser(sys.argv[1])); sister = sys.argv[sys.argv.index('--sister') + 1] if '--sister' in sys.argv else 'img1843-rpn'
 num = re.search(r'IMG_(\d+)', src).group(1); slug = f'img{num}-rpn'; R = f'{REPO}/videos/{slug}'; SR = f'{REPO}/videos/{sister}'
 snum = re.search(r'img(\d+)', sister).group(1)

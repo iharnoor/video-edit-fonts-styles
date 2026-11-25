@@ -1,6 +1,6 @@
 ---
 name: premium-paper-cards
-description: Premium screenshot and UI cards for any of Harnoor's styles. A real capture or UI is printed on torn white paper with tape, a tilt, a soft shadow and grain, and a yellow highlighter swipes across the exact words as he says them, with Ocular paper, tape, marker and whoosh SFX. Use whenever Harnoor says the visuals look "basic", asks for "premium" visuals, or wants screenshots to "look cool". It layers on top of the current style (warm & witty by default) and doesn't replace it.
+description: Premium screenshot and UI cards for any of Harnoor's styles. A real capture or UI is printed on torn white paper with tape, a tilt, a soft shadow and grain, and a yellow highlighter swipes across the exact words as he says them, with Ocular paper, tape, marker and whoosh SFX. Use whenever Harnoor says the visuals look "basic", asks for "premium" visuals or screenshots, torn paper or paper cards, or wants screenshots to "look cool". It layers on top of the current style (warm & witty by default) and doesn't replace it. When he asks for "the premium look" as a whole style, that's editorial-style.
 ---
 
 # Premium paper cards

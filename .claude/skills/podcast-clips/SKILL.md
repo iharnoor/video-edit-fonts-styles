@@ -8,7 +8,7 @@ description: How Harnoor's podcast recordings are edited, both into 9:16 reels a
 Learned on the Union Square podcast (`IMG_1575.MOV`, 28:07, two speakers on a bench, 1920×1080, Nov 14, 2026). It produced four reels (`wrapper-trap`, `skills-not-slop`, `nyc-or-sf`, `same-capital`) and a full 16:9 episode. It isn't a visual style of its own: pick the look from the repo's styles (Minimal Proof by default, see below) and apply these rules on top.
 
 ## 1. Transcribe with speakers
-- AssemblyAI `universal-3-6-pro-preview` with `speaker_labels: true`, plus keyterms for names, companies and models said on the show. The key lives in `~/.config/assemblyai/config.json`; never print it.
+- AssemblyAI `universal-3-6-pro-preview` with `speaker_labels: true`, plus keyterms for names, companies and models said on the show. The key is `ASSEMBLY_AI_KEY` in `~/.zshrc` (some machines keep it in `~/.config/assemblyai/config.json`); never print it.
 - Map the speaker letters to people from the first exchange and the face positions (who sits left and who sits right). Write the mapping into `project.md`.
 
 ## 2. Pick the reels (4–5 from ~30 min)
@@ -68,7 +68,8 @@ Harnoor caught "percent" losing its "-ent" (Nov 14, 2026). ASR word end times la
 6. Add an outro bed.
 
 ## 9. Delivery (FCPXML 1.14)
-- Use the original clip at its real source in and out, so trims re-open. Put the Custom LUT (`FxPlug:14B39AEF-607D-42DF-98DD-DB3DD345E925`) on the camera clip.
+- Use the original clip at its real source in and out, so trims re-open.
+- **Grade:** the Look Grade adjustment layer with the Custom LUT (`FxPlug:14B39AEF-607D-42DF-98DD-DB3DD345E925`) on lane 1, `start="3600s"`, as in every style. (The Union Square build put the LUT on the camera clip; use the adjustment layer so graphics above it stay ungraded.)
 - **Lanes:** graphics on lane 2, captions on lane 3 (sliced per spine clip so they follow re-trims), music on lane −1 and SFX on lane −2.
 - **Snap every `offset` and `start` to the 1/30 s grid** (`Fraction(round(t * 30), 30)`), including b-roll source starts. Connected children inherit their offsets from the parent's start, and FCP warns "The item is not on an edit frame boundary" when a 23.976, 29.97 or 59.94 source start lands between frames.
 - Validate against FCP's own DTD (`/Applications/Final Cut Pro.app/Contents/Frameworks/Interchange.framework/Versions/A/Resources/FCPXMLv1_14.dtd`; copy it out first if the sandbox can't read it). Then open it in FCP; Harnoor picks the "first" library.

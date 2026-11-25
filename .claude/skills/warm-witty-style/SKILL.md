@@ -1,6 +1,6 @@
 ---
 name: warm-witty-style
-description: Harnoor's main video style ("warm & witty"). Use for ANY video graphics, edit, captions, stickers, overlays or motion work for Harnoor's shorts/reels, including sponsored ads. Covers the look, captions, motion, sound, music, grade, full-screen boards, split-screen UI visuals, and the reference toolkit in videos/travelopod/.
+description: Harnoor's main video style ("warm & witty"), the default whenever he doesn't name another style. Use for ANY video graphics, edit, captions, stickers, overlays or motion work for Harnoor's shorts/reels, including sponsored ads. Covers the look, captions, motion, sound, music, grade, full-screen boards, split-screen UI visuals, and the reference toolkit in videos/travelopod/.
 ---
 
 # Warm & witty: Harnoor's main style
@@ -11,7 +11,8 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 
 ## Look
 
-- **No board behind talking-head footage.** Stickers and notes float directly over the video in the **top band (y 80–560)** of a 1080×1920 frame, clear of the face (roughly y 520–1100).
+- **No board behind talking-head footage.** Stickers and UI cards float directly over the video, clear of the face (roughly y 460–1060 on a 1080×1920 frame).
+- **Captions above, cards below** (Harnoor, Oct 12, 2026, applied to Travelopod): captions sit above the head, and stickers and UI cards sit in the **chest band** with about 200 px of air under the chin (centre y≈1450–1600; scale tall cards down). The top band (y 80–430) is for a card only when the captions have moved out of it, e.g. on a split screen.
 - **Palette.** Use no more than two accent colors per shot.
 
   | Name | Hex | Use |
@@ -39,7 +40,7 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 - Chunks are in white Poppins ExtraBold at about 76px with a 6px dark outline (`#221E1C`).
 - **One key word per chunk sits in a sky-blue pill, rotated −3°.** Key words are nouns, numbers, the brand and "wrong"-type punch words.
 - Each chunk pops in with a 0.12s ease-out scale from 0.86 to 1.
-- **Position:** centred at **y ≈ 1250**, below the face and above the Reels UI. Move captions out of the way of full-screen or split-screen visuals: put them between the map and the card, or on the chest at y ≈ 1720.
+- **Position:** above the head, centred about 200 px above the hair top and no higher than y≈280 (Travelopod used y 360). Check the face box per clip. On full-screen boards and split screens, dodge the visual: between the map and the card, or on the chest at y≈1720.
 - Always ship an `.srt` too. Fix brand spellings the ASR gets wrong, e.g. "Travelpod" → "travelopod".
 
 ## Motion
@@ -67,7 +68,7 @@ This is the default for every new video. Only switch styles when Harnoor asks fo
 
 ### Animated UI cards (preferred over word stickers)
 
-These are built in `videos/travelopod/scripts/ui_cards.py`. Each is a white card in the top band whose state changes on the spoken words. Times are offsets from the card's start, computed with `R(old_a, old_b)`.
+These are built in `videos/travelopod/scripts/ui_cards.py`. Each is a white card in the chest band whose state changes on the spoken words. Times are offsets from the card's start, computed with `R(old_a, old_b)`.
 
 | Line | Card |
 | --- | --- |
@@ -126,7 +127,7 @@ Shared rules and the measurements behind them: [What makes it premium](../../../
 ## Deliverables (always)
 
 1. `final_preview.mp4`: 1080×1920, 30 fps, H.264, −14 LUFS. Keep it local, since renders aren't committed.
-2. **FCPXML 1.11** linked to the original camera files:
+2. **FCPXML 1.14** linked to the original camera files:
    - cuts on the spine (ungraded)
    - grade adjustment layer on lane 1
    - stickers and UI visuals on lane 2
@@ -134,7 +135,7 @@ Shared rules and the measurements behind them: [What makes it premium](../../../
    - music on lane −1
    - SFX on lane −2
 
-   Validate it against FCP's DTD (`/Applications/Final Cut Pro.app/Contents/Frameworks/Interchange.framework/Versions/A/Resources/FCPXMLv1_11.dtd`; copy it to a path without spaces first).
+   Validate it against FCP's DTD (`/Applications/Final Cut Pro.app/Contents/Frameworks/Interchange.framework/Versions/A/Resources/FCPXMLv1_14.dtd`; copy it to a path without spaces first).
 3. The LUT, `captions.srt`, and a `project.md` log.
 
 ## Workflow and toolkit (`videos/travelopod/scripts/`)

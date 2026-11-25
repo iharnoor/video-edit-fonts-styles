@@ -96,7 +96,7 @@ The reference build (not committed) is `videos/img1047-reel/scripts/mix.py`, the
 - **Holds:** windows 1.2 s before a marker, stat numbers 1.5 s.
 - **Shadow and outline:** the blue outline and glow from Split Stage, on the dark floor. Keep the glow radius the same on every window.
 - **One accent:** blue, with green once on the CTA.
-- **Grade:** dark cinematic LUT on the camera only in "lights out"; windows stay ungraded.
+- **Grade:** Proof Stack's near-neutral LUT on the camera (the dark cinematic LUT in "lights out"), on the adjustment layer; windows stay ungraded.
 - **End frame:** the last dark run ends on the stat and its source window together, held 1.5 s.
 
 Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium). Numbers marked *ref* were measured on the RPN or Riley reference on Nov 9, 2026. The music and SFX picks are editing judgement, since nobody listened to the references.

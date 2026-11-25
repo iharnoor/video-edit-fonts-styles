@@ -43,7 +43,7 @@ Measured with ffprobe, ffmpeg scene detection, a 10 fps frame-difference pass, p
 ### Real versus drawn
 - **Shown as the real thing:** launch blog posts, the leaderboard and its charts, a one-sentence pricing quote cropped out of the post, GitHub READMEs, an editor with the generated code, the built apps, App Store listings, the demo recordings.
 - **Drawn:** section tracker, timelines, comparison bars and big numbers pulled out of a capture, API call cards, gauges, flow boxes, speech bubbles.
-- **Every drawn stand-in is labelled.** A made-up code call carries an "illustrative" pill; an invoice mock says "illustrative example"; a chart says where its numbers came from; a photo carries its credit line.
+- **Stand-ins that could pass for real are labelled** (measured on the reference). A made-up code call carries an "illustrative" pill; an invoice mock says "illustrative example"; a chart says where its numbers came from; a photo carries its credit line.
 
 ## Long-form rules for Harnoor (they win over the reference)
 - **No captions.** On-screen words are labels and notes, never the sentence he is saying.
@@ -134,7 +134,7 @@ Measured on the reference, then my settings for Harnoor.
 - **Holds:** a finished board holds 1.5 s or more before the change; a crop holds 3 s or more.
 - **Colour discipline:** blue = subject, orange = rival, yellow = his voice. Never a second accent on a drawn graphic.
 - **Words:** 6 or fewer per board besides numbers, sources and what's inside a capture. Hand notes 4 or fewer.
-- **Real first:** if a real page exists, capture it; draw only what can't be captured, and tag it "illustrative".
+- **Real first:** if a real page exists, capture it; draw only what can't be captured. Tag a drawing "illustrative" only when it could be read as a real screen or real data (made-up code, a mock invoice). Obvious drawings (flow boxes, bubbles, gauges) get no label, per CLAUDE.md's no-meta-labels rule.
 - **Sources:** every capture and every redrawn number gets a pill or a grey source line.
 - **Margins:** 120 px left, 100 px top, nothing within 60 px of an edge.
 - **End frame:** the question bubbles, held to the last word. No end card.
@@ -150,7 +150,7 @@ Shared rules across all styles: [What makes it premium](../../../README.md#what-
 6. Audio, preview, FCPXML.
 
 ## FCPXML delivery
-- **FCPXML 1.11+**, 1920×1080 at 30p, frame-exact rational times, validated with `xmllint` against the FCP DTD.
+- **FCPXML 1.14**, 1920×1080 at 30p, frame-exact rational times, validated with `xmllint` against the FCP DTD.
 - **Spine:** the voice recording (or the camera file, video disabled by placing boards above it) with gaps where needed. **Lane 1:** the boards, opaque. **Lane 2:** alpha labels and marks over demo footage. **Lane −1:** music if any. **Lane −2:** SFX if any.
 - No grade and no LUT: the boards are graphics and captures keep their own colours. If the face open and close are used, grade those two shots with the warm & witty LUT on an adjustment layer over them only.
 - Titles and adjustment layers need `start="3600s"`. No `interp` on position keyframes. A 23.976 clip on the 30p spine goes in as a 30p gap plus a connected clip.

@@ -93,13 +93,16 @@ def spark(frame, cx, cy, r=26, col=RED):
     return frame
 
 
-def hook(frame, small, big):
-    """Two-line title over the forehead for the first 4.5 s: a thin line, then the subject, tight leading."""
+def hook(frame, small, big, top=None):
+    """Two-line title for the first 4.5 s: a thin line, then the subject, tight leading.
+    The reference sits it over the forehead (HOOK_Y). On Harnoor's footage pass top= the y where the
+    title should start (about 220, above the hair) so no text lands on his face."""
+    y0, y1 = HOOK_Y if top is None else (top, top + HOOK_Y[1] - HOOK_Y[0])
     f1, f2 = sans(50, 560), sans(74, 760)
-    _text(frame, (W // 2, HOOK_Y[0] + 28), small, f1, WHITE)
-    _text(frame, (W // 2, HOOK_Y[1] - 40), big, f2, WHITE)
+    _text(frame, (W // 2, y0 + 28), small, f1, WHITE)
+    _text(frame, (W // 2, y1 - 40), big, f2, WHITE)
     w = ImageDraw.Draw(frame).textlength(small, font=f1)
-    return spark(frame, W // 2 + w / 2 + 22, HOOK_Y[0] + 6)
+    return spark(frame, W // 2 + w / 2 + 22, y0 + 6)
 
 
 def accent(frame, lead, word, cy=CAP_Y, caps=False):

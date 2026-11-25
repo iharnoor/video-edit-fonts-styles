@@ -56,11 +56,25 @@ Gaegu Bold (`fonts/gaegu/`, OFL) at 86 px, lowercase, 7 px tracking, white, with
 
 ## Sound
 
-- **Bed:** Ocular `_Harnoor beds/Split Stage reels – light bouncy – 120bpm` (60 s cut) at −9 dB under narration loudnormed to −14 LUFS. The first build's mix measured −13.2 LUFS.
+- **Voice:** −14 LUFS on the voice alone, range ≤3 LU, high-pass at 80–100 Hz.
+- **Bed:** Ocular `_Harnoor beds/Split Stage reels - light bouncy - 120bpm D minor - 1-00 60s.wav`, one level from frame 0. The file measures −20 LUFS, so −9 dB of gain puts it at about −29 LUFS, **15 LU under the voice**: the shared shorts rule. Set it by measured LU on any other track. Sponsored posts use Epidemic Sound at 22 LU under.
+- **Final mix:** −14 LUFS / −1 dBTP. The first build's mix came out at −13.2 LUFS because the last loudnorm was skipped; run it.
 - **Blue card entrance:** Foundation whoosh "Fast and Bouncing", trimmed to 0.9 s at 0.22, peaking about 0.12 s before the card.
 - **Lesson switch on the split:** Utility Magic Mouse click (Click Long 03) at 0.35.
 - **Stack card pop:** Utility touchscreen single at 0.35.
 - **Match-cut burst:** as the match-cut skill says (a tick on each cut, plus the "Be Gentle" whoosh).
+- **Cap:** 10 sounds a minute outside the burst. Plain cuts, caption changes and pushes are silent.
+
+## Premium polish
+
+- **Type scale, three sizes:** captions 86 px Gaegu, word art 92–120 px, and small text (credit chips 22 px, the CTA pill) kept to one size per reel.
+- **Motion:** cards pop in 0.28 s (8–9 frames) and then only push; one card moves at a time; the face never drifts on the split.
+- **Holds:** each blue-stage card holds 1.5 s after it lands; the full three-card stack holds 1.5 s together.
+- **One accent:** cobalt. The word art is the only multicolour element, once, on the hook.
+- **Grade:** face only, on the adjustment layer; screenshots stay as captured.
+- **End frame:** the checklist or the three-card stack, complete, just before the CTA pill.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium).
 
 ## With an avatar
 

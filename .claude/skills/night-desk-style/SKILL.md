@@ -72,7 +72,7 @@ Shared rules across all styles: [What makes it premium](../../../README.md#what-
 5. Run audio (bed, SFX), the preview, then the FCPXML.
 
 ## FCPXML delivery (FCP quirks are hard rules)
-- **FCPXML 1.11+**, 1920×1080 at 30p, frame-exact rational times (`n/30s`), validated with `xmllint` against the FCP DTD.
+- **FCPXML 1.14**, 1920×1080 at 30p, frame-exact rational times (`n/30s`), validated with `xmllint` against the FCP DTD.
 - **Spine:** the original camera MOVs, ungraded, clip gain to ~−14 LUFS. Punch-ins use `adjust-transform` scale and position. **No `interp` attribute on position keyframes**: it passes the DTD but FCP drops the animation. For non-16:9 or rotated sources, `adjust-conform fit` + an explicit scale: FCP ignores `fill`. FCP applies MOV rotation tags itself, so don't rotate again.
 - **Lane 1:** the "Look Grade" adjustment layer (a title) + Custom LUT → `Night Desk.cube`, `start="3600s"`. Titles and adjustment layers need `start="3600s"`.
 - **Lane 2:** the screen, board and chapter sections (opaque, cam baked). **Lane 3:** slams and context notes (alpha). **Lane −1:** music, role music. **Lane −2:** SFX, role effects.

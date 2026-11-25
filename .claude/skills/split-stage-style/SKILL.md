@@ -1,6 +1,6 @@
 ---
 name: split-stage-style
-description: Harnoor's alternative "Split Stage" video style, from the Nick Saraev reference reel (example videos/Nick Saraev style.mp4). A light, airy stage fills the top of the frame and the talking head sits low; real browser windows with a blue outline land in the stage with blue marker highlights and magnified callouts. Big 1–3 word captions in bold black SF Pro with the key word in blue Playfair italic, dark full-screen stat beats with a big blue-gradient number, and a full-face close with a green glowing "comment" word. Harnoor's favourite style: use it when he asks for "my fav style", "my favorite", the Nick Saraev style or Split Stage (warm & witty stays the default).
+description: Harnoor's alternative "Split Stage" video style, from the Nick Saraev reference reel (example videos/Nick Saraev style.mp4). A light, airy stage fills the top of the frame and the talking head sits low; real browser windows with a blue outline land in the stage with blue marker highlights and magnified callouts. Big 1–3 word captions in bold black SF Pro with the key word in blue Playfair italic, dark full-screen stat beats with a big blue-gradient number, and a full-face close with a green glowing "comment" word. Harnoor's favourite style. Use it when he asks for "my fav style", "my favorite", the Nick Saraev style or Split Stage (warm & witty stays the default).
 ---
 
 # Split Stage: the Nick Saraev look

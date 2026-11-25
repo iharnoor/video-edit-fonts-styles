@@ -1,6 +1,6 @@
 ---
 name: editorial-style
-description: Harnoor's alternative "editorial" video style, a magazine-page look with serif captions, paper cards, one oxblood accent, quiet eased motion and a soft film grade. Use only when Harnoor asks for the editorial / magazine / premium look (warm & witty stays the default). Covers type, palette, captions, cards, motion, sound, grade and deliverables.
+description: Harnoor's alternative "editorial" video style, a magazine-page look with serif captions, paper cards, one oxblood accent, quiet eased motion and a soft film grade. Use only when Harnoor asks for the editorial / magazine look, or for "the premium look" as a whole style (warm & witty stays the default). When he only says the visuals look basic or wants premium screenshots, use premium-paper-cards on the current style instead. Covers type, palette, captions, cards, motion, sound, grade and deliverables.
 ---
 
 # Editorial: Harnoor's premium alternative look

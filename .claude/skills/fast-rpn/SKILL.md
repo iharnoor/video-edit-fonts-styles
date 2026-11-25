@@ -5,21 +5,21 @@ description: Harnoor's FAST RPN-pixel reel workflow, a finished 9:16 reel in abo
 
 # /fast: quick RPN-pixel reel
 
-The first build was IMG_1805, "Jensen Huang is back as Nvidia CEO" (Nov 23, 2026): **11.5 min** from start to a DTD-valid FCPXML opened in Final Cut. The reference project is `video-edit-fonts-styles/videos/img1805-rpn/` (`project.md` has the cut, the fact-check and the timings).
+The first build was IMG_1805, "Jensen Huang is back as Nvidia CEO" (Nov 23, 2026): **11.5 min** from start to a DTD-valid FCPXML opened in Final Cut. The reference project is `videos/img1805-rpn/` (`project.md` has the cut, the fact-check and the timings).
 
-This skill covers **speed and scope only**. For the look, read the repo's `rpn-style` skill (RPN pixel variant section). For the burst, read `match-cut-intro` (on `origin/main`: `git show origin/main:.claude/skills/match-cut-intro/SKILL.md`, no pull). Don't restate their rules here.
+This skill covers **speed and scope only**. For the look, read the repo's `rpn-style` skill (RPN pixel variant section). For the burst, read [`match-cut-intro`](../match-cut-intro/SKILL.md). Don't restate their rules here.
 
 ## Stage order (with IMG_1805 times)
 
 | # | Stage | Time | How |
 |---|---|---|---|
-| 1 | Set up + transcript | 0:40 | `~/.cache/fast-rpn/venv/bin/python ~/.claude/skills/fast/kit/new_reel.py <MOV> [--sister img1843-rpn]`. This copies the scripts, extracts audio, runs AssemblyAI, and prints indexed words plus a frame strip (`edit/strip.png`). |
+| 1 | Set up + transcript | 0:40 | `~/.cache/fast-rpn/venv/bin/python .claude/skills/fast-rpn/kit/new_reel.py <MOV> [--sister img1843-rpn]`. This copies the scripts, extracts audio, runs AssemblyAI, and prints indexed words plus a frame strip (`edit/strip.png`). |
 | 2 | Quick fact-check, **main claim only** | 1:00 | 2–4 `WebSearch` calls in one turn. Find the primary source (company release, filing, official page) and flag the rest. Don't research deeply. |
 | 3 | Fetch assets **in parallel** | 1:00 | Run in one Bash call with `&` + `wait`: the source-page capture (headless Chrome) and the burst images (Commons API, recipe below). |
 | 4 | Look at the frame strip, plan beats | 1:45 | Object in hand = full face. Pick 2–4 visuals. Everything else is face. |
 | 5 | Edit 5 config spots (next section) | 1:45 | — |
 | 6 | Test stills | 0:20 | `build.py main stills 2.5 5 20 …`: look at the sheet once. |
-| 7 | Render, audio, FCPXML, stills, DTD check, open FCP | ~1:30 | `~/.claude/skills/fast/kit/run.sh <slug> [still times]`. Set `NO_OPEN=1` while iterating so FCP doesn't import duplicates; open once at the end. |
+| 7 | Render, audio, FCPXML, stills, DTD check, open FCP | ~1:30 | `.claude/skills/fast-rpn/kit/run.sh <slug> [still times]`. Set `NO_OPEN=1` while iterating so FCP doesn't import duplicates; open once at the end. |
 | 8 | Review contact sheet + match-cut sheet, fix, rerun 7 | ~2:50 | Read `img<N>_contact.jpg` and `img<N>_matchcut_cuts.jpg`. |
 | 9 | Notes | 1:00 | `videos/<slug>/project.md` (cut, visuals, fact-check flags, timings, not verified). |
 
@@ -70,7 +70,7 @@ q = 'https://commons.wikimedia.org/w/api.php?' + urlencode(dict(action='query', 
 - Names spelled right, checked against an official source. Quick fact-check of the main claim only, and **flag** shaky lines in `project.md` rather than researching them.
 - Tweets and posts shown whole, no meta labels. Object-in-hand beats are full face.
 - Ocular SFX (`~/Music/Ocular_Sounds/`) + one bed from `~/Music/documentary es/` at 15 LU under the voice; voice at −14 LUFS.
-- AssemblyAI transcript (key in `~/.config/assemblyai/config.json`, never printed).
+- AssemblyAI transcript. The key is `ASSEMBLY_AI_KEY` in `~/.zshrc` (some machines keep it in `~/.config/assemblyai/config.json`); never print it.
 
 ## Deliverables and checks (`~/Movies/FCP/<slug>-graphics/`)
 - `title.mov` (opening title alone, ProRes 4444 alpha; lane 3 "Title" in the FCPXML).
@@ -102,4 +102,8 @@ q = 'https://commons.wikimedia.org/w/api.php?' + urlencode(dict(action='query', 
 - `~/.cache/fast-rpn/faces_all` is the Apple Vision face tool, copied from an older session scratchpad. If it's missing, look for `faces_all` in `/private/tmp/claude-501/*/*/scratchpad/`.
 - zsh doesn't word-split `$VAR` in `for t in $T`. Use `${=T}`.
 
-> Repo copy of the user-scope skill at `~/.claude/skills/fast/` (named `fast-rpn` here so it does not shadow `/fast`). Keep the two in sync.
+## Where the kit runs from
+
+- This repo copy is the source of truth. It's named `fast-rpn` so it doesn't shadow a user-scope `/fast` skill at `~/.claude/skills/fast/`, if one is installed. Keep the two in sync.
+- `new_reel.py` and `run.sh` find the repo from their own location (four levels up from `kit/`). When running a copy outside the repo, set `FAST_RPN_REPO` to the repo root.
+- `~/.cache/fast-rpn/` (venv, `faces_all`, the DTD copy) is per machine. If it's missing, rebuild it with the **Environment** steps before stage 1.

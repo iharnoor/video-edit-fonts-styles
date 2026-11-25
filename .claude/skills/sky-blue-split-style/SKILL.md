@@ -36,8 +36,25 @@ Follow `.claude/skills/match-cut-intro/`: 8 images × 4 frames, starting on the 
 
 ## Edit (real footage)
 
-- Transcribe with AssemblyAI. Keep the clean take of each line and drop the false starts and any take that states a wrong number. Inside a take, cut pauses over 0.3 s down to about 0.16 s and keep every word.
-- No music bed, no LUT. The only SFX are the match-cut ticks and the whoosh. Voice at −14 LUFS.
+- Transcribe with AssemblyAI. Keep the clean take of each line and drop the false starts and any take that states a wrong number. Inside a take, cut pauses over 0.3 s down to about 0.16 s and keep every word. The word-finish rule in CLAUDE.md applies.
+
+## Sound
+
+- **Voice:** −14 LUFS on the voice alone, range ≤3 LU, high-pass at 80–100 Hz.
+- **No music bed** by default. Both reference builds shipped without one and Harnoor kept them that way. If he asks for music, use one bed 15–20 LU under the voice (22 LU and Epidemic Sound for sponsors).
+- **SFX:** only the match-cut ticks and the "Be Gentle" whoosh, as the match-cut skill sets them. Marker swipes, stat pops and full-face switches are silent.
+- **Final mix:** −14 LUFS / −1 dBTP.
+
+## Premium polish
+
+- **Type scale, three sizes:** seam captions 74 px, stat-card titles about 60 px, pills 90–190 px tall.
+- **Motion:** captions pop in 0.12 s; stat elements settle within 10 frames; one element pops per spoken word; the face never drifts on a split.
+- **Holds:** a capture holds at least 1.5 s after its marker lands; a finished stat card holds 1.5 s.
+- **One accent:** sky blue (`#56B6FF` marker, sky pills). Navy is ink, not a second accent.
+- **Grade:** no LUT on the reference builds. If the face needs one, put it on the adjustment layer under the overlay; captures stay ungraded.
+- **End frame:** the full-face CTA with the comment pill and the link pill both on screen.
+
+Shared rules and the measurements behind them: [What makes it premium](../../../README.md#what-makes-it-premium).
 
 ## FCPXML pattern (verified against the 1.14 DTD)
 
