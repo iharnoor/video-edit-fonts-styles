@@ -1,0 +1,643 @@
+[
+ {
+  "tl": 0,
+  "cam_in": 144,
+  "dur": 395,
+  "mode": "face"
+ },
+ {
+  "tl": 395,
+  "cam_in": 775,
+  "dur": 410,
+  "mode": "face"
+ },
+ {
+  "tl": 805,
+  "cam_in": 1185,
+  "dur": 508,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "tml blog",
+  "scr_in": 5347,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_002.mov",
+   "crop_x": 610
+  }
+ },
+ {
+  "tl": 1313,
+  "cam_in": 1757,
+  "dur": 473,
+  "mode": "face"
+ },
+ {
+  "tl": 1786,
+  "cam_in": 2524,
+  "dur": 176,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "blog",
+  "scr_in": 6687,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_004.mov",
+   "crop_x": 512
+  }
+ },
+ {
+  "tl": 1962,
+  "cam_in": 2700,
+  "dur": 690,
+  "mode": "scr",
+  "crop": [
+   1100,
+   560,
+   1700
+  ],
+  "tag": "diagram",
+  "scr_in": 6863,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_005.mov",
+   "crop_x": 558
+  }
+ },
+ {
+  "tl": 2652,
+  "cam_in": 3390,
+  "dur": 119,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "blog",
+  "scr_in": 7553,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_006.mov",
+   "crop_x": 592
+  }
+ },
+ {
+  "tl": 2771,
+  "cam_in": 3509,
+  "dur": 1,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "blog",
+  "scr_in": 7671,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_007.mov",
+   "crop_x": 541
+  }
+ },
+ {
+  "tl": 2772,
+  "cam_in": 3510,
+  "dur": 486,
+  "mode": "scr",
+  "crop": [
+   895,
+   670,
+   2100
+  ],
+  "tag": "demos",
+  "scr_in": 7673,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_008.mov",
+   "crop_x": 592
+  }
+ },
+ {
+  "tl": 3258,
+  "cam_in": 3996,
+  "dur": 252,
+  "mode": "face"
+ },
+ {
+  "tl": 3510,
+  "cam_in": 4282,
+  "dur": 234,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "ollama",
+  "scr_in": 8445,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_010.mov",
+   "crop_x": 439
+  }
+ },
+ {
+  "tl": 3744,
+  "cam_in": 4532,
+  "dur": 663,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "ollama",
+  "scr_in": 8695,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_011.mov",
+   "crop_x": 428
+  }
+ },
+ {
+  "tl": 4407,
+  "cam_in": 6249,
+  "dur": 156,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "ollama",
+  "scr_in": 10412,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_012.mov",
+   "crop_x": 460
+  }
+ },
+ {
+  "tl": 4563,
+  "cam_in": 6405,
+  "dur": 241,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "ollama run",
+  "scr_in": 10567,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_013.mov",
+   "crop_x": 466
+  }
+ },
+ {
+  "tl": 4804,
+  "cam_in": 6681,
+  "dur": 849,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "ollama run",
+  "scr_in": 10843,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_014.mov",
+   "crop_x": 465
+  }
+ },
+ {
+  "tl": 5653,
+  "cam_in": 7530,
+  "dur": 480,
+  "mode": "face"
+ },
+ {
+  "tl": 6133,
+  "cam_in": 8215,
+  "dur": 170,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "config",
+  "scr_in": 12377,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_016.mov",
+   "crop_x": 408
+  }
+ },
+ {
+  "tl": 6303,
+  "cam_in": 8779,
+  "dur": 351,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "claude code",
+  "scr_in": 12941,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_017.mov",
+   "crop_x": 410
+  }
+ },
+ {
+  "tl": 6654,
+  "cam_in": 9187,
+  "dur": 145,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "claude code",
+  "scr_in": 13349,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_018.mov",
+   "crop_x": 608
+  }
+ },
+ {
+  "tl": 6799,
+  "cam_in": 9362,
+  "dur": 379,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "claude code",
+  "scr_in": 13525,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_019.mov",
+   "crop_x": 615
+  }
+ },
+ {
+  "tl": 7178,
+  "cam_in": 9741,
+  "dur": 117,
+  "mode": "face"
+ },
+ {
+  "tl": 7295,
+  "cam_in": 9881,
+  "dur": 151,
+  "mode": "face"
+ },
+ {
+  "tl": 7446,
+  "cam_in": 10044,
+  "dur": 73,
+  "mode": "face"
+ },
+ {
+  "tl": 7519,
+  "cam_in": 10133,
+  "dur": 504,
+  "mode": "face"
+ },
+ {
+  "tl": 8023,
+  "cam_in": 10664,
+  "dur": 96,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "processing",
+  "scr_in": 14827,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_024.mov",
+   "crop_x": 673
+  }
+ },
+ {
+  "tl": 8119,
+  "cam_in": 11249,
+  "dur": 184,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "processing",
+  "scr_in": 15411,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_025.mov",
+   "crop_x": 529
+  }
+ },
+ {
+  "tl": 8303,
+  "cam_in": 11453,
+  "dur": 115,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "processing",
+  "scr_in": 15615,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_026.mov",
+   "crop_x": 532
+  }
+ },
+ {
+  "tl": 8418,
+  "cam_in": 11603,
+  "dur": 25,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "processing",
+  "scr_in": 15765,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_027.mov",
+   "crop_x": 531
+  }
+ },
+ {
+  "tl": 8443,
+  "cam_in": 12236,
+  "dur": 646,
+  "mode": "face"
+ },
+ {
+  "tl": 9089,
+  "cam_in": 14161,
+  "dur": 38,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "api wait",
+  "scr_in": 18323,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_029.mov",
+   "crop_x": 555
+  }
+ },
+ {
+  "tl": 9127,
+  "cam_in": 14222,
+  "dur": 556,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "api wait",
+  "scr_in": 18385,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_030.mov",
+   "crop_x": 491
+  }
+ },
+ {
+  "tl": 9683,
+  "cam_in": 14958,
+  "dur": 1788,
+  "mode": "scr",
+  "crop": [
+   450,
+   80,
+   2990
+  ],
+  "tag": "built apps",
+  "scr_in": 19121,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_031.mov",
+   "crop_x": 538
+  }
+ },
+ {
+  "tl": 11471,
+  "cam_in": 16746,
+  "dur": 661,
+  "mode": "face"
+ },
+ {
+  "tl": 12132,
+  "cam_in": 17445,
+  "dur": 43,
+  "mode": "face"
+ },
+ {
+  "tl": 12175,
+  "cam_in": 17532,
+  "dur": 243,
+  "mode": "face"
+ },
+ {
+  "tl": 12418,
+  "cam_in": 17775,
+  "dur": 74,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "activity monitor",
+  "scr_in": 21937,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_035.mov",
+   "crop_x": 541
+  }
+ },
+ {
+  "tl": 12492,
+  "cam_in": 18019,
+  "dur": 219,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "activity monitor",
+  "scr_in": 22181,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_036.mov",
+   "crop_x": 598
+  }
+ },
+ {
+  "tl": 12711,
+  "cam_in": 18248,
+  "dur": 674,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "activity monitor",
+  "scr_in": 22411,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_037.mov",
+   "crop_x": 629
+  }
+ },
+ {
+  "tl": 13385,
+  "cam_in": 18948,
+  "dur": 471,
+  "mode": "face"
+ },
+ {
+  "tl": 13856,
+  "cam_in": 19419,
+  "dur": 179,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "local chat",
+  "scr_in": 23581,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_039.mov",
+   "crop_x": 555
+  }
+ },
+ {
+  "tl": 14035,
+  "cam_in": 19656,
+  "dur": 785,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "local chat",
+  "scr_in": 23819,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_040.mov",
+   "crop_x": 534
+  }
+ },
+ {
+  "tl": 14820,
+  "cam_in": 20460,
+  "dur": 522,
+  "mode": "scr",
+  "crop": [
+   780,
+   290,
+   2160
+  ],
+  "tag": "local chat",
+  "scr_in": 24623,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_041.mov",
+   "crop_x": 587
+  }
+ },
+ {
+  "tl": 15342,
+  "cam_in": 20982,
+  "dur": 486,
+  "mode": "face"
+ },
+ {
+  "tl": 15828,
+  "cam_in": 21478,
+  "dur": 1630,
+  "mode": "face"
+ },
+ {
+  "tl": 17458,
+  "cam_in": 23329,
+  "dur": 424,
+  "mode": "face"
+ },
+ {
+  "tl": 17882,
+  "cam_in": 24392,
+  "dur": 658,
+  "mode": "scr",
+  "crop": [
+   895,
+   670,
+   2100
+  ],
+  "tag": "demo b-roll",
+  "scr_in": 7675,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_045.mov",
+   "crop_x": 662
+  }
+ },
+ {
+  "tl": 18540,
+  "cam_in": 25050,
+  "dur": 530,
+  "mode": "face"
+ },
+ {
+  "tl": 19070,
+  "cam_in": 25641,
+  "dur": 48,
+  "mode": "scr",
+  "crop": [
+   895,
+   670,
+   2100
+  ],
+  "tag": "demo b-roll",
+  "scr_in": 7765,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_047.mov",
+   "crop_x": 650
+  }
+ },
+ {
+  "tl": 19118,
+  "cam_in": 25743,
+  "dur": 220,
+  "mode": "scr",
+  "crop": [
+   895,
+   670,
+   2100
+  ],
+  "tag": "demo b-roll",
+  "scr_in": 7867,
+  "cc": {
+   "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_048.mov",
+   "crop_x": 685
+  }
+ },
+ {
+  "tl": 19338,
+  "cam_in": 26022,
+  "dur": 515,
+  "mode": "face"
+ }
+]

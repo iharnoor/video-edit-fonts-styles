@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Free Claude Code data scenes</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  /* Five full-frame data beats for the 16:9 long form, in the video's own look: graphite floor with a faint dot grid,
+     white Poppins, SF Mono labels, ONE accent (terracotta). Composition time is local: A 0-12.4, B 12.4-25.7, C 25.7-35.7,
+     D 35.7-48.2, E 48.2-62.4 (timeline = 233.4 / 382.6 / 427.4 / 569.4 / 581.9 s). The bottom-right 360x430 px stays empty
+     for the corner cam lane. Logos sit blurred until the name is said, then sharpen. */
+  @font-face { font-family: Pop; src: url(assets/fonts/Poppins-Bold.ttf); font-weight: 700; }
+  @font-face { font-family: Pop; src: url(assets/fonts/Poppins-ExtraBold.ttf); font-weight: 800; }
+  @font-face { font-family: Pop; src: url(assets/fonts/Poppins-SemiBold.ttf); font-weight: 600; }
+  @font-face { font-family: Pop; src: url(assets/fonts/Poppins-Medium.ttf); font-weight: 500; }
+  @font-face { font-family: Mono; src: url(assets/fonts/SFNSMono.ttf); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #111113; }
+  :root { --acc: #E07A52; --ink: #F6F4EF; --dim: #9A978F; --card: #1C1C1F; --line: #2E2E33; --bg: #111113; }
+  #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; color: var(--ink); font-family: Pop, sans-serif; }
+  .clip { position: absolute; inset: 0; }
+  #floor { background: radial-gradient(circle at 1px 1px, #2A2A2F 1.5px, transparent 1.6px) 0 0 / 48px 48px, radial-gradient(ellipse at 30% 20%, #1B1B1F, #0E0E10 70%); }
+  .abs { position: absolute; }
+  .kick { left: 140px; top: 110px; font-family: Mono; font-size: 26px; letter-spacing: 4px; color: var(--dim); text-transform: uppercase; }
+  .hd { left: 140px; top: 150px; font-size: 76px; font-weight: 800; letter-spacing: -1px; line-height: 1.05; }
+  .hd em { font-style: normal; color: var(--acc); }
+  .src { left: 140px; top: 990px; font-family: Mono; font-size: 22px; color: var(--dim); letter-spacing: 1px; }
+  .logo { width: 72px; height: 72px; border-radius: 18px; object-fit: cover; }
+  .row { left: 140px; width: 1300px; height: 110px; }
+  .row .lab { position: absolute; left: 96px; top: 0; font-size: 34px; font-weight: 600; }
+  .row .lab small { font-family: Mono; font-size: 22px; color: var(--dim); font-weight: 400; margin-left: 12px; letter-spacing: 1px; }
+  .row .logo { position: absolute; left: 0; top: 10px; }
+  .row .track { position: absolute; left: 96px; top: 56px; width: 1000px; height: 40px; background: var(--card); border-radius: 12px; border: 1px solid var(--line); }
+  .row .bar { position: absolute; left: 0; top: 0; height: 100%; border-radius: 12px; background: #5B5953; transform-origin: 0 50%; }
+  .row .bar.acc { background: var(--acc); box-shadow: 0 0 30px rgba(224,122,82,.35); }
+  .row .val { white-space: nowrap; position: absolute; left: 1120px; top: 44px; font-size: 48px; font-weight: 800; }
+  .chip { display: inline-block; padding: 18px 30px; margin: 0 18px 22px 0; border-radius: 18px; background: var(--card); border: 1px solid var(--line); font-size: 40px; font-weight: 600; }
+  .chip b { color: var(--acc); font-weight: 800; }
+  /* RAM gauge */
+  #cGauge { left: 140px; top: 400px; width: 1250px; height: 120px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+  #cFill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: linear-gradient(90deg, #C2633F, var(--acc)); transform-origin: 0 50%; }
+  #cNum { left: 140px; top: 560px; font-size: 150px; font-weight: 800; line-height: 1; }
+  #cNum span { color: var(--dim); font-size: 70px; font-weight: 600; }
+  #cNote { left: 140px; top: 760px; font-size: 38px; font-weight: 500; color: var(--ink); }
+  #cNote .logo { width: 56px; height: 56px; vertical-align: middle; margin-right: 10px; border-radius: 14px; }
+  /* bench */
+  .grp { left: 140px; width: 1300px; }
+  .grp .name { font-size: 34px; font-weight: 600; margin-bottom: 10px; }
+  .grp .name small { font-family: Mono; font-size: 22px; color: var(--dim); font-weight: 400; margin-left: 12px; }
+  .grp .b { position: relative; height: 40px; margin-bottom: 10px; }
+  .grp .b i { position: absolute; left: 0; top: 0; height: 40px; border-radius: 10px; transform-origin: 0 50%; display: block; }
+  .grp .b span { position: absolute; top: 0; font-size: 32px; font-weight: 800; line-height: 40px; }
+  #eLeg { left: 140px; top: 290px; font-size: 32px; font-weight: 600; }
+  #eLeg .logo { width: 52px; height: 52px; border-radius: 12px; vertical-align: middle; margin: 0 12px 0 0; }
+  #eLeg .sw { display: inline-block; width: 22px; height: 22px; border-radius: 6px; vertical-align: middle; margin: 0 10px 0 36px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="62.4" data-width="1920" data-height="1080">
+  <div id="floor" class="clip" data-start="0" data-duration="62.4" data-track-index="0"></div>
+
+  <!-- A: same prompt, cloud vs local (his test) -->
+  <div id="sA" class="clip" data-start="0" data-duration="12.4" data-track-index="1">
+    <div class="abs kick">same prompt · same Claude Code</div>
+    <div class="abs hd">Cloud vs <em>your laptop</em></div>
+    <div class="abs row" id="aR0" style="top:420px"><img class="logo" src="assets/logos/claude_icon.png"><div class="lab">Claude (cloud)<small>Claude Code default</small></div>
+      <div class="track"><div class="bar" id="aB0" style="width:10%"></div></div><div class="val" id="aV0">~1 min</div></div>
+    <div class="abs row" id="aR1" style="top:600px"><img class="logo" src="assets/logos/tml_icon.png"><div class="lab">Inkling 2 Mini (local)<small>via Ollama</small></div>
+      <div class="track"><div class="bar acc" id="aB1" style="width:100%"></div></div><div class="val" id="aV1">~10 min</div></div>
+    <div class="abs src">My own run: one simple web page, MacBook Pro, 48 GB RAM. Not a benchmark.</div>
+  </div>
+
+  <!-- B: four demo pages -->
+  <div id="sB" class="clip" data-start="12.4" data-duration="13.3" data-track-index="1">
+    <div class="abs kick">four small animated pages</div>
+    <div class="abs hd">Same work, <em>very</em> different wait</div>
+    <div class="abs row" id="bR0" style="top:420px"><img class="logo" id="bGem" src="assets/logos/gemini.png" style="background:#fff;padding:8px"><div class="lab">Gemini (cloud)<small>my estimate</small></div>
+      <div class="track"><div class="bar" id="bB0" style="width:1.2%"></div></div><div class="val" id="bV0">~20 s</div></div>
+    <div class="abs row" id="bR1" style="top:600px"><img class="logo" src="assets/logos/tml_icon.png"><div class="lab">Inkling 2 Mini (local)<small>measured</small></div>
+      <div class="track"><div class="bar acc" id="bB1" style="width:100%"></div></div><div class="val" id="bV1">~30 min</div></div>
+    <div class="abs src">Times from my session. Output was decent, about a year behind the frontier.</div>
+  </div>
+
+  <!-- C: memory -->
+  <div id="sC" class="clip" data-start="25.7" data-duration="10" data-track-index="1">
+    <div class="abs kick">activity monitor · memory used</div>
+    <div class="abs hd">It eats your <em>RAM</em></div>
+    <div id="cGauge" class="abs"><div id="cFill"></div></div>
+    <div id="cNum" class="abs"><b id="cVal">44</b> <span>of 48 GB</span></div>
+    <div id="cNote" class="abs"><img class="logo" src="assets/logos/tml_icon.png"><img class="logo" src="assets/logos/ollama_icon.png">Recommended: a Mac with <b style="color:var(--acc)">32 GB+</b> of RAM</div>
+    <div class="abs src">Sources: thinkingmachines.ai/news/inkling-2-mini · ollama.com/library/inkling-2-mini</div>
+  </div>
+
+  <!-- D: the model card -->
+  <div id="sD" class="clip" data-start="35.7" data-duration="12.5" data-track-index="1">
+    <div class="abs kick">thinking machines lab · released nov 20, 2026</div>
+    <div class="abs hd" style="display:flex;align-items:center;gap:28px"><img class="logo" src="assets/logos/tml_icon.png" style="width:96px;height:96px;border-radius:22px">Inkling 2 <em>Mini</em></div>
+    <div class="abs" id="dChips" style="left:140px;top:340px;width:1300px">
+      <div class="chip" id="d0"><b>26.4B</b> parameters · MoE</div>
+      <div class="chip" id="d1">~<b>20 GB</b> in memory</div>
+      <div class="chip" id="d2"><b>Open</b> weights</div>
+      <div class="chip" id="d3">Mac with <b>32 GB+</b> RAM</div>
+      <div class="chip" id="d4">Looped layers: middle blocks run <b>3×</b></div>
+    </div>
+    <div class="abs src">Sources: thinkingmachines.ai/news/inkling-2-mini · ollama.com/library/inkling-2-mini</div>
+  </div>
+
+  <!-- E: benchmarks vs Qwen3.8-27B -->
+  <div id="sE" class="clip" data-start="48.2" data-duration="14.2" data-track-index="1">
+    <div class="abs kick">thinking machines' own benchmark table</div>
+    <div class="abs hd">vs the old small-model king</div>
+    <div class="abs" id="eLeg"><img class="logo" src="assets/logos/tml_icon.png">Inkling 2 Mini<span class="sw" style="background:var(--acc)"></span>
+      <img class="logo" id="eQwen" src="assets/logos/qwen.png" style="margin-left:60px">Qwen3.8-27B<span class="sw" style="background:#5B5953"></span></div>
+    <div class="abs grp" id="g0" style="top:400px"><div class="name">SWE-bench Verified<small>coding</small></div>
+      <div class="b"><i class="m" style="width:792px;background:var(--acc)"></i><span style="left:812px">79.2</span></div>
+      <div class="b"><i class="q" style="width:778px;background:#5B5953"></i><span style="left:798px;color:var(--dim)">77.8</span></div></div>
+    <div class="abs grp" id="g1" style="top:580px"><div class="name">Terminal-Bench 2.1<small>agentic terminal</small></div>
+      <div class="b"><i class="m" style="width:716px;background:var(--acc)"></i><span style="left:736px">71.6</span></div>
+      <div class="b"><i class="q" style="width:730px;background:#5B5953"></i><span style="left:750px;color:var(--dim)">73.0</span></div></div>
+    <div class="abs grp" id="g2" style="top:760px"><div class="name">BrowseComp<small>research</small></div>
+      <div class="b"><i class="m" style="width:790px;background:var(--acc)"></i><span style="left:810px">79.0</span></div>
+      <div class="b"><i class="q" style="width:616px;background:#5B5953"></i><span style="left:636px;color:var(--dim)">61.6</span></div></div>
+    <div class="abs src">Source: thinkingmachines.ai/news/inkling-2-mini · scores in %, bars from 0</div>
+  </div>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  const A = 0, B = 12.4, C = 25.7, D = 35.7, E = 48.2;
+  const T = { min10: A + 4.5, gem: B + 0.95, g44: C + 2.6, qwen: E + 3.7 };
+  function pop(sel, t, dy = 24) { tl.fromTo(sel, { opacity: 0, y: dy }, { opacity: 1, y: 0, duration: 0.3, ease: 'power3.out' }, t); }
+  // scene fades
+  [['#sA', A, 12.4], ['#sB', B, 13.3], ['#sC', C, 10], ['#sD', D, 12.5], ['#sE', E, 14.2]].forEach(([s, t, d]) => {
+    tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.25 }, t);
+    if (s !== '#sD') tl.to(s, { opacity: 0, duration: 0.25 }, t + d - 0.25);
+  });
+  // A
+  pop('#sA .kick', A + 0.1); pop('#sA .hd', A + 0.2); pop('#aR0', A + 0.5);
+  tl.fromTo('#aB0', { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'power2.out' }, A + 0.7);
+  pop('#aR1', T.min10 - 0.6);
+  tl.fromTo('#aB1', { scaleX: 0 }, { scaleX: 1, duration: 1.6, ease: 'power2.inOut' }, T.min10 - 0.4);
+  tl.fromTo('#aV1', { scale: 1.4 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' }, T.min10 + 1.2);
+  pop('#sA .src', A + 7);
+  // B (Gemini logo blurred until he names it)
+  pop('#sB .kick', B + 0.1); pop('#sB .hd', B + 0.2); pop('#bR0', B + 0.3); pop('#bR1', B + 2.2);
+  tl.fromTo('#bGem', { filter: 'blur(10px)' }, { filter: 'blur(0px)', duration: 0.3 }, T.gem);
+  tl.set('#bGem', { filter: 'blur(10px)' }, B);
+  tl.fromTo('#bB0', { scaleX: 0 }, { scaleX: 1, duration: 0.3 }, T.gem);
+  tl.fromTo('#bB1', { scaleX: 0 }, { scaleX: 1, duration: 2.0, ease: 'power2.inOut' }, B + 2.5);
+  pop('#sB .src', B + 6);
+  // C
+  pop('#sC .kick', C + 0.1); pop('#sC .hd', C + 0.2); pop('#cGauge', C + 0.4); pop('#cNum', C + 0.5);
+  const g = { v: 0 };
+  tl.fromTo('#cFill', { scaleX: 0 }, { scaleX: 44 / 48, duration: 2.0, ease: 'power2.inOut' }, C + 0.7);
+  tl.to(g, { v: 44, duration: 2.0, ease: 'power2.inOut', onUpdate: () => { document.getElementById('cVal').textContent = Math.round(g.v); } }, C + 0.7);
+  pop('#cNote', C + 4.0); pop('#sC .src', C + 4.3);
+  // D
+  pop('#sD .kick', D + 0.1); pop('#sD .hd', D + 0.25);
+  ['#d0', '#d1', '#d2', '#d3', '#d4'].forEach((s, i) => pop(s, D + 1.2 + i * 1.6, 16));
+  pop('#sD .src', D + 8.5);
+  tl.to(['#sD .kick', '#sD .hd', '#dChips', '#sD .src'], { opacity: 0, duration: 0.25 }, D + 12.25);
+  // E (Qwen logo blurred until named)
+  pop('#sE .kick', E + 0.1); pop('#sE .hd', E + 0.2); pop('#eLeg', E + 0.5);
+  tl.set('#eQwen', { filter: 'blur(10px)' }, E); tl.to('#eQwen', { filter: 'blur(0px)', duration: 0.3 }, T.qwen);
+  ['#g0', '#g1', '#g2'].forEach((s, i) => {
+    const t = T.qwen + 0.3 + i * 1.4; pop(s, t, 12);
+    tl.fromTo(s + ' i', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power2.out', stagger: 0.12 }, t + 0.1);
+  });
+  pop('#sE .src', E + 9.5);
+  tl.set({}, {}, 62.4);
+  window.__timelines = window.__timelines || {};
+  window.__timelines['main'] = tl;
+</script>
+</body>
+</html>

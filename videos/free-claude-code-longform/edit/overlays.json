@@ -1,0 +1,166 @@
+[
+ {
+  "lane": "Title",
+  "name": "Title",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/title.png",
+  "tl": 0.3,
+  "dur": 4.7,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/title.mov"
+ },
+ {
+  "lane": "Chapters",
+  "name": "Chapter 01 The model",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/chapter_1.png",
+  "tl": 27.133333333333333,
+  "dur": 3.0,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/chapter_1.mov"
+ },
+ {
+  "lane": "Chapters",
+  "name": "Chapter 02 Download it",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/chapter_2.png",
+  "tl": 117.13333333333334,
+  "dur": 3.0,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/chapter_2.mov"
+ },
+ {
+  "lane": "Chapters",
+  "name": "Chapter 03 Plug it into Claude Code",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/chapter_3.png",
+  "tl": 188.43333333333334,
+  "dur": 3.0,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/chapter_3.mov"
+ },
+ {
+  "lane": "Chapters",
+  "name": "Chapter 04 What it built",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/chapter_4.png",
+  "tl": 322.9,
+  "dur": 3.0,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/chapter_4.mov"
+ },
+ {
+  "lane": "Chapters",
+  "name": "Chapter 05 Heat, RAM and speed",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/chapter_5.png",
+  "tl": 401.1666666666667,
+  "dur": 3.0,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/chapter_5.mov"
+ },
+ {
+  "lane": "Chapters",
+  "name": "Chapter 06 Why local still wins",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/chapter_6.png",
+  "tl": 539.4333333333333,
+  "dur": 3.0,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/chapter_6.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 01",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_01.png",
+  "tl": 31.233333333333334,
+  "dur": 4.7,
+  "text": "The laptop model is Inkling 2 Mini (26.4B). Inkling 2 Small is a 594B model.",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_01.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 02",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_02.png",
+  "tl": 36.13333333333333,
+  "dur": 7.5,
+  "text": "Mira Murati \u00b7 Former CTO, OpenAI \u00b7 Founder, Thinking Machines Lab",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_02.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 03",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_03.png",
+  "tl": 44.8,
+  "dur": 6.4,
+  "text": "Correction: a $2B seed round (July 2025), not $1B.",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_03.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 04",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_04.png",
+  "tl": 83.1,
+  "dur": 8.3,
+  "text": "More exactly: it reuses layers. The middle blocks run 3 times (a looped MoE).",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_04.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 05",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_05.png",
+  "tl": 92.6,
+  "dur": 4.0,
+  "text": "Demos from Thinking Machines\u2019 Inkling 2 Small post",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_05.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 06",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_06.png",
+  "tl": 96.8,
+  "dur": 9.1,
+  "text": "Thinking Machines doesn\u2019t compare it to Opus 4.5, and Anthropic has never published Opus\u2019s size.",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_06.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 07",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_07.png",
+  "tl": 195.33333333333334,
+  "dur": 6.4,
+  "text": "Claude Code with Claude models needs Pro ($20/mo) or higher, or API credits. The Free plan doesn\u2019t include it.",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_07.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 08",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_08.png",
+  "tl": 211.76666666666668,
+  "dur": 5.6,
+  "text": "ollama launch claude --model inkling-2-mini",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_08.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 09",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_09.png",
+  "tl": 217.46666666666667,
+  "dur": 9.1,
+  "text": "Anthropic doesn\u2019t support non-Claude models in Claude Code, but its terms don\u2019t forbid this setup.",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_09.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 10",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_10.png",
+  "tl": 524.5,
+  "dur": 5.766666666666667,
+  "text": "Hosted Inkling 2 Mini: $0.15 in / $0.50 out per million tokens (Tinker API).",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_10.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 11",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_11.png",
+  "tl": 555.6666666666666,
+  "dur": 12.0,
+  "text": "Offline, prompts stay on your Mac. Online, Claude Code still sends usage data unless DISABLE_TELEMETRY=1.",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_11.mov"
+ },
+ {
+  "lane": "Notes",
+  "name": "Note 12",
+  "png": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/png/note_12.png",
+  "tl": 600.0,
+  "dur": 11.0,
+  "text": "These demos are from Thinking Machines\u2019 Inkling 2 Small post, not a laptop run.",
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/note_12.mov"
+ }
+]

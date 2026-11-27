@@ -1,0 +1,219 @@
+[
+ {
+  "tl": 805,
+  "dur": 508,
+  "cam_in": 1185,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_000.mov",
+  "crop_x": 610
+ },
+ {
+  "tl": 1786,
+  "dur": 985,
+  "cam_in": 2524,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_001.mov",
+  "crop_x": 574
+ },
+ {
+  "tl": 2771,
+  "dur": 487,
+  "cam_in": 3509,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_002.mov",
+  "crop_x": 592
+ },
+ {
+  "tl": 3510,
+  "dur": 234,
+  "cam_in": 4282,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_003.mov",
+  "crop_x": 439
+ },
+ {
+  "tl": 3744,
+  "dur": 663,
+  "cam_in": 4532,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_004.mov",
+  "crop_x": 428
+ },
+ {
+  "tl": 4407,
+  "dur": 397,
+  "cam_in": 6249,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_005.mov",
+  "crop_x": 460
+ },
+ {
+  "tl": 4804,
+  "dur": 849,
+  "cam_in": 6681,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_006.mov",
+  "crop_x": 465
+ },
+ {
+  "tl": 6133,
+  "dur": 170,
+  "cam_in": 8215,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_007.mov",
+  "crop_x": 408
+ },
+ {
+  "tl": 6303,
+  "dur": 351,
+  "cam_in": 8779,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_008.mov",
+  "crop_x": 410
+ },
+ {
+  "tl": 6654,
+  "dur": 145,
+  "cam_in": 9187,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_009.mov",
+  "crop_x": 608
+ },
+ {
+  "tl": 6799,
+  "dur": 496,
+  "cam_in": 9362,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_010.mov",
+  "crop_x": 608
+ },
+ {
+  "tl": 7295,
+  "dur": 79,
+  "cam_in": 9881,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_011.mov",
+  "crop_x": 642
+ },
+ {
+  "tl": 8023,
+  "dur": 96,
+  "cam_in": 10664,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_012.mov",
+  "crop_x": 673
+ },
+ {
+  "tl": 8119,
+  "dur": 184,
+  "cam_in": 11249,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_013.mov",
+  "crop_x": 529
+ },
+ {
+  "tl": 8303,
+  "dur": 115,
+  "cam_in": 11453,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_014.mov",
+  "crop_x": 532
+ },
+ {
+  "tl": 8418,
+  "dur": 25,
+  "cam_in": 11603,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_015.mov",
+  "crop_x": 531
+ },
+ {
+  "tl": 9089,
+  "dur": 38,
+  "cam_in": 14161,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_016.mov",
+  "crop_x": 555
+ },
+ {
+  "tl": 9127,
+  "dur": 556,
+  "cam_in": 14222,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_017.mov",
+  "crop_x": 491
+ },
+ {
+  "tl": 9683,
+  "dur": 1788,
+  "cam_in": 14958,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_018.mov",
+  "crop_x": 538
+ },
+ {
+  "tl": 11477,
+  "dur": 399,
+  "cam_in": 16752,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_019.mov",
+  "crop_x": 555
+ },
+ {
+  "tl": 12418,
+  "dur": 74,
+  "cam_in": 17775,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_020.mov",
+  "crop_x": 541
+ },
+ {
+  "tl": 12492,
+  "dur": 219,
+  "cam_in": 18019,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_021.mov",
+  "crop_x": 598
+ },
+ {
+  "tl": 12711,
+  "dur": 674,
+  "cam_in": 18248,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_022.mov",
+  "crop_x": 629
+ },
+ {
+  "tl": 13856,
+  "dur": 179,
+  "cam_in": 19419,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_023.mov",
+  "crop_x": 555
+ },
+ {
+  "tl": 14035,
+  "dur": 785,
+  "cam_in": 19656,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_024.mov",
+  "crop_x": 534
+ },
+ {
+  "tl": 14820,
+  "dur": 522,
+  "cam_in": 20460,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_025.mov",
+  "crop_x": 587
+ },
+ {
+  "tl": 17082,
+  "dur": 376,
+  "cam_in": 22732,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_026.mov",
+  "crop_x": 687
+ },
+ {
+  "tl": 17458,
+  "dur": 424,
+  "cam_in": 23329,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_027.mov",
+  "crop_x": 660
+ },
+ {
+  "tl": 17882,
+  "dur": 658,
+  "cam_in": 24392,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_028.mov",
+  "crop_x": 662
+ },
+ {
+  "tl": 19070,
+  "dur": 48,
+  "cam_in": 25641,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_029.mov",
+  "crop_x": 650
+ },
+ {
+  "tl": 19118,
+  "dur": 220,
+  "cam_in": 25743,
+  "file": "/Users/harnoor/Movies/FCP/free-claude-code-longform/graphics/cornercam/cc_030.mov",
+  "crop_x": 685
+ }
+]

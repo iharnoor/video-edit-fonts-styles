@@ -23,6 +23,13 @@ Learned Nov 19–20, 2026, on the two ElevenLabs avatar reels (Anthropic IPO and
 
 **The alternative, an opening sequence** (`mode: intro`): 3–5 images at about 0.65 s each over the first ~2.5 s, with one push-in from 78% to 100% of the landing size that runs through every cut, then a match cut into the reel's frame at that point. Put a short label plus a two-line hook (key word in the sky-blue pill) low on a soft dark band, away from the subject. Harnoor found this too slow on its own, so use it only when he asks for an opener.
 
+## Long form (16:9)
+
+Learned from Harnoor's own FCP pass on the free-claude-code long form (Nov 27, 2026):
+- **No split open on long form.** Open on the full-face line and play the burst **full frame**: he scaled the 880×495 card burst 1.94× to fill 1920×1080 and kept only the 1.3 s burst (from 1.57 s). Build long-form bursts at 1920×1080 from the start.
+- **Second mini burst at the next named thing** (~14.5 s there): 5 of his own screenshots of the product pages at 5–8 frames each, an Ocular touch single on each cut.
+- **Images can be the video's own screen frames** (diagram, demo, install page, terminal, built page, Activity Monitor). No licence questions, and they preview the video.
+
 ## Shape chains that worked
 
 - **Money / IPO (discs on black, landing on his head):** $10 Liberty-head coin → 1849 Liberty Head $20 → Buffalo nickel → 1907 $20 → SEC seal → Apollo 17 Earth → Earth by day → Earth at night → his head. A profile head on a coin into his head is the strongest match. A black background makes the cut-out avatar match too.

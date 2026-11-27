@@ -1,0 +1,372 @@
+[
+ {
+  "seg": 0,
+  "in": 144,
+  "out": 539,
+  "text": "Silicon Valley is shaking right now because there is a new model that is making it possible for you to run Claude Code, Codex, do productive work, coding work, agentic work on your MacBook.",
+  "tl": 0,
+  "in_s": 4.8,
+  "out_s": 17.966666666666665,
+  "tl_s": 0.0
+ },
+ {
+  "seg": 1,
+  "in": 775,
+  "out": 1693,
+  "text": "And that is insane. First of all, if you have seen these thumbnails, oh, Claude Code is free right now, Codex is free right now. I disagree, but the moment is coming to reality right now. How much it is coming to reality, I'll show you in a second. First of all, let's talk about this company called Thinking Machines. They released their model called Inkling-2 Small. Now, what, what the hell is this? So Meena Murthy, ex-CTO of OpenAI, so she left OpenAI, created this company called Thinking Machines.",
+  "tl": 395,
+  "in_s": 25.833333333333332,
+  "out_s": 56.43333333333333,
+  "tl_s": 13.166666666666666
+ },
+ {
+  "seg": 2,
+  "in": 1757,
+  "out": 2230,
+  "text": "Within a few months, she raised a billion dollars. Now they have created a model which is more powerful than the smallest model which can run on your MacBook, Mac Studio, that also more efficiently and more powerful than some Chinese models you have seen in the past.",
+  "tl": 1313,
+  "in_s": 58.56666666666667,
+  "out_s": 74.33333333333333,
+  "tl_s": 43.766666666666666
+ },
+ {
+  "seg": 3,
+  "in": 2524,
+  "out": 3509,
+  "text": "In the past, it was Qwen model. I'll show you in a second. But this model, why it's possible\u2014 if you see this diagram, as I'm hovering over it, let's say I click on this, it's actually reusing the previous node, right? Let's say click on this and then click on this. You see the number of ovals are reducing because this diagram is trying to show that if in a neural network there are a bunch of neurons, you can reuse some of them. And that's what they have made it possible, reusing the parameters, etc. That is the big crux of it. If you want to go technical, you can read this whole blog.",
+  "tl": 1786,
+  "in_s": 84.13333333333334,
+  "out_s": 116.96666666666667,
+  "tl_s": 59.53333333333333
+ },
+ {
+  "seg": 4,
+  "in": 3509,
+  "out": 4248,
+  "text": "And most importantly, these are the few things they created. Look at the websites. This is like Opus 4.5 level, which was released a year ago, which was a closed-source trillion-parameter model. Biggest models which run on big NVIDIA servers, they running on your MacBook. But there is a little bit of nuance to it. That's why I disagreed with those thumbnails. That nuance is let's say I want to download and run it.",
+  "tl": 2771,
+  "in_s": 116.96666666666667,
+  "out_s": 141.6,
+  "tl_s": 92.36666666666666
+ },
+ {
+  "seg": 5,
+  "in": 4282,
+  "out": 4516,
+  "text": "let's say we go to Ollama or Hugging Face where you can download the model. So let's say we go to Ollama, go to",
+  "tl": 3510,
+  "in_s": 142.73333333333332,
+  "out_s": 150.53333333333333,
+  "tl_s": 117.0
+ },
+ {
+  "seg": 5,
+  "in": 4532,
+  "out": 5195,
+  "text": "models, and then here search for Inkling 2 Mini. Here you go. And then you can download any of these models, and I would say go for the latest one, or you can go for the one which is post-trained as well, like this one. So I will\u2014 I personally went for this one. Let's say we download it and then I go to my terminal.",
+  "tl": 3744,
+  "in_s": 151.06666666666666,
+  "out_s": 173.16666666666666,
+  "tl_s": 124.8
+ },
+ {
+  "seg": 6,
+  "in": 6249,
+  "out": 6646,
+  "text": "So I'm in my terminal. I'm gonna copy this command and now it's gonna run this model after downloading 20 gigabytes of files. It's running and processing right now, and then will start running on my computer.",
+  "tl": 4407,
+  "in_s": 208.3,
+  "out_s": 221.53333333333333,
+  "tl_s": 146.9
+ },
+ {
+  "seg": 7,
+  "in": 6681,
+  "out": 8010,
+  "text": "Now, since it's downloaded already, if I say, \"Hi,\" just hold on a second. It's processing 4 tokens in a second. Look how fast it replied. In the past, even a 1GB DeepSync model used to take almost 2 to 5 seconds to just respond to \"Hi.\" Now, just saying, \"How are you?\" and see how fast the response is coming back. Coming for a local model. That's insane. It's still slow, not as fast as Claude, but it's progress. Now let's now run on Claude. So let's say if you want to run on Claude Code, OpenRouter, Hermes, wherever you are. So let's say you reach your limits of Claude. Can you run this model as a replacement? The answer is no. It is powerful.",
+  "tl": 4804,
+  "in_s": 222.7,
+  "out_s": 267.0,
+  "tl_s": 160.13333333333333
+ },
+ {
+  "seg": 8,
+  "in": 8215,
+  "out": 8385,
+  "text": "So let's say I copy this Claude Code configuration. I have Claude installed with Brew in my Mac.",
+  "tl": 6133,
+  "in_s": 273.8333333333333,
+  "out_s": 279.5,
+  "tl_s": 204.43333333333334
+ },
+ {
+  "seg": 9,
+  "in": 8779,
+  "out": 9130,
+  "text": "Now let's say I run this command, Ollama launch Claude Code. I ran it, it opened in Claude. Now let's say I give it Hey, build me a simple website explaining",
+  "tl": 6303,
+  "in_s": 292.6333333333333,
+  "out_s": 304.3333333333333,
+  "tl_s": 210.1
+ },
+ {
+  "seg": 9,
+  "in": 9187,
+  "out": 9332,
+  "text": "parallel versus concurrency with animations.",
+  "tl": 6654,
+  "in_s": 306.23333333333335,
+  "out_s": 311.06666666666666,
+  "tl_s": 221.8
+ },
+ {
+  "seg": 9,
+  "in": 9362,
+  "out": 9858,
+  "text": "Now, if you do this, a Claude Code terminal would execute this within 1 minute and open it. Now, with this open source model, how much time it takes? 10 minutes. So The truth of Claude Code becoming free,",
+  "tl": 6799,
+  "in_s": 312.06666666666666,
+  "out_s": 328.6,
+  "tl_s": 226.63333333333333
+ },
+ {
+  "seg": 9,
+  "in": 9881,
+  "out": 10032,
+  "text": "it is true but false at the same time. Are you getting similar performance?",
+  "tl": 7295,
+  "in_s": 329.3666666666667,
+  "out_s": 334.4,
+  "tl_s": 243.16666666666666
+ },
+ {
+  "seg": 9,
+  "in": 10044,
+  "out": 10117,
+  "text": "Yes, similar, but",
+  "tl": 7446,
+  "in_s": 334.8,
+  "out_s": 337.23333333333335,
+  "tl_s": 248.2
+ },
+ {
+  "seg": 9,
+  "in": 10133,
+  "out": 10637,
+  "text": "one year older generation level, if you call it similar. Are you getting same speed? Absolutely not. And for tough task, time horizon will be even hours of time on a local MacBook Pro, this one that I have. So because of that, right now, if you see",
+  "tl": 7519,
+  "in_s": 337.76666666666665,
+  "out_s": 354.56666666666666,
+  "tl_s": 250.63333333333333
+ },
+ {
+  "seg": 9,
+  "in": 10664,
+  "out": 10760,
+  "text": "It's still processing. I'm gonna show you when it builds.",
+  "tl": 8023,
+  "in_s": 355.46666666666664,
+  "out_s": 358.6666666666667,
+  "tl_s": 267.43333333333334
+ },
+ {
+  "seg": 10,
+  "in": 11249,
+  "out": 11433,
+  "text": "So it's processing, it's running on Claude Code showing these words like frolicking, et cetera.",
+  "tl": 8119,
+  "in_s": 374.96666666666664,
+  "out_s": 381.1,
+  "tl_s": 270.6333333333333
+ },
+ {
+  "seg": 10,
+  "in": 11453,
+  "out": 11568,
+  "text": "Like flabbergasting, lot of cool words that Claude,",
+  "tl": 8303,
+  "in_s": 381.76666666666665,
+  "out_s": 385.6,
+  "tl_s": 276.76666666666665
+ },
+ {
+  "seg": 10,
+  "in": 11603,
+  "out": 11628,
+  "text": "Claude uses.",
+  "tl": 8418,
+  "in_s": 386.76666666666665,
+  "out_s": 387.6,
+  "tl_s": 280.6
+ },
+ {
+  "seg": 11,
+  "in": 12236,
+  "out": 12882,
+  "text": "Now, when you run Claude Code, okay, when you run open source model on your computer, one thing happens, the laptop heats up like crazy. This is so hot right now. It is blowing, like fans start running really fast. For a MacBook Pro, you're actually like running the GPU at its peak when you run an open source model. So remember that.",
+  "tl": 8443,
+  "in_s": 407.8666666666667,
+  "out_s": 429.4,
+  "tl_s": 281.43333333333334
+ },
+ {
+  "seg": 12,
+  "in": 14161,
+  "out": 14199,
+  "text": "So",
+  "tl": 9089,
+  "in_s": 472.03333333333336,
+  "out_s": 473.3,
+  "tl_s": 302.96666666666664
+ },
+ {
+  "seg": 12,
+  "in": 14222,
+  "out": 14778,
+  "text": "right now it says waiting for API response. You know why? Because it's running in API mode and calling Inkling 2 Mini right now directly. It thinks it's doing an API call, but it's still still running the model which is local to it right now. You, if you want, with some more configuration, you can run it on Claude desktop app as well.",
+  "tl": 9127,
+  "in_s": 474.06666666666666,
+  "out_s": 492.6,
+  "tl_s": 304.23333333333335
+ },
+ {
+  "seg": 13,
+  "in": 14958,
+  "out": 17407,
+  "text": "Now, once the run completes, here, here's something you will see. Number 1, when I tried to build a basic app, this is the Hello World app it created. Number 2, I asked it, hey, build something else. This was the slop app like Opus 4.5 from last year it created. It's still slop. I I asked it to reduce the sloppiness and build for concurrency versus parallelism. Then it got a little bit beautiful. Look how cool the moving animations are in it. And one task is concurrent. That means both can\u2014 both are doing together, but each task can finish at a different time. Parallel tasks start together and finish together. This is an excellent explanation of concurrency versus parallelism. And if I reset it, it starts again. Beautiful. I asked you to create another animation that is thread and processes. This is not so good, no moving animations here. Then I asked it to explain bandwidth versus, uh, throughput. This is a cool animation, but the truth is all these animations took total 30 minutes to create. You would ask Gemini, it'll do it in 20 seconds. So that is the truth, that closed-source models have become so fast, they do something in 10 to 20 seconds, while open-source models are doing the same level of work, doing as good at times, but 10 to 100 times slower. Look at it right now. The fan is running, running on my computer.",
+  "tl": 9683,
+  "in_s": 498.6,
+  "out_s": 580.2333333333333,
+  "tl_s": 322.76666666666665
+ },
+ {
+  "seg": 13,
+  "in": 17445,
+  "out": 17488,
+  "text": "Let me show you the fan.",
+  "tl": 12132,
+  "in_s": 581.5,
+  "out_s": 582.9333333333333,
+  "tl_s": 404.4
+ },
+ {
+  "seg": 13,
+  "in": 17532,
+  "out": 17849,
+  "text": "So fan is running, it is killing my MacBook to its peak using the GPU at its peak. Let me show you Activity Monitor. So if you open Activity Monitor right now",
+  "tl": 12175,
+  "in_s": 584.4,
+  "out_s": 594.9666666666667,
+  "tl_s": 405.8333333333333
+ },
+ {
+  "seg": 13,
+  "in": 18019,
+  "out": 18238,
+  "text": "As it's like writing code for the last 10 minutes for a basic website, you will see that I have, let's say,",
+  "tl": 12492,
+  "in_s": 600.6333333333333,
+  "out_s": 607.9333333333333,
+  "tl_s": 416.4
+ },
+ {
+  "seg": 13,
+  "in": 18248,
+  "out": 18922,
+  "text": "in memory I have 48 gigs of\u2014 out of 48 gigs of RAM, 44 gigs of RAM being used. And in terms of CPU, CPU load is fine. So it's mainly the RAM. So if you have even MacBook, Air M5 with decent RAM, with 32 to 48 gigs of RAM, you could make it possible as well.",
+  "tl": 12711,
+  "in_s": 608.2666666666667,
+  "out_s": 630.7333333333333,
+  "tl_s": 423.7
+ },
+ {
+  "seg": 14,
+  "in": 18948,
+  "out": 19598,
+  "text": "And this is the clip from Alex Finn. He actually was surprised as well that in terms of text, how fast text\u2014 how fast text is being generated by open source model on MacBook is insane. You'd never see that fast text being created. If I show you again, go to Terminal and run Ollama run Inkling 2, and I say,",
+  "tl": 13385,
+  "in_s": 631.6,
+  "out_s": 653.2666666666667,
+  "tl_s": 446.1666666666667
+ },
+ {
+  "seg": 14,
+  "in": 19656,
+  "out": 20441,
+  "text": "I say, uh, tell me about a story when you were hit by your mom and dad. So I say that. Now see how fast it's gonna generate. Right now it's slow because my RAM is used a lot because of this Claude Code session running. So now, right now it's slowed down. So let's say I kill this Claude Code session. Now I'm gonna say kill, Ctrl+C, Ctrl+C. And Claude Code is not running. Now if you go",
+  "tl": 14035,
+  "in_s": 655.2,
+  "out_s": 681.3666666666667,
+  "tl_s": 467.8333333333333
+ },
+ {
+  "seg": 14,
+  "in": 20460,
+  "out": 21468,
+  "text": "here, the whole text, the whole paragraph is generated so fast, like the early ChatGPT days. Wow. The story is when I was hit by a mom and dad, need answer. This is the reasoning token. It's still thinking. And now, I'm sorry, I heard that happened. Now the whole story is here. I mean, websites are kind of decent, I will say again. But if you prompted more, if you have 30 minutes for a Claude Code session, you wanna run locally, Yes, you could continue Claude Code sessions with the open source model. Instead of spending $2 to $3",
+  "tl": 14820,
+  "in_s": 682.0,
+  "out_s": 715.6,
+  "tl_s": 494.0
+ },
+ {
+  "seg": 14,
+  "in": 21478,
+  "out": 23108,
+  "text": "on an open source API, it becomes free. But still, an open source API that you purchase through Fireworks, OpenRouter, wherever you buy from, that'll still be faster. But the biggest benefit of open source model right now is, let's say you have some private data, you wanna con\u2014 you wanna put your MacBook in flight mode, do your tax data analysis from an expert, that then this model will give the best results. You have your Social Security number in your private data, you have your private healthcare data, all that data you want to analyze, you can do it privately in your MacBook without data leaving to the cloud. That is the moment, my friends. And I have some slides for you as well. This model is actually giving intelligence in your computer rather than sending it to the cloud. And this is currently 20 gigabytes of memory.",
+  "tl": 15828,
+  "in_s": 715.9333333333333,
+  "out_s": 770.2666666666667,
+  "tl_s": 527.6
+ },
+ {
+  "seg": 15,
+  "in": 23329,
+  "out": 23753,
+  "text": "here are some benchmarks as well. If you see them, that it's better than Qwen 3.8, 27 billion parameter. This becomes the best open source model under 20 gigabytes that takes 20 GB of your storage and so fast.",
+  "tl": 17458,
+  "in_s": 777.6333333333333,
+  "out_s": 791.7666666666667,
+  "tl_s": 581.9333333333333
+ },
+ {
+  "seg": 16,
+  "in": 24392,
+  "out": 25580,
+  "text": "because of this architecture, it reuses the part of the same memory or same neural networks that it creates during inference and In terms of what you can build with it, you can build beautiful video games with crazy graphics like these, or you can build this Linux PC, which is like a video. You could actually create origami-style videos like these as well, because video editing is done by Claude Code. If you have hours of time, you can do these videos being built with Blender with an open-source model locally on your computer as well. Given this will take even 10 hours of time, If you have 10 hours, you could build videos like these as well.",
+  "tl": 17882,
+  "in_s": 813.0666666666667,
+  "out_s": 852.6666666666666,
+  "tl_s": 596.0666666666667
+ },
+ {
+  "seg": 16,
+  "in": 25641,
+  "out": 25689,
+  "text": "Look at another video.",
+  "tl": 19070,
+  "in_s": 854.7,
+  "out_s": 856.3,
+  "tl_s": 635.6666666666666
+ },
+ {
+  "seg": 16,
+  "in": 25743,
+  "out": 25963,
+  "text": "It's a, it seems like 1-year-old Claude Code videos, but pretty good coming from a computer locally.",
+  "tl": 19118,
+  "in_s": 858.1,
+  "out_s": 865.4333333333333,
+  "tl_s": 637.2666666666667
+ },
+ {
+  "seg": 16,
+  "in": 26022,
+  "out": 26537,
+  "text": "But right now Claude Code is creating insane graphics. So this seems a year older, but still crazy to believe that So much intelligence you can power in a small MacBook Pro right now. What do you all think? Let me know in the comments below, and thank you so much for watching. Bye!",
+  "tl": 19338,
+  "in_s": 867.4,
+  "out_s": 884.5666666666667,
+  "tl_s": 644.6
+ }
+]

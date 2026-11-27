@@ -1,0 +1,203 @@
+{
+ "voice_lufs": -19.7,
+ "voice_lra": 4.9,
+ "voice_gain": 5.7,
+ "bed_lufs": -20.8,
+ "bed_gain": -8.2,
+ "total": 661.7666666666667,
+ "items": [
+  {
+   "kind": "music",
+   "name": "bed hook",
+   "file": "/Users/harnoor/Music/documentary es/ES_Computer Wiz - Marten Moses.mp3",
+   "tl": 0.0,
+   "start": 0.0,
+   "dur": 26.0,
+   "gain": -8.2,
+   "fade_in": 0.0,
+   "fade_out": 2.5
+  },
+  {
+   "kind": "music",
+   "name": "bed outro",
+   "file": "/Users/harnoor/Music/documentary es/ES_Computer Wiz - Marten Moses.mp3",
+   "tl": 636.9666666666667,
+   "start": 107.2,
+   "dur": 24.8,
+   "gain": -8.2,
+   "fade_in": 2.0,
+   "fade_out": 1.8
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch1",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 01_Ocular_Utility.wav",
+   "tl": 2.0,
+   "start": 0.0,
+   "dur": 0.1,
+   "gain": -19.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch2",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 02_Ocular_Utility.wav",
+   "tl": 2.1333333333333333,
+   "start": 0.0,
+   "dur": 0.1,
+   "gain": -11.7
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch9",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 09_Ocular_Utility.wav",
+   "tl": 2.2666666666666666,
+   "start": 0.0,
+   "dur": 0.06666666666666667,
+   "gain": -3.1
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch1",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 01_Ocular_Utility.wav",
+   "tl": 2.4,
+   "start": 0.0,
+   "dur": 0.1,
+   "gain": -19.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch2",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 02_Ocular_Utility.wav",
+   "tl": 2.533333333333333,
+   "start": 0.0,
+   "dur": 0.1,
+   "gain": -11.7
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch9",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 09_Ocular_Utility.wav",
+   "tl": 2.6666666666666665,
+   "start": 0.0,
+   "dur": 0.06666666666666667,
+   "gain": -3.1
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch1",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 01_Ocular_Utility.wav",
+   "tl": 2.8,
+   "start": 0.0,
+   "dur": 0.1,
+   "gain": -19.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx touch2",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Utility-Ocular-Sounds/Utility - Designed/Phone or Touchscreen Typing/COMCell_TOUCH SCREEN-Typing On Cell Phone Screen Singles 02_Ocular_Utility.wav",
+   "tl": 2.933333333333333,
+   "start": 0.0,
+   "dur": 0.1,
+   "gain": -11.7
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx gentle (burst)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Foundation-Ocular-Sounds/Whooshes/DSGNWhsh_WHOOSH-Be Gentle_Ocular_Foundation.wav",
+   "tl": 1.4,
+   "start": 0.0,
+   "dur": 2.0,
+   "gain": -12.3
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx tick (Chapter 01 The model)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Mechanica-Ocular-Sounds/Singular/MECHGear_SINGULAR-Small Gears 10_Ocular_Mechanica.wav",
+   "tl": 27.133333333333333,
+   "start": 0.0,
+   "dur": 1.8666666666666667,
+   "gain": -17.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx tick (Chapter 02 Download it)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Mechanica-Ocular-Sounds/Singular/MECHGear_SINGULAR-Small Gears 10_Ocular_Mechanica.wav",
+   "tl": 117.13333333333334,
+   "start": 0.0,
+   "dur": 1.8666666666666667,
+   "gain": -17.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx tick (Chapter 03 Plug it into Claude Code)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Mechanica-Ocular-Sounds/Singular/MECHGear_SINGULAR-Small Gears 10_Ocular_Mechanica.wav",
+   "tl": 188.43333333333334,
+   "start": 0.0,
+   "dur": 1.8666666666666667,
+   "gain": -17.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx tick (Chapter 04 What it built)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Mechanica-Ocular-Sounds/Singular/MECHGear_SINGULAR-Small Gears 10_Ocular_Mechanica.wav",
+   "tl": 322.9,
+   "start": 0.0,
+   "dur": 1.8666666666666667,
+   "gain": -17.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx tick (Chapter 05 Heat, RAM and speed)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Mechanica-Ocular-Sounds/Singular/MECHGear_SINGULAR-Small Gears 10_Ocular_Mechanica.wav",
+   "tl": 401.1666666666667,
+   "start": 0.0,
+   "dur": 1.8666666666666667,
+   "gain": -17.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx tick (Chapter 06 Why local still wins)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Mechanica-Ocular-Sounds/Singular/MECHGear_SINGULAR-Small Gears 10_Ocular_Mechanica.wav",
+   "tl": 539.4333333333333,
+   "start": 0.0,
+   "dur": 1.8666666666666667,
+   "gain": -17.0
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx gentle (data scene)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Foundation-Ocular-Sounds/Whooshes/DSGNWhsh_WHOOSH-Be Gentle_Ocular_Foundation.wav",
+   "tl": 232.9,
+   "start": 0.0,
+   "dur": 2.0,
+   "gain": -16.3
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx gentle (data scene)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Foundation-Ocular-Sounds/Whooshes/DSGNWhsh_WHOOSH-Be Gentle_Ocular_Foundation.wav",
+   "tl": 382.06666666666666,
+   "start": 0.0,
+   "dur": 2.0,
+   "gain": -16.3
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx gentle (data scene)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Foundation-Ocular-Sounds/Whooshes/DSGNWhsh_WHOOSH-Be Gentle_Ocular_Foundation.wav",
+   "tl": 426.9,
+   "start": 0.0,
+   "dur": 2.0,
+   "gain": -16.3
+  },
+  {
+   "kind": "sfx",
+   "name": "sfx gentle (data scene)",
+   "file": "/Users/harnoor/Music/Ocular_Sounds/Foundation-Ocular-Sounds/Whooshes/DSGNWhsh_WHOOSH-Be Gentle_Ocular_Foundation.wav",
+   "tl": 568.9,
+   "start": 0.0,
+   "dur": 2.0,
+   "gain": -16.3
+  }
+ ]
+}
