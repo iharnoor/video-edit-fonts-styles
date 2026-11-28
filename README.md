@@ -159,7 +159,7 @@ On Nov 9, 2026 I asked for every style to be lifted to the level of two creators
 14. **End on a frame worth a screenshot:** a cheat sheet, a filled-in list, the one number with its source. It should make sense as a still.
 15. **Leave real moments in.** Waits for an app or agent to answer, and its own audio, are proof that it works.
 16. **A title by 2 s on shorts.** 4–5 words, the hook in words, in the style's own type, on its own FCPXML lane named "Title" (plus an alpha `.mov`).
-17. **Layer everything.** The title, captions, each graphics run and any other overlay text each sit on their own named lane as separate alpha clips, never baked into the camera or merged into one overlay.
+17. **Layer everything.** The title, captions, each graphics run, every chip and note, each burst and, on long form, the corner cam each sit on their own named lane as separate clips, never baked into the camera or screen clip or merged into one overlay. Only the preview MP4 is composited.
 
 ### Sound defaults by format
 
@@ -439,7 +439,7 @@ My real screen recording (or the pages rebuilt in Playwright when the recording 
 
 - **Use it when:** the video walks through sites, data, articles or tools on screen. This is the default long form.
 - **Built in:** `videos/h1b-lca/` (first build: rebuilt sites on a paper board, 288×360 corner cam), `videos/we-need-to-talk/` (frame above: synced screen recording, 300×375 corner cam, hand-drawn chapter boards) `videos/fear-future-cs/` (ultrawide screen recording) and `videos/free-claude-code-longform/` (Nov 26, 2026: MacBook recording punched in with FCP transforms, Vision-centred alpha corner cam, HyperFrames data scenes; Harnoor's own FCP changes are in its `project.md`).
-- **Recipe:** sync the screen by audio cross-correlation (`camera = screen + offset`), and bake the corner cam into opaque section clips on lane 2. Use punch-ins on the screen for the line being read, a light highlight box on the numbers and the grade on the lane-1 adjustment layer. When the real source stays on the timeline, punch the screen in with `adjust-transform` alone (scale = (1920 / crop width) ÷ (1080 / screen height), position in 1/100 of the frame height) so the browser's tab and chat sidebar, desktop widgets and menu bar fall outside the frame, and put the corner cam on its own lane as 300×375 ProRes 4444 alpha clips (scale 0.3472, position 71.30 −28.94), over data scenes too. Harnoor kept every crop and corner cam as built on free-claude-code.
+- **Recipe:** sync the screen by audio cross-correlation (`camera = screen + offset`), with the screen recording on its own lane and the corner cam as its own alpha clip on the lane above it (never baked into the screen clip). Use punch-ins on the screen for the line being read, a light highlight box on the numbers and the grade on the lane-1 adjustment layer. When the real source stays on the timeline, punch the screen in with `adjust-transform` alone (scale = (1920 / crop width) ÷ (1080 / screen height), position in 1/100 of the frame height) so the browser's tab and chat sidebar, desktop widgets and menu bar fall outside the frame, and put the corner cam on its own lane as 300×375 ProRes 4444 alpha clips (scale 0.3472, position 71.30 −28.94), over data scenes too. Harnoor kept every crop and corner cam as built on free-claude-code.
 - **Sound:** voice at −14 LUFS with a range of 5 LU or less. A calm 85–100 BPM Epidemic bed (`~/Music/documentary es/`) in the hook and the last 15 s only, 22–26 LU under my voice, out 1–2 s before the first screen section. **No music and no SFX under screen sections** (measured on Riley). Up to three sounds in the hook (a soft whoosh into the first screen, a tick on a highlight box, a page flip on a chapter board), peaking at −16 dBFS. System and app audio from the recording stays in when it shows the thing working. Final mix −14 LUFS / −1.5 dBTP. On free-claude-code a bed at 15 LU under in the hook survived his pass, but he pulled the outro bed about 24 dB lower: keep the outro at 22–26 LU under or quieter.
 - **Opening and notes (his FCP pass, Nov 27, 2026):** no title overlay; the match-cut burst full frame over the opening line, with no split; a second mini burst of product screenshots on the next named thing. Few on-screen notes: a name lower third, a money correction and a price stayed, and everything else became a re-recorded pickup or a cut.
 - **Premium polish:** one corner-cam size and position for the whole video (300×375, bottom right; move it only when it covers what I'm pointing at). Punch-ins take 8–10 frames, reach 1.6–2.2×, and hold 3 s or more; use a punch-in instead of a cut inside a section. One highlight colour. The screen stays ungraded. Come back to the same chapter board at each section so it fills in and ends as the recap. See [What makes it premium](#what-makes-it-premium).
@@ -448,7 +448,7 @@ My real screen recording (or the pages rebuilt in Playwright when the recording 
 
 <img src="styles/screenshots/long-light-stage.jpg" alt="Light Stage: Microsoft 60,000 buyouts" width="480">
 
-Split Stage's light frosted stage, made 16:9: real page crops in blue-outlined browser windows, gradient stat cards, chips and drawn diagrams land on the stage, with the corner cam baked in. Face beats stay plain, with small context notes bottom left.
+Split Stage's light frosted stage, made 16:9: real page crops in blue-outlined browser windows, gradient stat cards, chips and drawn diagrams land on the stage, with the corner cam on its own lane above. Face beats stay plain, with small context notes bottom left.
 
 - **Use it when:** a news or opinion take has no screen recording but needs receipts (pages, numbers, logos), or a podcast needs visuals between the two-shot.
 - **Built in:** `videos/img1095/` (frame above, Microsoft buyouts) and `videos/shubham-podcast/` (TinyFish podcast, with 2× punch-ins from the 4K master); also the v2 scenes in `videos/we-need-to-talk/`.
@@ -472,7 +472,7 @@ A two-person conversation from one locked wide shot, made dynamic with **punch-i
 
 <img src="styles/screenshots/long-paper-explainer.jpg" alt="Paper Explainer: Zoox robotaxi" width="480">
 
-Warm & witty's cream paper boards, made 16:9. Drawn explainers (timelines, maps, sensor diagrams, a levels ladder) build up step by step while I talk, with my graded camera as a 512×288 corner cam baked into the board clips. Full face for the intro, my take and the stories, and real ride b-roll between.
+Warm & witty's cream paper boards, made 16:9. Drawn explainers (timelines, maps, sensor diagrams, a levels ladder) build up step by step while I talk, with my graded camera as a 512×288 corner cam on its own lane above the board clips. Full face for the intro, my take and the stories, and real ride b-roll between.
 
 - **Use it when:** an explainer topic with no screen to record, where the idea is easier to draw than to screenshot (how a robotaxi sees, levels of self-driving, 70 years of history).
 - **Built in:** `videos/zoox-reel/longform/` (frame above, "Is the robotaxi future finally real?").
