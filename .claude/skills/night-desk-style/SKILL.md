@@ -67,7 +67,7 @@ Shared rules across all styles: [What makes it premium](../../../README.md#what-
 ## Build order
 1. Transcribe with AssemblyAI (`~/Developer/video-use/helpers/transcribe.py`; the key is in `~/.zshrc`, never print it).
 2. Cut with `scripts/cut.py`: loose, word-anchored keeps. Write `tight_map.json` with a `mode` per piece (`F` face at scale 1.0/1.25/1.5, `S` screen with focus and zoom, `CH` chapter, `BD` board).
-3. Sync the screen (`sync_screen.py`, xcorr). Render the screen, board and chapter sections as opaque 1920×1080 clips with the corner cam **baked in**, one clip per contiguous run (`render_pieces.py`). Re-trimming the spine under a section desyncs the cam, so re-run the render.
+3. Sync the screen (`sync_screen.py`, xcorr). Render the screen, board and chapter sections as opaque 1920×1080 clips **without** the corner cam, one clip per contiguous run (`render_pieces.py`). The corner cam is its own alpha clip (yellow ring included) on its own lane, cut to the same runs (CLAUDE.md "Layer everything"). Re-trimming the spine under a section desyncs the cam, so re-run the render.
 4. Render slams and notes as ProRes 4444 alpha clips on lane 3.
 5. Run audio (bed, SFX), the preview, then the FCPXML.
 
@@ -75,7 +75,7 @@ Shared rules across all styles: [What makes it premium](../../../README.md#what-
 - **FCPXML 1.14**, 1920×1080 at 30p, frame-exact rational times (`n/30s`), validated with `xmllint` against the FCP DTD.
 - **Spine:** the original camera MOVs, ungraded, clip gain to ~−14 LUFS. Punch-ins use `adjust-transform` scale and position. **No `interp` attribute on position keyframes**: it passes the DTD but FCP drops the animation. For non-16:9 or rotated sources, `adjust-conform fit` + an explicit scale: FCP ignores `fill`. FCP applies MOV rotation tags itself, so don't rotate again.
 - **Lane 1:** the "Look Grade" adjustment layer (a title) + Custom LUT → `Night Desk.cube`, `start="3600s"`. Titles and adjustment layers need `start="3600s"`.
-- **Lane 2:** the screen, board and chapter sections (opaque, cam baked). **Lane 3:** slams and context notes (alpha). **Lane −1:** music, role music. **Lane −2:** SFX, role effects.
+- **Lane 2:** the screen, board and chapter sections (opaque, no cam). **Lane 3:** the corner cam (alpha, named "Corner cam"). **Lane 4 and up:** slams, chapter text and each context note on their own named lanes (alpha). **Lane −1:** music, role music. **Lane −2:** SFX, role effects.
 - A 23.976 clip on the 30p spine goes in as a 30p gap + a connected clip.
 - When Harnoor has already edited in FCP, start from his exported `.fcpxmld/Info.fcpxml` and only add lanes and assets. New renders get new filenames.
 - **Deliver:** the FCPXML, the LUT, a preview MP4 from the final timeline (−14 LUFS), YouTube chapters in `youtube.md` (from the chapter cards), and the graphics to `~/Movies/FCP/<name>-graphics/`. **No SRT** (long form).
